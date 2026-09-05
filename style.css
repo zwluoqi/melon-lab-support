@@ -1,0 +1,17 @@
+:root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif; color: #284a40; background: #f0f7f3; line-height: 1.8; letter-spacing: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 800px; padding: 48px 28px 24px; margin: 0 auto; }
+header { display: flex; align-items: center; gap: 24px; padding-bottom: 28px; }
+header img { border-radius: 8px; flex-shrink: 0; }
+.brand { margin: 0; font-size: 13px; color: #247e6a; font-weight: 700; }
+h1 { font-size: 28px; line-height: 1.4; margin: 4px 0 0; }
+h2 { font-size: 21px; margin: 0 0 12px; }
+h3 { font-size: 17px; margin: 20px 0 8px; }
+p { margin: 0 0 16px; overflow-wrap: anywhere; }
+a { color: #a73858; text-underline-offset: 4px; overflow-wrap: anywhere; }
+nav { display: flex; gap: 28px; border-top: 1px solid #cadfd4; border-bottom: 1px solid #cadfd4; padding: 15px 0; margin-bottom: 30px; }
+section { padding: 24px 0; border-bottom: 1px solid #cadfd4; }
+.muted, footer { font-size: 13px; color: #567469; }
+footer { padding: 28px 0; }
+@media (max-width: 480px) { main { padding: 28px 20px 20px; } header { gap: 16px; } header img { width: 72px; height: 72px; } h1 { font-size: 25px; } }
