@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>九龙城寨 · 本轮成果预览</title>
+<style>
+body { margin: 0; background: #0c0818; color: #e6e1f5; font: 15px/1.7 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+main { max-width: 1280px; margin: 0 auto; padding: 24px 16px 48px; }
+h1 { color: #ff2d8c; font-size: 26px; margin: 0 0 4px; } h2 { color: #3ef0ff; font-size: 20px; margin: 36px 0 12px; }
+h3 { font-size: 16px; margin: 24px 0 8px; color: #ffd66e; }
+a { color: #3ef0ff; } video { width: 100%; border-radius: 6px; background: #000; }
+.shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 14px; }
+.shots figure, .gifs figure { margin: 0; } .shots img { width: 100%; border-radius: 6px; display: block; }
+figcaption { font-size: 13px; color: #b9b2d6; margin-top: 4px; }
+.gifs { display: flex; flex-wrap: wrap; gap: 10px; }
+.gifs figure { background: #464b5e; border-radius: 6px; padding: 4px; text-align: center; }
+.gifs img { height: 220px; display: block; } .gifs figcaption { color: #fff; margin: 2px 0 0; }
+ul { padding-left: 20px; } .muted { color: #9a93b8; font-size: 13px; }
+nav a { margin-right: 16px; }
+</style>
+</head>
+<body><main>
+<h1>九龙城寨：从下水道砍到天台 · 本轮成果</h1>
+<p class="muted">内部预览页（不公开收录）。视频和截图都是真实游戏画面；动作 GIF 是游戏引擎逐帧渲染的骨骼动画，按实际速度循环播放。</p>
+<nav><a href="#video">实机录屏</a><a href="#shots">商店截图</a><a href="#anims">角色动作</a><a href="#play">网页试玩</a></nav>
+<h2>这一轮改了什么</h2>
+<ul>
+<li><b>骨骼和动作全部自研</b>：主角、10 种敌人、5 位人形首领不再沿用《百面刑天》的自动绑骨和通用动作库。零件按正侧面重画，在肩、肘、腕、髋、膝、踝真实关节处切开；动作按关键姿势逐个摆（跑步的着地 / 下沉 / 交错 / 腾空，挥砍的蓄力 / 出手 / 随势 / 收势），落地的脚用 IK 固定不滑。</li>
+<li><b>首领各有招牌动作</b>：猪肉荣双钩旋风，无影手六条机械手术臂和无影灯光环，庄家背后的轮盘（大招时升到头顶转），寨主热能刀指天蓄力再砸地，双生保镖警棍连击。</li>
+<li><b>实机录屏重录</b>：不再是机器人乱晃；按镜头脚本拍：开场就是食街混战 → 天井钩索 → 猪肉荣 → 天台寨主 → 标题画面。</li>
+<li><b>商店截图换成 6 个不同的瞬间</b>：首领前摇（带攻击范围提示）、首领大招、钩索、超频慢动作等，不再是 6 张「人站在中间」。</li>
+<li>广告变现、成就已接通（36 个成就已发布，白金成就等平台审核）。</li>
+</ul>
+<h2 id="video">实机录屏（40 秒，1920×1080，游戏原声）</h2>
+<video src="gameplay.mp4" controls playsinline preload="metadata"></video>
+<h2 id="shots">商店截图</h2>
+<div class="shots">
+<figure><a href="shots/butcher.jpg"><img src="shots/butcher.jpg" loading="lazy" alt="猪肉荣举钩蓄力，红框是他这一招的攻击范围"></a><figcaption>猪肉荣举钩蓄力，红框是他这一招的攻击范围</figcaption></figure>
+<figure><a href="shots/surgeon.jpg"><img src="shots/surgeon.jpg" loading="lazy" alt="无影手六条机械手术臂扇形突刺"></a><figcaption>无影手六条机械手术臂扇形突刺</figcaption></figure>
+<figure><a href="shots/dealer.jpg"><img src="shots/dealer.jpg" loading="lazy" alt="庄家举手，背后轮盘升起转动（大招）"></a><figcaption>庄家举手，背后轮盘升起转动（大招）</figcaption></figure>
+<figure><a href="shots/overclock.jpg"><img src="shots/overclock.jpg" loading="lazy" alt="食街混战：敌人出手前一瞬冲刺，触发「超频」慢动作"></a><figcaption>食街混战：敌人出手前一瞬冲刺，触发「超频」慢动作</figcaption></figure>
+</div>
+<h2 id="anims">角色动作</h2>
+<p class="muted">每个动作一张循环 GIF，按游戏里的真实时长播放；一次性动作（攻击、倒下）在最后一帧停一下再重播。</p>
+<h3>阿零（主角）</h3><div class="gifs">
+<figure><img src="gif/hero-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/hero-run.gif" loading="lazy" alt="run"><figcaption>跑</figcaption></figure>
+<figure><img src="gif/hero-jump.gif" loading="lazy" alt="jump"><figcaption>跳</figcaption></figure>
+<figure><img src="gif/hero-fall.gif" loading="lazy" alt="fall"><figcaption>下落</figcaption></figure>
+<figure><img src="gif/hero-land.gif" loading="lazy" alt="land"><figcaption>落地</figcaption></figure>
+<figure><img src="gif/hero-atk1.gif" loading="lazy" alt="atk1"><figcaption>攻击 1</figcaption></figure>
+<figure><img src="gif/hero-atk2.gif" loading="lazy" alt="atk2"><figcaption>攻击 2</figcaption></figure>
+<figure><img src="gif/hero-up.gif" loading="lazy" alt="up"><figcaption>上劈</figcaption></figure>
+<figure><img src="gif/hero-down.gif" loading="lazy" alt="down"><figcaption>下劈</figcaption></figure>
+<figure><img src="gif/hero-dash.gif" loading="lazy" alt="dash"><figcaption>冲刺</figcaption></figure>
+<figure><img src="gif/hero-wall.gif" loading="lazy" alt="wall"><figcaption>贴墙</figcaption></figure>
+<figure><img src="gif/hero-hook.gif" loading="lazy" alt="hook"><figcaption>钩索</figcaption></figure>
+<figure><img src="gif/hero-cast.gif" loading="lazy" alt="cast"><figcaption>放技能</figcaption></figure>
+<figure><img src="gif/hero-heal.gif" loading="lazy" alt="heal"><figcaption>修复</figcaption></figure>
+<figure><img src="gif/hero-sit.gif" loading="lazy" alt="sit"><figcaption>坐充电桩</figcaption></figure>
+<figure><img src="gif/hero-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/hero-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>首领 · 猪肉荣</h3><div class="gifs">
+<figure><img src="gif/butcher-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/butcher-intro.gif" loading="lazy" alt="intro"><figcaption>登场</figcaption></figure>
+<figure><img src="gif/butcher-move.gif" loading="lazy" alt="move"><figcaption>移动</figcaption></figure>
+<figure><img src="gif/butcher-wind1.gif" loading="lazy" alt="wind1"><figcaption>前摇 1</figcaption></figure>
+<figure><img src="gif/butcher-atk1.gif" loading="lazy" alt="atk1"><figcaption>攻击 1</figcaption></figure>
+<figure><img src="gif/butcher-wind2.gif" loading="lazy" alt="wind2"><figcaption>前摇 2</figcaption></figure>
+<figure><img src="gif/butcher-atk2.gif" loading="lazy" alt="atk2"><figcaption>攻击 2</figcaption></figure>
+<figure><img src="gif/butcher-wind3.gif" loading="lazy" alt="wind3"><figcaption>前摇 3</figcaption></figure>
+<figure><img src="gif/butcher-atk3.gif" loading="lazy" alt="atk3"><figcaption>攻击 3</figcaption></figure>
+<figure><img src="gif/butcher-special.gif" loading="lazy" alt="special"><figcaption>大招</figcaption></figure>
+<figure><img src="gif/butcher-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/butcher-stagger.gif" loading="lazy" alt="stagger"><figcaption>破防踉跄</figcaption></figure>
+<figure><img src="gif/butcher-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>首领 · 无影手</h3><div class="gifs">
+<figure><img src="gif/surgeon-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/surgeon-intro.gif" loading="lazy" alt="intro"><figcaption>登场</figcaption></figure>
+<figure><img src="gif/surgeon-move.gif" loading="lazy" alt="move"><figcaption>移动</figcaption></figure>
+<figure><img src="gif/surgeon-wind1.gif" loading="lazy" alt="wind1"><figcaption>前摇 1</figcaption></figure>
+<figure><img src="gif/surgeon-atk1.gif" loading="lazy" alt="atk1"><figcaption>攻击 1</figcaption></figure>
+<figure><img src="gif/surgeon-wind2.gif" loading="lazy" alt="wind2"><figcaption>前摇 2</figcaption></figure>
+<figure><img src="gif/surgeon-atk2.gif" loading="lazy" alt="atk2"><figcaption>攻击 2</figcaption></figure>
+<figure><img src="gif/surgeon-wind3.gif" loading="lazy" alt="wind3"><figcaption>前摇 3</figcaption></figure>
+<figure><img src="gif/surgeon-atk3.gif" loading="lazy" alt="atk3"><figcaption>攻击 3</figcaption></figure>
+<figure><img src="gif/surgeon-special.gif" loading="lazy" alt="special"><figcaption>大招</figcaption></figure>
+<figure><img src="gif/surgeon-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/surgeon-stagger.gif" loading="lazy" alt="stagger"><figcaption>破防踉跄</figcaption></figure>
+<figure><img src="gif/surgeon-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>首领 · 庄家</h3><div class="gifs">
+<figure><img src="gif/dealer-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/dealer-intro.gif" loading="lazy" alt="intro"><figcaption>登场</figcaption></figure>
+<figure><img src="gif/dealer-move.gif" loading="lazy" alt="move"><figcaption>移动</figcaption></figure>
+<figure><img src="gif/dealer-wind1.gif" loading="lazy" alt="wind1"><figcaption>前摇 1</figcaption></figure>
+<figure><img src="gif/dealer-atk1.gif" loading="lazy" alt="atk1"><figcaption>攻击 1</figcaption></figure>
+<figure><img src="gif/dealer-wind2.gif" loading="lazy" alt="wind2"><figcaption>前摇 2</figcaption></figure>
+<figure><img src="gif/dealer-atk2.gif" loading="lazy" alt="atk2"><figcaption>攻击 2</figcaption></figure>
+<figure><img src="gif/dealer-wind3.gif" loading="lazy" alt="wind3"><figcaption>前摇 3</figcaption></figure>
+<figure><img src="gif/dealer-atk3.gif" loading="lazy" alt="atk3"><figcaption>攻击 3</figcaption></figure>
+<figure><img src="gif/dealer-special.gif" loading="lazy" alt="special"><figcaption>大招</figcaption></figure>
+<figure><img src="gif/dealer-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/dealer-stagger.gif" loading="lazy" alt="stagger"><figcaption>破防踉跄</figcaption></figure>
+<figure><img src="gif/dealer-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>首领 · 寨主</h3><div class="gifs">
+<figure><img src="gif/boss-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/boss-intro.gif" loading="lazy" alt="intro"><figcaption>登场</figcaption></figure>
+<figure><img src="gif/boss-move.gif" loading="lazy" alt="move"><figcaption>移动</figcaption></figure>
+<figure><img src="gif/boss-wind1.gif" loading="lazy" alt="wind1"><figcaption>前摇 1</figcaption></figure>
+<figure><img src="gif/boss-atk1.gif" loading="lazy" alt="atk1"><figcaption>攻击 1</figcaption></figure>
+<figure><img src="gif/boss-wind2.gif" loading="lazy" alt="wind2"><figcaption>前摇 2</figcaption></figure>
+<figure><img src="gif/boss-atk2.gif" loading="lazy" alt="atk2"><figcaption>攻击 2</figcaption></figure>
+<figure><img src="gif/boss-wind3.gif" loading="lazy" alt="wind3"><figcaption>前摇 3</figcaption></figure>
+<figure><img src="gif/boss-atk3.gif" loading="lazy" alt="atk3"><figcaption>攻击 3</figcaption></figure>
+<figure><img src="gif/boss-special.gif" loading="lazy" alt="special"><figcaption>大招</figcaption></figure>
+<figure><img src="gif/boss-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/boss-stagger.gif" loading="lazy" alt="stagger"><figcaption>破防踉跄</figcaption></figure>
+<figure><img src="gif/boss-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>首领 · 双生保镖</h3><div class="gifs">
+<figure><img src="gif/twins-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/twins-intro.gif" loading="lazy" alt="intro"><figcaption>登场</figcaption></figure>
+<figure><img src="gif/twins-move.gif" loading="lazy" alt="move"><figcaption>移动</figcaption></figure>
+<figure><img src="gif/twins-wind1.gif" loading="lazy" alt="wind1"><figcaption>前摇 1</figcaption></figure>
+<figure><img src="gif/twins-atk1.gif" loading="lazy" alt="atk1"><figcaption>攻击 1</figcaption></figure>
+<figure><img src="gif/twins-wind2.gif" loading="lazy" alt="wind2"><figcaption>前摇 2</figcaption></figure>
+<figure><img src="gif/twins-atk2.gif" loading="lazy" alt="atk2"><figcaption>攻击 2</figcaption></figure>
+<figure><img src="gif/twins-wind3.gif" loading="lazy" alt="wind3"><figcaption>前摇 3</figcaption></figure>
+<figure><img src="gif/twins-atk3.gif" loading="lazy" alt="atk3"><figcaption>攻击 3</figcaption></figure>
+<figure><img src="gif/twins-special.gif" loading="lazy" alt="special"><figcaption>大招</figcaption></figure>
+<figure><img src="gif/twins-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/twins-stagger.gif" loading="lazy" alt="stagger"><figcaption>破防踉跄</figcaption></figure>
+<figure><img src="gif/twins-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>古惑仔</h3><div class="gifs">
+<figure><img src="gif/thug-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/thug-walk.gif" loading="lazy" alt="walk"><figcaption>走</figcaption></figure>
+<figure><img src="gif/thug-run.gif" loading="lazy" alt="run"><figcaption>跑</figcaption></figure>
+<figure><img src="gif/thug-jump.gif" loading="lazy" alt="jump"><figcaption>跳</figcaption></figure>
+<figure><img src="gif/thug-wind.gif" loading="lazy" alt="wind"><figcaption>出手前摇</figcaption></figure>
+<figure><img src="gif/thug-strike.gif" loading="lazy" alt="strike"><figcaption>出手</figcaption></figure>
+<figure><img src="gif/thug-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/thug-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>火头军</h3><div class="gifs">
+<figure><img src="gif/cook-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/cook-walk.gif" loading="lazy" alt="walk"><figcaption>走</figcaption></figure>
+<figure><img src="gif/cook-run.gif" loading="lazy" alt="run"><figcaption>跑</figcaption></figure>
+<figure><img src="gif/cook-jump.gif" loading="lazy" alt="jump"><figcaption>跳</figcaption></figure>
+<figure><img src="gif/cook-wind.gif" loading="lazy" alt="wind"><figcaption>出手前摇</figcaption></figure>
+<figure><img src="gif/cook-strike.gif" loading="lazy" alt="strike"><figcaption>出手</figcaption></figure>
+<figure><img src="gif/cook-throw.gif" loading="lazy" alt="throw"><figcaption>投掷</figcaption></figure>
+<figure><img src="gif/cook-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/cook-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>包租阿姨</h3><div class="gifs">
+<figure><img src="gif/auntie-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/auntie-walk.gif" loading="lazy" alt="walk"><figcaption>走</figcaption></figure>
+<figure><img src="gif/auntie-run.gif" loading="lazy" alt="run"><figcaption>跑</figcaption></figure>
+<figure><img src="gif/auntie-jump.gif" loading="lazy" alt="jump"><figcaption>跳</figcaption></figure>
+<figure><img src="gif/auntie-wind.gif" loading="lazy" alt="wind"><figcaption>出手前摇</figcaption></figure>
+<figure><img src="gif/auntie-strike.gif" loading="lazy" alt="strike"><figcaption>出手</figcaption></figure>
+<figure><img src="gif/auntie-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/auntie-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>黑诊所护士</h3><div class="gifs">
+<figure><img src="gif/nurse-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/nurse-walk.gif" loading="lazy" alt="walk"><figcaption>走</figcaption></figure>
+<figure><img src="gif/nurse-run.gif" loading="lazy" alt="run"><figcaption>跑</figcaption></figure>
+<figure><img src="gif/nurse-jump.gif" loading="lazy" alt="jump"><figcaption>跳</figcaption></figure>
+<figure><img src="gif/nurse-wind.gif" loading="lazy" alt="wind"><figcaption>出手前摇</figcaption></figure>
+<figure><img src="gif/nurse-strike.gif" loading="lazy" alt="strike"><figcaption>出手</figcaption></figure>
+<figure><img src="gif/nurse-thrust.gif" loading="lazy" alt="thrust"><figcaption>突刺</figcaption></figure>
+<figure><img src="gif/nurse-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/nurse-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>失控病人</h3><div class="gifs">
+<figure><img src="gif/patient-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/patient-walk.gif" loading="lazy" alt="walk"><figcaption>走</figcaption></figure>
+<figure><img src="gif/patient-run.gif" loading="lazy" alt="run"><figcaption>跑</figcaption></figure>
+<figure><img src="gif/patient-jump.gif" loading="lazy" alt="jump"><figcaption>跳</figcaption></figure>
+<figure><img src="gif/patient-wind.gif" loading="lazy" alt="wind"><figcaption>出手前摇</figcaption></figure>
+<figure><img src="gif/patient-strike.gif" loading="lazy" alt="strike"><figcaption>出手</figcaption></figure>
+<figure><img src="gif/patient-charge.gif" loading="lazy" alt="charge"><figcaption>冲撞</figcaption></figure>
+<figure><img src="gif/patient-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/patient-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>舞狮少年</h3><div class="gifs">
+<figure><img src="gif/dancer-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/dancer-walk.gif" loading="lazy" alt="walk"><figcaption>走</figcaption></figure>
+<figure><img src="gif/dancer-run.gif" loading="lazy" alt="run"><figcaption>跑</figcaption></figure>
+<figure><img src="gif/dancer-jump.gif" loading="lazy" alt="jump"><figcaption>跳</figcaption></figure>
+<figure><img src="gif/dancer-wind.gif" loading="lazy" alt="wind"><figcaption>出手前摇</figcaption></figure>
+<figure><img src="gif/dancer-strike.gif" loading="lazy" alt="strike"><figcaption>出手</figcaption></figure>
+<figure><img src="gif/dancer-roll.gif" loading="lazy" alt="roll"><figcaption>翻滚</figcaption></figure>
+<figure><img src="gif/dancer-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/dancer-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>盾卫</h3><div class="gifs">
+<figure><img src="gif/guard-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/guard-walk.gif" loading="lazy" alt="walk"><figcaption>走</figcaption></figure>
+<figure><img src="gif/guard-run.gif" loading="lazy" alt="run"><figcaption>跑</figcaption></figure>
+<figure><img src="gif/guard-jump.gif" loading="lazy" alt="jump"><figcaption>跳</figcaption></figure>
+<figure><img src="gif/guard-wind.gif" loading="lazy" alt="wind"><figcaption>出手前摇</figcaption></figure>
+<figure><img src="gif/guard-strike.gif" loading="lazy" alt="strike"><figcaption>出手</figcaption></figure>
+<figure><img src="gif/guard-block.gif" loading="lazy" alt="block"><figcaption>举盾</figcaption></figure>
+<figure><img src="gif/guard-guardhit.gif" loading="lazy" alt="guardhit"><figcaption>盾挡</figcaption></figure>
+<figure><img src="gif/guard-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/guard-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>矛卫</h3><div class="gifs">
+<figure><img src="gif/sentinel-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/sentinel-walk.gif" loading="lazy" alt="walk"><figcaption>走</figcaption></figure>
+<figure><img src="gif/sentinel-run.gif" loading="lazy" alt="run"><figcaption>跑</figcaption></figure>
+<figure><img src="gif/sentinel-jump.gif" loading="lazy" alt="jump"><figcaption>跳</figcaption></figure>
+<figure><img src="gif/sentinel-wind.gif" loading="lazy" alt="wind"><figcaption>出手前摇</figcaption></figure>
+<figure><img src="gif/sentinel-strike.gif" loading="lazy" alt="strike"><figcaption>出手</figcaption></figure>
+<figure><img src="gif/sentinel-thrust.gif" loading="lazy" alt="thrust"><figcaption>突刺</figcaption></figure>
+<figure><img src="gif/sentinel-block.gif" loading="lazy" alt="block"><figcaption>举盾</figcaption></figure>
+<figure><img src="gif/sentinel-guardhit.gif" loading="lazy" alt="guardhit"><figcaption>盾挡</figcaption></figure>
+<figure><img src="gif/sentinel-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/sentinel-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>狙击手</h3><div class="gifs">
+<figure><img src="gif/sniper-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/sniper-walk.gif" loading="lazy" alt="walk"><figcaption>走</figcaption></figure>
+<figure><img src="gif/sniper-run.gif" loading="lazy" alt="run"><figcaption>跑</figcaption></figure>
+<figure><img src="gif/sniper-jump.gif" loading="lazy" alt="jump"><figcaption>跳</figcaption></figure>
+<figure><img src="gif/sniper-wind.gif" loading="lazy" alt="wind"><figcaption>出手前摇</figcaption></figure>
+<figure><img src="gif/sniper-strike.gif" loading="lazy" alt="strike"><figcaption>出手</figcaption></figure>
+<figure><img src="gif/sniper-aim.gif" loading="lazy" alt="aim"><figcaption>瞄准</figcaption></figure>
+<figure><img src="gif/sniper-aimhold.gif" loading="lazy" alt="aimhold"><figcaption>持枪瞄准</figcaption></figure>
+<figure><img src="gif/sniper-shoot.gif" loading="lazy" alt="shoot"><figcaption>开枪</figcaption></figure>
+<figure><img src="gif/sniper-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/sniper-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h3>双刀精英</h3><div class="gifs">
+<figure><img src="gif/elite-idle.gif" loading="lazy" alt="idle"><figcaption>待机</figcaption></figure>
+<figure><img src="gif/elite-walk.gif" loading="lazy" alt="walk"><figcaption>走</figcaption></figure>
+<figure><img src="gif/elite-run.gif" loading="lazy" alt="run"><figcaption>跑</figcaption></figure>
+<figure><img src="gif/elite-jump.gif" loading="lazy" alt="jump"><figcaption>跳</figcaption></figure>
+<figure><img src="gif/elite-wind.gif" loading="lazy" alt="wind"><figcaption>出手前摇</figcaption></figure>
+<figure><img src="gif/elite-strike.gif" loading="lazy" alt="strike"><figcaption>出手</figcaption></figure>
+<figure><img src="gif/elite-dashslash.gif" loading="lazy" alt="dashslash"><figcaption>冲刺斩</figcaption></figure>
+<figure><img src="gif/elite-turnslash.gif" loading="lazy" alt="turnslash"><figcaption>回身斩</figcaption></figure>
+<figure><img src="gif/elite-hurt.gif" loading="lazy" alt="hurt"><figcaption>受击</figcaption></figure>
+<figure><img src="gif/elite-die.gif" loading="lazy" alt="die"><figcaption>倒下</figcaption></figure>
+</div>
+<h2 id="play">网页试玩</h2>
+<p>最新版本已经构建到 TapTap 制造。用电脑浏览器登录 TapTap 制造后打开：<br>
+<a href="https://maker.taptap.cn/app/bfd6086a-0741-44ff-99db-23f909c00dd1">https://maker.taptap.cn/app/bfd6086a-0741-44ff-99db-23f909c00dd1</a>（点「预览」即可在网页里玩，键盘操作：WASD 或方向键移动，空格 / K 跳，J 砍，L 冲刺，I 钩索，U 按住放技能，M 地图，E 互动）。</p>
+</main></body></html>
