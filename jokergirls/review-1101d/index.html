@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>小丑牌：心动牌局 · 第四轮（11-01）</title>
+<style>
+  :root { --bg:#16121f; --card:#221b30; --line:#3a2f50; --gold:#f2c46d; --pink:#ff6fa3; --txt:#ece6f5; --dim:#a99cbf; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:18px 14px 160px; }
+  h1 { font-size:22px; margin:6px 0 4px; color:var(--gold); }
+  .lead { color:var(--dim); margin:0 0 18px; }
+  section.q { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:0 0 18px; }
+  section.q h2 { font-size:18px; margin:0 0 6px; }
+  section.q h2 .n { display:inline-block; min-width:26px; height:26px; line-height:26px; text-align:center; border-radius:50%; background:var(--gold); color:#2a1d07; font-size:14px; margin-right:6px; }
+  .why { color:var(--dim); margin:0 0 12px; font-size:14px; }
+  .why ul { margin:4px 0; padding-left:20px; }
+  .opts { display:grid; gap:12px; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); }
+  .opts.wide { grid-template-columns:1fr; }
+  .opts.two { grid-template-columns:repeat(2, 1fr); gap:8px; }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  .row { display:grid; gap:6px; grid-template-columns:2.2fr 1.25fr 0.72fr; align-items:start; }
+  .row img { width:100%; }
+  .gallery.four { grid-template-columns:repeat(4, 1fr); }
+  .note { font-size:13px; color:var(--dim); margin:6px 0 0; }
+  @media (max-width:640px) {
+    .opts.three .opt, .opts.two .opt { padding:6px; }
+    .opts.three .opt h3, .opts.two .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p, .opts.two .opt p { font-size:12px; line-height:1.5; }
+    .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .gallery.four { grid-template-columns:repeat(2, 1fr); }
+  }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  @media (max-width:640px) {
+    .opts.three .opt { padding:6px; }
+    .opts.three .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p { font-size:12px; line-height:1.5; }
+    .opts.three .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .opts.three .opt.ref::before { font-size:11px; }
+    .opts.three .tag { display:block; width:max-content; margin:2px 0 0; }
+  }
+  .opt { position:relative; border:2px solid var(--line); border-radius:12px; padding:10px; background:#1b1527; cursor:pointer; transition:border-color .15s, transform .15s; }
+  .opt:hover { border-color:#6b5a8f; }
+  .opt.sel { border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,111,163,.25); }
+  .opt.sel::after { content:"✓ 已选"; position:absolute; top:8px; right:8px; background:var(--pink); color:#fff; font-size:12px; padding:2px 8px; border-radius:10px; }
+  .opt.ref { cursor:default; opacity:.85; border-style:dashed; }
+  .opt.ref::before { content:"现在的样子（参考）"; display:block; font-size:12px; color:var(--dim); margin-bottom:6px; }
+  .opt img { width:100%; border-radius:8px; display:block; cursor:zoom-in; background:#000; }
+  .opt h3 { font-size:16px; margin:8px 0 2px; color:var(--gold); }
+  .opt p { margin:2px 0; font-size:14px; color:#d8d0e6; }
+  .tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:8px; background:#3b2a12; color:var(--gold); margin-left:4px; vertical-align:middle; }
+  textarea { width:100%; min-height:44px; margin-top:12px; border-radius:10px; border:1px solid var(--line); background:#140f1d; color:var(--txt); padding:8px 10px; font:inherit; }
+  .sub { margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--line); }
+  .sub:first-of-type { border-top:0; padding-top:0; }
+  .sub h4 { margin:0 0 8px; font-size:15px; }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill { border:2px solid var(--line); border-radius:20px; padding:6px 14px; cursor:pointer; background:#1b1527; font-size:14px; }
+  .pill.sel { border-color:var(--pink); background:#3a1830; }
+  .voices { display:grid; gap:8px; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); margin:6px 0 12px; }
+  .voice { background:#1b1527; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:14px; }
+  .voice b { color:var(--gold); }
+  .voice audio { width:100%; height:34px; margin-top:4px; }
+  .gallery { display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
+  .gallery img, .promo img { width:100%; border-radius:8px; cursor:zoom-in; display:block; }
+  .promo { display:grid; gap:10px; grid-template-columns:2fr 1fr; margin-bottom:10px; }
+  video { width:100%; max-width:360px; border-radius:10px; display:block; margin:8px auto; background:#000; }
+  .cap { font-size:12px; color:var(--dim); text-align:center; margin-top:3px; }
+  #bar { position:fixed; left:0; right:0; bottom:0; background:rgba(18,13,26,.97); border-top:1px solid var(--line); padding:10px 14px; }
+  #bar .in { max-width:980px; margin:0 auto; display:flex; gap:10px; align-items:center; }
+  #bar .prog { flex:1; color:var(--dim); font-size:14px; }
+  #bar button { border:0; border-radius:22px; padding:11px 20px; font:inherit; font-weight:600; cursor:pointer; background:linear-gradient(180deg,#ff86b3,#e6457f); color:#fff; }
+  #bar button.ghost { background:#2d2440; color:var(--txt); font-weight:400; }
+  #out { display:none; max-width:980px; margin:8px auto 0; white-space:pre-wrap; background:#140f1d; border:1px solid var(--line); border-radius:10px; padding:10px; font-size:13px; max-height:30vh; overflow:auto; }
+  #lb { position:fixed; inset:0; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; z-index:9; cursor:zoom-out; }
+  #lb img { max-width:96vw; max-height:94vh; }
+  .toast { position:fixed; left:50%; bottom:90px; transform:translateX(-50%); background:#2fae6b; color:#fff; padding:8px 18px; border-radius:20px; display:none; z-index:10; }
+</style>
+</head>
+<body>
+<main>
+  <h1>小丑牌：心动牌局 · 第四轮（11-01）</h1>
+  <p class="lead">按你截图的布局重做了加载页：九张牌排成一手牌那样的一道扇形，牌改小了，上面留出夜空放 logo，下面是男主背影，栏杆上摊着一手牌，空中飘着小丑牌和扑克牌。logo 改成和卡牌边框同一套材质。大厅也去掉了大部分花（第 3 项，看一眼就行）。点卡片就是选中，图片点一下看大图；选完点最下面的「复制我的选择」，发回对话里给我。</p>
+
+  <section class="q" data-q="cover" data-title="加载封面">
+    <h2><span class="n">1</span>加载封面（三选一）</h2>
+    <div class="why">三张都是同一个布局，区别在男主大小和牌的位置。都配 logo 1，按长屏手机的样子裁好。<b>游戏里现在用的是 B。</b></div>
+    <div class="opts three">
+      <div class="opt" data-v="A 男主更大"><img src="img/cover_1_logo_1.jpg" alt=""><h3>A · 男主更大</h3><p>男主背影占下面三分之一，栏杆上的一手牌在左边。</p></div>
+      <div class="opt" data-v="B 牌在正中、栏杆上摆一手牌"><img src="img/cover_2_logo_1.jpg" alt=""><h3>B · 牌在正中、栏杆上摆一手牌<span class="tag">游戏里现在用的</span></h3><p>九张牌正中，男主居中，前面栏杆上摊着五张牌和一副牌，打牌的感觉最强；下面是干净的石墙，放进度条和文字。</p></div>
+      <div class="opt" data-v="C 牌偏上、手托着牌"><img src="img/cover_3_logo_1.jpg" alt=""><h3>C · 牌偏上、手托着牌</h3><p>和 B 接近，牌扇更高，小丑牌飘在右边。</p></div>
+    </div>
+    <div class="why" style="margin-top:12px">游戏里实际的加载页和标题页（B + logo 1，手机截图）：</div>
+    <div class="gallery" style="grid-template-columns:repeat(2, minmax(0, 220px))"><div><img src="img/game_boot.jpg" alt=""><div class="cap">加载页</div></div><div><img src="img/game_title.jpg" alt=""><div class="cap">标题页</div></div></div>
+    <textarea placeholder="想改哪里写这里（可不填）"></textarea>
+  </section>
+
+  <section class="q" data-q="logo" data-title="logo">
+    <h2><span class="n">2</span>logo：和卡牌边框一套（三选一）</h2>
+    <div class="why">三个都照着牌面的边框做：同样的香槟金、象牙白、金色卷纹和花色角标，不再用红珐琅和宝石。每个字都核对过。每个方案依次是：单独看、加载封面、16:9 宣传图、1:1 宣传图（宣传图还是原来那张九卡主视觉）。<b>游戏里现在用的是 logo 1。</b></div>
+    <div class="opts three">
+      <div class="opt" data-v="logo 1 三张牌 + 小丑冠"><img src="img/logo_1.jpg" alt=""><h3>1 · 三张牌 + 小丑冠<span class="tag">游戏里现在用的</span></h3><p>字和三张小牌都用卡牌边框的香槟金、象牙白和金色卷纹，牌角是红心、黑桃、方块角标；「心动牌局」在一块和牌角一样的象牙白小牌匾上。</p><img src="img/cover_2_logo_1.jpg" alt="" style="margin-top:6px"><img src="img/promo_1_wide.jpg" alt="" style="margin-top:6px"><img src="img/promo_1_square.jpg" alt="" style="margin-top:6px"></div>
+      <div class="opt" data-v="logo 2 横放的一张牌"><img src="img/logo_2.jpg" alt=""><h3>2 · 横放的一张牌</h3><p>整个 logo 就是一张横放的牌：象牙白牌面、香槟金细边、四角卷纹，左上红心、右下黑桃；字是金色加酒红描边。最「像牌」，但底色亮，放在夜空上最显眼。</p><img src="img/cover_2_logo_2.jpg" alt="" style="margin-top:6px"><img src="img/promo_2_wide.jpg" alt="" style="margin-top:6px"><img src="img/promo_2_square.jpg" alt="" style="margin-top:6px"></div>
+      <div class="opt" data-v="logo 3 小丑牌在字后面"><img src="img/logo_3.jpg" alt=""><h3>3 · 小丑牌在字后面</h3><p>字后面立着一张小丑牌（金色小丑帽图案），「心动牌局」两边是四种花色角标。最直接点出「小丑牌」。</p><img src="img/cover_2_logo_3.jpg" alt="" style="margin-top:6px"><img src="img/promo_3_wide.jpg" alt="" style="margin-top:6px"><img src="img/promo_3_square.jpg" alt="" style="margin-top:6px"></div>
+    </div>
+    <textarea placeholder="想改哪里写这里（可不填）"></textarea>
+  </section>
+
+  <section class="q" data-q="lobby" data-title="大厅">
+    <h2><span class="n">3</span>大厅：已去掉大部分花（看一眼就行）</h2>
+    <div class="why">去掉了穹顶下的花吊灯和藤蔓、两边的柠檬树和绣球花盆、前景的花丛，换成干净的白金穹顶、一盏水晶吊灯和大理石地面。九个人和江野一个像素都没动，头顶的名牌还在原位。</div>
+    <div class="gallery" style="grid-template-columns:repeat(3, minmax(0, 220px))"><div><img src="img/lobby_before.jpg" alt=""><div class="cap">原来</div></div><div><img src="img/lobby_after.jpg" alt=""><div class="cap">现在</div></div><div><img src="img/lobby_game.jpg" alt=""><div class="cap">游戏里</div></div></div>
+  </section>
+</main>
+
+<div id="bar">
+  <div class="in"><div class="prog" id="prog"></div><button class="ghost" id="reset">清空</button><button id="copy">复制我的选择</button></div>
+  <div id="out"></div>
+</div>
+<div id="lb"><img alt=""></div>
+<div class="toast" id="toast">已复制，发回对话里给我就行</div>
+
+<script>
+const KEY = "jg-review-1101d";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+const qs = [...document.querySelectorAll("section.q")];
+
+function bindGroup(container, id, itemSel) {
+  const items = [...container.querySelectorAll(itemSel)];
+  items.forEach(el => {
+    if (state[id] === el.dataset.v) el.classList.add("sel");
+    el.addEventListener("click", e => {
+      if (e.target.tagName === "IMG") return;
+      const on = !el.classList.contains("sel");
+      items.forEach(x => x.classList.remove("sel"));
+      if (on) { el.classList.add("sel"); state[id] = el.dataset.v; } else delete state[id];
+      save(); render();
+    });
+  });
+}
+qs.forEach(s => {
+  const id = s.dataset.q;
+  if (s.querySelector(":scope > .opts .opt[data-v]")) bindGroup(s, id, ".opt[data-v]");
+  s.querySelectorAll(".sub").forEach(sub => bindGroup(sub, id + "." + sub.dataset.sq, ".pill"));
+  const tp = s.querySelector(":scope > .pills"); if (tp) bindGroup(tp, id, ".pill");
+  const ta = s.querySelector(":scope > textarea");
+  if (ta) { ta.value = state[id + ".note"] || ""; ta.addEventListener("input", () => { state[id + ".note"] = ta.value; save(); render(); }); }
+});
+
+function lines() {
+  const out = ["【小丑牌：心动牌局 · 11-01 第四轮】"];
+  let n = 0, done = 0;
+  qs.forEach((s, i) => {
+    if (!s.querySelector("[data-v]")) return; // (information only)
+    const id = s.dataset.q, t = s.dataset.title, subs = [...s.querySelectorAll(".sub")];
+    if (subs.length) {
+      out.push(`${s.querySelector(".n").textContent}. ${t}：`);
+      subs.forEach(sub => { n++; const v = state[id + "." + sub.dataset.sq]; if (v) done++; out.push(`   - ${sub.dataset.title}：${v || "（未选）"}`); });
+    } else { n++; const v = state[id]; if (v) done++; out.push(`${s.querySelector(".n").textContent}. ${t}：${v || "（未选）"}`); }
+    const note = (state[id + ".note"] || "").trim();
+    if (note) out.push(`   备注：${note}`);
+  });
+  return { text: out.join("\n"), n, done };
+}
+function render() { const r = lines(); document.getElementById("prog").textContent = `已选 ${r.done} / ${r.n} 项`; }
+render();
+
+document.getElementById("copy").onclick = async () => {
+  const { text } = lines(), out = document.getElementById("out");
+  out.style.display = "block"; out.textContent = text;
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {}
+  if (!ok) { const r = document.createRange(); r.selectNodeContents(out); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { ok = document.execCommand("copy"); } catch (e) {} }
+  const t = document.getElementById("toast"); t.textContent = ok ? "已复制，发回对话里给我就行" : "没能自动复制，请长按下面的文字复制";
+  t.style.display = "block"; setTimeout(() => t.style.display = "none", 2200);
+};
+document.getElementById("reset").onclick = () => {
+  if (!confirm("清空这页上所有的选择和备注？")) return;
+  localStorage.removeItem(KEY); location.reload();
+};
+const lb = document.getElementById("lb");
+document.querySelectorAll("main img").forEach(img => img.addEventListener("click", () => { lb.querySelector("img").src = img.src; lb.style.display = "flex"; }));
+lb.onclick = () => lb.style.display = "none";
+</script>
+
+</body>
+</html>
