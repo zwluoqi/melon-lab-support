@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>小丑牌：心动牌局 · 第二轮（11-01）</title>
+<style>
+  :root { --bg:#16121f; --card:#221b30; --line:#3a2f50; --gold:#f2c46d; --pink:#ff6fa3; --txt:#ece6f5; --dim:#a99cbf; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:18px 14px 160px; }
+  h1 { font-size:22px; margin:6px 0 4px; color:var(--gold); }
+  .lead { color:var(--dim); margin:0 0 18px; }
+  section.q { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:0 0 18px; }
+  section.q h2 { font-size:18px; margin:0 0 6px; }
+  section.q h2 .n { display:inline-block; min-width:26px; height:26px; line-height:26px; text-align:center; border-radius:50%; background:var(--gold); color:#2a1d07; font-size:14px; margin-right:6px; }
+  .why { color:var(--dim); margin:0 0 12px; font-size:14px; }
+  .why ul { margin:4px 0; padding-left:20px; }
+  .opts { display:grid; gap:12px; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); }
+  .opts.wide { grid-template-columns:1fr; }
+  .opts.two { grid-template-columns:repeat(2, 1fr); gap:8px; }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  .row { display:grid; gap:6px; grid-template-columns:2.2fr 1.25fr 0.72fr; align-items:start; }
+  .row img { width:100%; }
+  .gallery.four { grid-template-columns:repeat(4, 1fr); }
+  .note { font-size:13px; color:var(--dim); margin:6px 0 0; }
+  @media (max-width:640px) {
+    .opts.three .opt, .opts.two .opt { padding:6px; }
+    .opts.three .opt h3, .opts.two .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p, .opts.two .opt p { font-size:12px; line-height:1.5; }
+    .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .gallery.four { grid-template-columns:repeat(2, 1fr); }
+  }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  @media (max-width:640px) {
+    .opts.three .opt { padding:6px; }
+    .opts.three .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p { font-size:12px; line-height:1.5; }
+    .opts.three .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .opts.three .opt.ref::before { font-size:11px; }
+    .opts.three .tag { display:block; width:max-content; margin:2px 0 0; }
+  }
+  .opt { position:relative; border:2px solid var(--line); border-radius:12px; padding:10px; background:#1b1527; cursor:pointer; transition:border-color .15s, transform .15s; }
+  .opt:hover { border-color:#6b5a8f; }
+  .opt.sel { border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,111,163,.25); }
+  .opt.sel::after { content:"✓ 已选"; position:absolute; top:8px; right:8px; background:var(--pink); color:#fff; font-size:12px; padding:2px 8px; border-radius:10px; }
+  .opt.ref { cursor:default; opacity:.85; border-style:dashed; }
+  .opt.ref::before { content:"现在的样子（参考）"; display:block; font-size:12px; color:var(--dim); margin-bottom:6px; }
+  .opt img { width:100%; border-radius:8px; display:block; cursor:zoom-in; background:#000; }
+  .opt h3 { font-size:16px; margin:8px 0 2px; color:var(--gold); }
+  .opt p { margin:2px 0; font-size:14px; color:#d8d0e6; }
+  .tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:8px; background:#3b2a12; color:var(--gold); margin-left:4px; vertical-align:middle; }
+  textarea { width:100%; min-height:44px; margin-top:12px; border-radius:10px; border:1px solid var(--line); background:#140f1d; color:var(--txt); padding:8px 10px; font:inherit; }
+  .sub { margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--line); }
+  .sub:first-of-type { border-top:0; padding-top:0; }
+  .sub h4 { margin:0 0 8px; font-size:15px; }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill { border:2px solid var(--line); border-radius:20px; padding:6px 14px; cursor:pointer; background:#1b1527; font-size:14px; }
+  .pill.sel { border-color:var(--pink); background:#3a1830; }
+  .voices { display:grid; gap:8px; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); margin:6px 0 12px; }
+  .voice { background:#1b1527; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:14px; }
+  .voice b { color:var(--gold); }
+  .voice audio { width:100%; height:34px; margin-top:4px; }
+  .gallery { display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
+  .gallery img, .promo img { width:100%; border-radius:8px; cursor:zoom-in; display:block; }
+  .promo { display:grid; gap:10px; grid-template-columns:2fr 1fr; margin-bottom:10px; }
+  video { width:100%; max-width:360px; border-radius:10px; display:block; margin:8px auto; background:#000; }
+  .cap { font-size:12px; color:var(--dim); text-align:center; margin-top:3px; }
+  #bar { position:fixed; left:0; right:0; bottom:0; background:rgba(18,13,26,.97); border-top:1px solid var(--line); padding:10px 14px; }
+  #bar .in { max-width:980px; margin:0 auto; display:flex; gap:10px; align-items:center; }
+  #bar .prog { flex:1; color:var(--dim); font-size:14px; }
+  #bar button { border:0; border-radius:22px; padding:11px 20px; font:inherit; font-weight:600; cursor:pointer; background:linear-gradient(180deg,#ff86b3,#e6457f); color:#fff; }
+  #bar button.ghost { background:#2d2440; color:var(--txt); font-weight:400; }
+  #out { display:none; max-width:980px; margin:8px auto 0; white-space:pre-wrap; background:#140f1d; border:1px solid var(--line); border-radius:10px; padding:10px; font-size:13px; max-height:30vh; overflow:auto; }
+  #lb { position:fixed; inset:0; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; z-index:9; cursor:zoom-out; }
+  #lb img { max-width:96vw; max-height:94vh; }
+  .toast { position:fixed; left:50%; bottom:90px; transform:translateX(-50%); background:#2fae6b; color:#fff; padding:8px 18px; border-radius:20px; display:none; z-index:10; }
+</style>
+
+</head>
+<body>
+<main>
+  <h1>小丑牌：心动牌局 · 第二轮（11-01）</h1>
+  <p class="lead">上一轮你的选择都已经做进游戏了（下面第 3–6 项）。这一页要你定的是新的主视觉和 logo，以及看一眼新做好的东西。点卡片就是选中，图片点一下看大图；选完点最下面的「复制我的选择」，发回对话里给我。</p>
+
+  <section class="q" data-q="kv" data-title="主视觉（宣传图 + 加载封面）">
+    <h2><span class="n">1</span>主视觉：突出小丑牌玩法（二选一）</h2>
+    <div class="why">按你说的重做：画面主体是一手牌和中间那张小丑牌，蓝色牌分和红色倍率的能量合成金色爆分；女主只在牌后面露半张脸。每个版本都有 16:9、1:1 宣传图和竖版加载封面（下面都配 logo 1，logo 在第 2 项另选）。<b>游戏里现在用的是 B。</b></div>
+    <div class="opts wide">
+      <div class="opt" data-v="A 黑金牌"><h3>A · 黑金牌（更高级、更暗）</h3><div class="row"><img src="img/kv_a_wide.jpg" alt=""><img src="img/kv_a_square.jpg" alt=""><img src="img/kv_a_cover.jpg" alt=""></div></div>
+      <div class="opt" data-v="B 象牙白牌"><h3>B · 象牙白牌（牌更醒目）<span class="tag">游戏里现在用的</span></h3><div class="row"><img src="img/kv_b_wide.jpg" alt=""><img src="img/kv_b_square.jpg" alt=""><img src="img/kv_b_cover.jpg" alt=""></div></div>
+    </div>
+    <div class="why" style="margin-top:12px">游戏里实际的加载页和标题页（B + logo 1，真机布局截图）：</div>
+    <div class="gallery" style="grid-template-columns:repeat(2, minmax(0, 220px))"><div><img src="img/game_boot.jpg" alt=""><div class="cap">加载页</div></div><div><img src="img/game_title.jpg" alt=""><div class="cap">标题页</div></div></div>
+    <textarea placeholder="想改哪里写这里（可不填）"></textarea>
+  </section>
+
+  <section class="q" data-q="logo" data-title="logo">
+    <h2><span class="n">2</span>logo：高级简约（三选一）</h2>
+    <div class="why">原来的紫色飘带立体字去掉了。三个都是平面、留白多的字标，每个字都核对过。下面每个方案依次是：单独看、放在 16:9 宣传图上、放在加载封面上。<b>游戏里现在用的是 logo 1。</b>选定后游戏内标题、宣传图、分享海报一起换。</div>
+    <div class="opts three">
+      <div class="opt" data-v="logo 1 金色衬线 + 小丑帽"><img src="img/logo_1.jpg" alt=""><h3>1 · 金色衬线 + 小丑帽<span class="tag">现在用的</span></h3><p>香槟金宋体，像奢侈品牌；「丑」上一顶线描小丑帽。</p><img src="img/logo_1_wide.jpg" alt="" style="margin-top:6px"><img src="img/logo_1_cover.jpg" alt="" style="margin-top:6px"></div>
+      <div class="opt" data-v="logo 2 象牙白无衬线 + 红心"><img src="img/logo_2.jpg" alt=""><h3>2 · 象牙白无衬线 + 红心</h3><p>现代粗体，「小」的点换成红桃；最醒目。</p><img src="img/logo_2_wide.jpg" alt="" style="margin-top:6px"><img src="img/logo_2_cover.jpg" alt="" style="margin-top:6px"></div>
+      <div class="opt" data-v="logo 3 红色衬线 + 牌框"><img src="img/logo_3.jpg" alt=""><h3>3 · 红色衬线 + 牌框</h3><p>深红宋体压在一张线描扑克牌上；暗底上偏暗。</p><img src="img/logo_3_wide.jpg" alt="" style="margin-top:6px"><img src="img/logo_3_cover.jpg" alt="" style="margin-top:6px"></div>
+    </div>
+    <textarea placeholder="想改哪里写这里（可不填）"></textarea>
+  </section>
+
+  <section class="q" data-q="hud" data-title="局内布局方案二（实机）">
+    <h2><span class="n">3</span>局内布局方案二：实机效果</h2>
+    <div class="why">按方案二真的做进了游戏（现在是开关，默认还是原来的样子），下面是游戏里截的图。方案二：顶栏「赛段 1/8 · 第 N 场」+ 金鼎杯，不写第几关；对局不显示心动值；得分板在左、对手半身在右；装备、道具在牌分 × 倍率下面；王牌挑战的规则是计分板下的红条。</div>
+    <div class="opts wide"><div class="opt ref"><img src="img/hud_compare.jpg" alt=""><h3>手机尺寸对比：常规赛（现在 / 方案二）、王牌挑战（现在 / 方案二）</h3></div></div>
+    <div class="gallery four" style="margin-top:10px">
+      <div><img src="img/off_regular.jpg" alt=""><div class="cap">现在 · 常规赛</div></div>
+      <div><img src="img/hud2_regular.jpg" alt=""><div class="cap">方案二 · 常规赛</div></div>
+      <div><img src="img/off_boss.jpg" alt=""><div class="cap">现在 · 王牌挑战</div></div>
+      <div><img src="img/hud2_boss.jpg" alt=""><div class="cap">方案二 · 王牌挑战</div></div>
+    </div>
+    <div class="opts" style="margin-top:12px">
+      <div class="opt" data-v="采用方案二"><h3>采用方案二</h3><p>改成默认，商店截图和录屏按方案二重录。</p></div>
+      <div class="opt" data-v="保持现在"><h3>保持现在</h3><p>开关留着不用。</p></div>
+      <div class="opt" data-v="方案二再改（见备注）"><h3>方案二，但要再改</h3><p>写在备注里。</p></div>
+    </div>
+    <textarea placeholder="想改哪里写这里（可不填）"></textarea>
+  </section>
+
+  <section class="q" data-q="flow" data-title="对战流程 C（已做）">
+    <h2><span class="n">4</span>对战流程 C：已经做成默认</h2>
+    <div class="why">对战 → 结算 → 补给（商店）→ 下一场，背景、顶栏、底栏都不动，只有中间内容左右滑过去（0.32 秒）；顶部三个小点「对战 · 补给 · 下一场」标出现在到哪一步。结算算在「对战」里。滑动时点击无效，不会误跳步骤。下面每条是一次切换的 5 帧：</div>
+    <div class="gallery" style="grid-template-columns:1fr">
+      <div><img src="img/slide_round_to_cashout.jpg" alt=""><div class="cap">对战 → 结算</div></div>
+      <div><img src="img/slide_cashout_to_shop.jpg" alt=""><div class="cap">结算 → 补给</div></div>
+      <div><img src="img/slide_shop_to_blinds.jpg" alt=""><div class="cap">补给 → 下一场</div></div>
+    </div>
+    <div class="pills" style="margin-top:12px"><span class="pill" data-v="可以">可以</span><span class="pill" data-v="要改（见备注）">要改（见备注）</span></div>
+    <textarea placeholder="想改哪里写这里（可不填）"></textarea>
+  </section>
+
+  <section class="q" data-q="story" data-title="晋级赛女主 + 剧情半身（已做）">
+    <h2><span class="n">5</span>晋级赛也是女主、大厅剧情改半身：已做</h2>
+    <div class="why">每一关的晋级赛对手都是这一关的女主（常规赛还是路人）：她有开场台词、出牌后的气泡，每位女主有自己的背景；赢她的晋级赛 +1 牌技分（一局最多 +8，不影响结局门槛），剧情仍按王牌挑战推进。第 8 关的莱拉只在决赛出现，前 7 个赛段的晋级赛还是路人。大厅、女主房间里播的剧情改成半身（头到腰），配角说话时站左边，女主退到右边暗处。</div>
+    <div class="gallery four">
+      <div><img src="img/st_big_blinds.jpg" alt=""><div class="cap">选下一场：晋级赛是她</div></div>
+      <div><img src="img/st_big_round_tall.jpg" alt=""><div class="cap">晋级赛开场台词</div></div>
+      <div><img src="img/st_lobby_date_ayaka.jpg" alt=""><div class="cap">大厅剧情：半身</div></div>
+      <div><img src="img/st_lobby_side_with_her.jpg" alt=""><div class="cap">配角和她同场</div></div>
+    </div>
+    <div class="gallery" style="grid-template-columns:1fr; margin-top:8px"><div><img src="img/st_all9.jpg" alt=""><div class="cap">九位女主的半身效果</div></div></div>
+    <div class="pills" style="margin-top:12px"><span class="pill" data-v="可以">可以</span><span class="pill" data-v="要改（见备注）">要改（见备注）</span></div>
+    <textarea placeholder="想改哪里写这里（可不填）"></textarea>
+  </section>
+
+  <section class="q" data-q="voice" data-title="各国语言配音（已做）">
+    <h2><span class="n">6</span>配音：女主说自己国家的语言，带情绪（已做）</h2>
+    <div class="why">关键的 449 句全部重配：绫香日语、智雅韩语、薇拉俄语、卡米耶法语、英格丽德德语、夏洛特英式英语、麦迪逊美式英语、莱拉阿拉伯语，她们家乡的配角也说本国语言；林晚晴、系统、主持人、赵天宇、苏蔓还是中文。屏幕上的中文台词就是字幕。每句按剧情配了情绪（傲娇的否认是生气，不是平静），在各自语言里做了识别检查，98% 一次通过。全部走你的 MiniMax 网页套餐，约 1.4 万字。下面每人两句：</div>
+    <div class="voices"><div class="voice"><b>绫香</b> · 日语<div style="margin-top:4px"><span class="note">见面第一句 · 嫌弃</span><br>「外卡选手？」<br><span class="note" dir="auto">ワイルドカード、ですって？</span><audio controls preload="none" src="voice/ayaka_a.mp3"></audio></div><div style="margin-top:4px"><span class="note">晋级赛开场 · 开心</span><br>「晋级赛也是本小姐。别想绕过去。」<br><span class="note" dir="auto">昇格戦もわたくしですわ。逃がしませんわよ。</span><audio controls preload="none" src="voice/ayaka_b.mp3"></audio></div></div><div class="voice"><b>智雅</b> · 韩语<div style="margin-top:4px"><span class="note">见面第一句 · 开心</span><br>「欧巴是来要签名的吗？」<br><span class="note" dir="auto">오빠, 사인 받으러 왔어요?</span><audio controls preload="none" src="voice/jiya_a.mp3"></audio></div><div style="margin-top:4px"><span class="note">晋级赛开场 · 开心</span><br>「欧巴，晋级赛也是我哦～」<br><span class="note" dir="auto">오빠, 승급전도 저예요~</span><audio controls preload="none" src="voice/jiya_b.mp3"></audio></div></div><div class="voice"><b>薇拉</b> · 俄语<div style="margin-top:4px"><span class="note">见面第一句 · 平静</span><br>「Nyet。别碰。」<br><span class="note" dir="auto">Нет. Не трогай.</span><audio controls preload="none" src="voice/vera_a.mp3"></audio></div><div style="margin-top:4px"><span class="note">晋级赛开场 · 平静</span><br>「……热身。」<br><span class="note" dir="auto">…Разминка.</span><audio controls preload="none" src="voice/vera_b.mp3"></audio></div></div><div class="voice"><b>卡米耶</b> · 法语<div style="margin-top:4px"><span class="note">见面第一句 · 开心</span><br>「Mon chéri，你的手在抖哦。」<br><span class="note" dir="auto">Mon chéri… ta main tremble.</span><audio controls preload="none" src="voice/camille_a.mp3"></audio></div><div style="margin-top:4px"><span class="note">晋级赛开场 · 开心</span><br>「晋级赛也是我哦。开心吗？」<br><span class="note" dir="auto">La qualification, c&#x27;est encore moi. Content ?</span><audio controls preload="none" src="voice/camille_b.mp3"></audio></div></div><div class="voice"><b>英格丽德</b> · 德语<div style="margin-top:4px"><span class="note">见面第一句 · 生气</span><br>「外卡——立正！」<br><span class="note" dir="auto">Wildcard — stillgestanden!</span><audio controls preload="none" src="voice/ingrid_a.mp3"></audio></div><div style="margin-top:4px"><span class="note">晋级赛开场 · 平静</span><br>「晋级赛是体能测试。立正。」<br><span class="note" dir="auto">Das Aufstiegsspiel ist ein Fitnesstest. Stillgestanden.</span><audio controls preload="none" src="voice/ingrid_b.mp3"></audio></div></div><div class="voice"><b>夏洛特</b> · 英式英语<div style="margin-top:4px"><span class="note">见面第一句 · 平静</span><br>「我申请赛后验牌——顺便，验人。」<br><span class="note" dir="auto">I&#x27;m requesting a card check after the match. And a check on you.</span><audio controls preload="none" src="voice/charlotte_a.mp3"></audio></div><div style="margin-top:4px"><span class="note">晋级赛开场 · 平静</span><br>「晋级赛，我亲自取证。」<br><span class="note" dir="auto">The qualifier. I&#x27;ll gather the evidence myself.</span><audio controls preload="none" src="voice/charlotte_b.mp3"></audio></div></div><div class="voice"><b>麦迪逊</b> · 美式英语<div style="margin-top:4px"><span class="note">见面第一句 · 开心</span><br>「Chat！今天的对手，是个外卡！」<br><span class="note" dir="auto">Chat! Today&#x27;s opponent is a wildcard!</span><audio controls preload="none" src="voice/madison_a.mp3"></audio></div><div style="margin-top:4px"><span class="note">晋级赛开场 · 开心</span><br>「Babe，晋级赛我也来了！」<br><span class="note" dir="auto">Babe, I&#x27;m in the qualifier too!</span><audio controls preload="none" src="voice/madison_b.mp3"></audio></div></div><div class="voice"><b>莱拉</b> · 阿拉伯语<div style="margin-top:4px"><span class="note">见面第一句 · 平静</span><br>「能赢我的男人，我嫁。」<br><span class="note" dir="auto">الرجلُ الذي يهزمني… سأتزوّجُه.</span><audio controls preload="none" src="voice/layla_a.mp3"></audio></div><div style="margin-top:4px"><span class="note">晋级赛开场 · 开心</span><br>「晋级赛？我亲自验货。」<br><span class="note" dir="auto">التأهّل؟ سأتفحّصُ البضاعةَ بنفسي.</span><audio controls preload="none" src="voice/layla_b.mp3"></audio></div></div></div>
+    <div class="sub" data-sq="ok" data-title="配音效果">
+      <h4>效果</h4>
+      <div class="pills"><span class="pill" data-v="可以">可以</span><span class="pill" data-v="要改（见备注）">要改（见备注）</span></div>
+    </div>
+    <div class="sub" data-sq="rest" data-title="剩下约 1,265 句">
+      <h4>剩下约 1,265 句（第 2–5 集、主线第 2–8 章、结局等）也按这样做吗？要先翻译成各国语言再配。</h4>
+      <div class="pills"><span class="pill" data-v="继续做">继续做</span><span class="pill" data-v="先不做">先不做</span></div>
+    </div>
+    <textarea placeholder="比如：某某的声音想换 / 某句情绪不对（可不填）"></textarea>
+  </section>
+
+  <section class="q" data-q="assets" data-title="商店截图 + 实机录屏">
+    <h2><span class="n">7</span>新的商店截图和实机录屏</h2>
+    <div class="why">截图按你说的：玩法 4 张在前（王牌挑战爆分、常规赛装备触发、开装备包、系统商店），恋爱 2 张（大厅、约会剧情）。录屏 42 秒，开头就是出牌爆分，带对战流程 C 的滑动切换和晋级赛女主。现在是原来的局内布局；如果第 3 项选方案二，我按方案二重录。</div>
+    <div class="gallery">
+      <div><img src="img/shot_1_round.jpg" alt=""><div class="cap">① 王牌挑战 · 皇家同花顺</div></div>
+      <div><img src="img/shot_2_regular.jpg" alt=""><div class="cap">② 常规赛 · 装备触发</div></div>
+      <div><img src="img/shot_3_pack.jpg" alt=""><div class="cap">③ 开装备包</div></div>
+      <div><img src="img/shot_4_shop.jpg" alt=""><div class="cap">④ 系统商店</div></div>
+      <div><img src="img/shot_5_lobby.jpg" alt=""><div class="cap">⑤ 大厅</div></div>
+      <div><img src="img/shot_6_date.jpg" alt=""><div class="cap">⑥ 约会剧情</div></div>
+    </div>
+    <video controls preload="metadata" playsinline src="gameplay.mp4"></video>
+    <div class="pills" style="margin-top:12px"><span class="pill" data-v="可以">可以</span><span class="pill" data-v="要改（见备注）">要改（见备注）</span></div>
+    <textarea placeholder="比如：第 3 张换成别的画面（可不填）"></textarea>
+  </section>
+
+  <section class="q" data-q="icon" data-title="图标">
+    <h2><span class="n">8</span>图标：已按你选的方案二定稿</h2>
+    <div class="why">1024 和 512 两个尺寸都出好了，提审时一起传。</div>
+    <div style="display:flex; gap:16px; align-items:flex-end"><img src="img/icon.jpg" alt="" style="width:160px; border-radius:28px"><img src="img/icon.jpg" alt="" style="width:64px; border-radius:14px"><img src="img/icon.jpg" alt="" style="width:40px; border-radius:9px"></div>
+  </section>
+</main>
+
+<div id="bar">
+  <div class="in"><div class="prog" id="prog"></div><button class="ghost" id="reset">清空</button><button id="copy">复制我的选择</button></div>
+  <div id="out"></div>
+</div>
+<div id="lb"><img alt=""></div>
+<div class="toast" id="toast">已复制，发回对话里给我就行</div>
+
+<script>
+const KEY = "jg-review-1101b";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+const qs = [...document.querySelectorAll("section.q")];
+
+function bindGroup(container, id, itemSel) {
+  const items = [...container.querySelectorAll(itemSel)];
+  items.forEach(el => {
+    if (state[id] === el.dataset.v) el.classList.add("sel");
+    el.addEventListener("click", e => {
+      if (e.target.tagName === "IMG") return;
+      const on = !el.classList.contains("sel");
+      items.forEach(x => x.classList.remove("sel"));
+      if (on) { el.classList.add("sel"); state[id] = el.dataset.v; } else delete state[id];
+      save(); render();
+    });
+  });
+}
+qs.forEach(s => {
+  const id = s.dataset.q;
+  if (s.querySelector(":scope > .opts .opt[data-v]")) bindGroup(s, id, ".opt[data-v]");
+  s.querySelectorAll(".sub").forEach(sub => bindGroup(sub, id + "." + sub.dataset.sq, ".pill"));
+  const tp = s.querySelector(":scope > .pills"); if (tp) bindGroup(tp, id, ".pill");
+  const ta = s.querySelector(":scope > textarea");
+  if (ta) { ta.value = state[id + ".note"] || ""; ta.addEventListener("input", () => { state[id + ".note"] = ta.value; save(); render(); }); }
+});
+
+function lines() {
+  const out = ["【小丑牌：心动牌局 · 11-01 第二轮】"];
+  let n = 0, done = 0;
+  qs.forEach((s, i) => {
+    if (!s.querySelector("[data-v]")) return; // (information only)
+    const id = s.dataset.q, t = s.dataset.title, subs = [...s.querySelectorAll(".sub")];
+    if (subs.length) {
+      out.push(`${s.querySelector(".n").textContent}. ${t}：`);
+      subs.forEach(sub => { n++; const v = state[id + "." + sub.dataset.sq]; if (v) done++; out.push(`   - ${sub.dataset.title}：${v || "（未选）"}`); });
+    } else { n++; const v = state[id]; if (v) done++; out.push(`${s.querySelector(".n").textContent}. ${t}：${v || "（未选）"}`); }
+    const note = (state[id + ".note"] || "").trim();
+    if (note) out.push(`   备注：${note}`);
+  });
+  return { text: out.join("\n"), n, done };
+}
+function render() { const r = lines(); document.getElementById("prog").textContent = `已选 ${r.done} / ${r.n} 项`; }
+render();
+
+document.getElementById("copy").onclick = async () => {
+  const { text } = lines(), out = document.getElementById("out");
+  out.style.display = "block"; out.textContent = text;
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {}
+  if (!ok) { const r = document.createRange(); r.selectNodeContents(out); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { ok = document.execCommand("copy"); } catch (e) {} }
+  const t = document.getElementById("toast"); t.textContent = ok ? "已复制，发回对话里给我就行" : "没能自动复制，请长按下面的文字复制";
+  t.style.display = "block"; setTimeout(() => t.style.display = "none", 2200);
+};
+document.getElementById("reset").onclick = () => {
+  if (!confirm("清空这页上所有的选择和备注？")) return;
+  localStorage.removeItem(KEY); location.reload();
+};
+const lb = document.getElementById("lb");
+document.querySelectorAll("main img").forEach(img => img.addEventListener("click", () => { lb.querySelector("img").src = img.src; lb.style.display = "flex"; }));
+lb.onclick = () => lb.style.display = "none";
+</script>
+
+</body>
+</html>
