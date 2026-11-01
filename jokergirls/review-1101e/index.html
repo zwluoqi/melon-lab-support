@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>小丑牌：心动牌局 · 上线素材总览（11-01）</title>
+<style>
+  :root { --bg:#16121f; --card:#221b30; --line:#3a2f50; --gold:#f2c46d; --pink:#ff6fa3; --txt:#ece6f5; --dim:#a99cbf; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:18px 14px 160px; }
+  h1 { font-size:22px; margin:6px 0 4px; color:var(--gold); }
+  .lead { color:var(--dim); margin:0 0 18px; }
+  section.q { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:0 0 18px; }
+  section.q h2 { font-size:18px; margin:0 0 6px; }
+  section.q h2 .n { display:inline-block; min-width:26px; height:26px; line-height:26px; text-align:center; border-radius:50%; background:var(--gold); color:#2a1d07; font-size:14px; margin-right:6px; }
+  .why { color:var(--dim); margin:0 0 12px; font-size:14px; }
+  .why ul { margin:4px 0; padding-left:20px; }
+  .opts { display:grid; gap:12px; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); }
+  .opts.wide { grid-template-columns:1fr; }
+  .opts.two { grid-template-columns:repeat(2, 1fr); gap:8px; }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  .row { display:grid; gap:6px; grid-template-columns:2.2fr 1.25fr 0.72fr; align-items:start; }
+  .row img { width:100%; }
+  .gallery.four { grid-template-columns:repeat(4, 1fr); }
+  .note { font-size:13px; color:var(--dim); margin:6px 0 0; }
+  @media (max-width:640px) {
+    .opts.three .opt, .opts.two .opt { padding:6px; }
+    .opts.three .opt h3, .opts.two .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p, .opts.two .opt p { font-size:12px; line-height:1.5; }
+    .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .gallery.four { grid-template-columns:repeat(2, 1fr); }
+  }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  @media (max-width:640px) {
+    .opts.three .opt { padding:6px; }
+    .opts.three .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p { font-size:12px; line-height:1.5; }
+    .opts.three .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .opts.three .opt.ref::before { font-size:11px; }
+    .opts.three .tag { display:block; width:max-content; margin:2px 0 0; }
+  }
+  .opt { position:relative; border:2px solid var(--line); border-radius:12px; padding:10px; background:#1b1527; cursor:pointer; transition:border-color .15s, transform .15s; }
+  .opt:hover { border-color:#6b5a8f; }
+  .opt.sel { border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,111,163,.25); }
+  .opt.sel::after { content:"✓ 已选"; position:absolute; top:8px; right:8px; background:var(--pink); color:#fff; font-size:12px; padding:2px 8px; border-radius:10px; }
+  .opt.ref { cursor:default; opacity:.85; border-style:dashed; }
+  .opt.ref::before { content:"现在的样子（参考）"; display:block; font-size:12px; color:var(--dim); margin-bottom:6px; }
+  .opt img { width:100%; border-radius:8px; display:block; cursor:zoom-in; background:#000; }
+  .opt h3 { font-size:16px; margin:8px 0 2px; color:var(--gold); }
+  .opt p { margin:2px 0; font-size:14px; color:#d8d0e6; }
+  .tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:8px; background:#3b2a12; color:var(--gold); margin-left:4px; vertical-align:middle; }
+  textarea { width:100%; min-height:44px; margin-top:12px; border-radius:10px; border:1px solid var(--line); background:#140f1d; color:var(--txt); padding:8px 10px; font:inherit; }
+  .sub { margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--line); }
+  .sub:first-of-type { border-top:0; padding-top:0; }
+  .sub h4 { margin:0 0 8px; font-size:15px; }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill { border:2px solid var(--line); border-radius:20px; padding:6px 14px; cursor:pointer; background:#1b1527; font-size:14px; }
+  .pill.sel { border-color:var(--pink); background:#3a1830; }
+  .voices { display:grid; gap:8px; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); margin:6px 0 12px; }
+  .voice { background:#1b1527; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:14px; }
+  .voice b { color:var(--gold); }
+  .voice audio { width:100%; height:34px; margin-top:4px; }
+  .gallery { display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
+  .gallery img, .promo img { width:100%; border-radius:8px; cursor:zoom-in; display:block; }
+  .promo { display:grid; gap:10px; grid-template-columns:2fr 1fr; margin-bottom:10px; }
+  video { width:100%; max-width:360px; border-radius:10px; display:block; margin:8px auto; background:#000; }
+  .cap { font-size:12px; color:var(--dim); text-align:center; margin-top:3px; }
+  #bar { position:fixed; left:0; right:0; bottom:0; background:rgba(18,13,26,.97); border-top:1px solid var(--line); padding:10px 14px; }
+  #bar .in { max-width:980px; margin:0 auto; display:flex; gap:10px; align-items:center; }
+  #bar .prog { flex:1; color:var(--dim); font-size:14px; }
+  #bar button { border:0; border-radius:22px; padding:11px 20px; font:inherit; font-weight:600; cursor:pointer; background:linear-gradient(180deg,#ff86b3,#e6457f); color:#fff; }
+  #bar button.ghost { background:#2d2440; color:var(--txt); font-weight:400; }
+  #out { display:none; max-width:980px; margin:8px auto 0; white-space:pre-wrap; background:#140f1d; border:1px solid var(--line); border-radius:10px; padding:10px; font-size:13px; max-height:30vh; overflow:auto; }
+  #lb { position:fixed; inset:0; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; z-index:9; cursor:zoom-out; }
+  #lb img { max-width:96vw; max-height:94vh; }
+  .toast { position:fixed; left:50%; bottom:90px; transform:translateX(-50%); background:#2fae6b; color:#fff; padding:8px 18px; border-radius:20px; display:none; z-index:10; }
+</style>
+<style>.txt p{margin:2px 0 8px;font-size:14px;color:#d8d0e6} .txt h4{margin:12px 0 4px;color:var(--gold)} .gallery.six{grid-template-columns:repeat(3,1fr)} @media (min-width:900px){.gallery.six{grid-template-columns:repeat(6,1fr)}}</style>
+</head>
+<body>
+<main>
+  <h1>小丑牌：心动牌局 · 上线素材总览（11-01）</h1>
+  <p class="lead">上线需要的素材都备好了：图标、宣传图、6 张截图、实机录屏、宣传片、文案、隐私政策（下面第 7–9 项，看一眼就行）。提审前还有几件事要你定（第 1–6 项），点选后点最下面的「复制我的选择」，发回对话里给我。没有你的指示我不会提审。</p>
+
+  <section class="q" data-q="cover" data-title="加载封面">
+    <h2><span class="n">1</span>加载封面（三选一）</h2>
+    <div class="why">男主的手已经改好：不再伸长胳膊去够天上的牌，而是把一张发光的小丑牌举在耳边，九张牌自己浮在夜空里。三版都改了。<b>游戏里现在用的是 B。</b></div>
+    <div class="gallery" style="grid-template-columns:repeat(2, minmax(0, 260px))"><div><img src="img/arm_before.jpg" alt=""><div class="cap">改之前（手太长）</div></div><div><img src="img/arm_after.jpg" alt=""><div class="cap">改之后</div></div></div>
+    <div class="opts three" style="margin-top:12px">
+<div class="opt" data-v="A 男主更大"><img src="img/cover_1_logo_1.jpg" alt=""><h3>A · 男主更大</h3></div>
+<div class="opt" data-v="B 牌在正中、栏杆上摆一手牌"><img src="img/cover_2_logo_1.jpg" alt=""><h3>B · 牌在正中、栏杆上摆一手牌<span class=tag>现在用的</span></h3></div>
+<div class="opt" data-v="C 牌扇更高"><img src="img/cover_3_logo_1.jpg" alt=""><h3>C · 牌扇更高</h3></div>
+    </div>
+    <div class="why" style="margin-top:12px">游戏里实际的加载页和标题页（B + logo 1）：</div>
+    <div class="gallery" style="grid-template-columns:repeat(2, minmax(0, 220px))"><div><img src="img/game_boot.jpg" alt=""><div class="cap">加载页</div></div><div><img src="img/game_title.jpg" alt=""><div class="cap">标题页</div></div></div>
+    <textarea placeholder="想改哪里写这里（可不填）"></textarea>
+  </section>
+
+  <section class="q" data-q="logo" data-title="logo">
+    <h2><span class="n">2</span>logo（三选一）</h2>
+    <div class="why">和卡牌边框同一套材质。选定后游戏标题、加载页、宣传图、宣传片片尾一起换。<b>现在用的是 logo 1。</b></div>
+    <div class="opts three">
+<div class="opt" data-v="logo 1 三张牌 + 小丑冠"><img src="img/logo_1.jpg" alt=""><h3>1 · 三张牌 + 小丑冠<span class=tag>现在用的</span></h3><img src="img/cover_2_logo_1.jpg" alt="" style="margin-top:6px"><img src="img/promo_1_wide.jpg" alt="" style="margin-top:6px"></div>
+<div class="opt" data-v="logo 2 横放的一张牌"><img src="img/logo_2.jpg" alt=""><h3>2 · 横放的一张牌</h3><img src="img/cover_2_logo_2.jpg" alt="" style="margin-top:6px"><img src="img/promo_2_wide.jpg" alt="" style="margin-top:6px"></div>
+<div class="opt" data-v="logo 3 小丑牌在字后面"><img src="img/logo_3.jpg" alt=""><h3>3 · 小丑牌在字后面</h3><img src="img/cover_2_logo_3.jpg" alt="" style="margin-top:6px"><img src="img/promo_3_wide.jpg" alt="" style="margin-top:6px"></div>
+    </div>
+    <textarea placeholder="想改哪里写这里（可不填）"></textarea>
+  </section>
+
+  <section class="q" data-q="group" data-title="玩家群">
+    <h2><span class="n">3</span>玩家群（QQ 群）</h2>
+    <div class="why">商店资料要填玩家群。中控里 FIRE工作室没有配置群，我查不到，需要你给：群号、群名（要含工作室名或游戏名）、加群链接。</div>
+    <div class="pills"><span class="pill" data-v="有群（写在下面）">有群（写在下面）</span><span class="pill" data-v="先不填">先不填</span></div>
+    <textarea placeholder="群号 / 群名 / 加群链接"></textarea>
+  </section>
+
+  <section class="q" data-q="feat" data-title="功能声明">
+    <h2><span class="n">4</span>功能声明（事实声明，要你确认）</h2>
+    <div class="why">后台的「游戏功能」是对外的事实声明，我不能替你选。我的建议写在每项后面。</div>
+    <div class="sub" data-sq="net" data-title="联网"><h4>联网 <span style='color:var(--dim);font-weight:400;font-size:13px'>建议：是（云存档、排行榜）</span></h4><div class="pills"><span class="pill" data-v="是">是</span><span class="pill" data-v="否">否</span></div></div>
+    <div class="sub" data-sq="iap" data-title="内购"><h4>内购 <span style='color:var(--dim);font-weight:400;font-size:13px'>建议：没有（只有玩家自己点的激励视频）</span></h4><div class="pills"><span class="pill" data-v="有">有</span><span class="pill" data-v="没有">没有</span></div></div>
+    <div class="sub" data-sq="ai" data-title="AI 生成内容"><h4>AI 生成内容 <span style='color:var(--dim);font-weight:400;font-size:13px'>建议：有（美术、配音、音乐是 AI 辅助制作，隐私政策里也写了）</span></h4><div class="pills"><span class="pill" data-v="有">有</span><span class="pill" data-v="没有">没有</span></div></div>
+    <div class="sub" data-sq="ip" data-title="IP 授权"><h4>IP 授权 <span style='color:var(--dim);font-weight:400;font-size:13px'>建议：没有（人物和故事都是原创）</span></h4><div class="pills"><span class="pill" data-v="有">有</span><span class="pill" data-v="没有">没有</span></div></div>
+    <div class="sub" data-sq="story" data-title="文字剧情"><h4>文字剧情 <span style='color:var(--dim);font-weight:400;font-size:13px'>建议：有</span></h4><div class="pills"><span class="pill" data-v="有">有</span><span class="pill" data-v="没有">没有</span></div></div>
+    <textarea placeholder="补充（可不填）"></textarea>
+  </section>
+
+  <section class="q" data-q="release" data-title="上线方式">
+    <h2><span class="n">5</span>上线方式</h2>
+    <div class="why">发行决定，你来定。一般建议「短预约 + 可玩版本定时上线（北京时间 0:01）」：立即上线拿不到上线当天的游戏日历流量。</div>
+    <div class="sub" data-sq="mode" data-title="分发状态"><h4>分发状态</h4><div class="pills"><span class="pill" data-v="先预约">先预约</span><span class="pill" data-v="直接提供游玩">直接提供游玩</span></div></div>
+    <div class="sub" data-sq="when" data-title="上线时间"><h4>上线时间</h4><div class="pills"><span class="pill" data-v="立即上线">立即上线</span><span class="pill" data-v="定时上线（写在下面）">定时上线（写在下面）</span></div></div>
+    <textarea placeholder="定时的话写日期，例如 11 月 5 日 0:01"></textarea>
+  </section>
+
+  <section class="q" data-q="home" data-title="首页推荐素材">
+    <h2><span class="n">6</span>首页推荐用哪种素材</h2>
+    <div class="why">首页卡片放宣传图还是播宣传片。</div>
+    <div class="pills"><span class="pill" data-v="16:9 宣传图">16:9 宣传图</span><span class="pill" data-v="宣传片">宣传片</span></div>
+  </section>
+
+  <section class="q" data-q="media" data-title="素材">
+    <h2><span class="n">7</span>图标和宣传图（已备好）</h2>
+    <div class="why">宣传图上只有完整的游戏名「小丑牌 · 心动牌局」，没有别的字；原生 2560×1440 和 1600×1600。</div>
+    <div style="display:flex; gap:16px; align-items:flex-end; margin-bottom:12px"><img src="img/icon.jpg" alt="" style="width:140px; border-radius:26px; cursor:zoom-in"><img src="img/icon.jpg" alt="" style="width:56px; border-radius:12px"></div>
+    <div class="promo"><img src="img/promo_wide.jpg" alt=""><img src="img/promo_square.jpg" alt=""></div>
+  </section>
+
+  <section class="q" data-q="shots" data-title="截图">
+    <h2><span class="n">8</span>截图 6 张 + 实机录屏 + 宣传片（已备好）</h2>
+    <div class="why">截图和实机录屏都是真实游戏画面，已经是新的局内布局和新赛程名；前 4 张是玩法，恋爱只占最后两张。</div>
+    <div class="gallery six"><div><img src="img/shot_1_round.jpg" alt=""><div class="cap">① 晋级赛 · 皇家同花顺</div></div><div><img src="img/shot_2_regular.jpg" alt=""><div class="cap">② 常规赛 · 装备连锁</div></div><div><img src="img/shot_3_pack.jpg" alt=""><div class="cap">③ 开装备包</div></div><div><img src="img/shot_4_shop.jpg" alt=""><div class="cap">④ 系统商店</div></div><div><img src="img/shot_5_lobby.jpg" alt=""><div class="cap">⑤ 大厅</div></div><div><img src="img/shot_6_date.jpg" alt=""><div class="cap">⑥ 约会剧情</div></div></div>
+    <div class="row" style="grid-template-columns:1fr 2fr; gap:12px; margin-top:12px; align-items:start">
+      <div><video src="media/gameplay.mp4" controls playsinline preload="metadata"></video><div class="cap">实机录屏 42 秒（竖屏，只有游戏原声和女主配音）</div></div>
+      <div><video src="media/trailer.mp4" controls playsinline preload="metadata" style="max-width:100%"></video><div class="cap">宣传片 26 秒（横屏）：AI 打牌镜头 + 九位女主的游戏 CG + 主题曲卡点，片尾浮出 logo；没有旁白和字幕</div></div>
+    </div>
+  </section>
+
+  <section class="q" data-q="text" data-title="文案">
+    <h2><span class="n">9</span>文案和隐私政策（已备好）</h2>
+    <div class="why">隐私政策已发布：<a href="https://zwluoqi.github.io/melon-lab-support/jokergirls/privacy.html" style="color:var(--gold)">jokergirls/privacy.html</a>（主体写的是 FIRE工作室；如果最后换厂商我再改）。另外：系统播报员（「系统」）的语音已经全部关掉，游戏里不再播放。</div>
+    <div class="txt"><h4>一句话简介</h4><p>凑对子、顺子、同花出牌拿分，用装备让倍率连锁翻倍；八站世界巡回赛，九位女主，牌打得越漂亮，她就离你越近。</p>
+<h4>首页推荐语（18 字）</h4><p>八站巡回赛，九位女主，打牌也能谈恋爱</p>
+<h4>简介（393 字）</h4><p>丢了工作、被交往五年的女友甩掉的那个雨夜，江野走进了一家快要关门的牌馆——晚晴俱乐部。老板娘林晚晴递给他一副牌：「打赢世界巡回赛，这家店就还有明天。」</p><p>从海城、北京、东京、首尔，到莫斯科、巴黎、纽约，最后是迪拜的世界总决赛。八站巡回赛，每一站都有一位让他心动的女孩坐在牌桌对面：傲娇的日本大小姐、甜甜的韩国爱豆、热情的金发辣妹、冷若冰霜的银发少女、腹黑的眼镜学霸、法国小恶魔、制服御姐，还有迪拜的富婆女王。</p><p>· 凑对子、顺子、同花、葫芦出牌拿分，用装备让「牌分 × 倍率」一路连锁翻倍，一手牌就能爆出惊人的分数</p><p>· 每一站 8 个赛段，每段两场常规赛、一场晋级赛，最后的王牌挑战决出冠军，难度层层上升</p><p>· 牌打得越漂亮，她的好感越高：约会剧情、三选一抉择、三种结局，还有专属换装和 CG</p><p>· 比赛赢来的礼物可以送给她，升羁绊，解锁她的小爱好、过去的故事和私聊</p><p>· 竖屏单手就能打，随时自动存档；输了也能看段视频再来一手</p>
+<h4>开发者的话（275 字）</h4><p>大家好，我们是 FIRE工作室。</p><p>这款游戏来自我们自己的两个爱好：一个是「凑牌型、叠倍率」的肉鸽打牌，一局接一局停不下来；另一个是有点老套、却总让人心动的恋爱故事。于是我们想：如果每一局牌，都是在为一个女孩打呢？</p><p>我们给九位女主各写了一段完整的故事，有铺垫、有反转，也有让人拍桌子的结局。你在牌桌上的表现会直接变成她的好感，牌技和心意一起决定结局。</p><p>广告只在你自己点的时候出现，比如输掉一场后的「再来一手」；出牌和计分的时候不会打扰你。</p><p>接下来我们会根据大家的反馈加新剧情、新换装，继续打磨新手引导。欢迎在论坛告诉我们你最喜欢哪一位，也欢迎告诉我们哪里不好玩。</p>
+<h4>标签</h4><p>卡牌、肉鸽、恋爱、美少女、策略、单机</p></div>
+  </section>
+</main>
+
+<div id="bar">
+  <div class="in"><div class="prog" id="prog"></div><button class="ghost" id="reset">清空</button><button id="copy">复制我的选择</button></div>
+  <div id="out"></div>
+</div>
+<div id="lb"><img alt=""></div>
+<div class="toast" id="toast">已复制，发回对话里给我就行</div>
+
+<script>
+const KEY = "jg-review-1101e";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+const qs = [...document.querySelectorAll("section.q")];
+
+function bindGroup(container, id, itemSel) {
+  const items = [...container.querySelectorAll(itemSel)];
+  items.forEach(el => {
+    if (state[id] === el.dataset.v) el.classList.add("sel");
+    el.addEventListener("click", e => {
+      if (e.target.tagName === "IMG") return;
+      const on = !el.classList.contains("sel");
+      items.forEach(x => x.classList.remove("sel"));
+      if (on) { el.classList.add("sel"); state[id] = el.dataset.v; } else delete state[id];
+      save(); render();
+    });
+  });
+}
+qs.forEach(s => {
+  const id = s.dataset.q;
+  if (s.querySelector(":scope > .opts .opt[data-v]")) bindGroup(s, id, ".opt[data-v]");
+  s.querySelectorAll(".sub").forEach(sub => bindGroup(sub, id + "." + sub.dataset.sq, ".pill"));
+  const tp = s.querySelector(":scope > .pills"); if (tp) bindGroup(tp, id, ".pill");
+  const ta = s.querySelector(":scope > textarea");
+  if (ta) { ta.value = state[id + ".note"] || ""; ta.addEventListener("input", () => { state[id + ".note"] = ta.value; save(); render(); }); }
+});
+
+function lines() {
+  const out = ["【小丑牌：心动牌局 · 11-01 上线素材】"];
+  let n = 0, done = 0;
+  qs.forEach((s, i) => {
+    if (!s.querySelector("[data-v]")) return; // (information only)
+    const id = s.dataset.q, t = s.dataset.title, subs = [...s.querySelectorAll(".sub")];
+    if (subs.length) {
+      out.push(`${s.querySelector(".n").textContent}. ${t}：`);
+      subs.forEach(sub => { n++; const v = state[id + "." + sub.dataset.sq]; if (v) done++; out.push(`   - ${sub.dataset.title}：${v || "（未选）"}`); });
+    } else { n++; const v = state[id]; if (v) done++; out.push(`${s.querySelector(".n").textContent}. ${t}：${v || "（未选）"}`); }
+    const note = (state[id + ".note"] || "").trim();
+    if (note) out.push(`   备注：${note}`);
+  });
+  return { text: out.join("\n"), n, done };
+}
+function render() { const r = lines(); document.getElementById("prog").textContent = `已选 ${r.done} / ${r.n} 项`; }
+render();
+
+document.getElementById("copy").onclick = async () => {
+  const { text } = lines(), out = document.getElementById("out");
+  out.style.display = "block"; out.textContent = text;
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {}
+  if (!ok) { const r = document.createRange(); r.selectNodeContents(out); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { ok = document.execCommand("copy"); } catch (e) {} }
+  const t = document.getElementById("toast"); t.textContent = ok ? "已复制，发回对话里给我就行" : "没能自动复制，请长按下面的文字复制";
+  t.style.display = "block"; setTimeout(() => t.style.display = "none", 2200);
+};
+document.getElementById("reset").onclick = () => {
+  if (!confirm("清空这页上所有的选择和备注？")) return;
+  localStorage.removeItem(KEY); location.reload();
+};
+const lb = document.getElementById("lb");
+document.querySelectorAll("main img").forEach(img => img.addEventListener("click", () => { lb.querySelector("img").src = img.src; lb.style.display = "flex"; }));
+lb.onclick = () => lb.style.display = "none";
+</script>
+
+</body>
+</html>
