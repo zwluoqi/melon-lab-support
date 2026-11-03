@@ -25,17 +25,31 @@ button.sec{background:#3a2f50;color:var(--txt);font-weight:normal;font-size:13px
 <p class="lead">点选方案、在框里写备注，底部会自动生成结论，点「复制结论」粘贴发给我就行。内容会自动保存在这个浏览器里，刷新不会丢。点图片可以放大看原图。<br>其他说明（发行内容总览、宣传片分镜、文案全文）见 <a href="../opt-1103/">上一页</a>。</p>
 
 <section style="border-color:#f2c46d">
-<h2>1. 图标 · W1 结构不变、保持红色：衣服和背景弱化（11-03 最新，选一个）</h2>
-<div class="grid4" data-q="图标">
-  <div class="opt" data-v="W1 王冠版（原版）"><label><input type="radio" name="icon"> W1 · 原版</label><img src="img/w1d.jpg"><div class="cap">对照。</div><textarea data-n="W1" placeholder="备注…"></textarea></div>
-  <div class="opt" data-v="Z1 轻度弱化"><label><input type="radio" name="icon"> Z1 · 轻度</label><img src="img/z1.jpg"><div class="cap">褶领饱和度降约 20%、反光变弱；背景去掉花色图案和大部分光点，变成平滑的深红渐变。和原版最接近。</div><textarea data-n="Z1" placeholder="备注…"></textarea></div>
-  <div class="opt" data-v="Z2 中度弱化"><label><input type="radio" name="icon"> Z2 · 中度</label><img src="img/z2.jpg"><div class="cap">褶领改成哑光深红、古金细边；背景暗酒红 + 四角压暗，头后一圈暖光，脸和头发从背景里分离得最清楚。</div><textarea data-n="Z2" placeholder="备注…"></textarea></div>
-  <div class="opt" data-v="Z3 柔雾红"><label><input type="radio" name="icon"> Z3 · 柔雾红</label><img src="img/z3.jpg"><div class="cap">褶领改成柔和的灰玫瑰红、淡金边；背景是浅一些的雾面红，没有光点。整体最柔和、最温柔，但仍是红色。</div><textarea data-n="Z3" placeholder="备注…"></textarea></div>
+<h2>1. 图标 · 合成版：图 1（W1）的人物 + 图 2（Z1）的背景（11-03 最新）</h2>
+<div class="grid4" data-q="图标" style="grid-template-columns:repeat(3,1fr)">
+  <div class="opt" data-v="W1 原版"><label><input type="radio" name="icon"> 图 1 · W1</label><img src="img/w1e.jpg"><div class="cap">人物、衣服、王冠来源。</div><textarea data-n="W1" placeholder="备注…"></textarea></div>
+  <div class="opt" data-v="Z1"><label><input type="radio" name="icon"> 图 2 · Z1</label><img src="img/z1e.jpg"><div class="cap">背景来源。</div><textarea data-n="Z1" placeholder="备注…"></textarea></div>
+  <div class="opt" data-v="C1 合成版（W1 人物 + Z1 背景）"><label><input type="radio" name="icon"> C1 · 合成版 ✓</label><img src="img/c1.jpg"><div class="cap">人物、褶领、王冠、手和牌都是图 1 的原像素，一点没动；只把背景（含金色细边框）换成图 2 的平滑深红背景。用抠图合成，不是重画，所以除了背景其他完全不变。</div><textarea data-n="C1" placeholder="备注…"></textarea></div>
+</div>
+<p class="cap" style="margin-top:10px">手机实际尺寸（从上到下：图 1 / 图 2 / C1）：</p>
+<img src="img/small_c.jpg" style="max-width:640px">
+<textarea data-n="图标整体" placeholder="图标整体备注" style="margin-top:8px"></textarea>
+</section>
+
+<details><summary style="color:#a99cbf;cursor:pointer;margin:0 0 14px">上一轮 Z1 / Z2 / Z3（点开看）</summary>
+<section >
+<h2>图标 · Z 轮（保持红色：衣服和背景弱化（11-03 最新，选一个）</h2>
+<div class="grid4" data-q="图标（Z 轮）">
+  <div class="opt" data-v="W1 王冠版（原版）"><label><input type="radio" name="iconz"> W1 · 原版</label><img src="img/w1d.jpg"><div class="cap">对照。</div><textarea data-n="W1-Z轮" placeholder="备注…"></textarea></div>
+  <div class="opt" data-v="Z1 轻度弱化"><label><input type="radio" name="iconz"> Z1 · 轻度</label><img src="img/z1.jpg"><div class="cap">褶领饱和度降约 20%、反光变弱；背景去掉花色图案和大部分光点，变成平滑的深红渐变。和原版最接近。</div><textarea data-n="Z轮-Z1" placeholder="备注…"></textarea></div>
+  <div class="opt" data-v="Z2 中度弱化"><label><input type="radio" name="iconz"> Z2 · 中度</label><img src="img/z2.jpg"><div class="cap">褶领改成哑光深红、古金细边；背景暗酒红 + 四角压暗，头后一圈暖光，脸和头发从背景里分离得最清楚。</div><textarea data-n="Z轮-Z2" placeholder="备注…"></textarea></div>
+  <div class="opt" data-v="Z3 柔雾红"><label><input type="radio" name="iconz"> Z3 · 柔雾红</label><img src="img/z3.jpg"><div class="cap">褶领改成柔和的灰玫瑰红、淡金边；背景是浅一些的雾面红，没有光点。整体最柔和、最温柔，但仍是红色。</div><textarea data-n="Z轮-Z3" placeholder="备注…"></textarea></div>
 </div>
 <p class="cap" style="margin-top:10px">手机实际尺寸（从上到下：W1 / Z1 / Z2 / Z3）：</p>
 <img src="img/small_z.jpg" style="max-width:640px">
-<textarea data-n="图标整体" placeholder="图标整体备注" style="margin-top:8px"></textarea>
+<textarea data-n="图标Z轮" placeholder="图标整体备注" style="margin-top:8px"></textarea>
 </section>
+</details>
 
 <details><summary style="color:#a99cbf;cursor:pointer;margin:0 0 14px">上一轮 Y1 / Y2 / Y3（换色版：酒红 / 象牙白 / 午夜蓝，点开看）</summary>
 <section >
