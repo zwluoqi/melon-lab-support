@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>小丑牌：心动牌局 · 选择 + 备注（11-03）</title>
+<style>
+:root{--bg:#16121f;--card:#221b30;--line:#3a2f50;--gold:#f2c46d;--txt:#ece6f5;--dim:#a99cbf;--ok:#4fc38a}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.6 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:18px 14px 240px} h1{font-size:22px;margin:6px 0 4px;color:var(--gold)}
+.lead{color:var(--dim);margin:0 0 16px} section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:0 0 18px}
+h2{font-size:18px;margin:0 0 10px} img{width:100%;border-radius:10px;display:block;cursor:zoom-in}
+.grid4{display:grid;gap:12px;grid-template-columns:repeat(4,1fr)} @media(max-width:760px){.grid4{grid-template-columns:repeat(2,1fr)}}
+.opt{border:2px solid var(--line);border-radius:12px;padding:8px;background:#1d1729;display:flex;flex-direction:column;gap:6px}
+.opt.sel{border-color:var(--gold);box-shadow:0 0 0 2px rgba(242,196,109,.25)}
+.opt label{font-weight:bold;color:var(--gold);cursor:pointer} .cap{font-size:13px;color:var(--dim)}
+textarea{width:100%;background:#120e1a;color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font:14px/1.5 inherit;resize:vertical;min-height:52px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0} .row label{background:#2b2240;border:1px solid var(--line);border-radius:8px;padding:5px 10px;cursor:pointer}
+.row input{margin-right:4px} a{color:var(--gold)}
+#bar{position:fixed;left:0;right:0;bottom:0;background:#0f0b16f2;border-top:1px solid var(--gold);padding:10px 14px}
+#bar .in{max-width:1040px;margin:0 auto;display:flex;gap:10px;align-items:stretch}
+#out{flex:1;min-height:110px;max-height:180px;font-size:13px}
+button{background:var(--gold);color:#1a1226;border:0;border-radius:10px;font-weight:bold;padding:0 18px;font-size:15px;cursor:pointer}
+button.sec{background:#3a2f50;color:var(--txt);font-weight:normal;font-size:13px}
+#zoom{position:fixed;inset:0;background:#000d;display:none;align-items:center;justify-content:center;z-index:9} #zoom img{max-width:92vw;max-height:92vh;width:auto;cursor:zoom-out}
+</style></head><body><main>
+<h1>小丑牌：心动牌局 · 选择 + 备注</h1>
+<p class="lead">点选方案、在框里写备注，底部会自动生成结论，点「复制结论」粘贴发给我就行。内容会自动保存在这个浏览器里，刷新不会丢。点图片可以放大看原图。<br>其他说明（发行内容总览、宣传片分镜、文案全文）见 <a href="../opt-1103/">上一页</a>。</p>
+
+<section>
+<h2>1. 图标 · 「居中对称」细化（选一个）</h2>
+<div class="grid4" data-q="图标">
+  <div class="opt" data-v="L1 居中对称（原版）"><label><input type="radio" name="icon"> L1 · 原版</label><img src="img/l1.jpg"><div class="cap">你选的居中对称原图，作对照。</div><textarea data-n="L1" placeholder="备注…"></textarea></div>
+  <div class="opt" data-v="R1 细节精修"><label><input type="radio" name="icon"> R1 · 细节精修</label><img src="img/r1.jpg"><div class="cap">颜色光线不变：金框雕花和金属倒角更锐利，牌面珍珠光泽，帽子褶皱和眼睛高光更细，背景光点减少，主卡下加接触阴影。</div><textarea data-n="R1" placeholder="备注…"></textarea></div>
+  <div class="opt" data-v="R2 小尺寸更醒目"><label><input type="radio" name="icon"> R2 · 小尺寸更醒目</label><img src="img/r2.jpg"><div class="cap">主卡和脸加亮、整张卡一圈亮边；背景四周压暗成深酒红、褶皱虚化，两侧牌略暗，缩小后主卡最突出。</div><textarea data-n="R2" placeholder="备注…"></textarea></div>
+  <div class="opt" data-v="R3 红紫渐变·传说卡"><label><input type="radio" name="icon"> R3 · 红紫传说卡</label><img src="img/r3.jpg"><div class="cap">背景从纯红改成红→紫丝绒渐变，呼应帽子的紫色；主卡背后金色光晕、斜飘金粉，像抽到传说卡。</div><textarea data-n="R3" placeholder="备注…"></textarea></div>
+</div>
+<p class="cap" style="margin-top:10px">缩到手机实际尺寸（从上到下：L1 / R1 / R2 / R3；128 / 96 / 64 / 48 px，带圆角）：</p>
+<img src="img/small.jpg" style="max-width:640px">
+<textarea data-n="图标整体" placeholder="图标整体备注（例如：R2 的背景 + R1 的细节；脸再大一点…）" style="margin-top:8px"></textarea>
+</section>
+
+<section>
+<h2>2. 宣传片 / 实机录屏重剪（<a href="../opt-1103/#video">分镜见上一页「问题 3」</a>）</h2>
+<div class="row" data-q="宣传片"><label><input type="radio" name="tr" value="按方案剪（22 秒，第 0 帧大数字 + 九女主 CG 快切）">按方案剪</label><label><input type="radio" name="tr" value="先不改">先不改</label></div>
+<div class="row" data-q="实机录屏"><label><input type="radio" name="gp" value="按方案剪（30 秒，直接从大牌开始）">按方案剪</label><label><input type="radio" name="gp" value="先不改">先不改</label></div>
+<div class="row" data-q="首页推荐素材"><label><input type="radio" name="pm" value="改成宣传片（首页卡片自动播放）">改成宣传片</label><label><input type="radio" name="pm" value="保持 16:9 宣传图">保持 16:9 宣传图</label></div>
+<textarea data-n="视频" placeholder="视频备注（例如：女主快切再快一点 / 要加某个女主的台词…）"></textarea>
+</section>
+
+<section>
+<h2>3. 文案（<a href="../opt-1103/">三个方案全文见上一页「问题 4」</a>）</h2>
+<div class="row" data-q="推荐语"><label><input type="radio" name="t1" value="方案1 一手牌打出一个亿，九个老婆等你回家">1 接地气</label><label><input type="radio" name="t1" value="方案2 肉鸽卡牌构筑，九段恋爱剧情，不逼看广告">2 实诚</label><label><input type="radio" name="t1" value="方案3「赢一手给我看看？」九位女主坐在牌桌对面">3 女主开口</label><label><input type="radio" name="t1" value="保持现在的">保持现在</label></div>
+<div class="row" data-q="简介"><label><input type="radio" name="t2" value="方案1 接地气">1 接地气</label><label><input type="radio" name="t2" value="方案2 实诚">2 实诚</label><label><input type="radio" name="t2" value="方案3 女主开口">3 女主开口</label><label><input type="radio" name="t2" value="保持现在的">保持现在</label></div>
+<div class="row" data-q="开发者的话"><label><input type="radio" name="t3" value="方案1 接地气">1 接地气</label><label><input type="radio" name="t3" value="方案2 实诚">2 实诚</label><label><input type="radio" name="t3" value="方案3 女主开口">3 女主开口</label><label><input type="radio" name="t3" value="保持现在的">保持现在</label></div>
+<textarea data-n="文案" placeholder="文案备注（可以直接写改后的句子）"></textarea>
+</section>
+
+<section>
+<h2>4. 论坛开服帖</h2>
+<div class="row" data-q="论坛"><label><input type="radio" name="fp" value="00:01 上线后发开服公告 + 开发者的话（先给我看稿）">上线后发（先看稿）</label><label><input type="radio" name="fp" value="先不发">先不发</label></div>
+<textarea data-n="其他" placeholder="其他备注"></textarea>
+</section>
+</main>
+<div id="bar"><div class="in"><textarea id="out" readonly></textarea><div style="display:flex;flex-direction:column;gap:6px"><button id="cp" style="flex:1">复制结论</button><button class="sec" id="clr">清空</button></div></div></div>
+<div id="zoom"><img></div>
+<script>
+const K='jg-pick-1103',S=JSON.parse(localStorage.getItem(K)||'{}');
+const radios=[...document.querySelectorAll('input[type=radio]')], notes=[...document.querySelectorAll('textarea[data-n]')];
+radios.forEach((r,i)=>{const o=r.closest('.opt');if(o)r.value=o.dataset.v;r.dataset.k=r.name;if(S['r:'+r.name]===r.value)r.checked=true;r.addEventListener('change',upd)});
+notes.forEach(t=>{t.value=S['n:'+t.dataset.n]||'';t.addEventListener('input',upd)});
+document.querySelectorAll('.opt').forEach(o=>o.addEventListener('click',e=>{if(e.target.tagName==='TEXTAREA'||e.target.tagName==='IMG')return;const r=o.querySelector('input');r.checked=true;upd()}));
+function upd(){
+  const s={},L=['【小丑牌：心动牌局 · 11-03 结论】'];
+  const groups={};radios.forEach(r=>{const q=r.closest('[data-q]').dataset.q+(r.closest('.opt')?'':'');const key=r.closest('.opt')?'图标':r.closest('[data-q]').dataset.q;groups[key]=groups[key]||null;if(r.checked){groups[key]=r.value;s['r:'+r.name]=r.value}});
+  for(const k in groups)L.push(k+'：'+(groups[k]||'（未选）'));
+  notes.forEach(t=>{const v=t.value.trim();s['n:'+t.dataset.n]=t.value;if(v)L.push('备注·'+t.dataset.n+'：'+v.replace(/\n/g,' / '))});
+  document.querySelectorAll('.opt').forEach(o=>o.classList.toggle('sel',o.querySelector('input').checked));
+  localStorage.setItem(K,JSON.stringify(s));document.getElementById('out').value=L.join('\n');
+}
+document.getElementById('cp').onclick=async()=>{const o=document.getElementById('out');try{await navigator.clipboard.writeText(o.value)}catch(e){o.select();document.execCommand('copy')}const b=document.getElementById('cp');b.textContent='已复制 ✓';setTimeout(()=>b.textContent='复制结论',1500)};
+document.getElementById('clr').onclick=()=>{if(confirm('清空所有选择和备注？')){localStorage.removeItem(K);location.reload()}};
+const z=document.getElementById('zoom');document.querySelectorAll('main img').forEach(i=>i.onclick=()=>{z.querySelector('img').src=i.src;z.style.display='flex'});z.onclick=()=>z.style.display='none';
+upd();
+</script></body></html>
