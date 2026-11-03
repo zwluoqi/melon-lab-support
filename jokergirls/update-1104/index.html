@@ -36,7 +36,7 @@ button{background:var(--gold);color:#1a1226;border:0;border-radius:10px;font-wei
 <tr><td>实机录屏</td><td class="new">换成 v3（45.5 秒）</td><td>详情页媒体区第二个</td></tr>
 <tr><td>一句话介绍</td><td class="new">一手烂牌，叠到一个亿。九个女主，个个都想娶。</td><td>TapTap 商店没有这个字段；写进 TapTap 制造项目简介、论坛帖开头</td></tr>
 <tr><td>游戏名称 / 类型</td><td class="same">小丑牌：心动牌局 / 卡牌（不变）</td><td>—</td></tr>
-<tr><td>16:9 / 1:1 宣传图</td><td class="new">换成九位女主同框海报（宣传片开场画面的无字版，只保留游戏 logo）</td><td>编辑推荐 / 专题横幅（16:9）、方形推荐位（1:1）、详情页分享卡</td></tr>
+<tr><td>16:9 / 1:1 宣传图</td><td class="new">保留原主视觉，两侧 8 位女主改成站姿（不再伸手）；晚晴、logo、背景不变。1:1 同时是实机录屏封面</td><td>编辑推荐 / 专题横幅（16:9）、方形推荐位（1:1）、详情页分享卡</td></tr>
 <tr><td>截图 6 张、PC 竖版封面</td><td class="same">不变</td><td>—</td></tr>
 <tr><td>玩家群 / 隐私政策 / 功能声明</td><td class="same">不变</td><td>—</td></tr>
 <tr><td>标签</td><td class="same">CLI 改不了，需要你在网页后台填：肉鸽、卡牌构筑、美少女、恋爱、策略、单机、roguelike、休闲</td><td>详情页标签行、分类搜索、推荐算法</td></tr>
@@ -63,20 +63,25 @@ button{background:var(--gold);color:#1a1226;border:0;border-radius:10px;font-wei
 </section>
 
 <section data-k="宣传图">
-<h2>宣传图（16:9 / 1:1）· <span class="new">更新</span></h2>
-<p>换成宣传片 v4.4 开场那张「九位女主」海报，但按原尺寸重新合成、<b>去掉所有文字</b>（TapTap 规定宣传图上只能有游戏名 logo，之前的标题「九位女主 · 九段心动」、英文和九个名字都不能放）。九人用默认比赛服立绘，晚晴居中最前，其余八人左右对称两层，九张脸都完整露出；logo 用游戏里的原版透明字标「小丑牌 / 心动牌局」。1:1 是单独重新排的两排，不是从 16:9 裁的。16:9 的 logo 和九张脸都在中间 4:3 安全区内，首页卡片裁边也不会切到。</p>
-<h3>16:9（2560×1440）</h3>
+<h2>宣传图（16:9 / 1:1）· <span class="new">更新：原主视觉，两侧女主改成站姿</span></h2>
+<p>保留原来的主视觉（九张牌扇面、晚晴居中、前景玩家背影、夜景、logo），只改一处：<b>两侧 8 张牌上的女主不再朝镜头伸手</b>，改成游戏里立绘那样的自然站姿（默认比赛服）。<b>晚晴的中间大牌、logo、玩家、背景都是原图像素，没有动</b>；只有两侧 8 张牌的区域换成了新画面。每张牌还是原来那位女主。</p>
+<p class="cap">做法：用图片模型对整张原图做一次编辑（参考：原图 + 8 位女主的游戏立绘），新图和原图几乎逐像素对齐；再按两侧牌扇的轮廓羽化遮罩，只把这 8 张牌取新图，其余全部贴回原图像素。</p>
+<h3>16:9（2048×1152，0.75 MB）</h3>
 <div class="grid2" style="grid-template-columns:1fr 1fr">
-<div><h3>现在</h3><img src="img/promo-16x9-old.jpg"></div>
-<div><h3>更新后</h3><a href="img/promo-16x9-new.jpg"><img src="img/promo-16x9-new.jpg"></a></div>
+<div><h3>原图</h3><img src="img/promo-16x9-orig.jpg"></div>
+<div><h3>修改后</h3><a href="img/promo-16x9-rev.jpg"><img src="img/promo-16x9-rev.jpg"></a></div>
 </div>
-<h3>1:1（1600×1600）</h3>
-<div class="grid2" style="grid-template-columns:1fr 1fr;max-width:760px">
-<div><h3>现在</h3><img src="img/promo-1x1-old.jpg"></div>
-<div><h3>更新后</h3><a href="img/promo-1x1-new.jpg"><img src="img/promo-1x1-new.jpg"></a></div>
+<h3>1:1（2048×2048，1.25 MB）· 同时是实机录屏（竖屏视频）的封面</h3>
+<div class="grid2" style="grid-template-columns:1fr 1fr;max-width:860px">
+<div><h3>原图</h3><img src="img/promo-1x1-orig.jpg"></div>
+<div><h3>修改后</h3><a href="img/promo-1x1-rev.jpg"><img src="img/promo-1x1-rev.jpg"></a></div>
 </div>
-<p class="cap">缩小看（480 px 宽，接近推荐卡片实际大小）：</p>
-<div class="grid2" style="grid-template-columns:480px 480px;max-width:980px"><img src="img/promo-16x9-new-480.jpg"><img src="img/promo-1x1-new-480.jpg"></div>
+<p class="cap">TapTap 要求：只有游戏名、没有图标和其他文字、高清精致、16:9 和 1:1 主体一致、JPG/PNG ≤ 4 MB、1:1 ≥ 1440×1440 —— 两张都符合。</p>
+<h3>局部 100%（左：原图　右：修改后）</h3>
+<img src="img/promo-crop1.jpg" style="margin-bottom:8px"><img src="img/promo-crop2.jpg" style="margin-bottom:8px"><img src="img/promo-crop3.jpg">
+<details style="margin-top:12px"><summary class="cap">已弃用：九位女主同框海报版（点开查看）</summary>
+<div class="grid2" style="grid-template-columns:1fr 1fr;margin-top:8px"><img src="img/promo-16x9-new.jpg"><img src="img/promo-1x1-new.jpg"></div>
+</details>
 </section>
 
 <section data-k="游戏简介">
