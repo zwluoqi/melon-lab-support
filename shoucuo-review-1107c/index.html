@@ -1,0 +1,21 @@
+<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>手搓魔法 · 11-07 审阅（第二轮）</title>
+<style>body{font-family:system-ui,sans-serif;background:#14121a;color:#eee;max-width:1000px;margin:auto;padding:16px;line-height:1.7}img{max-width:100%;border-radius:6px}h2{border-left:4px solid #e8b04a;padding-left:8px;margin-top:40px}.c{background:#221f2b;padding:12px 16px;border-radius:8px;margin:14px 0}.s{color:#aaa;font-size:14px}.row{display:flex;gap:10px}.row img{width:50%}table{border-collapse:collapse;width:100%}td,th{border:1px solid #333;padding:6px;font-size:14px}audio{width:150px}</style>
+<h1>11-07 审阅（第二轮）</h1><p class=s>尚未提交。你确认后再提交、推送。</p>
+<div class=c><b>新测试包</b>（包含本页全部改动）：用 TapTap 扫码<br><img src=qr.png style="width:220px;background:#fff"></div>
+<h2>一、薇丝塔 CG：画面完整，界面恢复原样</h2>
+<div class=c>原图是 2:3 的比例，手机屏幕更窄更高，以前铺满屏幕时左右两边被裁掉了。现在把每张图<b>向上、向下补画</b>到手机的比例，原图放在中间，一个像素不动（只有接缝处做了羽化过渡），左右不再裁切。跳过按钮和文字显示恢复成原来的样子，画面也不再推近、平移。泉底一幕的旁白（文字和语音）已删除，只留薇丝塔的台词。</div>
+<img src=vsheet.jpg><p class=s>游戏内截图：牵手 / 额头 / 拥抱 / 泉底 / 泉凉</p>
+<img src=outpaint_vesta.jpg><p class=s>原图与补画后的对比（左为原图，右为补画后）。在天空、水面这类很平滑的地方，接缝可能隐约看得出来，请在手机上看一眼。</p>
+<h2>二、守关者断章 CG：只做精修，不重画</h2>
+<div class=c>没有用 AI 重画，而是用动漫超分辨率模型放大到 2 倍（2160×1476），再混入一点原图保留笔触。构图、表情、颜色和光线都没变：缩回原尺寸逐像素比对，平均差异只有 4–6/255，差异只在线条边缘。效果是线条更清楚、噪点更少；画面没有新增细节。</div>
+<h3>断章 1</h3><img src=refine_pair_s1.jpg><p class=s>1:1 局部（脸、手）</p><img src=refine_crop_s1.jpg><h3>断章 2</h3><img src=refine_pair_s2.jpg><p class=s>1:1 局部（脸、手）</p><img src=refine_crop_s2.jpg><h3>断章 3</h3><img src=refine_pair_s3.jpg><p class=s>1:1 局部（脸、手）</p><img src=refine_crop_s3.jpg><h3>断章 4</h3><img src=refine_pair_s4.jpg><p class=s>1:1 局部（脸、手）</p><img src=refine_crop_s4.jpg><h3>断章 5</h3><img src=refine_pair_s5.jpg><p class=s>1:1 局部（脸、手）</p><img src=refine_crop_s5.jpg><h3>断章 6</h3><img src=refine_pair_s6.jpg><p class=s>1:1 局部（脸、手）</p><img src=refine_crop_s6.jpg><h3>断章 7</h3><img src=refine_pair_s7.jpg><p class=s>1:1 局部（脸、手）</p><img src=refine_crop_s7.jpg>
+<h2>三、结晶翻倍按钮：并入结晶条</h2>
+<div class=c>去掉了单独的金色按钮，改成结晶条右端的一小段：一条细分隔线，加一个小三角和「翻倍」两个字，用面板同款的金色。点了以后这一段消失。</div>
+<div class=row><img src=re_lost.jpg><img src=re_won.jpg></div>
+<h2>四、魔蚀学徒重新配音（北京口音）</h2>
+<div class=c>已经换成 mw_jun（标注为北京普通话的少年音），游戏里用的就是第一列。另外两个北京口音的候选也放在下面，喜欢哪个告诉我就换。<br>另有三个男声的标签只写了「标准」（和原来那个台湾腔的声音一样），还没改，请你先听一下：雷恩、遗城机巧师、壁垒炮术士。</div>
+<table><tr><th>台词</th><th>mw_jun（已采用）</th><th>Danyu Zhao</th><th>xgzd_afei</th></tr><tr><td>别、别过来……晶会跳到你身上的！</td><td><audio controls preload=none src=au/mg_n1_enter_1.mp3></audio></td><td><audio controls preload=none src=au/danyu_enter.mp3></audio></td><td><audio controls preload=none src=au/afei_enter.mp3></audio></td></tr><tr><td>师父……晶不疼了……</td><td><audio controls preload=none src=au/mg_n1_defeat_1.mp3></audio></td><td><audio controls preload=none src=au/danyu_defeat.mp3></audio></td><td><audio controls preload=none src=au/afei_defeat.mp3></audio></td></tr><tr><td>对不起……我只是不想变成晶。</td><td><audio controls preload=none src=au/mg_n1_victory_1.mp3></audio></td><td><audio controls preload=none src=au/danyu_victory.mp3></audio></td><td><audio controls preload=none src=au/afei_victory.mp3></audio></td></tr></table>
+<h2>五、商店点守泉女回营地</h2>
+<div class=c>魔蚀荒原没过完之前（引导局）也能回营地了。引导进度和对局都会保存，在营地点「继续比赛」就从商店接着打。</div>
+<h2>六、新号默认出牌次数为什么是 4：是 BUG，已修</h2>
+<div class=c><b>原因</b>：新号的第一局是新手引导局，代码里把引导局排除在「−1」规则之外，所以它用的是元素库原本的 4 次。之后正常登天才是 3 次，所以你看到的 4 不是看了广告的结果。<br><b>修复</b>：引导局也按同一规则算，新号第一局起就是 <b>3 次</b>，看完守泉人的馈赠后是 4 次；只有挑战模式保留自己的次数。我在测试环境把引导局完整跑了一遍，3 次仍然能通过（大盲刚好用满 3 次）。<br>引导里「还剩 N 次」那句配音改成了 2 次的版本：<audio controls preload=none src=au/wanqing_6a40ce0d.mp3></audio>。术语表里的「默认 4 次」也改成了「默认 3 次，守泉人的馈赠 +1」。</div>
