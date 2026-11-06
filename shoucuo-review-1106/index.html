@@ -1,0 +1,80 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手搓魔法 · 11-06 优化与预约素材评审</title><style>
+body{max-width:1100px;margin:0 auto;padding:16px;background:#14121c;color:#e9e3d6;font:15px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+h1{color:#f0c060}h2{color:#f0c060;border-bottom:1px solid #443;padding-bottom:4px;margin-top:36px}h3{color:#d9b27a}
+img,video{max-width:100%;border-radius:6px;display:block;margin:8px 0}.row{display:flex;flex-wrap:wrap;gap:8px}.row img{width:calc(33% - 8px)}
+.note{background:#211d2c;padding:10px 14px;border-radius:6px}li{margin:3px 0}.tag{color:#9c9;font-weight:bold}.ask{color:#f99;font-weight:bold}
+</style></head><body>
+<h1>手搓魔法：从小火球到灭世禁咒 · 11-06 优化与预约素材评审</h1>
+<p class="note">核心玩法、数值、规则一律未改，只动了剧情、表现、反馈和 UI。测试 707/707 通过。<br>
+测试包二维码（含本页全部改动）：<br><img src="https://tapcode-sce.spark.xd.com/qrcode/m_30aj_1793954362205.png" style="width:220px;background:#fff"></p>
+
+<h2>一、美术 · 剧情（美术总监 / 剧情总监）</h2>
+<h3>克洛伊 CG 统一重画 + 其他剧情 CG 优化（左旧 右新）</h3>
+<p>全部回到守关者立绘同一条 NovelAI 管线（同风格词 + 微弱余烬轮廓光），在原构图上精修，人物造型与新立绘一致。</p>
+<h3>克洛伊 · 前世（雷恩以新造型出现在台阶上）</h3><img src="img/pair_clo_past.jpg">
+<h3>克洛伊 · 誓约 1</h3><img src="img/pair_clo_vow1.jpg">
+<h3>克洛伊 · 誓约 2（戴戒指）</h3><img src="img/pair_clo_vow2.jpg">
+<h3>克洛伊 · 誓约 3（告别）</h3><img src="img/pair_clo_vow3.jpg">
+<h3>结局 · 继续</h3><img src="img/pair_continue.jpg">
+<h3>结局 · 终</h3><img src="img/pair_end.jpg">
+<h3>守泉人 · 最后 1</h3><img src="img/pair_keeper_last1.jpg">
+<h3>守泉人 · 最后 2</h3><img src="img/pair_keeper_last2.jpg">
+<h3>结局 · 新世界（薇丝塔睁开含泪的眼）</h3><img src="img/pair_new.jpg">
+<h3>新增：断章 1–7 每关一张「战后」插图（原来是模糊的战斗背景）</h3><img src="img/lore_all.jpg"><img src="img/lore_all2.jpg">
+<h3>剧情修正</h3><ul>
+<li>克洛伊与「三百年前那一夜」：典籍和前世剧情互相矛盾，统一为「律令先点了她，她拒绝，诅咒才选中雷恩；她以戒指守护者身份护送他」，她那句「这本来就是我欠的」有了分量，并为第 8 关揭示埋线。</li>
+<li>薇丝塔几处时间线和戒指方向写反的台词修正；断章 7「古道」→「天阶」；三件道具描述与剧情矛盾处修正；副团长披风颜色与立绘统一。</li>
+<li>节奏：打败巴尔德温、菲奥娜、雷恩之后薇丝塔原来没话说，各补一段短台词（已配音）；断章 8 从「战前预告」改为「战后余波」。</li>
+<li>手机可读性：薇丝塔 4 句 26–39 字的长台词拆短。</li>
+<li>断章和结局全部配音：旁白念叙述，引号里的话由雷恩 / 薇丝塔 / 克洛伊本人说，原声线不变（共 109 条）。</li></ul>
+<h3 class="ask">需要你定的（美术总监提议，未做）</h3><ol>
+<li>营地和两张 UI 里的守泉人是睁眼的，但设定是盲眼。可以重画脸部（约 150 Anlas），营地那张脸是你当初选的，所以先问你。</li>
+<li>阿斯特里昂领口宝石是红蓝绿金，世界四元素是红蓝黄黑，要不要改（约 50 Anlas）。</li>
+<li>精英怪「雷枪战斗法师」设定写「他」、立绘像男性，配音却是女声：改用男声重配 3 句，还是把设定改成「她」？</li></ol>
+
+<h2>二、打击感与反馈（战斗策划）</h2><ul>
+<li><span class="tag">修 bug</span> 屏幕震动在第一次击杀后一直保持最大幅度（之后所有小震动都像击杀）→ 已从根上修好。</li>
+<li>魔攻 / 增幅计数器：法器光球现在飞进计数器，每一下都弹跳闪光，×增幅 带回弹和更长的白闪，看得出 9→18→54 是怎么来的。</li>
+<li>蓄力 → 出手 → 命中 拆成三拍：搓手蓄力音 → 出手瞬间喊咒名和呼啸 → 命中（原来四个声音同一帧响）。命中时间点不变。</li>
+<li>12 系元素各自的命中音（火、水、风、土、冰、雷、圣、奥术），连击音高递增，重击 / 击杀叠低频；中级以上命中手机震动，初级保持克制。</li>
+<li>斩杀预告：选牌够斩杀时血条末端一圈光爆 + 提示音 + 轻震。</li>
+<li>被致命魔法命中：屏幕边缘红闪、施放按钮震一下、受伤音，最后一击短暂定帧 + 重震。</li>
+<li>选牌每张音高递增；第 6 张被拒有音效、卡牌抖动和轻震。</li>
+<li>战斗 HUD：地区名横幅不再挡守关者的脸；「选 1–5 张元素卡」提示更大更亮；魔攻 / 增幅 标签更清楚；致命魔法小字加底板；点数 / 元素排序做成开关样式。</li></ul>
+<img src="img/hud.jpg"><p>左→右：第一战 改前 / 改后，守关战 改前 / 改后</p>
+<p class="ask">待你决定：① 4 件法器时一手约 7.5 秒，第 3 手之后要不要自动加速结算；② 咒名喊声同一场第二次起要不要降低频率。两项都涉及你之前定的节奏，未改。</p>
+
+<h2>三、UI（UI 总监）</h2><ul>
+<li>标题页换成完整两行字标「手搓魔法 / 从小火球到灭世禁咒」，已避开胶囊；开场副标题同步。</li>
+<li>换屏淡入，不再硬切；按钮按下变暗 + 发光；文字超宽自动缩小（修好排行榜「第8世 登顶流派」）；弹窗 ✕ 点击区放大。</li>
+<li>咒谱码弹窗提示溢出、设置页 100% 被滑块挡、成就锁定文字看不清、登顶记录空行、结算按钮位置、商店气泡挡标签、旧游戏遗留文案「送给女主」等一批问题已修。</li></ul>
+<img src="img/title_after.jpg" style="max-width:640px">
+
+<h2>四、预约 / 上线素材</h2>
+<p class="note">资料标题：<b>手搓魔法：从小火球到灭世禁咒</b>　分类：卡牌　分发：安卓 / iOS 预约，预计「2026年11月」上线。<br>
+隐私政策（标题一字不差）：<a style="color:#9cf" href="https://zwluoqi.github.io/melon-lab-support/shoucuo/privacy.html">shoucuo/privacy.html</a></p>
+<h3>字标（三选一，已选 B：火球橙光 → 禁咒紫光，体现成长）</h3><img src="img/logo_opts.jpg" style="max-width:500px">
+<h3>图标</h3><img src="img/icon.jpg" style="width:256px">
+<h3>宣传图 16:9（2560×1440）</h3><img src="img/promo-16x9.jpg">
+<h3>宣传图 1:1（1600×1600）</h3><img src="img/promo-1x1.jpg" style="max-width:640px">
+<p>主视觉：主角掌心一颗小火球，另一只手召下漫天禁咒，四色元素卡环绕 —— 标题的承诺和核心玩法在一张图里。图上只有完整标题，没有其他文字。</p>
+<h3>游戏截图（真实游戏画面，1080×1920）</h3><div class="row">
+<img src="img/shot_1_jinzhou.jpg">
+<img src="img/shot_2_cutin.jpg">
+<img src="img/shot_3_guardian.jpg">
+<img src="img/shot_4_kill.jpg">
+<img src="img/shot_5_hit.jpg">
+<img src="img/shot_6_story.jpg">
+</div><h3>实机录屏（43 秒，1080×1920，只有游戏原声，第 1 秒就开始施法）</h3>
+<video src="gameplay.mp4" controls playsinline style="max-height:720px"></video>
+<p>焚天禁咒 → 普通战斗霜冻切入、过量击破 → 守关战雷恩登场与永夜 → 敌人的致命魔法。</p>
+<h3>文案</h3><p><b>首页推荐语：</b>一手元素卡，搓出从小火球到灭世禁咒的魔法</p>
+<p><b>简介 / 开发者的话：</b>已写入后台草稿，全文见仓库 store/listing.md。</p>
+
+<h2>五、下一步</h2><ol>
+<li>你确认本页（尤其 CG）后：提交代码、绑定最新包体、上传截图和录屏。</li>
+<li>提交「预约」审核。同厂商峡谷之巅 11-05 刚首发，24 小时首发窗口要到 <b>北京时间 11-07 02:41</b> 之后，所以预约定时在 11-07 上午开启。</li>
+<li><b>不会上线</b>，上线另找你确认。</li></ol>
+<p class="ask">还需要你提供：玩家 QQ 群（群名 / 群号 / 链接，可选）；资料声明确认：不需联网、无内购、含 AI 生成内容（美术和配音）、无 IP 授权。</p>
+</body></html>
