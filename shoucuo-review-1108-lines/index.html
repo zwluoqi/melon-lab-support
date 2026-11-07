@@ -1,0 +1,200 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手搓魔法 · 11-08 敌人台词随机变体（待审）</title><style>
+body{max-width:1100px;margin:0 auto;padding:16px 14px 60px;background:#14111b;color:#e8e1d3;font:15px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+h1{color:#f2c46a}h2{color:#f2c46a;border-bottom:1px solid #3c3448;padding-bottom:6px;margin-top:40px}
+.box{background:#221c2e;border-radius:8px;padding:10px 16px;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid #3c3448;padding:5px 8px;vertical-align:top}th{background:#2a2338;color:#f2c46a;text-align:left}
+td.ev{white-space:nowrap;color:#bfb3d6;width:6em}td.tag{white-space:nowrap;width:5em}.alt{color:#f6dfa8}.note{color:#8f86a3;font-size:12px}
+.t{display:inline-block;border-radius:4px;padding:0 6px;font-size:12px}.t-none{background:#2f2a3a;color:#aaa}.t-again{background:#27445a;color:#bfe3ff}
+.t-beaten{background:#4a2d2d;color:#ffc9c9}.t-late{background:#3e3456;color:#dccbff}.t-vow{background:#4f421f;color:#ffe3a0}
+.sp{color:#777;font-style:italic}.dim{color:#9a90ad}
+</style></head><body>
+<h1>手搓魔法 · 敌人台词随机变体（第一期，待审）</h1>
+<div class="box">每一句敌人台词都配了一句新台词，同一位置二选一随机播放，同一句不会连着播两次。新台词围绕「你一次次倒下、又一次次爬上来」：
+敌人记得你，你却不记得他们。用黑魂式的碎片写法，只说半句，和典籍残卷互相印证。<br>
+<b>还没有接进游戏，也没有配音。</b>确认后再接入、出语音。<br>
+共 <b>123</b> 句原台词，<b>123</b> 句新台词。其中 16 组涉及主线反转，本页不展示（见仓库 <code>research/content/foe_lines_alt.json</code>）。</div>
+<h2>标签：什么时候能抽到新台词</h2><table>
+<tr><th>标签</th><th>条件</th></tr>
+<tr><td><span class="t t-none">随机</span></td><td>任何时候都可能抽到（第一次见面也说得通）</td></tr>
+<tr><td><span class="t t-again">重逢</span></td><td>以前的某一世已经走到过这一关</td></tr>
+<tr><td><span class="t t-beaten">曾败</span></td><td>以前击败过这位守关者（最终守关者：见过任一结局）</td></tr>
+<tr><td><span class="t t-late">多世</span></td><td>重逢，并且已经爬了很多次（累计 15 局以上，或本局第 3 世及以上）</td></tr>
+<tr><td><span class="t t-vow">时之约后</span></td><td>和克洛伊立下时之约之后</td></tr>
+</table><p class="dim">条件不满足时，这个位置只播原台词；满足时原台词和新台词二选一（带标签的新台词抽中概率略高）。</p>
+
+<h2>守关者</h2>
+<h3>第1关 · 格雷戈尔 · 蚀晶术士</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场 1</td><td>……又一个往上走的人。</td><td class="alt">……又是你。上一次，也是这么走来的。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">登场 2</td><td>荒原的魔蚀，我替它吞下去了。</td><td class="alt">晶长一寸，荒原塌慢一寸。……它长快了。</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">登场 3</td><td>回去吧。再往上走，你会变成我。</td><td class="alt">劝了你这么多回……你一次也没回去过。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+<tr><td class="ev">残血 1</td><td>晶在长……它比我更想留下你。</td><td class="alt">晶记得你……它比我记得清楚。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">残血 2</td><td>别停手……停下，它就醒了。</td><td class="alt">打碎它……像上一次那样。</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">被击败 1</td><td>裂了……晶从里面裂开了……</td><td class="alt">晶里……有一截绷带……<div class="note">残卷伍：晶的最深处嵌着一截旧绷带。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">被击败 2</td><td>好轻……原来我还能这么轻。</td><td class="alt">碎过的晶……还会再长回来。你也一样吧。</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 1</td><td>睡吧，晶会替你守着荒原。</td><td class="alt">我把你摆在路边。……这一排，快摆不下了。<div class="note">残卷肆：他把登天者的晶一块块摆在路边——那一排，都是你。</div></td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 2</td><td>下一个上山的，会踩着你的晶走。</td><td class="alt">下一个上山的……还是你。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第2关 · 伊索尔德 · 溺城书记</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场 1</td><td>请稍候……这一页还没抄完。</td><td class="alt">又翻到这一页了……墨还没干。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">登场 2</td><td>沉下去的名字，一个也不能少。</td><td class="alt">水又涨了一寸。上面，又有人在往上走。<div class="note">登天者每往上走一步，源泉就被抽一分，水就涨一寸。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">登场 3</td><td>你叫什么？……不，别告诉我。有些名字，写完就回不来了。</td><td class="alt">你又要告诉我名字了。……每一次，我都捂住耳朵。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">残血 1</td><td>水漫到字上了……字在化开。</td><td class="alt">灯……灯要灭了，名字会看不清的。</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">残血 2</td><td>不行……这一行，我还没写完！</td><td class="alt">别过来……那一笔落下去，你就回不来了！</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">被击败 1</td><td>笔……握不住了……</td><td class="alt">墨……又洇开了。和那一夜一样。</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">被击败 2</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 1</td><td>我会把你抄进名录里。</td><td class="alt">没写名字的那几页……都是你。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 2</td><td>放心，最后一笔，我不写。</td><td class="alt">睡吧。泉边，有人会捞你回去。<div class="note">暗指守泉人：你每次倒下，是有人从泉里把你捞回来。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+</table>
+<h3>第3关 · 巴尔德温 · 千阶誓卫</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场 1</td><td>古道之门，由我看守。</td><td class="alt">这双脚步……我送过。不止一次。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">登场 2</td><td>一千年，我送上去很多人。没有一个，走下来过。</td><td class="alt">有一双脚步，上山的次数，我数到一百，就不数了。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+<tr><td class="ev">登场 3</td><td>我只问一次——你确定吗？</td><td class="alt">我说过只问一次。……可每一次，你都是第一次听。<div class="note">他只问一次；可你每一世都忘了，所以每一次都是第一次。</div></td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">残血 1</td><td>石头……已经爬到心口了。</td><td class="alt">每送你一次，石头就多爬一寸。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">残血 2</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">被击败 1</td><td>石誓……到此为止了。</td><td class="alt">这一次……换我做台阶吧。</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">被击败 2</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 1</td><td>回去吧。山下……至少还有地面。</td><td class="alt">下山的路，你认得。你总是从那里，重新走上来。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 2</td><td>这样，我就不必再送你上去了。</td><td class="alt">你倒下的地方……石阶都磨平了。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第4关 · 菲奥娜 · 断桥战神</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场 1</td><td>断桥守卫团团长，菲奥娜。</td><td class="alt">又是你。风记得你的味道，我也记得。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">登场 2</td><td>桥交到我手上那天，我还够不着团旗。</td><td class="alt">团旗一晚补一针。你来的次数，快赶上针脚了。<div class="note">心愿：她每晚给团旗补一针。</div></td><td class="tag"><span class="t t-late">多世</span></td></tr>
+<tr><td class="ev">登场 3</td><td>来吧——让风看看你的手。</td><td class="alt">风今天很安静。……它从不对谁这样。</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">残血 1</td><td>风……从断口灌进来了……</td><td class="alt">桥在晃……跟那天一样……</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">残血 2</td><td>团长的剑，还没有输过！</td><td class="alt">上次是风偏了！……这一次，不会！</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">被击败 1</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">被击败 2</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 1</td><td>桥还在。你走不过去。</td><td class="alt">又掉下去了。……云下的团员，都认得你了。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 2</td><td>云下面，有我的整个守卫团。</td><td class="alt">风会把你送回去。……它比我心软。</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+</table>
+<h3>第5关 · 克洛伊 · 停时魔女</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场 1</td><td>嘘……这座城的时间，是我借来的。</td><td class="alt">嘘……这一刻，我是不是停住过？</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">登场 2</td><td>女王走进光里那天，我没有跟上去。</td><td class="alt">补一道金纹，忘一年。……这一道，为谁补的？<div class="note">残卷肆：每补一道金纹，她就忘掉一年。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">登场 3</td><td>让我看看你的手——是不是我等的那一双。</td><td class="alt">又是这双手……我是不是，问过你很多次了？</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">残血 1</td><td>金线在裂……三百年，在往回涌。</td><td class="alt">沙漏……又倒过来了。</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">残血 2</td><td>再等一下……就一下。</td><td class="alt">戒指在发烫……你又要走了吗。<div class="note">仅在「时之约」之后（meta.lore.cloVow）。</div></td><td class="tag"><span class="t t-vow">时之约后</span></td></tr>
+<tr><td class="ev">被击败 1</td><td>我的钟……开始走了。</td><td class="alt">钟走了……还会倒回来的，对吧？</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">被击败 2</td><td>原来三百年……这么快。</td><td class="alt">每一次……都是你，让我的钟走一下。</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 1</td><td>你也停下吧。我陪你。</td><td class="alt">你停在这里的样子……我看过很多遍。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 2</td><td>下一次……走快一点来找我。</td><td class="alt">这一次，我又会忘的。……没关系，你还会来。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第6关 · 雷恩 · 卡斯坦 · 熔冠天骑</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场 1</td><td>天穹壁垒。往上的路，到此为止。</td><td class="alt">又是你。……上次那一枪，没让你长记性？</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">登场 2</td><td>我见过一个人走上去。他再也没下来。</td><td class="alt">旗上有两个名字。另一个……我不念。<div class="note">残卷伍：旗上只剩「瑞」字。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">登场 3</td><td>回头吧——我不想再送任何人。</td><td class="alt">你倒在墙下的次数，比我第三队的人都多。<div class="note">呼应精英「雷枪战斗法师」：壁垒第三队只剩一人。</div></td><td class="tag"><span class="t t-late">多世</span></td></tr>
+<tr><td class="ev">残血 1</td><td>这一击……他也用过。</td><td class="alt">雷……认得你？</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">残血 2</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">被击败 1</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">被击败 2</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 1</td><td>躺着吧。至少，你不用替谁去死。</td><td class="alt">躺着。……下一世，你还会爬上来，是不是。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 2</td><td>下一个……也别上来了。</td><td class="alt">我朝天开了三百年的火，也没你爬得勤。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第7关 · 赛琳娜 · 律令者</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场 1</td><td>王城律令第一条：王，必须走进那道光。</td><td class="alt">律令最后一条：不看。……我一直守着。</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">登场 2</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">登场 3</td><td>我不看你，就不会动摇。</td><td class="alt">你的脚步，我听过太多次。眼罩……更紧了。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+<tr><td class="ev">残血 1</td><td>法印在松……律令在松。</td><td class="alt">天平在偏……它从没为谁偏过。<div class="note">残卷贰：腰间的天平一千年没偏过一次。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">残血 2</td><td>不行……不能在这里摘下眼罩。</td><td class="alt">上一次……我差一点，就看了。</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">被击败 1</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">被击败 2</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 1</td><td>律令，执行完毕。</td><td class="alt">判决不变。可你，每次都会再上诉。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">胜利（你倒下） 2</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第8关 · 最终守关者</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">一阶段登场 1</td><td>我们是历代的王</td><td class="alt">我们记不得自己的名字</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">一阶段登场 2</td><td>我们撑着这个世界，一千年</td><td class="alt">你来过。我们之中，没有谁来过第二次</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">一阶段登场 3</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+<tr><td class="ev">二阶段觉醒 1</td><td>……够了，退下吧。</td><td class="alt">退下。这一位，由我来。</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">二阶段觉醒 2</td><td>我醒着，一直都醒着。</td><td class="alt">每一世，我都看着你从泉边醒来。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">二阶段觉醒 3</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">二阶段残血 1</td><td>我的手……也快散尽了。</td><td class="alt">光在退……这一世，它退得比上次快。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">二阶段残血 2</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+<tr><td class="ev">二阶段被击败 1</td><td>一千年……原来这么长。</td><td class="alt">终于……可以睡一会儿了。</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">二阶段被击败 2</td><td colspan="2" class="sp">（含剧透，见仓库 JSON）</td><td class="tag"><span class="t t-beaten">曾败</span></td></tr>
+<tr><td class="ev">二阶段胜利（你倒下） 1</td><td>还不够。</td><td class="alt">手，还不够稳。</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">二阶段胜利（你倒下） 2</td><td>下一世……再来吧。我还醒着。</td><td class="alt">回泉边去吧。替我问她，天是什么颜色。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h2>精英</h2>
+<h3>第1关 · 晶化猎巫人（精英）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>我追了魔蚀一辈子，它追上我了</td><td class="alt">上次你倒下的地方，晶已经长到膝盖了</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">被击败</td><td>替我……把晶敲碎。</td><td class="alt">那顿早饭……我不等了……<div class="note">心愿：格雷戈尔欠她一顿早饭，从魔蚀落下那天欠到现在。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>晶会追上你的。和追上我一样。</td><td class="alt">你逃了这么多回，它还是追得上。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第2关 · 溺城法务官（精英）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>依旧法第七条，登天者当斩！</td><td class="alt">同一被告，屡斩不改！本庭……从严！</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">被击败</td><td>这条法令……还有效吗……</td><td class="alt">这一庭……又要休庭了……</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>判决：登天者，溺。</td><td class="alt">判决：登天者，溺。……又是你。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第3关 · 石面苦行法师（精英）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>我封住了五感，就听不见山在哭。</td><td class="alt">石面在发烫。……你来过，对不对。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">被击败</td><td>石面裂了……好吵……</td><td class="alt">裂缝里……有云雀在叫……<div class="note">心愿：封住五感前最后听见的，是一只云雀。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>回去吧。山在哭，你听不见。</td><td class="alt">山哭的，一直是同一个人的名字。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第4关 · 断桥守卫副团长（精英）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>团长守着桥那头，这一头归我</td><td class="alt">又是你。上次你从这儿掉下去，团长一晚没睡</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">被击败</td><td>菲奥娜……我先下去了。</td><td class="alt">剑……今晚谁替她磨……<div class="note">心愿：副团长每晚偷偷替菲奥娜磨剑。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>团长……又一个掉下去了。</td><td class="alt">团长别数了……掉下去的，都是他。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第5关 · 遗城机巧师（精英）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>我拆了心，装了一只表</td><td class="alt">表在倒着走。……你一来，它就倒着走</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">被击败</td><td>表……停了。</td><td class="alt">发条……替我，给她拧一圈……<div class="note">他给全城的钟上了最后一次发条；「她」是克洛伊。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>滴答。你的时间，到了。</td><td class="alt">滴答。……你的时间，从来不会真的到。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第6关 · 雷枪战斗法师（精英）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>壁垒第三队，还有我一个</td><td class="alt">又是你？统领点名的时候，可没念过你</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">被击败</td><td>统领……我归队了。</td><td class="alt">统领……念我的名字……念响点……</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>第三队，再记一笔！</td><td class="alt">再记一笔！……账本上，全是你！</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第7关 · 王城近卫法师（精英）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>近卫在此，王城不纳外人。</td><td class="alt">那扇门不是我砸的。……你别那样看我。<div class="note">小传：王座间的门后来被人砸开了，他至今不承认是自己。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">被击败</td><td>王……您还在上面吗……</td><td class="alt">斗篷……还在我这儿……天上风大……</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>退下。王，不见客。</td><td class="alt">退下。……您，不该再回来。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第8关 · 历代王之影（精英）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>我曾是第三十一位王</td><td class="alt">继位钟响的时候，我手里还端着一碗汤<div class="note">小传：继位钟点到她名字时，她正在王城厨房学做一道汤。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">被击败</td><td>终于……可以不撑了。</td><td class="alt">叫我一声……我的名字，我自己都忘了。</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>撑下去吧……像我们一样。</td><td class="alt">你还在往上爬？……我们，早就不爬了。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h2>普通敌人</h2>
+<h3>第1关 · 魔蚀学徒（普通）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>别、别过来……晶会跳到你身上的！</td><td class="alt">你、你又来了……你上次身上的晶，怎么没了？</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">被击败</td><td>师父……晶不疼了……</td><td class="alt">我能……变成路边那块，好看的晶吗……<div class="note">格雷戈尔把登天者的晶摆在路边。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>对不起……我只是不想变成晶。</td><td class="alt">对不起……路边你的那块晶，我每天都擦。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第2关 · 浮游抄写员（普通）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>嘘……别踩到那些纸，上面都是名字。</td><td class="alt">嘘……你上次踩湿的那页，我还没晾干。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">被击败</td><td>纸……湿透了……</td><td class="alt">我的名字……谁来抄……</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>我把你也抄下来了。</td><td class="alt">你的那一页……已经抄满了。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第3关 · 碑文守卫（普通）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>碑文未读完的人，不得登阶。</td><td class="alt">碑文最后一行，被凿平了。……你知道是谁吗？<div class="note">巴尔德温残卷伍：誓碑最后一行，被他亲手凿平。</div></td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">被击败</td><td>碑……替我守住……</td><td class="alt">我也要……刻进碑里了吗……</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>回去。把碑文读完再来。</td><td class="alt">回去。……你每次，都只读到一半。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+</table>
+<h3>第4关 · 风哨术士（普通）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>听，风在吹哨——它在叫你掉下去。</td><td class="alt">又是你！风说它认得你——掉下去的姿势都一样！</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">被击败</td><td>哨子……吹不响了。</td><td class="alt">风……怎么不帮我了……</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>风会把你吹回山下的。</td><td class="alt">下去吧！反正你认得回来的路。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第5关 · 齿轮学徒（普通）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>师父说，齿轮一停，城就会掉！所以不许过！</td><td class="alt">咦？我好像拦过你！……不对呀，城里的时间是停着的。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">被击败</td><td>齿轮……卡住了……</td><td class="alt">师父的表……还在走吗……</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>修好啦！你就在这儿歇着吧。</td><td class="alt">又修好啦！……你每次都卡在同一个齿上呢。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第6关 · 壁垒炮术士（普通）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>炮口朝天！——今天，先朝你！</td><td class="alt">统领说，雷打不中天！——打你，总打得中！</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">被击败</td><td>炮……哑了……</td><td class="alt">天……还没塌吧……</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>哈！装填完毕，下一个！</td><td class="alt">哈！又是你！炮管都记住你的样子了！</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+</table>
+<h3>第7关 · 宫廷书记官（普通）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>来访者不在名册之上。请回。</td><td class="alt">名册上没有您。……访客记录里，却有很多次。</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">被击败</td><td>名册……写不下去了。</td><td class="alt">王的那一页……为什么，是空的……</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>已记录：登天者一名，止步于此。</td><td class="alt">已记录：同一登天者。次数……已无法计。</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<h3>第8关 · 王座残响（普通）</h3><table><tr><th>时机</th><th>原台词</th><th>新台词</th><th>标签</th></tr>
+<tr><td class="ev">登场</td><td>……王……王……王……</td><td class="alt">……回来了……回来了……回来了……</td><td class="tag"><span class="t t-again">重逢</span></td></tr>
+<tr><td class="ev">被击败</td><td>回声……停了……</td><td class="alt">……名字……谁的……名字……</td><td class="tag"><span class="t t-none">随机</span></td></tr>
+<tr><td class="ev">胜利（你倒下）</td><td>你……也会……变成回声……</td><td class="alt">你……早就是……回声了……</td><td class="tag"><span class="t t-late">多世</span></td></tr>
+</table>
+<p class="dim">实现方案（待审后再做）：每个台词位置有「原 / 新」两句；新台词带标签时，只有条件满足才进候选；每次从候选里随机抽，若与这个位置上一次播的相同就换另一句。点敌人时的随机台词也不连播同一句。</p></body></html>
