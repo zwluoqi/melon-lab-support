@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>命运牌：九重奏 · 1.1 心动特训（11-08）</title>
+<style>
+  :root { --bg:#16121f; --card:#221b30; --line:#3a2f50; --gold:#f2c46d; --pink:#ff6fa3; --txt:#ece6f5; --dim:#a99cbf; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:18px 14px 160px; }
+  h1 { font-size:22px; margin:6px 0 4px; color:var(--gold); }
+  .lead { color:var(--dim); margin:0 0 18px; }
+  section.q { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:0 0 18px; }
+  section.q h2 { font-size:18px; margin:0 0 6px; }
+  section.q h2 .n { display:inline-block; min-width:26px; height:26px; line-height:26px; text-align:center; border-radius:50%; background:var(--gold); color:#2a1d07; font-size:14px; margin-right:6px; }
+  .why { color:var(--dim); margin:0 0 12px; font-size:14px; }
+  .why ul { margin:4px 0; padding-left:20px; }
+  .opts { display:grid; gap:12px; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); }
+  .opts.wide { grid-template-columns:1fr; }
+  .opts.two { grid-template-columns:repeat(2, 1fr); gap:8px; }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  .row { display:grid; gap:6px; grid-template-columns:2.2fr 1.25fr 0.72fr; align-items:start; }
+  .row img { width:100%; }
+  .gallery.four { grid-template-columns:repeat(4, 1fr); }
+  .note { font-size:13px; color:var(--dim); margin:6px 0 0; }
+  @media (max-width:640px) {
+    .opts.three .opt, .opts.two .opt { padding:6px; }
+    .opts.three .opt h3, .opts.two .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p, .opts.two .opt p { font-size:12px; line-height:1.5; }
+    .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .gallery.four { grid-template-columns:repeat(2, 1fr); }
+  }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  @media (max-width:640px) {
+    .opts.three .opt { padding:6px; }
+    .opts.three .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p { font-size:12px; line-height:1.5; }
+    .opts.three .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .opts.three .opt.ref::before { font-size:11px; }
+    .opts.three .tag { display:block; width:max-content; margin:2px 0 0; }
+  }
+  .opt { position:relative; border:2px solid var(--line); border-radius:12px; padding:10px; background:#1b1527; cursor:pointer; transition:border-color .15s, transform .15s; }
+  .opt:hover { border-color:#6b5a8f; }
+  .opt.sel { border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,111,163,.25); }
+  .opt.sel::after { content:"✓ 已选"; position:absolute; top:8px; right:8px; background:var(--pink); color:#fff; font-size:12px; padding:2px 8px; border-radius:10px; }
+  .opt.ref { cursor:default; opacity:.85; border-style:dashed; }
+  .opt.ref::before { content:"现在的样子（参考）"; display:block; font-size:12px; color:var(--dim); margin-bottom:6px; }
+  .opt img { width:100%; border-radius:8px; display:block; cursor:zoom-in; background:#000; }
+  .opt h3 { font-size:16px; margin:8px 0 2px; color:var(--gold); }
+  .opt p { margin:2px 0; font-size:14px; color:#d8d0e6; }
+  .tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:8px; background:#3b2a12; color:var(--gold); margin-left:4px; vertical-align:middle; }
+  textarea { width:100%; min-height:44px; margin-top:12px; border-radius:10px; border:1px solid var(--line); background:#140f1d; color:var(--txt); padding:8px 10px; font:inherit; }
+  .sub { margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--line); }
+  .sub:first-of-type { border-top:0; padding-top:0; }
+  .sub h4 { margin:0 0 8px; font-size:15px; }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill { border:2px solid var(--line); border-radius:20px; padding:6px 14px; cursor:pointer; background:#1b1527; font-size:14px; }
+  .pill.sel { border-color:var(--pink); background:#3a1830; }
+  .voices { display:grid; gap:8px; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); margin:6px 0 12px; }
+  .voice { background:#1b1527; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:14px; }
+  .voice b { color:var(--gold); }
+  .voice audio { width:100%; height:34px; margin-top:4px; }
+  .gallery { display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
+  .gallery img, .promo img { width:100%; border-radius:8px; cursor:zoom-in; display:block; }
+  .promo { display:grid; gap:10px; grid-template-columns:2fr 1fr; margin-bottom:10px; }
+  video { width:100%; max-width:360px; border-radius:10px; display:block; margin:8px auto; background:#000; }
+  .cap { font-size:12px; color:var(--dim); text-align:center; margin-top:3px; }
+  #bar { position:fixed; left:0; right:0; bottom:0; background:rgba(18,13,26,.97); border-top:1px solid var(--line); padding:10px 14px; }
+  #bar .in { max-width:980px; margin:0 auto; display:flex; gap:10px; align-items:center; }
+  #bar .prog { flex:1; color:var(--dim); font-size:14px; }
+  #bar button { border:0; border-radius:22px; padding:11px 20px; font:inherit; font-weight:600; cursor:pointer; background:linear-gradient(180deg,#ff86b3,#e6457f); color:#fff; }
+  #bar button.ghost { background:#2d2440; color:var(--txt); font-weight:400; }
+  #out { display:none; max-width:980px; margin:8px auto 0; white-space:pre-wrap; background:#140f1d; border:1px solid var(--line); border-radius:10px; padding:10px; font-size:13px; max-height:30vh; overflow:auto; }
+  #lb { position:fixed; inset:0; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; z-index:9; cursor:zoom-out; }
+  #lb img { max-width:96vw; max-height:94vh; }
+  .toast { position:fixed; left:50%; bottom:90px; transform:translateX(-50%); background:#2fae6b; color:#fff; padding:8px 18px; border-radius:20px; display:none; z-index:10; }
+</style>
+<style>.fields{display:grid;gap:6px;grid-template-columns:120px 1fr;font-size:14px;margin:8px 0}.fields b{color:var(--gold)}.fields span{background:#140f1d;border:1px solid var(--line);border-radius:8px;padding:4px 8px} .beats{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0}.beats td,.beats th{border:1px solid var(--line);padding:5px 6px;vertical-align:top}.beats th{color:var(--gold);background:#1b1527} .shots{display:grid;gap:8px;grid-template-columns:repeat(4,1fr)} @media(max-width:640px){.shots{grid-template-columns:repeat(2,1fr)}} .shots img{width:100%;border-radius:8px;cursor:zoom-in}</style>
+<body>
+<main>
+<h1>命运牌：九重奏 · 1.1「心动特训」</h1>
+<p class="lead">11-08。上半部分是这一版已经做好的东西（只看）；下面三题要你选：剧情节奏方案、新版本运营的文字和日期、什么时候提审。选完点「复制我的选择」发回对话。</p>
+
+<section class="q" data-q="s0" data-title="已完成">
+  <h2><span class="n">✓</span>这一版已经做好的</h2>
+  <div class="why txt">
+    <h4>① 心动特训（局外成长，按你给的数值）</h4>
+    <ul>
+      <li>九种牌型对应九位女主（她最爱的牌型）：晚晴高牌、绫香对子、夏洛特两对、英格丽德三条、智雅顺子、卡米耶同花、麦迪逊葫芦、薇拉四条、莱拉同花顺。</li>
+      <li>每赢一场第3轮掉 1 枚<b>心动徽章</b>（结算页显示）。特训一级花 1 / 2 / 2 / 3 枚（1–5 级、6–15 级、16–20 级），平均 2 枚一级，<b>平均每 2 场第3轮升 1 级</b>。</li>
+      <li>每级该牌型<b>基础牌分 +20%</b>，最高 20 级（+400%）。只在剧情对局生效，每日挑战、挑战、牌谱码保持原规则。</li>
+      <li>江白的<b>称号</b>：每特训 4 次进阶一次；同一个称号里，同一种牌型只能练 1 次，所以想把一种牌型练满，至少要经过 20 个称号。共 45 个称号：外卡新人 → 俱乐部新星 → 城市牌手 → 全国选手 → 亚洲名将 → 世界种子 → 王牌选手 → 卫冕冠军 → 传奇牌王（各 5 星），最后是「九重奏」。</li>
+      <li>入口：晚晴在大厅冒泡提醒（沿用你 11-06 定的「不放图标，柔和提示」）；每位女主房间里有她的牌型特训卡。每次特训她会说一句自己的台词，称号进阶由晚晴宣布。</li>
+      <li>旧的「晚晴的牌型特训」（100 特训点升 1 级）被替换：老玩家的特训点和已升牌型按 1 种 = 3 枚、30 点 = 1 枚折成徽章退还。</li>
+      <li>难度（游戏 AI 各打 60 局）：没有特训时通关 30%；九种各练 4 级 38%；各 10 级 78%；全满 82%。前期温和、中期明显变强，不会一下点满。</li>
+    </ul>
+    <h4>② 其他</h4>
+    <ul>
+      <li>选择敌人界面：「选择」改成「战斗」，「跳过」和「战斗」一样大、一样醒目。</li>
+      <li>大厅点任何女主（晚晴也一样）直接进她的房间。房间里她会先说一句话，点她再换一句；左侧加了她的牌型特训卡，礼物袋有礼物时「送礼」标签亮红点。</li>
+      <li>论坛每日一帖：每天北京时间 20:00 自动以官方身份发一篇互动帖，按星期轮换题材：周一小剧场、周二二选一、周三牌局心得、周四女主档案、周五晒分、周六剧情讨论、周日开发者碎碎念。今天第一篇已经发出：<a href="https://www.taptap.cn/moment/868604921723748866" style="color:var(--pink)">链接</a>。</li>
+    </ul>
+    <div class="shots"><img src="img/training.jpg"><img src="img/room_growth.jpg"><img src="img/cash_badge.jpg"><img src="img/blinds.jpg"></div>
+    <p class="cap">特训页 · 女主房间 · 结算页的心动徽章 · 战斗 / 跳过</p>
+  </div>
+</section>
+
+<section class="q" data-q="q1" data-title="剧情节奏方案">
+  <h2><span class="n">1</span>剧情出现时间：按电视剧「一集」来排</h2>
+  <div class="why txt">
+    <p>现状（11-07 已做）：一届比赛 8 个赛段 = 8 座城市 = 主线 8 章，每章有 4 个固定点：开赛前、商店后的夜里、第3轮前、第3轮后。时间和地点都对了，但每章的「起承转合」还不明显，输了的那一局基本没有剧情。</p>
+    <p>方案 A 把每个赛段当成电视剧的一集来写，每一集有固定的节拍：</p>
+    <table class="beats">
+      <tr><th>节拍</th><th>什么时候播</th><th>长度</th><th>写什么</th></tr>
+      <tr><td>前情提要</td><td>隔天回来第一次开赛</td><td>1 句 + 1 张图</td><td>「上一集：……」接上次讲到哪</td></tr>
+      <tr><td>冷开场</td><td>进入这座城市、第1轮开赛前</td><td>≤ 20 秒</td><td>一个钩子：一条新闻、一个电话、一个陌生人。不交代全部</td></tr>
+      <tr><td>片头卡</td><td>冷开场后</td><td>2 秒</td><td>「第 3 集 · 柏林 · 立正」城市 + 集名</td></tr>
+      <tr><td>B 线小插曲</td><td>第1轮结算后</td><td>3–5 句</td><td>这一站女主的支线：手机消息、场边偶遇（不打断出牌）</td></tr>
+      <tr><td>夜戏</td><td>商店后、第2轮前</td><td>≤ 40 秒</td><td>感情戏：酒店、天台、电话</td></tr>
+      <tr><td>对峙</td><td>第3轮开赛前</td><td>≤ 30 秒</td><td>她 / 反派正面登场，立下这场的赌注（比如「输了就离开晚晴」）</td></tr>
+      <tr><td>场内反应</td><td>第3轮打到 50% / 90% / 反超时</td><td>气泡 1 句</td><td>她和观众的实时反应，不暂停</td></tr>
+      <tr><td>高潮</td><td>第3轮赢下</td><td>≤ 40 秒 + CG</td><td>本集的情绪顶点</td></tr>
+      <tr><td>下集预告</td><td>高潮后、进商店前</td><td>2 句 + 下一位女主剪影</td><td>悬念：「下一站，莫斯科。有人在等你——」</td></tr>
+      <tr><td>输了的番外</td><td>止步时</td><td>3–6 句</td><td>每章 3 段，按第几次输轮换：晚晴安慰、对手一句话、俱乐部小变化。输了也有新东西看</td></tr>
+    </table>
+    <p>硬规矩：出牌和商店里不弹剧情；单次暂停不超过 40 秒；一集的剧情总长不超过 3 分钟；所有段落都能一键跳过。</p>
+  </div>
+  <div class="opts">
+    <div class="opt" data-v="A 完整剧集化（推荐）"><h3>A · 完整剧集化 <span class="tag">推荐</span></h3><p>上表全部节拍。8 集 × 新增约 7 段。新写约 300 句台词（晚晴主线 + 九位女主支线），用 gemini-4-argon 写，不配音（按你「配音先停」）。</p></div>
+    <div class="opt" data-v="B 轻量"><h3>B · 轻量</h3><p>只加前情提要、冷开场、下集预告、输了的番外。约 120 句。</p></div>
+    <div class="opt" data-v="C 只扩写现有段落"><h3>C · 只扩写现有段落</h3><p>节拍不变，把现有台词加长、加细节。</p></div>
+  </div>
+  <div class="sub" data-sq="react" data-title="场内实时反应">
+    <h4>第3轮里的实时反应气泡（不暂停）</h4>
+    <div class="pills"><span class="pill" data-v="要">要</span><span class="pill" data-v="不要">不要</span></div>
+  </div>
+  <textarea placeholder="备注（可不填）"></textarea>
+</section>
+
+<section class="q" data-q="q2" data-title="新版本运营">
+  <h2><span class="n">2</span>新版本运营：素材已备好</h2>
+  <div class="why txt">
+    <p>「新版本运营」没有接口，中控里这个游戏的账号（podium）也没配 TapTap 网页凭据，所以我没法替你点提交。下面的文字和图都是按后台字段准备的，你在「新版本管理 → 新建」照着贴，约 10 分钟。点图打开的是原尺寸，可以直接存下来上传。</p>
+    <div class="fields">
+      <b>新版本推广图</b><span>16:9 2560×1440（只有游戏名和版本名）<a href="img/promo-16x9.jpg" style="color:var(--pink)"> 原图</a></span>
+      <b>新版本头图</b><span>16:9 1920×1080 <a href="img/head-16x9.jpg" style="color:var(--pink)"> 原图</a></span>
+      <b>搜索品牌专区图</b><span>2.5:1 2560×1024 <a href="img/search-2.5x1.jpg" style="color:var(--pink)"> 原图</a></span>
+      <b>版本简介</b><span>九位女主陪你特训九种牌型，赢一场第3轮得一枚心动徽章，牌分永久提升，最高 20 级；江白的称号一路进阶，大厅点她直接进房间。（61 字）</span>
+      <b>模块 1</b><span>心动特训：九种牌型永久变强｜划重点：九位女主陪你练九种牌型 · 赢第3轮得心动徽章 · 每级牌分+20%最高20级 · 每4次特训进阶一个称号</span>
+      <b>模块 2</b><span>更顺手的体验｜划重点：大厅点女主直接进房间 · 房间里她会先和你说话 · 选择敌人改成战斗/跳过</span>
+      <b>模块 3</b><span>剧情更新｜按第 1 题定的方案写好后填（例：每座城市一集，有冷开场、下集预告、输了也有番外）</span>
+      <b>是否显示历史版本</b><span>显示</span>
+    </div>
+    <div class="promo"><img src="img/promo-16x9.jpg"><img src="img/search-2.5x1.jpg"></div>
+  </div>
+  <div class="sub" data-sq="name" data-title="版本名">
+    <h4>版本名（版本号 + 名字，不能带游戏名）</h4>
+    <div class="pills"><span class="pill" data-v="1.1 心动特训">1.1 心动特训</span><span class="pill" data-v="1.1 九重心动">1.1 九重心动</span></div>
+  </div>
+  <div class="sub" data-sq="sell" data-title="卖点">
+    <h4>卖点（20 字内）</h4>
+    <div class="pills">
+      <span class="pill" data-v="九位女主陪你特训，牌型永久变强">九位女主陪你特训，牌型永久变强</span>
+      <span class="pill" data-v="赢下就有心动徽章，越打越强">赢下就有心动徽章，越打越强</span>
+      <span class="pill" data-v="新增局外成长，九种牌型最高20级">新增局外成长，九种牌型最高20级</span>
+    </div>
+  </div>
+  <div class="sub" data-sq="tags" data-title="标签">
+    <h4>新版本标签（后台从现有标签里选，最多 3 个，建议）</h4>
+    <div class="pills"><span class="pill" data-v="新玩法 / 养成 / 剧情">新玩法 / 养成 / 剧情</span><span class="pill" data-v="新玩法 / 恋爱 / 卡牌">新玩法 / 恋爱 / 卡牌</span></div>
+  </div>
+  <div class="sub" data-sq="date" data-title="上线日期">
+    <h4>上线日期（官方建议上线前留 7 天预热）</h4>
+    <div class="pills"><span class="pill" data-v="11-15（周日）">11-15（周日）</span><span class="pill" data-v="11-16（周一）">11-16（周一）</span><span class="pill" data-v="11-21（周六，剧情一起上）">11-21（周六，剧情一起上）</span></div>
+  </div>
+  <textarea placeholder="备注（可不填）"></textarea>
+</section>
+
+<section class="q" data-q="q3" data-title="提审">
+  <h2><span class="n">3</span>1.1 什么时候提审</h2>
+  <p class="why">代码已推 GitHub；Maker 测试包我会构建好，给你二维码先试玩。</p>
+  <div class="pills">
+    <span class="pill" data-v="先提特训这版，剧情下一版">先提特训这版，剧情下一版</span>
+    <span class="pill" data-v="剧情做完一起提">剧情做完一起提</span>
+    <span class="pill" data-v="我先试玩再说">我先试玩再说</span>
+  </div>
+  <textarea placeholder="备注（可不填）"></textarea>
+</section>
+</main>
+
+<div id="bar">
+  <div class="in"><div class="prog" id="prog"></div><button class="ghost" id="reset">清空</button><button id="copy">复制我的选择</button></div>
+  <div id="out"></div>
+</div>
+<div id="lb"><img alt=""></div>
+<div class="toast" id="toast">已复制，发回对话里给我就行</div>
+
+<script>
+const KEY = "jg-v11-1108";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+const qs = [...document.querySelectorAll("section.q")];
+
+function bindGroup(container, id, itemSel) {
+  const items = [...container.querySelectorAll(itemSel)];
+  items.forEach(el => {
+    if (state[id] === el.dataset.v) el.classList.add("sel");
+    el.addEventListener("click", e => {
+      if (e.target.tagName === "IMG") return;
+      const on = !el.classList.contains("sel");
+      items.forEach(x => x.classList.remove("sel"));
+      if (on) { el.classList.add("sel"); state[id] = el.dataset.v; } else delete state[id];
+      save(); render();
+    });
+  });
+}
+qs.forEach(s => {
+  const id = s.dataset.q;
+  if (s.querySelector(":scope > .opts .opt[data-v]")) bindGroup(s, id, ".opt[data-v]");
+  s.querySelectorAll(".sub").forEach(sub => bindGroup(sub, id + "." + sub.dataset.sq, ".pill"));
+  const tp = s.querySelector(":scope > .pills"); if (tp) bindGroup(tp, id, ".pill");
+  const ta = s.querySelector(":scope > textarea");
+  if (ta) { ta.value = state[id + ".note"] || ""; ta.addEventListener("input", () => { state[id + ".note"] = ta.value; save(); render(); }); }
+});
+
+function lines() {
+  const out = ["【命运牌：九重奏 · 1.1 剧情节奏与新版本运营 11-08】"];
+  let n = 0, done = 0;
+  qs.forEach((s, i) => {
+    if (!s.querySelector("[data-v]")) return; // (information only)
+    const id = s.dataset.q, t = s.dataset.title, subs = [...s.querySelectorAll(".sub")];
+    if (subs.length) {
+      out.push(`${s.querySelector(".n").textContent}. ${t}：`);
+      subs.forEach(sub => { n++; const v = state[id + "." + sub.dataset.sq]; if (v) done++; out.push(`   - ${sub.dataset.title}：${v || "（未选）"}`); });
+    } else { n++; const v = state[id]; if (v) done++; out.push(`${s.querySelector(".n").textContent}. ${t}：${v || "（未选）"}`); }
+    const note = (state[id + ".note"] || "").trim();
+    if (note) out.push(`   备注：${note}`);
+  });
+  return { text: out.join("\n"), n, done };
+}
+function render() { const r = lines(); document.getElementById("prog").textContent = `已选 ${r.done} / ${r.n} 项`; }
+render();
+
+document.getElementById("copy").onclick = async () => {
+  const { text } = lines(), out = document.getElementById("out");
+  out.style.display = "block"; out.textContent = text;
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {}
+  if (!ok) { const r = document.createRange(); r.selectNodeContents(out); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { ok = document.execCommand("copy"); } catch (e) {} }
+  const t = document.getElementById("toast"); t.textContent = ok ? "已复制，发回对话里给我就行" : "没能自动复制，请长按下面的文字复制";
+  t.style.display = "block"; setTimeout(() => t.style.display = "none", 2200);
+};
+document.getElementById("reset").onclick = () => {
+  if (!confirm("清空这页上所有的选择和备注？")) return;
+  localStorage.removeItem(KEY); location.reload();
+};
+const lb = document.getElementById("lb");
+document.querySelectorAll("main img").forEach(img => img.addEventListener("click", () => { lb.querySelector("img").src = img.src; lb.style.display = "flex"; }));
+lb.onclick = () => lb.style.display = "none";
+</script>
+
+</body>
+</html>
