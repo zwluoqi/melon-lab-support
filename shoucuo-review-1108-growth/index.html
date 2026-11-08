@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>《手搓魔法》局外成长方案 · 角色升级 + 魔法书强化</title>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>《手搓魔法》局外成长方案 第二版 · 唤醒 + 搓炼 + 魔法师等级</title>
 <style>
 body{margin:0;background:#0f0b1a;color:#ece4d0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.65}
 .w{max-width:860px;margin:0 auto;padding:18px 14px 60px}
@@ -35,86 +35,94 @@ td.m{color:#b8a6ff}td.s{font-size:12px;color:#a99e88}tr.hl td,td.hl{background:#
 .btn{margin-top:8px;text-align:center;background:linear-gradient(#6a7aff,#4a50c8);border-radius:14px;padding:6px;font-size:12px;color:#fff}
 .btn.off{background:#3a3550;color:#aaa;font-size:11px}
 .line{font-size:11px;color:#e6dcff;text-align:center;margin:6px 0;font-style:italic}
+.sch .bt{float:right;font-size:9px;background:#6a7aff;color:#fff;border-radius:6px;padding:0 5px}
+.diff td:nth-child(2){color:#a99e88}.diff td:nth-child(3){color:#ffe08a}
+.diff td{text-align:left}
 </style></head><body><div class=w>
-<h1>《手搓魔法》局外成长方案：角色升级 + 魔法书强化</h1>
-<p class=sub>11-08 · 方案稿，<b>没有改代码</b>，你确认后再交给工程。原文：haoyunlai/research/content/meta_growth.md</p>
-<div class=note><b>一句话：</b>原来的「魔力源泉」变成<b>升级</b>：打赢敌人得经验，每 100 经验升 1 级。每升一级，薇丝塔在泉边替你唤醒一系魔法（开局 +1 级），三个阶段 × 12 系，36 级时每系开局 +3。<b>魔力结晶</b>改用来<b>强化</b>：在魔法书里「重描」一系魔法，每级基础魔攻 +20%，10 级 = ×3.0，上限随角色等级开放，36 级才能描满。</div>
-<div class=note>货币：你说的「魔晶」在游戏里是<b>局内金币</b>，每局清零，没法做永久强化，所以强化花的是局外的<b>魔力结晶</b>。界面上建议统一写「魔力结晶」，避免和商店里的魔晶混在一起。</div>
+<h1>《手搓魔法》局外成长方案（第二版）：唤醒 + 搓炼 + 魔法师等级</h1>
+<p class=sub>11-08 · 按你的第二版规则重做，<b>没有改代码</b>。原文：haoyunlai/research/content/meta_growth.md</p>
+<div class=note><b>一句话：</b>过一个敌人（绕过也算）得 10 经验。经验在源泉换<b>唤醒</b>：每系一次，开局 +1 级，第一次 10 经验，之后每次 100。魔力结晶在魔法书里<b>搓炼</b>：12 系一开始都能搓，每次基础魔攻 +20%，10 次 = ×3.0。每搓 5 次进阶一个<b>魔法师等级</b>（最高 Lv25），每系能搓的次数不超过魔法师等级，所以没法只点一系。</div>
 
-<h2>一、角色升级：36 级称号</h2>
-<p>三个阶段对应剧情里主角成长的三步：<b>泉底拾光</b>（找回自己，★ 唤回，开局 +1）→ <b>掌心承答</b>（接过守关者的回答，★★ 共鸣，开局 +2）→ <b>四色成王</b>（四种颜色只有他的手能同时握住，★★★ 合一，开局 +3）。Lv12「魔导师」暗合第一世的他「满手灼痕的年轻魔导师」，Lv36「四色之王」不剧透初代王。「推荐唤醒」一列只是推荐：唤醒由玩家自选，界面上标「推荐」和「常用」。</p>
-<div class=scroll><table><tr><th>级</th><th>阶段一 · 泉底拾光</th><th>推荐唤醒</th><th>级</th><th>阶段二 · 掌心承答</th><th>推荐唤醒</th><th>级</th><th>阶段三 · 四色成王</th><th>推荐唤醒</th></tr><tr><td>1</td><td>魔法师</td><td class=m>火</td><td>13</td><td>承印魔导师</td><td class=m>雷</td><td>25</td><td>候王者</td><td class=m>常用优先</td></tr><tr><td>2</td><td>元素学士</td><td class=m>水</td><td>14</td><td>首席魔导师</td><td class=m>冰</td><td>26</td><td>灭世法师</td><td class=m>常用优先</td></tr><tr><td>3</td><td>双色术士</td><td class=m>风</td><td>15</td><td>魔导宗师</td><td class=m>光</td><td>27</td><td>灭世魔导</td><td class=m>常用优先</td></tr><tr><td>4</td><td>四色术士</td><td class=m>土</td><td>16</td><td>元素领主</td><td class=m>暗</td><td>28</td><td>禁咒之主</td><td class=m>常用优先</td></tr><tr><td>5</td><td>搓咒师</td><td class=m>雷</td><td>17</td><td>天阶行者</td><td class=m>土</td><td>29</td><td>王座行者</td><td class=m>常用优先</td></tr><tr><td>6</td><td>咒文师</td><td class=m>冰</td><td>18</td><td>贤者</td><td class=m>风</td><td>30</td><td>摄政大贤者</td><td class=m>常用优先</td></tr><tr><td>7</td><td>秘术师</td><td class=m>光</td><td>19</td><td>禁咒师</td><td class=m>水</td><td>31</td><td>冠冕魔导</td><td class=m>常用优先</td></tr><tr><td>8</td><td>法阵师</td><td class=m>暗</td><td>20</td><td>大贤者</td><td class=m>时间</td><td>32</td><td>无冕之王</td><td class=m>常用优先</td></tr><tr><td>9</td><td>元素使</td><td class=m>时间</td><td>21</td><td>禁咒宗师</td><td class=m>火</td><td>33</td><td>贤王</td><td class=m>常用优先</td></tr><tr><td>10</td><td>高阶法师</td><td class=m>空间</td><td>22</td><td>万象贤者</td><td class=m>空间</td><td>34</td><td>元素之王</td><td class=m>常用优先</td></tr><tr><td>11</td><td>大法师</td><td class=m>秩序</td><td>23</td><td>天穹大贤者</td><td class=m>秩序</td><td>35</td><td>万法之王</td><td class=m>常用优先</td></tr><tr><td>12</td><td>魔导师</td><td class=m>混沌</td><td>24</td><td>圣贤</td><td class=m>混沌</td><td>36</td><td>四色之王</td><td class=m>混沌</td></tr></table></div>
+<h2>上一版 → 本版</h2>
+<table class=diff><tr><th>项</th><th>上一版</th><th>本版</th></tr>
+<tr><td>经验</td><td>普通 5 / 守关者 10，绕过 0，每 100 升 1 级</td><td>过一个敌人 +10（绕过也算），只用来换唤醒</td></tr>
+<tr><td>唤醒</td><td>每级唤醒 1 次，三阶段，每系最多 +3</td><td>每系 1 次（开局 +1），共 12 次；首次 10 经验，之后每次 100，共 1110</td></tr>
+<tr><td>等级</td><td>36 级，由经验决定</td><td>魔法师等级 = 1 + 累计搓炼次数 / 5，最高 Lv25</td></tr>
+<tr><td>强化开放</td><td>⌈等级 / 4⌉，36 级到 10</td><td>12 系一开始都能搓（不用先唤醒）；每系上限 = 魔法师等级</td></tr>
+<tr><td>包装</td><td>重描魔法书</td><td><b>搓炼</b>（掌中搓炼），备选「泉淬」</td></tr>
+<tr><td>费用</td><td>20 … 300，每系 1120</td><td>10 … 150，每系 660，全满 7,920</td></tr>
+<tr><td>平衡</td><td>开局 +3 是大头</td><td>开局只 +1（和现在的源泉一样），风险小</td></tr></table>
 
-<h2>二、经验与节奏</h2>
-<p>普通 5 · 精英 <b>5（建议，待定）</b> · 守关者 10 · 绕过 0 · 每级 100。每局 8 关 × 3 战 = 24 战。从 Lv1 到 Lv36 共 3500 经验。</p>
-<div class=scroll><table><tr><th>走到</th><th>赢的战数</th><th>经验（精英 5）</th><th>经验（精英 8）</th><th>魔力结晶</th></tr><tr><td>第 1 关倒下</td><td>2</td><td>10</td><td>13</td><td>20</td></tr><tr><td>第 2 关倒下</td><td>5</td><td>30</td><td>36</td><td>50</td></tr><tr><td>第 3 关倒下</td><td>8</td><td>50</td><td>59</td><td>80</td></tr><tr><td>第 4 关倒下</td><td>11</td><td>70</td><td>82</td><td>110</td></tr><tr><td>第 5 关倒下</td><td>14</td><td>90</td><td>105</td><td>140</td></tr><tr><td>第 6 关倒下</td><td>17</td><td>110</td><td>128</td><td>170</td></tr><tr><td>第 7 关倒下</td><td>20</td><td>130</td><td>151</td><td>200</td></tr><tr><td>第 8 关倒下</td><td>23</td><td>150</td><td>174</td><td>230</td></tr><tr class=hl><td>通关</td><td>24</td><td>160</td><td>184</td><td>240</td></tr></table></div>
-<table><tr><th>区段</th><th>局数</th><th>平均单局</th><th>累计</th><th>等级</th></tr>
-<tr><td>第 1–10 局</td><td>10</td><td>40</td><td>400</td><td>Lv5</td></tr>
-<tr><td>第 11–19 局</td><td>9</td><td>80</td><td>1120</td><td class=hl>Lv12 · 阶段一完成</td></tr>
-<tr><td>第 20–30 局</td><td>11</td><td>100</td><td>2220</td><td>Lv23</td></tr>
-<tr><td>第 31–42 局</td><td>12</td><td>110–130</td><td>3500</td><td class=hl>Lv36 · 约 15 小时</td></tr></table>
-<p>总长度合适：阶段一大约 19 局，和现在源泉唤醒 12 系的速度差不多。<b>问题在开头偏慢</b>：第一次升级要到第 3 局左右。</p>
-<div class=flag>⚠ 请你定：① 精英给 5 还是 8？② 前期要不要加速：Lv1–6 每级只要 50 经验（第 1–2 局就能升级），或者保留 100，另给每位守关者「第一次击败」+20 经验。36 级之后，每 100 经验换 50 魔力结晶（「泉水满溢」）。</div>
-<h3>老存档</h3>
-<p>按终身赢过的战数补算经验（最多给到 Lv12）；已经唤醒的系保留，等级至少等于已唤醒的系数；当初唤醒花的结晶（每系 100）<b>全额退回</b>，用来强化。第一次进营地，薇丝塔用一句话交代这次改动。</p>
+<h2>一、唤醒（源泉）</h2>
+<p>每局结束都检查经验，够就给唤醒机会并扣经验，可以一次给好几次。回营地后在源泉由薇丝塔陪着选一系，没用掉的机会显示角标「唤醒 ×N」。12 系共需 1110 经验。</p>
+<div class=scroll><table><tr><th>走到</th><th>过的敌人</th><th>经验</th><th>魔力结晶（只算赢）</th></tr><tr><td>第 1 关倒下</td><td>2</td><td>20</td><td>10–20</td></tr><tr><td>第 2 关</td><td>5</td><td>50</td><td>40</td></tr><tr><td>第 3 关</td><td>8</td><td>80</td><td>70</td></tr><tr><td>第 4 关</td><td>11</td><td>110</td><td>100</td></tr><tr><td>第 5 关</td><td>14</td><td>140</td><td>130</td></tr><tr><td>第 6 关</td><td>17</td><td>170</td><td>160</td></tr><tr><td>第 7 关</td><td>20</td><td>200</td><td>190</td></tr><tr><td>第 8 关</td><td>23</td><td>230</td><td>220</td></tr><tr class=hl><td>通关</td><td>24</td><td>240</td><td>200–240</td></tr></table></div>
+<table><tr><th>玩家</th><th>第 1 次唤醒</th><th>唤醒满 5 系</th><th>唤醒满 12 系</th></tr>
+<tr><td>休闲</td><td>第 1 局</td><td>第 9 局</td><td>第 17 局</td></tr>
+<tr><td>普通</td><td>第 1 局</td><td>第 6 局</td><td class=hl>第 11 局</td></tr>
+<tr><td>高手</td><td>第 1 局</td><td>第 3 局</td><td>第 6 局</td></tr></table>
+<div class=flag>⚠ 你原话是「每次死亡的时候判断」。建议<b>每局结束都判</b>（通关、放弃也算）。12 系唤醒完以后，建议每 100 经验换 50 结晶，让经验一直有用。</div>
 
-<h2>三、强化（重描魔法书）</h2>
-<h3>上限随角色等级开放（推荐：⌈等级 / 4⌉，36 级 = 10）</h3>
-<div class=scroll><table><tr><th>角色等级</th><td>1–4</td><td>5–8</td><td>9–12</td><td>13–16</td><td>17–20</td><td>21–24</td><td>25–28</td><td>29–32</td><td>33–35</td><td>36</td></tr><tr><th>强化上限</th><td class=><b>1</b></td><td class=><b>2</b></td><td class=><b>3</b></td><td class=><b>4</b></td><td class=><b>5</b></td><td class=><b>6</b></td><td class=><b>7</b></td><td class=><b>8</b></td><td class=><b>9</b></td><td class=hl><b>10</b></td></tr><tr><th>阶段</th><td class=s>一</td><td class=s>一</td><td class=s>一 完成</td><td class=s>二</td><td class=s>二</td><td class=s>二 完成</td><td class=s>三</td><td class=s>三</td><td class=s>三</td><td class=s>四色之王</td></tr></table></div>
-<p class=sub>备选：每系单独开放，上限 = 3 × 这一系的唤醒星数，36 级再 +1。两套系统绑得更紧，但最后才唤醒的那一系要等很久。</p>
+<h2>二、搓炼与魔法师等级</h2>
+<h3>开放表：每系上限 = 魔法师等级</h3>
+<div class=scroll><table><tr><th>魔法师等级</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11–25</td></tr><tr><th>每系上限</th><td class=><b>1</b></td><td class=><b>2</b></td><td class=><b>3</b></td><td class=><b>4</b></td><td class=><b>5</b></td><td class=><b>6</b></td><td class=><b>7</b></td><td class=><b>8</b></td><td class=><b>9</b></td><td class=hl><b>10</b></td><td class=><b>10</b></td></tr><tr><th>累计强化</th><td class=s>0</td><td class=s>5</td><td class=s>10</td><td class=s>15</td><td class=s>20</td><td class=s>25</td><td class=s>30</td><td class=s>35</td><td class=s>40</td><td class=s>45</td><td class=s>50…120</td></tr></table></div>
+<div class=note><b>卡死检查：不会卡。</b>在 Lv L 时，12 系最多能搓 12L 次，进阶只要 5L 次，任何等级都够。（上一稿要求「先唤醒才能搓」，那时要唤醒满 5 系才能升 Lv2，普通玩家要卡 5 局。你把两者解绑后，这道墙就没了，按原规则即可，不用改。）防单点仍然成立：一系搓到上限后，要先在别的系上凑满 5 次才能继续。<br>⚠ 上限在 Lv10 就到 10，Lv11–25 只有称号和累计进度。</div>
 <h3>费用（魔力结晶）</h3>
-<div class=scroll><table><tr><th>强化到</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><th>花费</th><td>20</td><td>30</td><td>40</td><td>60</td><td>80</td><td>100</td><td>130</td><td>160</td><td>200</td><td>300</td></tr><tr><th>一系累计</th><td>20</td><td>50</td><td>90</td><td>150</td><td>230</td><td>330</td><td>460</td><td>620</td><td>820</td><td>1120</td></tr></table></div>
-<table><tr><th>节点</th><th>累计结晶</th><th>12 系都到上限要花</th><th>结论</th></tr>
-<tr><td>Lv12（上限 3）</td><td>~1,650</td><td>1,080</td><td>都能点满</td></tr>
-<tr><td>Lv24（上限 6）</td><td>~3,450</td><td>3,960</td><td>要挑主力系</td></tr>
-<tr><td>Lv36（上限 10）</td><td>~5,250–7,000</td><td>13,440</td><td>能满 4–6 系，其余是长线</td></tr></table>
-<h3>平衡（+20% / 级，10 级 = 基础魔攻 ×3.0，不带装备的单手伤害）</h3>
-<table><tr><th>节点</th><th>开局</th><th>强化</th><th>水·对子</th><th>雷·同花</th><th>光·葫芦</th><th>暗·四条</th></tr>
-<tr><td>现在新号</td><td>+0</td><td>0</td><td>52</td><td>300</td><td>320</td><td>644</td></tr>
-<tr><td>Lv12</td><td>+1</td><td>3</td><td>141</td><td>666</td><td>774</td><td>1,580</td></tr>
-<tr><td>Lv24</td><td>+2</td><td>6</td><td>272</td><td>1,176</td><td>1,424</td><td>2,912</td></tr>
-<tr class=hl><td>Lv36</td><td>+3</td><td>10</td><td>455</td><td>1,900</td><td>2,350</td><td>4,832</td></tr></table>
-<p>强化只加<b>基础魔攻</b>（同等级下主力魔法约 ×1.5），大头是开局 +3 级。满级玩家<b>不带装备</b>就能打到第 3 关守关者（3 手同花约 5,700 > 4,000）。第 5 关以后的伤害靠装备乘算，不受影响。所以风险是<b>前 3 关对满级玩家变成热身</b>，不会被打穿。</p>
-<div class=note>缓解：① 难度越高的世，给的经验和结晶越多（每高一世 +10%），用奖励把强的玩家引到更难的世；② 挑战赛、排名每日挑战照旧不吃局外成长；③ 备用：前 3 关目标按阶段 ×1.2 / ×1.4，默认关闭。另外「创造新世界」结局要一系到 Lv10，开局 +3 会让它变容易，<b>请你定</b>：结局要不要只算局内获得的等级。</div>
+<div class=scroll><table><tr><th>第几次</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><th>花费</th><td>10</td><td>20</td><td>30</td><td>40</td><td>50</td><td>60</td><td>80</td><td>100</td><td>120</td><td>150</td></tr><tr><th>一系累计</th><td>10</td><td>30</td><td>60</td><td>100</td><td>150</td><td>210</td><td>290</td><td>390</td><td>510</td><td>660</td></tr></table></div>
+<table><tr><th>玩家</th><th>第一次进阶 Lv2</th><th>Lv5</th><th>Lv10（上限到 10）</th><th>Lv25（全满）</th></tr>
+<tr><td>休闲</td><td>第 2 局</td><td>第 7 局</td><td>第 19 局</td><td>第 80 局</td></tr>
+<tr><td>普通</td><td>第 1 局</td><td>第 5 局</td><td>第 13 局</td><td class=hl>第 53 局（约 20 小时）</td></tr>
+<tr><td>高手</td><td>第 1 局</td><td>第 3 局</td><td>第 7 局</td><td>第 41 局</td></tr></table>
+<p class=sub>上一版的 20 … 300 曲线放到新规则里，普通玩家要 82 局才全满，太长，所以改成 10 … 150。偶尔看广告翻倍，大约 40 局全满。</p>
 
-<h2>四、界面示意</h2>
+<h3>25 级称号</h3>
+<div class=scroll><table><tr><th>级</th><th>泉底拾光 · 找回自己</th><th>上限</th><th>级</th><th>掌心承答 · 接过别人</th><th>上限</th><th>级</th><th>四色成王</th><th>上限</th></tr><tr><td>1</td><td>魔法师</td><td class=s>1</td><td>11</td><td>承印魔导师</td><td class=s>10</td><td>18</td><td>候王者</td><td class=s>10</td></tr><tr><td>2</td><td>元素学士</td><td class=s>2</td><td>12</td><td>魔导宗师</td><td class=s>10</td><td>19</td><td>灭世魔导</td><td class=s>10</td></tr><tr><td>3</td><td>双色术士</td><td class=s>3</td><td>13</td><td>元素领主</td><td class=s>10</td><td>20</td><td>禁咒之主</td><td class=s>10</td></tr><tr><td>4</td><td>四色术士</td><td class=s>4</td><td>14</td><td>天阶行者</td><td class=s>10</td><td>21</td><td>冠冕魔导</td><td class=s>10</td></tr><tr><td>5</td><td>搓咒师</td><td class=s>5</td><td>15</td><td>贤者</td><td class=s>10</td><td>22</td><td>无冕之王</td><td class=s>10</td></tr><tr><td>6</td><td>秘术师</td><td class=s>6</td><td>16</td><td>大贤者</td><td class=s>10</td><td>23</td><td>贤王</td><td class=s>10</td></tr><tr><td>7</td><td>法阵师</td><td class=s>7</td><td>17</td><td class=hl>圣贤</td><td class=s>10</td><td>24</td><td>万法之王</td><td class=s>10</td></tr><tr><td>8</td><td>元素使</td><td class=s>8</td><td></td><td></td><td></td><td>25</td><td class=hl>四色之王</td><td class=s>10</td></tr><tr><td>9</td><td class=hl>魔导师</td><td class=s>9</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>10</td><td class=hl>禁咒师</td><td class=s>10</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></div>
+<p>Lv9 魔导师：暗合第一世「满手灼痕的年轻魔导师」，只做暗示。Lv10 禁咒师：上限开到 10。Lv22 无冕之王 → Lv23 贤王。Lv25 四色之王：不提初代王，也不站任何结局的立场（备选「掌心之王」）。</p>
+
+<h2>三、搓炼的包装（推荐 A）</h2>
+<table><tr><th>方案</th><th>发生了什么</th><th>评价</th></tr>
+<tr class=hl><td>A 搓炼</td><td>她把一枚结晶（他前世魔法的碎片）放进他掌心，双手从外面包住他的手，他合掌一搓，碎片化进那一系，法阵多亮一圈。「别急。……你的手比你记得清楚。」</td><td>「手搓」就是游戏名和核心动作；唤醒是她还给他，掌贴掌是她按进去，搓炼是他自己的手在做</td></tr>
+<tr><td>B 泉淬</td><td>把那一系魔法浸进泉水里淬，结晶化在水中，她握着他的手腕</td><td>最省事，但和唤醒是同一个场景，两个系统分不开</td></tr>
+<tr><td>C 重描魔法书</td><td>两人同握一支笔，把褪色的法阵描回去</td><td>上一版的方案，「写字」和「手搓」离得远</td></tr></table>
+
+<h2>四、平衡（不带装备的单手伤害）</h2>
+<table><tr><th>状态</th><th>水·对子</th><th>雷·同花</th><th>光·葫芦</th><th>暗·四条</th><th>时间·同花顺</th></tr>
+<tr><td>新号</td><td>52</td><td>300</td><td>320</td><td>644</td><td>1,120</td></tr>
+<tr><td>未唤醒 + 搓炼 10</td><td>92</td><td>580</td><td>640</td><td>1,484</td><td>2,720</td></tr>
+<tr><td>唤醒（= 现在源泉）</td><td>123</td><td>540</td><td>630</td><td>1,220</td><td>2,160</td></tr>
+<tr><td>唤醒 + 搓炼 5</td><td>153</td><td>750</td><td>870</td><td>1,820</td><td>3,360</td></tr>
+<tr class=hl><td>唤醒 + 搓炼 10</td><td>183</td><td>960</td><td>1,110</td><td>2,420</td><td>4,560</td></tr></table>
+<p>满级比现在源泉满唤醒的玩家强约 ×1.3–1.8。不带装备，3 手同花 2,880，能过第 2 关守关者（1,600），过不了第 3 关精英（3,000）。第 4 关以后靠装备的乘算，基本不受影响。<b>结论：风险小，不用调难度。</b>挑战赛和排名每日挑战照旧不吃局外成长。可选：难度越高的世，经验和结晶越多。</p>
+
+<h2>五、界面示意</h2>
 <div class=mocks>
-<div class=phone><div class=cap>营地：等级和称号</div><div class=camp>
-<div class=plate>王城 · 第 5 关<br><b>Lv 8 · 法阵师</b><div class=bar><i></i></div><span style="font-size:9px;color:#a99e88">63 / 100</span></div>
+<div class=phone><div class=cap>营地：魔法师等级</div><div class=camp>
+<div class=plate>王城 · 第 5 关<br><b>Lv 7 · 法阵师</b><div class=bar><i></i></div><span style="font-size:9px;color:#a99e88">累计搓炼 33 / 35</span></div>
 <div class=book>魔法书</div><div class=dot style="right:8px;top:56px"></div>
 <div class=hero></div><div class=vesta></div><div class=spring></div><div class=dot style="left:150px;bottom:62px"></div>
-<div class=lbl style="left:88px;bottom:8px">源泉 · 有 1 级待唤醒</div></div></div>
-
+<div class=lbl style="left:96px;bottom:8px">源泉 · 唤醒 ×1</div></div></div>
 <div class=phone><div class=cap>源泉 · 唤醒（替代魔力源泉）</div>
-<div class=cg>[keeper_wake.jpg 泉边握手、额头相抵]<br>「又升了一级。把手给我。」</div>
-<div class=title><b>法阵师</b><span>Lv 8 · 泉底拾光 8 / 12 · 待唤醒 1</span></div>
-<div class=grid><div class=sch style='border-color:#ff6a2a'><i style='background:#ff6a2a'></i><b>火魔法</b><span class=st>★★★</span></div><div class=sch style='border-color:#3a8cff'><i style='background:#3a8cff'></i><b>水魔法</b><span class=st>★★☆</span></div><div class=sch style='border-color:#3ad08a'><i style='background:#3ad08a'></i><b>风魔法</b><span class=st>★★☆</span></div><div class=sch style='border-color:#d0963a'><i style='background:#d0963a'></i><b>土魔法</b><span class=st>★★☆</span></div><div class=sch style='border-color:#c08aff'><i style='background:#c08aff'></i><b>雷魔法</b><span class=st>★★☆</span><em class=f>常用</em></div><div class=sch style='border-color:#7fe8ff'><i style='background:#7fe8ff'></i><b>冰魔法</b><span class=st>★★☆</span></div><div class=sch style='border-color:#ffd24a'><i style='background:#ffd24a'></i><b>光魔法</b><span class=st>★☆☆</span><em>推荐</em></div><div class=sch style='border-color:#9a4aff'><i style='background:#9a4aff'></i><b>暗魔法</b><span class=st>★☆☆</span></div><div class=sch style='border-color:#f3e2a0'><i style='background:#f3e2a0'></i><b>时间魔法</b><span class=st>★☆☆</span></div><div class=sch style='border-color:#6a7aff'><i style='background:#6a7aff'></i><b>空间魔法</b><span class=st>★☆☆</span></div><div class=sch style='border-color:#fff6dc'><i style='background:#fff6dc'></i><b>秩序魔法</b><span class=st>★☆☆</span></div><div class=sch style='border-color:#ff7ad0'><i style='background:#ff7ad0'></i><b>混沌魔法</b><span class=st>★☆☆</span></div></div></div>
-
-<div class=phone><div class=cap>魔法书 · 雷魔法（重描）</div>
-<div class=grid style="margin-bottom:8px"><div class=bk style='border-color:#c08aff'><i style='background:#c08aff'></i><b>雷魔法</b><div class=s>★★☆ · 描 3/10</div><div class=s>施放 326 次 · 最高 18,420</div></div><div class=bk style='border-color:#ffd24a'><i style='background:#ffd24a'></i><b>光魔法</b><div class=s>★★☆ · 描 2/10</div><div class=s>施放 141 次 · 最高 9,880</div></div><div class=bk style='border-color:#3a8cff'><i style='background:#3a8cff'></i><b>水魔法</b><div class=s>★★☆ · 描 3/10</div><div class=s>施放 512 次 · 最高 2,310</div></div><div class=bk style='border-color:#9a4aff'><i style='background:#9a4aff'></i><b>暗魔法</b><div class=s>★★☆ · 描 1/10</div><div class=s>施放 37 次 · 最高 24,600</div></div></div>
+<div class=cg>[keeper_wake.jpg 泉边握手、额头相抵]<br>「选一系吧。我会把它还到你手里。」</div>
+<div class=title><b>唤醒 ×1</b><span>经验 60 / 100 · 已唤醒 4 / 12</span></div>
+<div class=grid><div class=sch style='border-color:#ff6a2a;opacity:1'><i style='background:#ff6a2a'></i><b>火</b><span class=st>开局 +1</span></div><div class=sch style='border-color:#3a8cff;opacity:1'><i style='background:#3a8cff'></i><b>水</b><span class=st>开局 +1</span></div><div class=sch style='border-color:#3ad08a;opacity:1'><i style='background:#3ad08a'></i><b>风</b><span class=st>开局 +1</span></div><div class=sch style='border-color:#d0963a;opacity:0.8'><i style='background:#d0963a'></i><b>土</b><span class=bt>唤醒</span></div><div class=sch style='border-color:#7fe8ff;opacity:0.8'><i style='background:#7fe8ff'></i><b>冰</b><span class=bt>唤醒</span></div><div class=sch style='border-color:#c08aff;opacity:1'><i style='background:#c08aff'></i><b>雷</b><span class=st>开局 +1</span></div><div class=sch style='border-color:#ffd24a;opacity:0.8'><i style='background:#ffd24a'></i><b>光</b><span class=bt>唤醒</span><em class=f>常用</em></div><div class=sch style='border-color:#9a4aff;opacity:0.8'><i style='background:#9a4aff'></i><b>暗</b><span class=bt>唤醒</span></div><div class=sch style='border-color:#f3e2a0;opacity:0.8'><i style='background:#f3e2a0'></i><b>时间</b><span class=bt>唤醒</span></div><div class=sch style='border-color:#6a7aff;opacity:0.8'><i style='background:#6a7aff'></i><b>空间</b><span class=bt>唤醒</span></div><div class=sch style='border-color:#fff6dc;opacity:0.8'><i style='background:#fff6dc'></i><b>秩序</b><span class=bt>唤醒</span></div><div class=sch style='border-color:#ff7ad0;opacity:0.8'><i style='background:#ff7ad0'></i><b>混沌</b><span class=bt>唤醒</span></div></div></div>
+<div class=phone><div class=cap>魔法书 · 雷魔法（搓炼）</div>
+<div class=grid style="margin-bottom:8px"><div class=bk style='border-color:#c08aff'><i style='background:#c08aff'></i><b>雷魔法</b><div class=s>搓 4/10 · 已唤醒</div><div class=s>施放 326 · 最高 18,420</div></div><div class=bk style='border-color:#ffd24a'><i style='background:#ffd24a'></i><b>光魔法</b><div class=s>搓 4/10 · 未唤醒</div><div class=s>施放 141 · 最高 9,880</div></div><div class=bk style='border-color:#3a8cff'><i style='background:#3a8cff'></i><b>水魔法</b><div class=s>搓 3/10 · 已唤醒</div><div class=s>施放 512 · 最高 2,310</div></div><div class=bk style='border-color:#9a4aff'><i style='background:#9a4aff'></i><b>暗魔法</b><div class=s>搓 2/10 · 未唤醒</div><div class=s>施放 37 · 最高 24,600</div></div></div>
 <div class=page><b style="color:#c08aff">雷魔法 · 落雷</b> <span class=sub>5 张同元素</span>
-<div class=row><span>唤醒</span><span>★★☆ 共鸣 · 开局 +2 级</span></div>
+<div class=row><span>唤醒</span><span>已唤醒 · 开局 +1</span></div>
 <div class=row><span>累计施放</span><span>326 次</span></div>
 <div class=row><span>最高伤害</span><span>18,420</span></div>
-<div class=row><span>基础魔攻</span><span>35 → 56（+60%）</span></div>
-<div class=pips><i class=on></i><i class=on></i><i class=on></i><i class=cap></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-<div class=sub style="font-size:10px">重描 3 / 10 · 当前上限 4（Lv17 开放 5）</div>
-<div class=line>「别抖。我握着呢。」</div>
-<div class=btn>重描 · 60 魔力结晶</div></div></div>
+<div class=row><span>基础魔攻</span><span>35 → 63（+80%）</span></div>
+<div class=pips><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=cap></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class=sub style="font-size:10px">搓炼 4 / 10 · 上限 4（魔法师 Lv5 开放 5）</div>
+<div class=line>「搓热了。你看，它认你。」</div>
+<div class=btn>搓炼 · 50 魔力结晶</div></div></div>
 </div>
 
-<h2>五、两个系统怎么配合</h2>
-<table><tr><th></th><th>角色升级（源泉 · 唤醒）</th><th>魔法强化（魔法书 · 重描）</th></tr>
-<tr><td>资源</td><td>经验（只能打赢获得）</td><td>魔力结晶（打赢获得，可看广告翻倍）</td></tr>
-<tr><td>决定什么</td><td>开局等级 +0…+3、称号、强化上限</td><td>基础魔攻 +0…+200%</td></tr>
-<tr><td>玩家选什么</td><td>先唤醒哪一系</td><td>结晶先花在哪一系</td></tr>
-<tr><td>薇丝塔做什么</td><td>握手、额头相抵、唤醒（现有 CG）</td><td>握着他的手，一起描书页</td></tr></table>
-<p>等级是门，结晶是路。掌心印记（守关者交给他的回答）、唤醒（他自己的魔法回来）、重描（他亲手把魔法写牢），各用一个意象，互不重复。守泉人的馈赠（施放 +1）不动。</p>
+<h2>六、老存档</h2>
+<p>已唤醒的系照旧（含义和现在完全一样）；当初花的结晶（每系 100）<b>全额退还</b>；按终身赢过的战数补经验，扣掉已唤醒的价格，剩下的兑成唤醒机会；魔法师等级从 Lv1 开始，退回的结晶第一天就能搓掉。薇丝塔用一句话交代：「结晶，还给你。拿去，自己搓。」</p>
 
-<h2>六、请你定</h2>
-<ol><li>精英给 5 还是 8 经验？第 8 关最后一战要不要给 20？</li>
-<li>前期节奏：保持每级 100，还是 Lv1–6 每级 50，或者加守关者「第一次击败」+20？</li>
-<li>唤醒顺序：玩家自选（带「推荐」和「常用」标记），还是固定顺序自动唤醒？</li>
-<li>36 级称号：「四色之王」还是「掌心之王」？</li>
-<li>满级后前 3 关偏简单：接受，并用「高世多给奖励」引导？「创造新世界」的 Lv10 要不要只算局内获得的等级？</li></ol>
+<h2>七、请你定</h2>
+<ol><li>每局结束（含通关、放弃）都判、一次可给多次唤醒，可以吗？12 系唤醒完以后，经验要不要换成结晶？</li>
+<li>搓炼的包装：「搓炼」还是「泉淬」？</li>
+<li>满级称号：「四色之王」还是「掌心之王」？</li>
+<li>Lv11–25 只有称号，可以吗？（不接受的话，可改成上限 = ⌈等级 × 0.4⌉，Lv25 才到 10，但前期会慢）</li></ol>
 </div></body></html>
