@@ -1,119 +1,48 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>手搓魔法 · 商店图标换成守泉人（11-08 审阅）</title>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>手搓魔法 · 商店图标：露出完整头顶（11-08 第 2 轮审阅）</title>
 <style>
-  body { margin: 0; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f4f5f7; color: #222; }
-  main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 60px; }
-  h1 { font-size: 22px; margin: 0 0 6px; }
-  h2 { font-size: 18px; margin: 34px 0 10px; }
-  p, li { font-size: 14px; line-height: 1.7; }
-  .note { color: #666; font-size: 13px; }
-  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .card { background: #fff; border-radius: 10px; padding: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
-  .card.rec { outline: 3px solid #14b9c8; }
-  .card h3 { margin: 0 0 8px; font-size: 15px; }
-  .card img.big { width: 100%; display: block; }
-  .small { display: flex; align-items: flex-end; gap: 14px; margin-top: 10px; }
-  .small img { display: block; }
-  .tag { display: inline-block; background: #14b9c8; color: #fff; font-size: 12px; padding: 1px 8px; border-radius: 10px; margin-left: 6px; }
-  /* TapTap-like list */
-  .phone { background: #fff; border-radius: 16px; width: 360px; padding: 8px 0; box-shadow: 0 1px 4px rgba(0,0,0,.1); }
-  .phones { display: flex; flex-wrap: wrap; gap: 18px; }
-  .row { display: flex; align-items: center; gap: 12px; padding: 10px 16px; }
-  .row img { width: 64px; height: 64px; border-radius: 14px; flex: none; }
-  .row .t { font-size: 15px; font-weight: 600; color: #222; }
-  .row .s { font-size: 12px; color: #888; margin-top: 3px; }
-  .row .tags span { display: inline-block; font-size: 11px; color: #666; background: #f2f3f5; border-radius: 4px; padding: 0 5px; margin: 4px 4px 0 0; }
-  .row .btn { margin-left: auto; background: #14b9c8; color: #fff; font-size: 13px; border-radius: 16px; padding: 5px 14px; flex: none; }
-  .phone .lbl { font-size: 12px; color: #999; padding: 4px 16px 0; }
-  .feed { width: 360px; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.1); }
-  .feed .ban { width: 100%; display: block; }
-  .dark { background: #111; }
-  .dark .row .t { color: #eee; }
-  .dark .row .tags span { background: #2a2a2e; color: #aaa; }
-  table { border-collapse: collapse; font-size: 13px; background: #fff; }
-  td, th { border: 1px solid #ddd; padding: 6px 10px; text-align: left; }
-</style>
-</head>
-<body>
-<main>
-<h1>手搓魔法 · 商店图标换成「守泉人的馈赠」</h1>
-<p class="note">2026-11-08 · 原图 <code>art-source/1105/keeper.png</code>（1254×1254，游戏里「守泉人的馈赠」弹窗用的就是这张的 512 缩小版）。三个版本都是 1024×1024 直角方图，无字、无圆角（圆角由 TapTap 自己切）；轻微提亮 / 对比 / 饱和 +6–10%，缩小后再轻锐化。</p>
+body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f4f5f7;color:#222}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 60px} h1{font-size:22px;margin:0 0 6px} h2{font-size:18px;margin:34px 0 10px}
+p,li{font-size:14px;line-height:1.7} .note{color:#666;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px} .card{background:#fff;border-radius:10px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card.rec{outline:3px solid #14b9c8} .card h3{margin:0 0 8px;font-size:15px} .card img.big{width:100%;display:block}
+.small{display:flex;align-items:flex-end;gap:14px;margin-top:10px} .tag{display:inline-block;background:#14b9c8;color:#fff;font-size:12px;padding:1px 8px;border-radius:10px;margin-left:6px}
+.phones{display:flex;flex-wrap:wrap;gap:18px} .phone{background:#fff;border-radius:16px;width:360px;padding:8px 0;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.row{display:flex;align-items:center;gap:12px;padding:10px 16px} .row img{width:64px;height:64px;border-radius:14px;flex:none}
+.row .t{font-size:15px;font-weight:600;color:#222} .row .s{font-size:12px;color:#888;margin-top:3px}
+.row .tags span{display:inline-block;font-size:11px;color:#666;background:#f2f3f5;border-radius:4px;padding:0 5px;margin:4px 4px 0 0}
+.row .btn{margin-left:auto;background:#14b9c8;color:#fff;font-size:13px;border-radius:16px;padding:5px 14px;flex:none} .phone .lbl{font-size:12px;color:#999;padding:4px 16px 0}
+.dark{background:#111} .dark .row .t{color:#eee} .dark .row .tags span{background:#2a2a2e;color:#aaa}
+.feed{width:360px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.1)} .feed .ban{width:100%;display:block}
+</style></head><body><main>
+<h1>手搓魔法 · 商店图标：露出完整头顶</h1>
+<p class="note">2026-11-08 第 2 轮。现在提审中的图标 A 头发顶到上边、头顶被切。新的 D / E / F 从宣传图第 2 版的底图裁出来：头顶那截头发和上方星空由 Gemini 补画，脸、发冠、魔力球、双手仍是 keeper.png 原图像素，按原大小裁切（不放大）。1024×1024 直角方图，无字；提亮 / 对比 / 饱和 +6–8%，和 A 一样。点图看原图：<a href="full/icon_D.jpg">D</a> · <a href="full/icon_E.jpg">E</a> · <a href="full/icon_F.jpg">F</a>。</p>
+<p class="note"><b>还没有写进商店</b>：版本 V-20261107-4 正在审核中，等你确认选哪一张，过审后再单独换。</p>
 
-<h2>1. 三个裁切 vs 现在的图标（512 / 128 / 64 px）</h2>
+<h2>1. 512 / 128 / 64 px</h2>
 <div class="grid">
-  <div class="card">
-    <h3>现在（线上）</h3>
-    <img class="big" src="img/icon_current_512.png" alt="">
-    <div class="small"><img src="img/icon_current_128.png" width="128" height="128" alt=""><img src="img/icon_current_64.png" width="64" height="64" alt=""></div>
-    <p class="note">戴帽黑脸法师 + 火球。脸是黑的，64 px 只剩一团暗色；和截图里的二次元美术不是一个画风。</p>
-  </div>
-  <div class="card">
-    <h3>A · 原构图</h3>
-    <img class="big" src="img/icon_A_512.png" alt="">
-    <div class="small"><img src="img/icon_A_128.png" width="128" height="128" alt=""><img src="img/icon_A_64.png" width="64" height="64" alt=""></div>
-    <p class="note">和游戏弹窗里一模一样，浮岛、城堡都在。64 px 时脸偏小。</p>
-  </div>
-  <div class="card rec">
-    <h3>B · 中景<span class="tag">推荐</span></h3>
-    <img class="big" src="img/icon_B_512.png" alt="">
-    <div class="small"><img src="img/icon_B_128.png" width="128" height="128" alt=""><img src="img/icon_B_64.png" width="64" height="64" alt=""></div>
-    <p class="note">裁掉四周约 14%：脸、发冠、魔力球和双手都在，还留一点夜空。64 px 看得清脸和发光的球。</p>
-  </div>
-  <div class="card">
-    <h3>C · 特写</h3>
-    <img class="big" src="img/icon_C_512.png" alt="">
-    <div class="small"><img src="img/icon_C_128.png" width="128" height="128" alt=""><img src="img/icon_C_64.png" width="64" height="64" alt=""></div>
-    <p class="note">脸最大，但发冠顶边、双手被切，背景几乎没有，小尺寸偏「一片银白」。</p>
-  </div>
+<div class="card"><h3>A · 提审中</h3><img class="big" src="img/icon_A_512.png"><div class="small"><img src="img/icon_A_128.png" width="128" height="128"><img src="img/icon_A_64.png" width="64" height="64"></div><p class="note">头发顶到上边，头顶被切。</p></div>
+<div class="card"><h3>D · 拉远</h3><img class="big" src="img/icon_D_512.png"><div class="small"><img src="img/icon_D_128.png" width="128" height="128"><img src="img/icon_D_64.png" width="64" height="64"></div><p class="note">整个头 + 一段星空 + 魔力球和双手都在；64 px 时脸比 A 还小一点。</p></div>
+<div class="card rec"><h3>E · 平衡<span class="tag">推荐</span></h3><img class="big" src="img/icon_E_512.png"><div class="small"><img src="img/icon_E_128.png" width="128" height="128"><img src="img/icon_E_64.png" width="64" height="64"></div><p class="note">头顶留一点星空，脸比 A 大，魔力球完整、双手到下沿。64 px 能看清脸、发冠和发光的球。</p></div>
+<div class="card"><h3>F · 稍近</h3><img class="big" src="img/icon_F_512.png"><div class="small"><img src="img/icon_F_128.png" width="128" height="128"><img src="img/icon_F_64.png" width="64" height="64"></div><p class="note">脸最大，头顶刚好留空；魔力球只剩上半个。</p></div>
 </div>
 
-<h2>2. 放进 TapTap 列表里看（64 px，图标由平台切圆角）</h2>
+<h2>2. 放进 TapTap 列表和首页推荐卡片（平台自己切圆角）</h2>
 <div class="phones">
-  <div class="phone">
-    <div class="lbl">现在</div>
-    <div class="row"><img src="img/icon_current_128.png" alt=""><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span><span>单机</span></div></div><div class="btn">预约</div></div>
-    <div class="lbl">A</div>
-    <div class="row"><img src="img/icon_A_128.png" alt=""><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span><span>单机</span></div></div><div class="btn">预约</div></div>
-    <div class="lbl">B（推荐）</div>
-    <div class="row"><img src="img/icon_B_128.png" alt=""><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span><span>单机</span></div></div><div class="btn">预约</div></div>
-    <div class="lbl">C</div>
-    <div class="row"><img src="img/icon_C_128.png" alt=""><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span><span>单机</span></div></div><div class="btn">预约</div></div>
-  </div>
-  <div class="phone dark">
-    <div class="lbl">深色模式 · 现在</div>
-    <div class="row"><img src="img/icon_current_128.png" alt=""><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span></div></div><div class="btn">预约</div></div>
-    <div class="lbl">深色模式 · A</div>
-    <div class="row"><img src="img/icon_A_128.png" alt=""><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span></div></div><div class="btn">预约</div></div>
-    <div class="lbl">深色模式 · B（推荐）</div>
-    <div class="row"><img src="img/icon_B_128.png" alt=""><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span></div></div><div class="btn">预约</div></div>
-    <div class="lbl">深色模式 · C</div>
-    <div class="row"><img src="img/icon_C_128.png" alt=""><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span></div></div><div class="btn">预约</div></div>
-  </div>
-  <div class="feed">
-    <img class="ban" src="img/banner.jpg" alt="">
-    <div class="row"><img src="img/icon_B_128.png" alt=""><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="s">一手元素牌，从小火球搓到百万伤害的禁咒</div></div></div>
-    <p class="note" style="padding:0 16px 10px">首页推荐卡片样式（横版宣传图 + 图标 + 推荐语）。注意：现在的宣传图还是「黑脸法师」画风，换图标后宣传图和图标两种画风并存，见分析报告第 5 条。</p>
-  </div>
+<div class="phone"><div class="lbl">A（提审中）</div><div class="row"><img src="img/icon_A_128.png"><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span><span>单机</span></div></div><div class="btn">预约</div></div><div class="lbl">D</div><div class="row"><img src="img/icon_D_128.png"><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span><span>单机</span></div></div><div class="btn">预约</div></div><div class="lbl">E（推荐）</div><div class="row"><img src="img/icon_E_128.png"><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span><span>单机</span></div></div><div class="btn">预约</div></div><div class="lbl">F</div><div class="row"><img src="img/icon_F_128.png"><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span><span>单机</span></div></div><div class="btn">预约</div></div></div>
+<div class="phone dark"><div class="lbl">深色 · A（提审中）</div><div class="row"><img src="img/icon_A_128.png"><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span><span>单机</span></div></div><div class="btn">预约</div></div><div class="lbl">深色 · D</div><div class="row"><img src="img/icon_D_128.png"><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span><span>单机</span></div></div><div class="btn">预约</div></div><div class="lbl">深色 · E（推荐）</div><div class="row"><img src="img/icon_E_128.png"><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span><span>单机</span></div></div><div class="btn">预约</div></div><div class="lbl">深色 · F</div><div class="row"><img src="img/icon_F_128.png"><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="tags"><span>卡牌</span><span>肉鸽</span><span>单机</span></div></div><div class="btn">预约</div></div></div>
+<div class="feed"><img class="ban" src="img/banner_v2.jpg"><div class="row"><img src="img/icon_E_128.png"><div><div class="t">手搓魔法：从小火球到灭世禁咒</div><div class="s">卡牌肉鸽：一手元素牌，从小火球搓到灭世禁咒</div></div></div>
+<p class="note" style="padding:0 16px 10px">首页推荐卡片：提审中的新宣传图 A + 图标 E + 新推荐语，同一张脸、同一套画风。</p></div>
 </div>
 
 <h2>3. 规则核对</h2>
-<table>
-  <tr><th>要求（字段 image_spec / 清单第 4 节）</th><th>B</th></tr>
-  <tr><td>1:1 方图，≥512×512</td><td>1024×1024 JPG ✓</td></tr>
-  <tr><td>禁止自行切圆角</td><td>直角 ✓</td></tr>
-  <tr><td>不放文字（图标上不加字）</td><td>无字 ✓</td></tr>
-  <tr><td>原生高清，不放大小图</td><td>从 1254 原图裁 900 再缩到 1024，接近原生 ✓</td></tr>
-</table>
+<ul><li>1:1、1024×1024（≥512）、直角、无字。</li><li>裁切框（宣传图底图 2560×1440 坐标）：D 1270 px、E 1150 px、F 1070 px 方框，都 ≥1024，原生分辨率。</li></ul>
 
-<h2>4. 状态</h2>
-<ul>
-  <li>推荐 B 已写进未提交的草稿 V-20261107-4 的 <code>icon</code> 字段（只存草稿，<b>没有提审</b>，线上图标不变）。</li>
-  <li>想换 A 或 C，告诉我一声，改草稿一次就行；确认后和草稿里的玩家群一起提审。</li>
-</ul>
-</main>
-</body>
-</html>
+<h2>附：上一轮（A / B / C，头顶被切）</h2>
+<div class="grid">
+<div class="card"><h3>原线上 · 黑脸法师</h3><img class="big" src="img/icon_current_128.png" style="width:128px"></div>
+<div class="card"><h3>A</h3><img class="big" src="img/icon_A_128.png" style="width:128px"></div>
+<div class="card"><h3>B</h3><img class="big" src="img/icon_B_128.png" style="width:128px"></div>
+<div class="card"><h3>C</h3><img class="big" src="img/icon_C_128.png" style="width:128px"></div>
+</div>
+</main></body></html>
