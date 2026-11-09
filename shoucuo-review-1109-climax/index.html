@@ -1,0 +1,129 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>《手搓魔法》11-09 剧情高潮与爽点（待你确认）</title><style>
+:root{--bg:#0f1016;--panel:#171925;--line:#2a2e42;--ink:#e6e7ee;--dim:#9aa0b8;--gold:#e7c27a;--red:#ff7a7a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.75 -apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif}
+main{max-width:1120px;margin:0 auto;padding:28px 22px 80px}h1{font-size:24px;margin:0 0 4px}h2{font-size:19px;margin:40px 0 12px;padding-top:8px;border-top:1px solid var(--line);color:var(--gold)}
+.meta{color:var(--dim);font-size:13px}.lead{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;padding:12px 18px;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0}th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}th{background:#1d2030;color:var(--gold)}
+tr.p0 td{background:#1c1a14}img{max-width:100%;border-radius:8px;border:1px solid var(--line)}.mock{color:var(--red);font-weight:bold}
+#tip{position:fixed;pointer-events:none;background:#262624;color:#f0efec;border:1px solid #55544d;border-radius:6px;padding:6px 10px;font-size:12px;display:none;white-space:pre}
+.hit{cursor:crosshair}ol li{margin:6px 0}details{margin:6px 0}
+</style></head><body><main>
+<h1>《手搓魔法》剧情高潮与爽点设计</h1><div class="meta">11-09 草案 · 待你确认 · 只动演出、剧情和奖励包装，不改玩法和数值 · 文档：research/content/climax_beats.md</div>
+<div class="lead"><p><b>诊断一句话：</b>现在的高潮大多是<b>看</b>来的（CG、断章），很少是<b>挣</b>来的。赢下一场的那一帧往往最安静，几秒后又弹出一大段字。开头 1 小时、第 7 → 8 关、终战二阶段是三段最平的地方。</p>
+<p><b>方案：</b>11 个明确的高潮 / 爽点，分小爽 / 中爽 / 大高潮三级，全部由玩家的一次操作触发；<b>新美术为零</b>，只复用现有禁咒 CG、关卡背景、守关者原图、开场 i4 和现成配音，新增约 19 句配音。爽点来自三种反差：静 → 响，拦 → 送，小 → 大。</p></div>
+
+<h2>1. 情绪曲线：现在 vs 改后</h2>
+<p class="meta">每个节点 0–10 的强度估计（依据 FTUE 实录与现有演出层数）。鼠标移到节点上看说明。</p>
+<svg viewBox="0 0 1040 410" role="img" aria-label="情绪曲线：现在与改后" style="width:100%;height:auto;background:#1a1a19;border-radius:10px">
+<line x1="44" x2="890" y1="284.0" y2="284.0" stroke="#2d2d2a" stroke-width="1"/><text x="36" y="288.0" fill="#9a998f" font-size="11" text-anchor="end">0</text>
+<line x1="44" x2="890" y1="231.2" y2="231.2" stroke="#2d2d2a" stroke-width="1"/><text x="36" y="235.2" fill="#9a998f" font-size="11" text-anchor="end">2</text>
+<line x1="44" x2="890" y1="178.4" y2="178.4" stroke="#2d2d2a" stroke-width="1"/><text x="36" y="182.4" fill="#9a998f" font-size="11" text-anchor="end">4</text>
+<line x1="44" x2="890" y1="125.6" y2="125.6" stroke="#2d2d2a" stroke-width="1"/><text x="36" y="129.6" fill="#9a998f" font-size="11" text-anchor="end">6</text>
+<line x1="44" x2="890" y1="72.8" y2="72.8" stroke="#2d2d2a" stroke-width="1"/><text x="36" y="76.8" fill="#9a998f" font-size="11" text-anchor="end">8</text>
+<line x1="44" x2="890" y1="20.0" y2="20.0" stroke="#2d2d2a" stroke-width="1"/><text x="36" y="24.0" fill="#9a998f" font-size="11" text-anchor="end">10</text>
+<text x="164.85714285714286" y="402" fill="#7d7c74" font-size="11" text-anchor="middle">开头 1 小时</text><line x1="38.0" x2="291.7142857142857" y1="388" y2="388" stroke="#55544d"/>
+<text x="467.0" y="402" fill="#7d7c74" font-size="11" text-anchor="middle">中段</text><line x1="340.14285714285717" x2="593.8571428571429" y1="388" y2="388" stroke="#55544d"/>
+<text x="708.7142857142858" y="402" fill="#7d7c74" font-size="11" text-anchor="middle">终局</text><line x1="642.2857142857143" x2="775.1428571428571" y1="388" y2="388" stroke="#55544d"/>
+<text x="859.7857142857142" y="402" fill="#7d7c74" font-size="11" text-anchor="middle">后期</text><line x1="823.5714285714286" x2="896.0" y1="388" y2="388" stroke="#55544d"/>
+<text transform="translate(44.0,298) rotate(35)" fill="#c3c2b7" font-size="11">开场 CG</text>
+<text transform="translate(104.42857142857143,298) rotate(35)" fill="#c3c2b7" font-size="11">第一次施放</text>
+<text transform="translate(164.85714285714286,298) rotate(35)" fill="#c3c2b7" font-size="11">第一次击杀守关者</text>
+<text transform="translate(225.28571428571428,298) rotate(35)" fill="#c3c2b7" font-size="11">倒下 · 唤醒</text>
+<text transform="translate(285.7142857142857,298) rotate(35)" fill="#c3c2b7" font-size="11">第 2–3 局</text>
+<text transform="translate(346.14285714285717,298) rotate(35)" fill="#c3c2b7" font-size="11">首到第 3 关</text>
+<text transform="translate(406.57142857142856,298) rotate(35)" fill="#c3c2b7" font-size="11">击败菲奥娜</text>
+<text transform="translate(467.0,298) rotate(35)" fill="#c3c2b7" font-size="11">时之约</text>
+<text transform="translate(527.4285714285714,298) rotate(35)" fill="#c3c2b7" font-size="11">第一次禁咒</text>
+<text transform="translate(587.8571428571429,298) rotate(35)" fill="#c3c2b7" font-size="11">第 7 关 · 她的罪</text>
+<text transform="translate(648.2857142857143,298) rotate(35)" fill="#c3c2b7" font-size="11">第 7 → 8 关</text>
+<text transform="translate(708.7142857142857,298) rotate(35)" fill="#c3c2b7" font-size="11">终战二阶段</text>
+<text transform="translate(769.1428571428571,298) rotate(35)" fill="#c3c2b7" font-size="11">首次通关</text>
+<text transform="translate(829.5714285714286,298) rotate(35)" fill="#c3c2b7" font-size="11">另一世首入</text>
+<text transform="translate(890.0,298) rotate(35)" fill="#c3c2b7" font-size="11">Lv25 灭世禁咒师</text>
+<polyline points="44.0,152.0 104.42857142857143,231.2 164.85714285714286,178.4 225.28571428571428,178.4 285.7142857142857,257.6 346.14285714285717,152.0 406.57142857142856,178.4 467.0,72.8 527.4285714285714,99.2 587.8571428571429,125.6 648.2857142857143,178.4 708.7142857142857,152.0 769.1428571428571,72.8 829.5714285714286,204.8 890.0,231.2" fill="none" stroke="#3987e5" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<polyline points="44.0,152.0 104.42857142857143,204.8 164.85714285714286,72.8 225.28571428571428,152.0 285.7142857142857,178.4 346.14285714285717,125.6 406.57142857142856,99.2 467.0,72.8 527.4285714285714,46.4 587.8571428571429,99.2 648.2857142857143,46.4 708.7142857142857,46.4 769.1428571428571,20.0 829.5714285714286,125.6 890.0,99.2" fill="none" stroke="#d95926" stroke-width="2" stroke-linejoin="round" />
+<circle cx="44.0" cy="152.0" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="44.0" cy="152.0" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="26.0" y="20" width="36" height="264" fill="transparent" data-t="开场 CG｜现在 5 → 改后 5｜—"/>
+<circle cx="104.42857142857143" cy="231.2" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="104.42857142857143" cy="204.8" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="86.42857142857143" y="20" width="36" height="264" fill="transparent" data-t="第一次施放｜现在 2 → 改后 3｜FTUE 修复"/>
+<circle cx="164.85714285714286" cy="178.4" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="164.85714285714286" cy="72.8" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="146.85714285714286" y="20" width="36" height="264" fill="transparent" data-t="第一次击杀守关者｜现在 4 → 改后 8｜C1 + C2"/>
+<circle cx="225.28571428571428" cy="178.4" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="225.28571428571428" cy="152.0" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="207.28571428571428" y="20" width="36" height="264" fill="transparent" data-t="倒下 · 唤醒｜现在 4 → 改后 5｜C2 合并后营地更清爽"/>
+<circle cx="285.7142857142857" cy="257.6" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="285.7142857142857" cy="178.4" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="267.7142857142857" y="20" width="36" height="264" fill="transparent" data-t="第 2–3 局｜现在 1 → 改后 4｜C3 最远的一世 · C5 破万"/>
+<circle cx="346.14285714285717" cy="152.0" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="346.14285714285717" cy="125.6" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="328.14285714285717" y="20" width="36" height="264" fill="transparent" data-t="首到第 3 关｜现在 5 → 改后 6｜C3 第二幕"/>
+<circle cx="406.57142857142856" cy="178.4" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="406.57142857142856" cy="99.2" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="388.57142857142856" y="20" width="36" height="264" fill="transparent" data-t="击败菲奥娜｜现在 4 → 改后 7｜C6 记忆闪回"/>
+<circle cx="467.0" cy="72.8" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="467.0" cy="72.8" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="449.0" y="20" width="36" height="264" fill="transparent" data-t="时之约｜现在 8 → 改后 8｜保留"/>
+<circle cx="527.4285714285714" cy="99.2" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="527.4285714285714" cy="46.4" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="509.42857142857144" y="20" width="36" height="264" fill="transparent" data-t="第一次禁咒｜现在 7 → 改后 9｜C4 禁咒初现"/>
+<circle cx="587.8571428571429" cy="125.6" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="587.8571428571429" cy="99.2" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="569.8571428571429" y="20" width="36" height="264" fill="transparent" data-t="第 7 关 · 她的罪｜现在 6 → 改后 7｜C3 第三幕 + C2"/>
+<circle cx="648.2857142857143" cy="178.4" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="648.2857142857143" cy="46.4" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="630.2857142857143" y="20" width="36" height="264" fill="transparent" data-t="第 7 → 8 关｜现在 4 → 改后 9｜C7 最后的天阶"/>
+<circle cx="708.7142857142857" cy="152.0" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="708.7142857142857" cy="46.4" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="690.7142857142857" y="20" width="36" height="264" fill="transparent" data-t="终战二阶段｜现在 5 → 改后 9｜C8"/>
+<circle cx="769.1428571428571" cy="72.8" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="769.1428571428571" cy="20.0" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="751.1428571428571" y="20" width="36" height="264" fill="transparent" data-t="首次通关｜现在 8 → 改后 10｜C9 登顶 + 登天录"/>
+<circle cx="829.5714285714286" cy="204.8" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="829.5714285714286" cy="125.6" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="811.5714285714286" y="20" width="36" height="264" fill="transparent" data-t="另一世首入｜现在 3 → 改后 6｜C10 镜裂"/>
+<circle cx="890.0" cy="231.2" r="4.5" fill="#1a1a19" stroke="#3987e5" stroke-width="2"/>
+<circle cx="890.0" cy="99.2" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect class="hit" x="872.0" y="20" width="36" height="264" fill="transparent" data-t="Lv25 灭世禁咒师｜现在 2 → 改后 7｜C11"/>
+<text x="900" y="103.2" fill="#f0efec" font-size="12">● 改后（实线）</text>
+<text x="900" y="235.2" fill="#f0efec" font-size="12">○ 现在（虚线）</text>
+</svg>
+<details><summary>表格视图</summary><table><tr><th>#</th><th>节点</th><th>现在</th><th>改后</th><th>改动</th></tr><tr><td>1</td><td>开场 CG</td><td>5</td><td>5</td><td>—</td></tr><tr><td>2</td><td>第一次施放</td><td>2</td><td>3</td><td>FTUE 修复</td></tr><tr><td>3</td><td>第一次击杀守关者</td><td>4</td><td>8</td><td>C1 + C2</td></tr><tr><td>4</td><td>倒下 · 唤醒</td><td>4</td><td>5</td><td>C2 合并后营地更清爽</td></tr><tr><td>5</td><td>第 2–3 局</td><td>1</td><td>4</td><td>C3 最远的一世 · C5 破万</td></tr><tr><td>6</td><td>首到第 3 关</td><td>5</td><td>6</td><td>C3 第二幕</td></tr><tr><td>7</td><td>击败菲奥娜</td><td>4</td><td>7</td><td>C6 记忆闪回</td></tr><tr><td>8</td><td>时之约</td><td>8</td><td>8</td><td>保留</td></tr><tr><td>9</td><td>第一次禁咒</td><td>7</td><td>9</td><td>C4 禁咒初现</td></tr><tr><td>10</td><td>第 7 关 · 她的罪</td><td>6</td><td>7</td><td>C3 第三幕 + C2</td></tr><tr><td>11</td><td>第 7 → 8 关</td><td>4</td><td>9</td><td>C7 最后的天阶</td></tr><tr><td>12</td><td>终战二阶段</td><td>5</td><td>9</td><td>C8</td></tr><tr><td>13</td><td>首次通关</td><td>8</td><td>10</td><td>C9 登顶 + 登天录</td></tr><tr><td>14</td><td>另一世首入</td><td>3</td><td>6</td><td>C10 镜裂</td></tr><tr><td>15</td><td>Lv25 灭世禁咒师</td><td>2</td><td>7</td><td>C11</td></tr></table></details>
+
+<h2>2. 高潮 / 爽点总表</h2>
+<table><tr><th>#</th><th>名称</th><th>触发（玩家操作）</th><th>频率</th><th>层级（首次 / 重复）</th><th>成本</th><th>优先级</th></tr><tr><td>C1</td><td>源泉的回响</td><td>引导局击杀格雷戈尔的那一手（伤害不变，只升演出）</td><td>每存档 1 次</td><td>中爽</td><td>M</td><td>P0</td></tr><tr><td>C2</td><td>传承 · 承受（魂系横幅）</td><td>击败守关者；断章 / 残卷移出击杀时刻</td><td>每面首次完整，之后 1 秒小版</td><td>中爽 / 小爽</td><td>S–M</td><td>P0</td></tr><tr><td>C3</td><td>登天 · 最远的一世 · 幕名</td><td>进入下一关第一战（上摇转场，断章改字幕）</td><td>每局每关</td><td>中爽 / 小爽</td><td>S–M</td><td>P0</td></tr><tr><td>C5</td><td>破阶 万 / 百万 / 亿 / 万亿</td><td>单手伤害第一次跨档</td><td>每局每档；全存档首次加长</td><td>中爽 / 小爽</td><td>S</td><td>P0</td></tr><tr><td>C4</td><td>禁咒初现 n / 12</td><td>某系第一次放出禁咒</td><td>每系 1 次</td><td>大高潮（首个）/ 中爽</td><td>S</td><td>P1</td></tr><tr><td>C7</td><td>最后的天阶</td><td>第一次从第 7 关登上第 8 关，七人送行</td><td>首次 11 秒，之后 3 秒</td><td>大高潮 / 小爽</td><td>M</td><td>P1</td></tr><tr><td>C8</td><td>我不是一个人走上来的</td><td>终战 Boss 血量过半</td><td>首次 5.5 秒，之后 1.5 秒</td><td>大高潮 / 中爽</td><td>M（新曲 L）</td><td>P1</td></tr><tr><td>C9</td><td>登顶 + 登天录</td><td>首通击杀 + 结局卡之后的回看</td><td>首通完整，之后 4 秒</td><td>大高潮 / 中爽</td><td>M</td><td>P1</td></tr><tr><td>C6</td><td>记忆闪回 · 你曾被选为王</td><td>第一次击败菲奥娜（褪色开场 CG i4）</td><td>每存档 1 次</td><td>中爽</td><td>M</td><td>P2</td></tr><tr><td>C10</td><td>另一世 · 镜裂</td><td>第一次落进另一世：格雷戈尔剪影碎裂成玛尔塔</td><td>首次完整，其余关 1 秒</td><td>中爽 / 小爽</td><td>S–M</td><td>P2</td></tr><tr><td>C11</td><td>魔法师进阶</td><td>Lv10 / 18 / 22 中爽；Lv25 十二禁咒快剪</td><td>每级 1 次</td><td>小爽 → 大高潮</td><td>S</td><td>P2</td></tr></table>
+<p class="meta">保留不动：时之约、最后的守泉人、成王、她的罪 / 额头、抱一下、掌贴掌。只在它们前后加蓄力和落点。</p>
+
+<h2>3. 分镜示意（<span class="mock">MOCKUP：用现有截图和 CG 合成，不是实机画面</span>）</h2>
+<h3>C1 源泉的回响：第 1 局的第一次「强力魔法」</h3>
+<img src="img/sb_c1_echo.jpg" alt="C1 分镜示意" loading="lazy">
+<p>定格褪色 → 薇丝塔画外「手给我……借你一口泉水。」→ ultfx 高级 1.35 秒切镜（写高级名「落雷」+ 角标「源泉的回响」）→ 白闪命中，接 C2。伤害不变。回营地：「刚才那一下，是我借你的。」「……下一次，用你自己的手。」第一次禁咒时兑现：「这一次，没有人借你。」</p>
+<h3>C2 传承 · 承受：魂系强敌横幅</h3>
+<img src="img/sb_c2_legacy.jpg" alt="C2 分镜示意" loading="lazy">
+<p>0.35× 慢动作、音乐切掉 → 一声钟、金色横幅 → 守关者最后一句（已有配音）→ legacy.lua 余烬流进双手。<b>击杀那一刻只有这一个演出</b>：断章改成下一关上升画面的字幕，残卷改成典籍角标，解决「击败 Boss 后连续 3 段全屏」。分三级：传承（金）/ 传承 · 另一面（银）/ 登顶 · 原初源泉（白金）。</p>
+<h3>C7 最后的天阶：第 7 → 8 关</h3>
+<img src="img/sb_c7_stair.jpg" alt="C7 分镜示意" loading="lazy">
+<p>第 1 → 7 关背景依次上冲，每关守关者压暗成剪影、描印记色，一人一句送行（新配音，原音色）；冲出云层定在原初源泉，薇丝塔「……听见了吗。他们都在送你。」立绘只压暗、不改画。</p>
+
+<h2>4. 分级规则</h2>
+<table><tr><th></th><th>小爽</th><th>中爽</th><th>大高潮</th></tr>
+<tr><td>时长</td><td>≤ 1.5 秒</td><td>2–5 秒</td><td>6–18 秒</td></tr>
+<tr><td>频率上限</td><td>同类型每场 1 次</td><td>每场 1 个；两次回营地之间最多 3 个，超出降成小爽</td><td>每局 1 个（终局 C7 → C8 → C9 是唯一例外，中间隔着真正的战斗）</td></tr>
+<tr><td>首次 / 重复</td><td>每次一样</td><td>首次带配音，之后降成小爽</td><td>首次完整，之后 3–4 秒短版；典籍可重看</td></tr>
+<tr><td>跳过</td><td>不阻断</td><td>0.5 秒后点一下到结尾</td><td>首次 1.5 秒后可跳，重复随时可跳</td></tr></table>
+<ol><li>一个操作，一个高潮；读字的东西一律回营地。</li><li>不叠高潮：同时满足取最高，其余降级。</li><li>终局是一条越来越大的链。</li><li>设置加「剧情演出：完整 / 精简」，和「禁咒演出」并列。</li><li>引导局只放 C1 和 C2。</li></ol>
+
+<h2>5. 推荐第一批（上线前，约 5–6 天）</h2>
+<p><b>C1 源泉的回响 · C2 传承横幅（含合并三段全屏）· C3 登天 / 最远的一世 · C5 破阶。</b>上线第一周的玩家几乎都在第 1–10 局，曲线最平的是开头 1 小时；这四个全部落在那里，而且不用新美术。第二批 C4 / C7 / C8 / C9 在上线后一到两周内做，赶在玩家打到第 6–8 关之前。</p>
+
+<h2>6. 需要你决定</h2>
+<ol><li><b>C1 切镜写哪个名字？</b>建议写高级名「落雷」+ 小字「源泉的回响」；或照实写「雷弹」。</li>
+<li><b>击败守关者后的断章和残卷挪走？</b>建议击杀时只播 C2，断章改上升字幕，残卷改典籍角标（会改 11-06 / 11-07 定下的顺序）。</li>
+<li><b>新配音约 19 句</b>，全部原音色，可以吗？C7 克洛伊用「原初源泉见。……别回头。」还是换掉？</li>
+<li><b>终战二阶段换不换音乐？</b>A boss.ogg 加强版（建议）/ B 新曲 / C 不换，只做静音再起。</li>
+<li><b>第一批按 C1 / C2 / C3 / C5 在 11-18 前做？</b>C9 登天录要在存档里记一次「第一道魔法」（只用来展示），一起同意吗？</li></ol>
+</main><div id="tip"></div><script>
+const tip=document.getElementById('tip');document.querySelectorAll('.hit').forEach(r=>{r.addEventListener('mousemove',e=>{tip.style.display='block';tip.textContent=r.dataset.t.split('｜').join('\n');tip.style.left=(e.clientX+14)+'px';tip.style.top=(e.clientY+14)+'px'});r.addEventListener('mouseleave',()=>tip.style.display='none')});
+</script></body></html>
