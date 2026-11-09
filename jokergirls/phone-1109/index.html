@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>命运牌 · 手机系统：自己定行程（11-09）</title>
+<style>
+  :root { --bg:#16121f; --card:#221b30; --line:#3a2f50; --gold:#f2c46d; --pink:#ff6fa3; --txt:#ece6f5; --dim:#a99cbf; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:18px 14px 160px; }
+  h1 { font-size:22px; margin:6px 0 4px; color:var(--gold); }
+  .lead { color:var(--dim); margin:0 0 18px; }
+  section.q { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:0 0 18px; }
+  section.q h2 { font-size:18px; margin:0 0 6px; }
+  section.q h2 .n { display:inline-block; min-width:26px; height:26px; line-height:26px; text-align:center; border-radius:50%; background:var(--gold); color:#2a1d07; font-size:14px; margin-right:6px; }
+  .why { color:var(--dim); margin:0 0 12px; font-size:14px; }
+  .why ul { margin:4px 0; padding-left:20px; }
+  .opts { display:grid; gap:12px; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); }
+  .opts.wide { grid-template-columns:1fr; }
+  .opts.two { grid-template-columns:repeat(2, 1fr); gap:8px; }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  .row { display:grid; gap:6px; grid-template-columns:2.2fr 1.25fr 0.72fr; align-items:start; }
+  .row img { width:100%; }
+  .gallery.four { grid-template-columns:repeat(4, 1fr); }
+  .note { font-size:13px; color:var(--dim); margin:6px 0 0; }
+  @media (max-width:640px) {
+    .opts.three .opt, .opts.two .opt { padding:6px; }
+    .opts.three .opt h3, .opts.two .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p, .opts.two .opt p { font-size:12px; line-height:1.5; }
+    .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .gallery.four { grid-template-columns:repeat(2, 1fr); }
+  }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  @media (max-width:640px) {
+    .opts.three .opt { padding:6px; }
+    .opts.three .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p { font-size:12px; line-height:1.5; }
+    .opts.three .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .opts.three .opt.ref::before { font-size:11px; }
+    .opts.three .tag { display:block; width:max-content; margin:2px 0 0; }
+  }
+  .opt { position:relative; border:2px solid var(--line); border-radius:12px; padding:10px; background:#1b1527; cursor:pointer; transition:border-color .15s, transform .15s; }
+  .opt:hover { border-color:#6b5a8f; }
+  .opt.sel { border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,111,163,.25); }
+  .opt.sel::after { content:"✓ 已选"; position:absolute; top:8px; right:8px; background:var(--pink); color:#fff; font-size:12px; padding:2px 8px; border-radius:10px; }
+  .opt.ref { cursor:default; opacity:.85; border-style:dashed; }
+  .opt.ref::before { content:"现在的样子（参考）"; display:block; font-size:12px; color:var(--dim); margin-bottom:6px; }
+  .opt img { width:100%; border-radius:8px; display:block; cursor:zoom-in; background:#000; }
+  .opt h3 { font-size:16px; margin:8px 0 2px; color:var(--gold); }
+  .opt p { margin:2px 0; font-size:14px; color:#d8d0e6; }
+  .tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:8px; background:#3b2a12; color:var(--gold); margin-left:4px; vertical-align:middle; }
+  textarea { width:100%; min-height:44px; margin-top:12px; border-radius:10px; border:1px solid var(--line); background:#140f1d; color:var(--txt); padding:8px 10px; font:inherit; }
+  .sub { margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--line); }
+  .sub:first-of-type { border-top:0; padding-top:0; }
+  .sub h4 { margin:0 0 8px; font-size:15px; }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill { border:2px solid var(--line); border-radius:20px; padding:6px 14px; cursor:pointer; background:#1b1527; font-size:14px; }
+  .pill.sel { border-color:var(--pink); background:#3a1830; }
+  .voices { display:grid; gap:8px; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); margin:6px 0 12px; }
+  .voice { background:#1b1527; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:14px; }
+  .voice b { color:var(--gold); }
+  .voice audio { width:100%; height:34px; margin-top:4px; }
+  .gallery { display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
+  .gallery img, .promo img { width:100%; border-radius:8px; cursor:zoom-in; display:block; }
+  .promo { display:grid; gap:10px; grid-template-columns:2fr 1fr; margin-bottom:10px; }
+  video { width:100%; max-width:360px; border-radius:10px; display:block; margin:8px auto; background:#000; }
+  .cap { font-size:12px; color:var(--dim); text-align:center; margin-top:3px; }
+  #bar { position:fixed; left:0; right:0; bottom:0; background:rgba(18,13,26,.97); border-top:1px solid var(--line); padding:10px 14px; }
+  #bar .in { max-width:980px; margin:0 auto; display:flex; gap:10px; align-items:center; }
+  #bar .prog { flex:1; color:var(--dim); font-size:14px; }
+  #bar button { border:0; border-radius:22px; padding:11px 20px; font:inherit; font-weight:600; cursor:pointer; background:linear-gradient(180deg,#ff86b3,#e6457f); color:#fff; }
+  #bar button.ghost { background:#2d2440; color:var(--txt); font-weight:400; }
+  #out { display:none; max-width:980px; margin:8px auto 0; white-space:pre-wrap; background:#140f1d; border:1px solid var(--line); border-radius:10px; padding:10px; font-size:13px; max-height:30vh; overflow:auto; }
+  #lb { position:fixed; inset:0; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; z-index:9; cursor:zoom-out; }
+  #lb img { max-width:96vw; max-height:94vh; }
+  .toast { position:fixed; left:50%; bottom:90px; transform:translateX(-50%); background:#2fae6b; color:#fff; padding:8px 18px; border-radius:20px; display:none; z-index:10; }
+
+.mock{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin:10px 0 4px}
+.ph{width:250px;height:500px;border-radius:34px;background:#0c0912;border:3px solid #4a3b66;padding:12px 10px;position:relative;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.ph .scr{height:100%;border-radius:24px;background:linear-gradient(180deg,#2a1c40,#160f22);overflow:hidden;font-size:12px}
+.ph .bar{display:flex;justify-content:space-between;padding:8px 14px 4px;color:#cbbfe0;font-size:11px}
+.ph .ttl{padding:4px 14px 8px;font-weight:700;font-size:15px;color:#fff}
+.ph .it{display:flex;gap:8px;align-items:center;padding:7px 12px;border-bottom:1px solid #2f2445}
+.ph .av{width:34px;height:34px;border-radius:50%;flex:none;background:#5b3f86;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.ph .it b{display:block;color:#fff;font-size:13px}.ph .it span{color:#b8a9d2}
+.ph .dot{margin-left:auto;background:#ff4f6d;color:#fff;border-radius:9px;padding:0 6px;font-size:11px}
+.ph .card{margin:6px 10px;padding:8px 10px;border-radius:12px;background:#2c2045;border:1px solid #4a3b66}
+.ph .card.on{border-color:#ff6fa3;box-shadow:0 0 0 2px rgba(255,111,163,.3)}
+.ph .card b{color:#f2c46d}.ph .card p{margin:2px 0;color:#d8cdea}.ph .card .g{color:#8f82a6}
+.ph .go{display:block;margin:8px 10px;text-align:center;background:linear-gradient(180deg,#ff86b3,#e6457f);color:#fff;border-radius:16px;padding:6px;font-weight:700}
+.ph .tabs{position:absolute;left:10px;right:10px;bottom:12px;display:flex;justify-content:space-around;background:#1d152c;border-radius:0 0 24px 24px;padding:8px 0;color:#b8a9d2}
+.ph .tabs .a{color:#ff6fa3;font-weight:700}
+.issue{background:#2a1820;border:1px solid #5a2d3c;border-radius:10px;padding:8px 12px;margin:6px 0}
+.issue b{color:#ff9db8}
+</style>
+<style>.fields{display:grid;gap:6px;grid-template-columns:120px 1fr;font-size:14px;margin:8px 0}.fields b{color:var(--gold)}.fields span{background:#140f1d;border:1px solid var(--line);border-radius:8px;padding:4px 8px} .beats{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0}.beats td,.beats th{border:1px solid var(--line);padding:5px 6px;vertical-align:top}.beats th{color:var(--gold);background:#1b1527} .shots{display:grid;gap:8px;grid-template-columns:repeat(4,1fr)} @media(max-width:640px){.shots{grid-template-columns:repeat(2,1fr)}} .shots img{width:100%;border-radius:8px;cursor:zoom-in}
+.mock{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin:10px 0 4px}
+.ph{width:250px;height:500px;border-radius:34px;background:#0c0912;border:3px solid #4a3b66;padding:12px 10px;position:relative;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.ph .scr{height:100%;border-radius:24px;background:linear-gradient(180deg,#2a1c40,#160f22);overflow:hidden;font-size:12px}
+.ph .bar{display:flex;justify-content:space-between;padding:8px 14px 4px;color:#cbbfe0;font-size:11px}
+.ph .ttl{padding:4px 14px 8px;font-weight:700;font-size:15px;color:#fff}
+.ph .it{display:flex;gap:8px;align-items:center;padding:7px 12px;border-bottom:1px solid #2f2445}
+.ph .av{width:34px;height:34px;border-radius:50%;flex:none;background:#5b3f86;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.ph .it b{display:block;color:#fff;font-size:13px}.ph .it span{color:#b8a9d2}
+.ph .dot{margin-left:auto;background:#ff4f6d;color:#fff;border-radius:9px;padding:0 6px;font-size:11px}
+.ph .card{margin:6px 10px;padding:8px 10px;border-radius:12px;background:#2c2045;border:1px solid #4a3b66}
+.ph .card.on{border-color:#ff6fa3;box-shadow:0 0 0 2px rgba(255,111,163,.3)}
+.ph .card b{color:#f2c46d}.ph .card p{margin:2px 0;color:#d8cdea}.ph .card .g{color:#8f82a6}
+.ph .go{display:block;margin:8px 10px;text-align:center;background:linear-gradient(180deg,#ff86b3,#e6457f);color:#fff;border-radius:16px;padding:6px;font-weight:700}
+.ph .tabs{position:absolute;left:10px;right:10px;bottom:12px;display:flex;justify-content:space-around;background:#1d152c;border-radius:0 0 24px 24px;padding:8px 0;color:#b8a9d2}
+.ph .tabs .a{color:#ff6fa3;font-weight:700}
+.issue{background:#2a1820;border:1px solid #5a2d3c;border-radius:10px;padding:8px 12px;margin:6px 0}
+.issue b{color:#ff9db8}
+</style>
+<body><main>
+<h1>命运牌 · 手机系统：自己定这一局的行程</h1>
+<p class="lead">在大厅加一部「江白的手机」：女主们发消息约你，你在手机里定下一局走谁的行程。这一页是完整方案和我看到的问题，下面 9 项选完点「复制我的选择」发回对话。它<b>代替</b>上一版「开赛前选本局陪你的人」页面（那页不用再选）。</p>
+<section class="q" data-title="方案"><h2><span class="n">★</span>方案（不用选）</h2><div class="why"><div class="mock">
+<div class="ph"><div class="scr"><div class="bar"><span>21:30</span><span>江白的手机</span></div><div class="ttl">消息</div>
+<div class="it"><div class="av">薇</div><div><b>薇拉</b><span>明天第 7 站。……我坐镇。</span></div><span class="dot">告白局</span></div>
+<div class="it"><div class="av">绫</div><div><b>绫香</b><span>约定别忘了：用对子赢一轮！</span></div><span class="dot">约定</span></div>
+<div class="it"><div class="av">卡</div><div><b>卡米耶</b><span>第 4 站见，这次我画你输的样子～</span></div></div>
+<div class="it"><div class="av">夏</div><div><b>夏洛特</b><span>第 3 季 · 下一站：第 4 站约会</span></div></div>
+<div class="it"><div class="av">晴</div><div><b>林晚晴</b><span>俱乐部的灯给你留着。</span></div></div>
+<div class="tabs"><span class="a">消息</span><span>行程</span><span>相册</span></div></div></div>
+<div class="ph"><div class="scr"><div class="bar"><span>21:30</span><span>江白的手机</span></div><div class="ttl">下一局行程</div>
+<div class="card on"><b>告白局 · 薇拉</b><p>S3 以上 · 第 7 站第 3 轮她坐镇</p><p class="g">最后一手打出「四条」赢下 · 今天还剩 2 次</p></div>
+<div class="card"><b>剧情季 · 夏洛特（第 3 季）</b><p>下一站：第 4 站约会</p></div>
+<div class="card"><b>约会约定 · 绫香</b><p>用「对子」赢下一轮</p></div>
+<div class="card"><b>回忆重打 · 卡米耶</b><p>今天还剩 3 次 · 补牌技分</p></div>
+<div class="card"><b>自由比赛</b><p class="g">不讲剧情，只打牌</p></div>
+<span class="go">定下这个行程，出发</span>
+<div class="tabs"><span>消息</span><span class="a">行程</span><span>相册</span></div></div></div>
+</div><p class="note" style="text-align:center">示意图（只示意结构，正式界面按游戏 UI 风格做）</p><ul>
+<li><b>入口</b>：大厅加一个手机图标。有「能做的事」时亮红点（告白局能打了、约会能赴约了、约定还没完成），只是闲聊的消息不亮红点。</li>
+<li><b>消息</b>：每位女主一个对话框。剧情季女主发下一站的预告；恋人篇的邀约、约会约定、告白局邀请都以她的消息出现，消息下面带按钮（「赴约」「定为下一局行程」）；恋人后每天一句专属的话。</li>
+<li><b>行程</b>：列出下一局能走的所有行程，玩家选一个、点「出发」：
+<ul><li><b>剧情季</b>：当前季女主，写清下一站是什么戏。</li>
+<li><b>约会约定</b>：约会①「打进第 3 站」/ 约会②「用她最爱的牌型赢一轮」。</li>
+<li><b>告白局</b>：S 不够的灰掉，写「要 S3 以上」；写今天剩几次。</li>
+<li><b>回忆重打</b>：季讲完的女主都能选，写今天剩几次。</li>
+<li><b>自由比赛</b>：不讲剧情。</li></ul></li>
+<li><b>一局只走一个行程</b>：这一局只出现这一位女主的剧情、只结算她的约定；别的女主照常坐镇其他站、只说一句台词。</li>
+<li><b>出发</b>：直接进「开启新比赛」页，S 自动调到这个行程要求的最低档（还能往上调，不能往下），牌库照常选；页面顶上显示「本局行程：告白局 · 薇拉」，旁边一个「改行程」。</li>
+<li><b>一局没打完</b>：行程跟着这一局，手机里显示「进行中」，不能改；放弃这一局后才能换。</li>
+<li><b>其他入口统一到手机</b>：她房间里的「赴约 / 重打」按钮、大厅「下一目标」都改成打开手机对应的那条；房间保留进度条和状态说明。</li>
+<li><b>工作量</b>：手机界面（消息 + 行程）、开局按行程编排、恋人篇判定改成只算本局行程、入口统一、测试，约 1.5 天；消息文字另算（见第 9 项）；手机外框和应用图标用 AI 出图。</li>
+</ul></div></section>
+<section class="q" data-title="问题"><h2><span class="n">!</span>我看到的问题（不用选，处理办法已写进方案或下面的选项）</h2><div class="why">
+<div class="issue"><b>1. 剧情季会被拖慢。</b>玩家一直选恋人篇或重打，剧情季就停着不走。处理：剧情季的行程卡永远排第一；第 4 项决定默认选谁。</div>
+<div class="issue"><b>2. 恋人篇变长了。</b>现在一局能顺手完成别人的约定；改成一局一个行程后，约会①、约会②、告白局各要单独一局（本来就隔天，影响不大，但想同一天推两条线的玩家会觉得慢）。</div>
+<div class="issue"><b>3. 告白局的 S 要求。</b>选了告白局再去开赛页把 S 调低，就打不成。处理：出发时 S 锁在要求以上。</div>
+<div class="issue"><b>4. 消息太多会烦。</b>九个人都发消息，红点会一直亮。处理：只有能做的事才亮红点，闲聊不亮；每人每天最多 1 条闲聊。</div>
+<div class="issue"><b>5. 按钮重复。</b>房间、大厅目标、选关卡片上现在都有恋人篇的入口。处理：动作统一走手机，其他地方只显示状态、点了跳到手机。</div>
+<div class="issue"><b>6. 第 1 季新手期。</b>新玩家一进来就看到手机和一堆灰掉的行程，会懵。第 6 项决定什么时候出现。</div>
+<div class="issue"><b>7. 老存档。</b>房间里已经预约的重打，换成手机里的一条「已定行程」；进行中的那一局按原规则打完。</div>
+<div class="issue"><b>8. 消息文字量。</b>九个人每人要写：每站预告、邀约、约定提醒、告白邀请、重打、闲聊，大约每人 40 条、共 360 条左右（用 gemini-4-argon 按她的剧本写，不配音）。</div>
+<div class="issue"><b>9. 恋人篇还没上线。</b>恋人篇现在只在测试包里，手机要和恋人篇一起上线（或先上只有剧情季 + 重打 + 自由比赛的手机）。</div>
+</div></section>
+<section class="q" data-q="entry" data-title="手机入口放哪"><h2><span class="n">1</span>手机入口放哪</h2><div class="why"></div><div class="opts wide"><div class="opt" data-v="A 大厅右侧手机图标+红点（推荐）"><h3>A 大厅右侧一个手机图标，带红点（推荐）</h3><p>一眼能看到；红点只为能做的事亮。</p></div><div class="opt" data-v="B 大厅底部菜单一栏"><h3>B 放进大厅底部菜单</h3><p>界面干净，但新玩家不容易发现。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section><section class="q" data-q="apps" data-title="手机里有哪些应用"><h2><span class="n">2</span>手机里有哪些应用</h2><div class="why"></div><div class="opts wide"><div class="opt" data-v="A 消息+行程（推荐）"><h3>A 先做「消息」和「行程」（推荐）</h3><p>核心功能先上，相册以后再加。</p></div><div class="opt" data-v="B 消息+行程+相册"><h3>B 再加「相册」：看过的 CG 和剧情回看都搬进手机</h3><p>更完整，多约半天；房间里的「故事」页可以去掉或保留。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section><section class="q" data-q="go" data-title="定好行程后怎么开赛"><h2><span class="n">3</span>定好行程后怎么开赛</h2><div class="why"></div><div class="opts wide"><div class="opt" data-v="A 出发直达开赛页（推荐）"><h3>A 点「出发」直接进开赛页，S 自动调好（推荐）</h3><p>一步到位，不会忘。</p></div><div class="opt" data-v="B 只登记"><h3>B 只登记行程，玩家自己去点「开始比赛」时自动带上</h3><p>操作自由，但可能忘了自己定过。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section><section class="q" data-q="default" data-title="没定行程就开赛时，走哪个"><h2><span class="n">4</span>没定行程就开赛时，走哪个</h2><div class="why">玩家直接从大厅点「开始比赛」、没进手机。</div><div class="opts wide"><div class="opt" data-v="A 剧情季（推荐）"><h3>A 走剧情季（推荐）</h3><p>和现在一样，主线不会断；恋人篇靠红点提醒玩家去手机里选。</p></div><div class="opt" data-v="B 有约在先优先"><h3>B 有约在先的优先：告白局 → 约会约定 → 剧情季</h3><p>要紧的戏不会错过，但玩家可能不知道这局为什么换了人。</p></div><div class="opt" data-v="C 必须先选"><h3>C 没定行程不能开赛，先弹出手机</h3><p>最明确，多一步。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section><section class="q" data-q="date" data-title="约会剧情（约会① ②）在哪播"><h2><span class="n">5</span>约会剧情（约会① ②）在哪播</h2><div class="why">约会本身是剧情，不用打牌；约会后的「约定」才要打一局。</div><div class="opts wide"><div class="opt" data-v="A 消息里点赴约直接播（推荐）"><h3>A 消息里点「赴约」直接播（推荐）</h3><p>她发消息约你 → 点赴约看约会 → 约定自动成为一个行程。</p></div><div class="opt" data-v="B 只在她房间里播"><h3>B 维持在她房间里播</h3><p>手机只管行程。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section><section class="q" data-q="newbie" data-title="第 1 季（晚晴）期间手机什么样"><h2><span class="n">6</span>第 1 季（晚晴）期间手机什么样</h2><div class="why"></div><div class="opts wide"><div class="opt" data-v="A 开局就有，只有晚晴（推荐）"><h3>A 开局就有手机，只有晚晴一个对话（推荐）</h3><p>晚晴用消息带新手（「明天第 2 站，记得来俱乐部」）；行程里只有晚晴季和自由比赛。</p></div><div class="opt" data-v="B 第 1 季讲完才解锁"><h3>B 第 1 季讲完才出现</h3><p>新手期最简单；晚晴庆功时把手机「交给」你，当一个解锁时刻。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section><section class="q" data-q="rematch" data-title="回忆重打这一局她坐哪几站"><h2><span class="n">7</span>回忆重打这一局她坐哪几站</h2><div class="why"></div><div class="opts wide"><div class="opt" data-v="A 第1站和第6站（推荐）"><h3>A 她那一季原来的两场：第 1 站、第 6 站（推荐）</h3><p>一局两场，补牌技分快一点；每天 3 局。</p></div><div class="opt" data-v="B 只坐第4站"><h3>B 维持只坐第 4 站</h3><p>一局一场。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section><section class="q" data-q="free" data-title="要不要「自由比赛」"><h2><span class="n">8</span>要不要「自由比赛」</h2><div class="why"></div><div class="opts wide"><div class="opt" data-v="A 要（推荐）"><h3>A 要（推荐）</h3><p>只想打牌、冲 S 的玩家不受剧情打扰。</p></div><div class="opt" data-v="B 不要"><h3>B 不要</h3><p>每局都走某个人的行程。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section><section class="q" data-q="text" data-title="消息文字怎么来"><h2><span class="n">9</span>消息文字怎么来</h2><div class="why"></div><div class="opts wide"><div class="opt" data-v="A argon 按剧本写每人一套（推荐）"><h3>A 用 gemini-4-argon 按她的剧本写，每人约 40 条（推荐）</h3><p>每条都贴合她这一站的剧情和性格，我写完逐条审改。</p></div><div class="opt" data-v="B 先用现有台词拼"><h3>B 先用现有的台词池拼</h3><p>最快，但会和牌桌上说的话重复。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section></main>
+<div id="bar"><div class="in"><span class="prog" id="prog"></span><button class="ghost" id="reset">清空</button><button id="copy">复制我的选择</button></div><pre id="out"></pre></div>
+<div id="lb"><img></div><div class="toast" id="toast"></div>
+<script>
+const KEY = "jg-phone-1109";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+const qs = [...document.querySelectorAll("section.q")];
+
+function bindGroup(container, id, itemSel) {
+  const items = [...container.querySelectorAll(itemSel)];
+  items.forEach(el => {
+    if (state[id] === el.dataset.v) el.classList.add("sel");
+    el.addEventListener("click", e => {
+      if (e.target.tagName === "IMG") return;
+      const on = !el.classList.contains("sel");
+      items.forEach(x => x.classList.remove("sel"));
+      if (on) { el.classList.add("sel"); state[id] = el.dataset.v; } else delete state[id];
+      save(); render();
+    });
+  });
+}
+qs.forEach(s => {
+  const id = s.dataset.q;
+  if (s.querySelector(":scope > .opts .opt[data-v]")) bindGroup(s, id, ".opt[data-v]");
+  s.querySelectorAll(".sub").forEach(sub => bindGroup(sub, id + "." + sub.dataset.sq, ".pill"));
+  const tp = s.querySelector(":scope > .pills"); if (tp) bindGroup(tp, id, ".pill");
+  const ta = s.querySelector(":scope > textarea");
+  if (ta) { ta.value = state[id + ".note"] || ""; ta.addEventListener("input", () => { state[id + ".note"] = ta.value; save(); render(); }); }
+});
+
+function lines() {
+  const out = ["【命运牌 · 手机系统 11-09】"];
+  let n = 0, done = 0;
+  qs.forEach((s, i) => {
+    if (!s.querySelector("[data-v]")) return; // (information only)
+    const id = s.dataset.q, t = s.dataset.title, subs = [...s.querySelectorAll(".sub")];
+    if (subs.length) {
+      out.push(`${s.querySelector(".n").textContent}. ${t}：`);
+      subs.forEach(sub => { n++; const v = state[id + "." + sub.dataset.sq]; if (v) done++; out.push(`   - ${sub.dataset.title}：${v || "（未选）"}`); });
+    } else { n++; const v = state[id]; if (v) done++; out.push(`${s.querySelector(".n").textContent}. ${t}：${v || "（未选）"}`); }
+    const note = (state[id + ".note"] || "").trim();
+    if (note) out.push(`   备注：${note}`);
+  });
+  return { text: out.join("\n"), n, done };
+}
+function render() { const r = lines(); document.getElementById("prog").textContent = `已选 ${r.done} / ${r.n} 项`; }
+render();
+
+document.getElementById("copy").onclick = async () => {
+  const { text } = lines(), out = document.getElementById("out");
+  out.style.display = "block"; out.textContent = text;
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {}
+  if (!ok) { const r = document.createRange(); r.selectNodeContents(out); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { ok = document.execCommand("copy"); } catch (e) {} }
+  const t = document.getElementById("toast"); t.textContent = ok ? "已复制，发回对话里给我就行" : "没能自动复制，请长按下面的文字复制";
+  t.style.display = "block"; setTimeout(() => t.style.display = "none", 2200);
+};
+document.getElementById("reset").onclick = () => {
+  if (!confirm("清空这页上所有的选择和备注？")) return;
+  localStorage.removeItem(KEY); location.reload();
+};
+const lb = document.getElementById("lb");
+document.querySelectorAll("main img").forEach(img => img.addEventListener("click", () => { lb.querySelector("img").src = img.src; lb.style.display = "flex"; }));
+lb.onclick = () => lb.style.display = "none";
+</script>
+</body>
+</html>
