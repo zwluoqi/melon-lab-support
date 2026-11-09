@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>命运牌：九重奏 · 官方网站</title>
+<meta name="description" content="命运牌：九重奏——叠倍率、爆数值的肉鸽卡牌，与九位女主一起踏上世界冠军赛。TapTap 免费下载。">
+<link rel="icon" href="img/icon.png">
+<style>
+  :root { --bg:#120d1e; --card:#1d1530; --gold:#f2c46d; --pink:#ff6fa3; --txt:#efe8f8; --dim:#b3a6c9; --tap:#15c5ce; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:16px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  a { color:inherit; }
+  header.top { position:fixed; top:0; left:0; right:0; z-index:5; display:flex; align-items:center; gap:10px; padding:10px 16px; background:rgba(18,13,30,.82); backdrop-filter:blur(8px); }
+  header.top img { width:34px; height:34px; border-radius:8px; }
+  header.top b { flex:1; font-size:16px; letter-spacing:1px; }
+  .hero { position:relative; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+          background:url(img/hero.jpg) center/cover no-repeat; padding:90px 16px 60px; }
+  .hero::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(18,13,30,.15) 0%,rgba(18,13,30,.35) 55%,var(--bg) 100%); }
+  .hero > * { position:relative; z-index:1; }
+  .hero .logo { width:min(520px,82vw); filter:drop-shadow(0 8px 24px rgba(0,0,0,.6)); }
+  .hero h1 { margin:4px 0 6px; font-size:clamp(22px,4.4vw,34px); letter-spacing:6px; color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.8); }
+  .hero p.slogan { margin:0 0 26px; font-size:clamp(15px,2.6vw,19px); color:#fbe9c4; text-shadow:0 2px 8px rgba(0,0,0,.9); }
+  .dl { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+  .btn-tap { display:inline-flex; align-items:center; gap:10px; padding:14px 34px; border-radius:40px; background:linear-gradient(180deg,#2fe0e8,#10b4be);
+             color:#fff; font-size:20px; font-weight:700; text-decoration:none; box-shadow:0 6px 22px rgba(21,197,206,.45); letter-spacing:1px; }
+  .btn-tap:active { transform:scale(.97); }
+  .btn-tap svg { width:26px; height:26px; }
+  .hint { margin-top:10px; font-size:13px; color:var(--dim); }
+  section { max-width:1080px; margin:0 auto; padding:56px 16px 10px; }
+  section h2 { text-align:center; font-size:26px; color:var(--gold); margin:0 0 6px; letter-spacing:3px; }
+  section .sub { text-align:center; color:var(--dim); margin:0 0 28px; }
+  .feats { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+  .feat { background:var(--card); border:1px solid #3a2d55; border-radius:16px; padding:18px; }
+  .feat h3 { margin:0 0 6px; color:#fff; font-size:18px; }
+  .feat p { margin:0; color:#d7cde6; font-size:15px; }
+  .girls { display:grid; gap:12px; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); }
+  .girl { background:radial-gradient(ellipse at 50% 30%,#3b2a5c,#1a1229 70%); border-radius:16px; overflow:hidden; text-align:center; padding-bottom:10px; }
+  .girl img { width:100%; aspect-ratio:2/3; object-fit:cover; object-position:top; display:block; }
+  .girl b { display:block; font-size:16px; margin-top:6px; }
+  .girl span { font-size:13px; color:var(--dim); }
+  .shots { display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:10px; }
+  .shots img { width:220px; flex:none; border-radius:14px; scroll-snap-align:center; border:1px solid #3a2d55; }
+  .cta { text-align:center; padding:56px 16px 30px; }
+  footer { text-align:center; color:var(--dim); font-size:13px; padding:24px 16px 40px; border-top:1px solid #2a2040; margin-top:30px; }
+  footer a { color:var(--gold); }
+</style>
+</head>
+<body>
+<header class="top"><img src="img/icon.png" alt=""><b>命运牌：九重奏</b>
+  <a class="btn-tap" style="padding:7px 16px;font-size:14px" data-tap href="#">TapTap 下载</a></header>
+
+<div class="hero">
+  <img class="logo" src="img/logo.png" alt="命运牌">
+  <h1>九 重 奏</h1>
+  <p class="slogan">叠倍率，爆数值！与九位女主一起，打到世界冠军</p>
+  <div class="dl">
+    <a class="btn-tap" data-tap href="#">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M6 10l6 6 6-6"/><path d="M4 20h16"/></svg>
+      TapTap 下载</a>
+  </div>
+  <div class="hint">免费下载 · 安卓 / iOS / PC 均可在 TapTap 游玩</div>
+</div>
+
+<section id="about">
+  <h2>游戏特色</h2>
+  <p class="sub">一手普通的扑克牌，越打越离谱</p>
+  <div class="feats">
+    <div class="feat"><h3>凑牌型 · 叠倍率</h3><p>对子、顺子、同花、葫芦……每种牌型都能升级。配上装备和道具，把分数从几十叠到几百万。</p></div>
+    <div class="feat"><h3>每一局都不一样</h3><p>八站世界冠军赛，每站三轮对局，中间逛商店买装备、开卡包。套路你自己研究，每局都有新组合。</p></div>
+    <div class="feat"><h3>九位女主 · 九段心动</h3><p>她们坐镇牌桌，也走进你的故事。约会、送礼、心动特训，从暧昧到恋人，每个人都有专属结局。</p></div>
+    <div class="feat"><h3>不看广告也能玩爽</h3><p>没有内购，广告只在你自己想要奖励时才看。单机也能玩，云存档随时接着打。</p></div>
+  </div>
+</section>
+
+<section id="girls">
+  <h2>九位女主</h2>
+  <p class="sub">每个人都有最爱的牌型</p>
+  <div class="girls">
+    <div class="girl"><img loading="lazy" src="img/wanqing.webp" alt="林晚晴"><b>林晚晴</b><span>温柔御姐老板娘 · 高牌</span></div>
+    <div class="girl"><img loading="lazy" src="img/ayaka.webp" alt="西园寺绫香"><b>西园寺绫香</b><span>傲娇大小姐 · 对子</span></div>
+    <div class="girl"><img loading="lazy" src="img/charlotte.webp" alt="夏洛特"><b>夏洛特</b><span>眼镜腹黑学霸 · 两对</span></div>
+    <div class="girl"><img loading="lazy" src="img/ingrid.webp" alt="英格丽德"><b>英格丽德</b><span>制服御姐 · 三条</span></div>
+    <div class="girl"><img loading="lazy" src="img/jiya.webp" alt="韩智雅"><b>韩智雅</b><span>甜妹爱豆 · 顺子</span></div>
+    <div class="girl"><img loading="lazy" src="img/layla.webp" alt="莱拉"><b>莱拉</b><span>富婆女王 · 同花顺</span></div>
+    <div class="girl"><img loading="lazy" src="img/camille.webp" alt="卡米耶"><b>卡米耶</b><span>小恶魔 · 同花</span></div>
+    <div class="girl"><img loading="lazy" src="img/madison.webp" alt="麦迪逊"><b>麦迪逊</b><span>金发辣妹 · 葫芦</span></div>
+    <div class="girl"><img loading="lazy" src="img/vera.webp" alt="薇拉"><b>薇拉</b><span>银发冰山 · 四条</span></div>
+  </div>
+</section>
+
+<section id="shots">
+  <h2>游戏画面</h2>
+  <p class="sub">左右滑动查看</p>
+  <div class="shots">
+    <img loading="lazy" src="img/shot1.jpg" alt="出牌"><img loading="lazy" src="img/shot2.jpg" alt="大牌型">
+    <img loading="lazy" src="img/shot3.jpg" alt="商店"><img loading="lazy" src="img/shot4.jpg" alt="大厅"><img loading="lazy" src="img/shot5.jpg" alt="约会">
+  </div>
+</section>
+
+<div class="cta">
+  <a class="btn-tap" data-tap href="#">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M6 10l6 6 6-6"/><path d="M4 20h16"/></svg>
+    TapTap 下载</a>
+</div>
+
+<footer>
+  © 2026 FIRE工作室 · 命运牌：九重奏<br>
+  玩家群：<a href="https://qm.qq.com/q/vzpqcZWszm" target="_blank" rel="noopener">1134206054</a>
+</footer>
+
+<script>
+// TapTap REP 官网品牌挂件监测链接（REP 后台「生成监测链接 → 游戏详情页 → 复制链接」）；没填时先跳 TapTap 详情页
+const TAP_URL = "https://www.taptap.cn/app/1003219";
+document.querySelectorAll("[data-tap]").forEach(a => { a.href = TAP_URL; a.target = "_blank"; a.rel = "noopener"; });
+</script>
+</body>
+</html>
