@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>命运牌 · 结局改版：暧昧 + 恋人（11-09）</title>
+<style>
+  :root { --bg:#16121f; --card:#221b30; --line:#3a2f50; --gold:#f2c46d; --pink:#ff6fa3; --txt:#ece6f5; --dim:#a99cbf; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:18px 14px 160px; }
+  h1 { font-size:22px; margin:6px 0 4px; color:var(--gold); }
+  .lead { color:var(--dim); margin:0 0 18px; }
+  section.q { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:0 0 18px; }
+  section.q h2 { font-size:18px; margin:0 0 6px; }
+  section.q h2 .n { display:inline-block; min-width:26px; height:26px; line-height:26px; text-align:center; border-radius:50%; background:var(--gold); color:#2a1d07; font-size:14px; margin-right:6px; }
+  .why { color:var(--dim); margin:0 0 12px; font-size:14px; }
+  .why ul { margin:4px 0; padding-left:20px; }
+  .opts { display:grid; gap:12px; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); }
+  .opts.wide { grid-template-columns:1fr; }
+  .opts.two { grid-template-columns:repeat(2, 1fr); gap:8px; }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  .row { display:grid; gap:6px; grid-template-columns:2.2fr 1.25fr 0.72fr; align-items:start; }
+  .row img { width:100%; }
+  .gallery.four { grid-template-columns:repeat(4, 1fr); }
+  .note { font-size:13px; color:var(--dim); margin:6px 0 0; }
+  @media (max-width:640px) {
+    .opts.three .opt, .opts.two .opt { padding:6px; }
+    .opts.three .opt h3, .opts.two .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p, .opts.two .opt p { font-size:12px; line-height:1.5; }
+    .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .gallery.four { grid-template-columns:repeat(2, 1fr); }
+  }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  @media (max-width:640px) {
+    .opts.three .opt { padding:6px; }
+    .opts.three .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p { font-size:12px; line-height:1.5; }
+    .opts.three .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .opts.three .opt.ref::before { font-size:11px; }
+    .opts.three .tag { display:block; width:max-content; margin:2px 0 0; }
+  }
+  .opt { position:relative; border:2px solid var(--line); border-radius:12px; padding:10px; background:#1b1527; cursor:pointer; transition:border-color .15s, transform .15s; }
+  .opt:hover { border-color:#6b5a8f; }
+  .opt.sel { border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,111,163,.25); }
+  .opt.sel::after { content:"✓ 已选"; position:absolute; top:8px; right:8px; background:var(--pink); color:#fff; font-size:12px; padding:2px 8px; border-radius:10px; }
+  .opt.ref { cursor:default; opacity:.85; border-style:dashed; }
+  .opt.ref::before { content:"现在的样子（参考）"; display:block; font-size:12px; color:var(--dim); margin-bottom:6px; }
+  .opt img { width:100%; border-radius:8px; display:block; cursor:zoom-in; background:#000; }
+  .opt h3 { font-size:16px; margin:8px 0 2px; color:var(--gold); }
+  .opt p { margin:2px 0; font-size:14px; color:#d8d0e6; }
+  .tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:8px; background:#3b2a12; color:var(--gold); margin-left:4px; vertical-align:middle; }
+  textarea { width:100%; min-height:44px; margin-top:12px; border-radius:10px; border:1px solid var(--line); background:#140f1d; color:var(--txt); padding:8px 10px; font:inherit; }
+  .sub { margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--line); }
+  .sub:first-of-type { border-top:0; padding-top:0; }
+  .sub h4 { margin:0 0 8px; font-size:15px; }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill { border:2px solid var(--line); border-radius:20px; padding:6px 14px; cursor:pointer; background:#1b1527; font-size:14px; }
+  .pill.sel { border-color:var(--pink); background:#3a1830; }
+  .voices { display:grid; gap:8px; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); margin:6px 0 12px; }
+  .voice { background:#1b1527; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:14px; }
+  .voice b { color:var(--gold); }
+  .voice audio { width:100%; height:34px; margin-top:4px; }
+  .gallery { display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
+  .gallery img, .promo img { width:100%; border-radius:8px; cursor:zoom-in; display:block; }
+  .promo { display:grid; gap:10px; grid-template-columns:2fr 1fr; margin-bottom:10px; }
+  video { width:100%; max-width:360px; border-radius:10px; display:block; margin:8px auto; background:#000; }
+  .cap { font-size:12px; color:var(--dim); text-align:center; margin-top:3px; }
+  #bar { position:fixed; left:0; right:0; bottom:0; background:rgba(18,13,26,.97); border-top:1px solid var(--line); padding:10px 14px; }
+  #bar .in { max-width:980px; margin:0 auto; display:flex; gap:10px; align-items:center; }
+  #bar .prog { flex:1; color:var(--dim); font-size:14px; }
+  #bar button { border:0; border-radius:22px; padding:11px 20px; font:inherit; font-weight:600; cursor:pointer; background:linear-gradient(180deg,#ff86b3,#e6457f); color:#fff; }
+  #bar button.ghost { background:#2d2440; color:var(--txt); font-weight:400; }
+  #out { display:none; max-width:980px; margin:8px auto 0; white-space:pre-wrap; background:#140f1d; border:1px solid var(--line); border-radius:10px; padding:10px; font-size:13px; max-height:30vh; overflow:auto; }
+  #lb { position:fixed; inset:0; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; z-index:9; cursor:zoom-out; }
+  #lb img { max-width:96vw; max-height:94vh; }
+  .toast { position:fixed; left:50%; bottom:90px; transform:translateX(-50%); background:#2fae6b; color:#fff; padding:8px 18px; border-radius:20px; display:none; z-index:10; }
+</style>
+<style>.fields{display:grid;gap:6px;grid-template-columns:120px 1fr;font-size:14px;margin:8px 0}.fields b{color:var(--gold)}.fields span{background:#140f1d;border:1px solid var(--line);border-radius:8px;padding:4px 8px} .beats{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0}.beats td,.beats th{border:1px solid var(--line);padding:5px 6px;vertical-align:top}.beats th{color:var(--gold);background:#1b1527} .shots{display:grid;gap:8px;grid-template-columns:repeat(4,1fr)} @media(max-width:640px){.shots{grid-template-columns:repeat(2,1fr)}} .shots img{width:100%;border-radius:8px;cursor:zoom-in}</style>
+<body><main>
+<h1>命运牌 · 结局改版：暧昧结局 + 恋人结局</h1>
+<p class="lead">先看现状，再选 5 项。选完点底部「复制我的选择」，发回对话。</p>
+<section class="q" data-title="现状"><h2><span class="n">0</span>现在是怎么算的（不用选）</h2><div class="why">
+<ul>
+<li><b>好感 = 牌技分 + 心意分 + 礼物分</b>，三项各 0–100，合计最多 300。剧情季开了以后九位都按 ×3 计分。</li>
+<li><b>牌技分</b>：她坐镇的第 3 轮赢一场 +3（分数是目标 2/5/10 倍再 +1/+2/+3，最后一手打她最爱的牌型 +2），她的 3 个隐藏任务每个 +5，再 ×3。</li>
+<li><b>心意分</b>：初见印象（绫香 −30、薇拉 −50、莱拉 −40 …）+ 剧情选项（每题 +8 / +2 / −5），再 ×3。</li>
+<li><b>礼物分</b>：送礼（喜欢 +2、一般 +1）和女主应援（看视频，每票 +1），再 ×3；礼物只从每日任务、成长任务、成就来。</li>
+<li><b>结局在第 8 站夺冠时一次定好</b>，只看总分：≥200 恋人、140–199 中间结局（每人名字不同，比如绫香「宿敌」）、&lt;140 错过。定了以后不会再变。</li>
+</ul>
+<b>问题：</b>
+<ul>
+<li><b>恋人太容易：</b>心意分只要选对 8～9 题就满 100，再加一季正常打下来的牌技分（约 40～60）和一点礼物分，总分就过 200。三项不用都高，靠心意分一项就能撑起来。</li>
+<li><b>季后分数基本不动：</b>一季只讲一个人，她只坐 2 场（莱拉 4、麦迪逊 3）。季结束后她不再坐镇，牌技分就涨不上去了；心意分只能靠回忆里改选（后悔药）。如果恋人改成「季后再达成」，要给牌技分开一个季后来源。</li>
+<li><b>恋人没有额外剧情：</b>三种结局只是季终那一段不一样，恋人结局没有后续故事。</li>
+</ul></div></section>
+<section class="q" data-q="tiers" data-title="季终结局的档位"><h2><span class="n">1</span>季终结局的档位</h2><div class="why">夺冠时出的结局。你说的是「暧昧结局」和「恋人结局」两种，恋人结局在暧昧结局之后再达成。</div><div class="opts wide"><div class="opt" data-v="A 季终一律暧昧（推荐）"><h3>A 季终一律是暧昧结局（推荐）</h3><p>夺冠必出暧昧结局（用现在的「中间结局」改写），原来的「错过」去掉。好感低时暧昧结局换一版更克制的台词，不另算一种结局。</p></div><div class="opt" data-v="B 暧昧 + 错过"><h3>B 保留「错过」作为低好感结局</h3><p>好感不到 140 出「错过」，140 以上出暧昧。错过的人以后也能补到恋人，只是要先补回暧昧的门槛。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section>
+<section class="q" data-q="bar" data-title="恋人结局的门槛（三项都要达到）"><h2><span class="n">2</span>恋人结局的门槛（三项都要达到）</h2><div class="why">三项各 100 分封顶。门槛越高，越要靠季后补分（任务送礼、应援、后悔药改选、恋人篇对局）。</div><div class="opts wide"><div class="opt" data-v="A 宽松 牌技60/心意80/礼物50"><h3>A 宽松：牌技 60 · 心意 80 · 礼物 50</h3><p>认真打完一季、选项大多选对，再送几天礼物就能达到。</p></div><div class="opt" data-v="B 标准 牌技75/心意90/礼物70（推荐）"><h3>B 标准：牌技 75 · 心意 90 · 礼物 70（推荐）</h3><p>一季打完大多只够暧昧；要做完她的隐藏任务、选项几乎全对，再攒一周左右的礼物或应援。</p></div><div class="opt" data-v="C 严格 牌技90/心意100/礼物90"><h3>C 严格：牌技 90 · 心意 100 · 礼物 90</h3><p>选项必须全对（或用后悔药改到全对），礼物要攒两周以上。适合做长线目标。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section>
+<section class="q" data-q="trigger" data-title="恋人篇怎么触发"><h2><span class="n">3</span>恋人篇怎么触发</h2><div class="why">暧昧结局之后，三项达标才开「恋人篇」，再加一道触发难度。</div><div class="opts wide"><div class="opt" data-v="A 告白局"><h3>A 告白局：她亲自坐一场特别对局</h3><p>三项达标后，她在房间留言「有话想当面说」。之后开一局「告白之夜」：她坐第 3 轮，难度高一档（比她那一季高 1 个 S），最后一手要打出她最爱的牌型才算赢。输了可以再来，每天 3 次。</p></div><div class="opt" data-v="B 三晚约会"><h3>B 三晚约会：连着三天，每天一段</h3><p>三项达标后，每天能约她一次，三晚各有一段剧情和一个牌局小目标（比如「用对子赢下第 3 轮」），中断了要从第一晚重来。</p></div><div class="opt" data-v="C 告白局 + 约会（推荐）"><h3>C 两晚约会 + 告白局（推荐）</h3><p>先两晚约会（每天一段，带牌局小目标），第三晚是告白局。剧情最完整，节奏一天一段，也能把玩家每天拉回来。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section>
+<section class="q" data-q="skill" data-title="季后的牌技分从哪来"><h2><span class="n">4</span>季后的牌技分从哪来</h2><div class="why">她那一季结束后就不再坐镇，牌技分需要新的来源，否则要求高了就补不上。</div><div class="opts wide"><div class="opt" data-v="A 恋人篇对局"><h3>A 只算恋人篇里的对局</h3><p>约会 / 告白局赢了加她的牌技分。</p></div><div class="opt" data-v="B 心动特训"><h3>B 心动特训她的牌型时加</h3><p>每特训一次她最爱的牌型，加她的牌技分。</p></div><div class="opt" data-v="C 两者都算 + 回忆重打（推荐）"><h3>C 两者都算，再加「回忆里重打她的关键局」（推荐）</h3><p>回忆里能重打她坐镇过的那几局（不影响主线进度），赢了按原规则加牌技分，每天限 3 次。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section>
+<section class="q" data-q="content" data-title="恋人篇的内容量"><h2><span class="n">5</span>恋人篇的内容量</h2><div class="why">剧情文字照例用 gemini-4-argon 按她的剧本写，配音另说（配音任务现在停着）。</div><div class="opts wide"><div class="opt" data-v="A 复用现有恋人结局"><h3>A 复用现在的恋人结局</h3><p>现在恋人结局那一段（换装、告白）挪到告白局之后当终章；约会只写两段短戏。只需要写文字，不用新画图。</p></div><div class="opt" data-v="B 每人 1 张新 CG（推荐）"><h3>B 两段约会 + 告白终章，每人 1 张新 CG（推荐）</h3><p>两段约会是新写的，告白终章用现在的恋人结局改写；每人新画一张约会 CG（九位共 9 张）。</p></div><div class="opt" data-v="C 每人 3 张新 CG"><h3>C 三段全新剧情，每人 3 张新 CG</h3><p>约会两段 + 告白各一张新 CG（九位共 27 张），内容最足，工作量最大。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section>
+<section class="q" data-title="说明"><h2><span class="n">6</span>改版后不用选的部分</h2><div class="why"><ul>
+<li>她的房间加一块「恋人条件」：三条进度条、每条的门槛，告诉玩家还差哪一项、怎么补（打她的局 / 改选 / 送礼应援）。</li>
+<li>老存档：已经是恋人结局的保留；「中间」「错过」都改成暧昧结局，三项达标就能开恋人篇。</li>
+<li>恋人篇达成后：限定装扮、金色牌背、「恋人」成就照旧，房间里多一组恋人专属日常台词。</li>
+<li>大厅「下一目标」：季终后如果有女主差一点就到恋人，提示她差哪一项。</li>
+</ul></div></section>
+</main>
+<div id="bar"><div class="in"><span class="prog" id="prog"></span><button class="ghost" id="reset">清空</button><button id="copy">复制我的选择</button></div><pre id="out"></pre></div>
+<div id="lb"><img></div><div class="toast" id="toast"></div>
+<script>
+const KEY = "jg-review-1109";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+const qs = [...document.querySelectorAll("section.q")];
+
+function bindGroup(container, id, itemSel) {
+  const items = [...container.querySelectorAll(itemSel)];
+  items.forEach(el => {
+    if (state[id] === el.dataset.v) el.classList.add("sel");
+    el.addEventListener("click", e => {
+      if (e.target.tagName === "IMG") return;
+      const on = !el.classList.contains("sel");
+      items.forEach(x => x.classList.remove("sel"));
+      if (on) { el.classList.add("sel"); state[id] = el.dataset.v; } else delete state[id];
+      save(); render();
+    });
+  });
+}
+qs.forEach(s => {
+  const id = s.dataset.q;
+  if (s.querySelector(":scope > .opts .opt[data-v]")) bindGroup(s, id, ".opt[data-v]");
+  s.querySelectorAll(".sub").forEach(sub => bindGroup(sub, id + "." + sub.dataset.sq, ".pill"));
+  const tp = s.querySelector(":scope > .pills"); if (tp) bindGroup(tp, id, ".pill");
+  const ta = s.querySelector(":scope > textarea");
+  if (ta) { ta.value = state[id + ".note"] || ""; ta.addEventListener("input", () => { state[id + ".note"] = ta.value; save(); render(); }); }
+});
+
+function lines() {
+  const out = ["【命运牌 · 结局改版 11-09】"];
+  let n = 0, done = 0;
+  qs.forEach((s, i) => {
+    if (!s.querySelector("[data-v]")) return; // (information only)
+    const id = s.dataset.q, t = s.dataset.title, subs = [...s.querySelectorAll(".sub")];
+    if (subs.length) {
+      out.push(`${s.querySelector(".n").textContent}. ${t}：`);
+      subs.forEach(sub => { n++; const v = state[id + "." + sub.dataset.sq]; if (v) done++; out.push(`   - ${sub.dataset.title}：${v || "（未选）"}`); });
+    } else { n++; const v = state[id]; if (v) done++; out.push(`${s.querySelector(".n").textContent}. ${t}：${v || "（未选）"}`); }
+    const note = (state[id + ".note"] || "").trim();
+    if (note) out.push(`   备注：${note}`);
+  });
+  return { text: out.join("\n"), n, done };
+}
+function render() { const r = lines(); document.getElementById("prog").textContent = `已选 ${r.done} / ${r.n} 项`; }
+render();
+
+document.getElementById("copy").onclick = async () => {
+  const { text } = lines(), out = document.getElementById("out");
+  out.style.display = "block"; out.textContent = text;
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {}
+  if (!ok) { const r = document.createRange(); r.selectNodeContents(out); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { ok = document.execCommand("copy"); } catch (e) {} }
+  const t = document.getElementById("toast"); t.textContent = ok ? "已复制，发回对话里给我就行" : "没能自动复制，请长按下面的文字复制";
+  t.style.display = "block"; setTimeout(() => t.style.display = "none", 2200);
+};
+document.getElementById("reset").onclick = () => {
+  if (!confirm("清空这页上所有的选择和备注？")) return;
+  localStorage.removeItem(KEY); location.reload();
+};
+const lb = document.getElementById("lb");
+document.querySelectorAll("main img").forEach(img => img.addEventListener("click", () => { lb.querySelector("img").src = img.src; lb.style.display = "flex"; }));
+lb.onclick = () => lb.style.display = "none";
+</script>
+</body>
+</html>
