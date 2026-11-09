@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>命运牌 · 每局开赛前选「本局陪你的人」（11-09）</title>
+<style>
+  :root { --bg:#16121f; --card:#221b30; --line:#3a2f50; --gold:#f2c46d; --pink:#ff6fa3; --txt:#ece6f5; --dim:#a99cbf; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:18px 14px 160px; }
+  h1 { font-size:22px; margin:6px 0 4px; color:var(--gold); }
+  .lead { color:var(--dim); margin:0 0 18px; }
+  section.q { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:0 0 18px; }
+  section.q h2 { font-size:18px; margin:0 0 6px; }
+  section.q h2 .n { display:inline-block; min-width:26px; height:26px; line-height:26px; text-align:center; border-radius:50%; background:var(--gold); color:#2a1d07; font-size:14px; margin-right:6px; }
+  .why { color:var(--dim); margin:0 0 12px; font-size:14px; }
+  .why ul { margin:4px 0; padding-left:20px; }
+  .opts { display:grid; gap:12px; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); }
+  .opts.wide { grid-template-columns:1fr; }
+  .opts.two { grid-template-columns:repeat(2, 1fr); gap:8px; }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  .row { display:grid; gap:6px; grid-template-columns:2.2fr 1.25fr 0.72fr; align-items:start; }
+  .row img { width:100%; }
+  .gallery.four { grid-template-columns:repeat(4, 1fr); }
+  .note { font-size:13px; color:var(--dim); margin:6px 0 0; }
+  @media (max-width:640px) {
+    .opts.three .opt, .opts.two .opt { padding:6px; }
+    .opts.three .opt h3, .opts.two .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p, .opts.two .opt p { font-size:12px; line-height:1.5; }
+    .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .gallery.four { grid-template-columns:repeat(2, 1fr); }
+  }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  @media (max-width:640px) {
+    .opts.three .opt { padding:6px; }
+    .opts.three .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p { font-size:12px; line-height:1.5; }
+    .opts.three .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .opts.three .opt.ref::before { font-size:11px; }
+    .opts.three .tag { display:block; width:max-content; margin:2px 0 0; }
+  }
+  .opt { position:relative; border:2px solid var(--line); border-radius:12px; padding:10px; background:#1b1527; cursor:pointer; transition:border-color .15s, transform .15s; }
+  .opt:hover { border-color:#6b5a8f; }
+  .opt.sel { border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,111,163,.25); }
+  .opt.sel::after { content:"✓ 已选"; position:absolute; top:8px; right:8px; background:var(--pink); color:#fff; font-size:12px; padding:2px 8px; border-radius:10px; }
+  .opt.ref { cursor:default; opacity:.85; border-style:dashed; }
+  .opt.ref::before { content:"现在的样子（参考）"; display:block; font-size:12px; color:var(--dim); margin-bottom:6px; }
+  .opt img { width:100%; border-radius:8px; display:block; cursor:zoom-in; background:#000; }
+  .opt h3 { font-size:16px; margin:8px 0 2px; color:var(--gold); }
+  .opt p { margin:2px 0; font-size:14px; color:#d8d0e6; }
+  .tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:8px; background:#3b2a12; color:var(--gold); margin-left:4px; vertical-align:middle; }
+  textarea { width:100%; min-height:44px; margin-top:12px; border-radius:10px; border:1px solid var(--line); background:#140f1d; color:var(--txt); padding:8px 10px; font:inherit; }
+  .sub { margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--line); }
+  .sub:first-of-type { border-top:0; padding-top:0; }
+  .sub h4 { margin:0 0 8px; font-size:15px; }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill { border:2px solid var(--line); border-radius:20px; padding:6px 14px; cursor:pointer; background:#1b1527; font-size:14px; }
+  .pill.sel { border-color:var(--pink); background:#3a1830; }
+  .voices { display:grid; gap:8px; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); margin:6px 0 12px; }
+  .voice { background:#1b1527; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:14px; }
+  .voice b { color:var(--gold); }
+  .voice audio { width:100%; height:34px; margin-top:4px; }
+  .gallery { display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
+  .gallery img, .promo img { width:100%; border-radius:8px; cursor:zoom-in; display:block; }
+  .promo { display:grid; gap:10px; grid-template-columns:2fr 1fr; margin-bottom:10px; }
+  video { width:100%; max-width:360px; border-radius:10px; display:block; margin:8px auto; background:#000; }
+  .cap { font-size:12px; color:var(--dim); text-align:center; margin-top:3px; }
+  #bar { position:fixed; left:0; right:0; bottom:0; background:rgba(18,13,26,.97); border-top:1px solid var(--line); padding:10px 14px; }
+  #bar .in { max-width:980px; margin:0 auto; display:flex; gap:10px; align-items:center; }
+  #bar .prog { flex:1; color:var(--dim); font-size:14px; }
+  #bar button { border:0; border-radius:22px; padding:11px 20px; font:inherit; font-weight:600; cursor:pointer; background:linear-gradient(180deg,#ff86b3,#e6457f); color:#fff; }
+  #bar button.ghost { background:#2d2440; color:var(--txt); font-weight:400; }
+  #out { display:none; max-width:980px; margin:8px auto 0; white-space:pre-wrap; background:#140f1d; border:1px solid var(--line); border-radius:10px; padding:10px; font-size:13px; max-height:30vh; overflow:auto; }
+  #lb { position:fixed; inset:0; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; z-index:9; cursor:zoom-out; }
+  #lb img { max-width:96vw; max-height:94vh; }
+  .toast { position:fixed; left:50%; bottom:90px; transform:translateX(-50%); background:#2fae6b; color:#fff; padding:8px 18px; border-radius:20px; display:none; z-index:10; }
+</style>
+<style>.fields{display:grid;gap:6px;grid-template-columns:120px 1fr;font-size:14px;margin:8px 0}.fields b{color:var(--gold)}.fields span{background:#140f1d;border:1px solid var(--line);border-radius:8px;padding:4px 8px} .beats{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0}.beats td,.beats th{border:1px solid var(--line);padding:5px 6px;vertical-align:top}.beats th{color:var(--gold);background:#1b1527} .shots{display:grid;gap:8px;grid-template-columns:repeat(4,1fr)} @media(max-width:640px){.shots{grid-template-columns:repeat(2,1fr)}} .shots img{width:100%;border-radius:8px;cursor:zoom-in}</style>
+<body><main>
+<h1>命运牌 · 开赛前选「本局陪你的人」</h1>
+<p class="lead">一局只讲一位女主的戏，由玩家在开赛前自己选。先看现状和方案，再选 6 项，选完点底部「复制我的选择」发回对话。</p>
+<section class="q" data-title="现状"><h2><span class="n">0</span>现在一局里会出现谁的剧情（不用选）</h2><div class="why"><ul>
+<li><b>剧情季女主</b>：第 1、6 站坐第 3 轮（莱拉、麦迪逊还有第 3 站），第 2–5、7 站商店后有夜戏 / 约会，第 8 站夺冠出结局。</li>
+<li><b>恋人篇告白局</b>：另一位女主到了告白阶段、这局 S 又够，她会自动坐第 7 站。</li>
+<li><b>预约的重打</b>：在她房间里约了重打，下一局她自动坐第 4 站。</li>
+<li><b>约会约定</b>（打进第 3 站 / 用她最爱的牌型赢一轮）：任何一局都算，几位同时达成，回大厅连着播几段后记。</li>
+<li>其他站的女主随机坐镇，只冒一句台词，没有剧情。</li>
+</ul>所以最多时，一局里会有<b>三位女主的剧情</b>：季女主、第 4 站重打、第 7 站告白。程序上没有冲突，但玩家可能分不清「这一局在讲谁」。</div></section>
+<section class="q" data-title="方案"><h2><span class="n">★</span>方案：开赛前选「本局陪你的人」（不用选）</h2><div class="why"><ul>
+<li><b>入口</b>：「开启新比赛」页（选 S、选牌库那页）加一行「本局陪你的人」，横着一排女主头像，点开看她这局能做什么。</li>
+<li><b>每位女主的卡片上写清楚这局是什么戏</b>，例如：
+  <ul>
+  <li>剧情季：「第 3 季 · 下一站：第 4 站约会」</li>
+  <li>恋人篇约会约定：「约定：打进第 3 站」「约定：用对子赢一轮」</li>
+  <li>告白局：「告白局 · 第 7 站她坐镇 · 今天还剩 2 次」；S 不够就灰掉，写「要 S3 以上」</li>
+  <li>回忆重打：「重打她坐镇过的局 · 今天还剩 3 次」</li>
+  <li>暂时没戏的写原因：「明天再约」「先拿下她的季」</li>
+  </ul></li>
+<li><b>这一局只讲她</b>：她的约定、告白、重打、季剧情只在选了她的局里出现、只在这局结算；别的女主这局不出剧情。</li>
+<li><b>选择跟着这一局走</b>：中途退出、「继续比赛」还是同一个人；开新局再重选。</li>
+<li><b>房间按钮改成直达</b>：她房间里的「重打」「告白局」不再是预约，改成「去比赛」，直接打开「开启新比赛」并选好她。</li>
+<li><b>大厅「下一目标」</b>改成「下一局选薇拉：告白局」这样的提示，点了直接去开赛页。</li>
+<li><b>第 1 季（晚晴）讲完以前</b>不显示这一行，照现在的新手流程走。</li>
+<li><b>工作量</b>：开赛页、开局编排（Season.setup）、恋人篇判定、房间按钮、大厅提示、测试，约半天，做完出测试包给你试。</li>
+</ul></div></section>
+<section class="q" data-q="where" data-title="选择放在哪"><h2><span class="n">1</span>选择放在哪</h2><div class="why">玩家在哪一步选这一局的女主。</div><div class="opts wide"><div class="opt" data-v="A 开启新比赛页加一行（推荐）"><h3>A 开启新比赛页加一行（推荐）</h3><p>和选 S、选牌库放在同一页，一眼看到这局的全部设置；不多一步。</p></div><div class="opt" data-v="B 点开始后弹窗选"><h3>B 点「开始」后弹一个选人窗</h3><p>开赛页不变，多一步弹窗；选人界面可以做得更大、更有仪式感（立绘 + 一句台词）。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section><section class="q" data-q="default" data-title="默认选谁"><h2><span class="n">2</span>默认选谁</h2><div class="why">玩家不动它时默认是谁。</div><div class="opts wide"><div class="opt" data-v="A 有约在先优先（推荐）"><h3>A 有约在先的优先（推荐）</h3><p>顺序：今天能打的告白局 → 约会约定 → 剧情季女主；都没有就是上一局选的人。玩家不动也不会错过要紧的戏。</p></div><div class="opt" data-v="B 默认剧情季女主"><h3>B 永远默认剧情季的女主</h3><p>最接近现在的体验；恋人篇要玩家自己去切。</p></div><div class="opt" data-v="C 默认上一局的人"><h3>C 默认上一局选的人</h3><p>最省心，但刚达成的告白局可能被忽略。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section><section class="q" data-q="others" data-title="没被选中的女主在其他站怎么办"><h2><span class="n">3</span>没被选中的女主在其他站怎么办</h2><div class="why">一局 8 站，每站第 3 轮都有人坐镇。</div><div class="opts wide"><div class="opt" data-v="A 照常坐镇只说一句（推荐）"><h3>A 照常随机坐镇，只说一句台词（推荐）</h3><p>和现在其他站一样：有立绘、有一句台词、没有剧情、不结算约定。牌桌热闹，剧情只讲一个人。</p></div><div class="opt" data-v="B 换成无名对手"><h3>B 换成无名对手（反派阵营的牌手）</h3><p>剧情最干净，但要新画一批对手立绘（AI 生成），女主出场变少。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section><section class="q" data-q="season" data-title="剧情季能不能几季同时开"><h2><span class="n">4</span>剧情季能不能几季同时开</h2><div class="why">现在是一季讲完才能选下一季。</div><div class="opts wide"><div class="opt" data-v="A 一次只开一季（推荐）"><h3>A 维持一次只开一季（推荐）</h3><p>列表里只有一位是「剧情季」，其他的是恋人篇或重打。规则简单，剧情季照现在的节奏推进。</p></div><div class="opt" data-v="B 可以同时开多季"><h3>B 可以同时开几季，每局选讲谁的</h3><p>自由度最高；但几条季线并行时，晚晴的庆功、下一季名单这些衔接戏要重排，工作量翻倍。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section><section class="q" data-q="rematch" data-title="选她「回忆重打」时她坐哪几站"><h2><span class="n">5</span>选她「回忆重打」时她坐哪几站</h2><div class="why">重打用来补季后的牌技分。</div><div class="opts wide"><div class="opt" data-v="A 坐她那一季原来的两场（推荐）"><h3>A 坐她那一季原来的两场：第 1 站和第 6 站（推荐）</h3><p>重打的就是她的初见局和关键一手，一局能拿两场牌技分；每天 3 局。</p></div><div class="opt" data-v="B 维持只坐第 4 站"><h3>B 维持现在：只坐第 4 站一场</h3><p>和现在一样，一局一场；每天 3 局。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section><section class="q" data-q="free" data-title="要不要「不讲剧情」选项"><h2><span class="n">6</span>要不要「不讲剧情」选项</h2><div class="why">只想刷分、冲 S 的玩家。</div><div class="opts wide"><div class="opt" data-v="A 有「自由比赛」（推荐）"><h3>A 有，列表最后一个「自由比赛」（推荐）</h3><p>这一局不讲任何人的戏，开赛前后都不弹剧情，各站女主照常只冒一句。</p></div><div class="opt" data-v="B 不要"><h3>B 不要，每局必须选一位</h3><p>剧情存在感最强，但会挡住只想打牌的玩家。</p></div></div><textarea placeholder="备注（可不填）"></textarea></section></main>
+<div id="bar"><div class="in"><span class="prog" id="prog"></span><button class="ghost" id="reset">清空</button><button id="copy">复制我的选择</button></div><pre id="out"></pre></div>
+<div id="lb"><img></div><div class="toast" id="toast"></div>
+<script>
+const KEY = "jg-story-pick-1109";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+const qs = [...document.querySelectorAll("section.q")];
+
+function bindGroup(container, id, itemSel) {
+  const items = [...container.querySelectorAll(itemSel)];
+  items.forEach(el => {
+    if (state[id] === el.dataset.v) el.classList.add("sel");
+    el.addEventListener("click", e => {
+      if (e.target.tagName === "IMG") return;
+      const on = !el.classList.contains("sel");
+      items.forEach(x => x.classList.remove("sel"));
+      if (on) { el.classList.add("sel"); state[id] = el.dataset.v; } else delete state[id];
+      save(); render();
+    });
+  });
+}
+qs.forEach(s => {
+  const id = s.dataset.q;
+  if (s.querySelector(":scope > .opts .opt[data-v]")) bindGroup(s, id, ".opt[data-v]");
+  s.querySelectorAll(".sub").forEach(sub => bindGroup(sub, id + "." + sub.dataset.sq, ".pill"));
+  const tp = s.querySelector(":scope > .pills"); if (tp) bindGroup(tp, id, ".pill");
+  const ta = s.querySelector(":scope > textarea");
+  if (ta) { ta.value = state[id + ".note"] || ""; ta.addEventListener("input", () => { state[id + ".note"] = ta.value; save(); render(); }); }
+});
+
+function lines() {
+  const out = ["【命运牌 · 本局剧情选择 11-09】"];
+  let n = 0, done = 0;
+  qs.forEach((s, i) => {
+    if (!s.querySelector("[data-v]")) return; // (information only)
+    const id = s.dataset.q, t = s.dataset.title, subs = [...s.querySelectorAll(".sub")];
+    if (subs.length) {
+      out.push(`${s.querySelector(".n").textContent}. ${t}：`);
+      subs.forEach(sub => { n++; const v = state[id + "." + sub.dataset.sq]; if (v) done++; out.push(`   - ${sub.dataset.title}：${v || "（未选）"}`); });
+    } else { n++; const v = state[id]; if (v) done++; out.push(`${s.querySelector(".n").textContent}. ${t}：${v || "（未选）"}`); }
+    const note = (state[id + ".note"] || "").trim();
+    if (note) out.push(`   备注：${note}`);
+  });
+  return { text: out.join("\n"), n, done };
+}
+function render() { const r = lines(); document.getElementById("prog").textContent = `已选 ${r.done} / ${r.n} 项`; }
+render();
+
+document.getElementById("copy").onclick = async () => {
+  const { text } = lines(), out = document.getElementById("out");
+  out.style.display = "block"; out.textContent = text;
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {}
+  if (!ok) { const r = document.createRange(); r.selectNodeContents(out); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { ok = document.execCommand("copy"); } catch (e) {} }
+  const t = document.getElementById("toast"); t.textContent = ok ? "已复制，发回对话里给我就行" : "没能自动复制，请长按下面的文字复制";
+  t.style.display = "block"; setTimeout(() => t.style.display = "none", 2200);
+};
+document.getElementById("reset").onclick = () => {
+  if (!confirm("清空这页上所有的选择和备注？")) return;
+  localStorage.removeItem(KEY); location.reload();
+};
+const lb = document.getElementById("lb");
+document.querySelectorAll("main img").forEach(img => img.addEventListener("click", () => { lb.querySelector("img").src = img.src; lb.style.display = "flex"; }));
+lb.onclick = () => lb.style.display = "none";
+</script>
+</body>
+</html>
