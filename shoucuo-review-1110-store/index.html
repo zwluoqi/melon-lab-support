@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手搓魔法 · 11-10 商店素材改版审阅</title>
+<style>
+body{font-family:-apple-system,"PingFang SC","Noto Sans SC",sans-serif;background:#16131f;color:#eee;margin:0;padding:24px;line-height:1.65}
+h1{font-size:24px}h2{margin-top:44px;border-left:5px solid #f6a23a;padding-left:10px}h3{margin:20px 0 6px}
+.row{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}.card{background:#221d30;border-radius:10px;padding:10px;max-width:100%}
+img,video{max-width:100%;border-radius:6px;display:block}.tag{display:inline-block;background:#f6a23a;color:#000;border-radius:4px;padding:0 6px;font-weight:bold;margin-right:6px}
+.rec{outline:3px solid #f6a23a}.mute{color:#999;font-size:14px}table{border-collapse:collapse;margin:8px 0}td,th{border:1px solid #444;padding:6px 10px;vertical-align:top}
+pre{white-space:pre-wrap;background:#221d30;padding:12px;border-radius:8px;font-family:inherit}
+.ic{text-align:center}.ic img{width:200px}.ic .s{width:64px;height:64px;margin:6px auto 0}
+.shot{width:180px}
+</style></head><body>
+<h1>《手搓魔法》11-10 商店素材改版审阅</h1>
+<p>回滚点：<b>线上版本 V-20261108-1</b>（图标、宣传图、截图、实机录屏 6065360、文案全部存档在仓库 <code>store/1110/rollback_V-20261108-1/</code>，随时可以改回去）。下面每一项选一个编号回复即可，例如「名字 N1，图标 A1，宣传图 KV1，截图按新顺序，文案通过」。</p>
+
+<h2>0. 为什么要改：数据和爆款对比</h2>
+<table>
+<tr><th></th><th>手搓魔法（11-07 → 11-10）</th><th>团队爆款（10-10 → 11-09）</th></tr>
+<tr><td>曝光 / 天</td><td>3,586 → 610 → 133 → 68</td><td>收纳师首页推荐 2.6k → 9.6k / 天</td></tr>
+<tr><td>点击率</td><td>2.3%（平台均值以下）</td><td>首页推荐：收纳师 22.9%、骑砍 18%、末日兵工厂 25%；卡牌肉鸽 8–11%</td></tr>
+<tr><td>详情页 → 预约</td><td>4.9%</td><td>收纳师 27%；团队要求预约页首日 ≥20% 才继续做</td></tr>
+<tr><td>预约 / 关注</td><td>9 / 8</td><td>收纳师预约 866、关注 1.5 万</td></tr>
+</table>
+<div class="card"><img src="img/hits_banners.jpg"><p class="mute">团队爆款宣传图，最后一张是我们现在的。</p></div>
+<p>爆款的共同点和我们的差距：</p>
+<ol>
+<li><b>字标：</b>爆款都用彩色立体卡通字标，副标题放在飘带上；我们用的是白色黑体，看起来像系统默认字体，在信息流里显得平淡，也有「缺乏美术设计」的审核风险。</li>
+<li><b>画面在讲玩法：</b>收纳师在叠衣服，出金了在拆卡，开蚌在开蚌，末日兵工厂在开炮。我们的画面是精灵安静地捧着一颗球，看不出是卡牌游戏，也看不出爽点。</li>
+<li><b>亮、暖、对比强：</b>爆款大多是暖色、高亮度。我们整张是暗紫色，缩小后发闷。暗色系的同类卡牌（命运牌、胆小骑士）首页曝光都很少。</li>
+<li><b>名字：</b>爆款名字是「身份 / 动作 + 从小到大的具体数字」：从一个乱衣柜收到一个亿、从一单五十块喂到一万只猫、从流民到拥军百万；也有感叹句（出金了、烫糊了！）。我们的副标题「从小火球到灭世禁咒」是这个句式，但没有数字，也没提到「牌」。</li>
+<li><b>截图：</b>爆款第一张都是一个清楚的「高光时刻」（出金了！抬出来了！），画面亮、字大。我们现在第一张是标题画面，看不出玩法。</li>
+</ol>
+
+<h2>1. 名字（标题）</h2>
+<table>
+<tr><th>编号</th><th>名字</th><th>理由</th><th>改名成本</th></tr>
+<tr class="rec"><td><span class="tag">推荐</span>N1</td><td><b>手搓魔法：一手牌搓出一个亿</b></td><td>保留主标题「手搓魔法」，副标题点明「牌」（卡牌玩法），并给出「一个亿」这个具体数字，和收纳师、上门喂猫同一个句式。游戏里确实能打出一亿：有「一击一亿」成就。</td><td>小：玩家群名里还有「手搓魔法」可以不改，论坛不受影响</td></tr>
+<tr><td>N2</td><td>手搓魔法：从小火球搓到一个亿</td><td>保留「从小到大」的成长感，把终点换成数字</td><td>同 N1</td></tr>
+<tr><td>N3</td><td>搓出禁咒了！一手牌炸出一个亿</td><td>出金了、烫糊了！的感叹句式，最口语化</td><td>大：主标题也换了，玩家群要在 QQ 里改名，论坛历史帖的标题对不上</td></tr>
+<tr><td>N0</td><td>手搓魔法：从小火球到灭世禁咒（不改）</td><td>只换字标样式和画面</td><td>无</td></tr>
+</table>
+<p class="mute">改名要同步改三处：①隐私政策页标题（同一个网址，先改内容再提审，否则审核会拿旧页面的名字比对新标题，被打回）；②游戏内隐私文本（下次出包时改）；③Windows 竖版封面。这三处我来改。</p>
+<div class="row">
+<div class="card"><img src="img/logo_L1.jpg" width="384"><p>L1 · 对应 N1</p></div>
+<div class="card"><img src="img/logo_L2.jpg" width="384"><p>L2 · 对应 N0（不改名，只换字标）</p></div>
+<div class="card"><img src="img/logo_L3.jpg" width="384"><p>L3 · 对应 N3</p></div>
+</div>
+<p class="mute">N2 选中后再出对应字标（约 1 分钟）。</p>
+
+<h2>2. 图标</h2>
+<p>按团队经验做：大脸特写、亮色、暖橙配冷蓝的强对比，画面里有动作和道具（牌、火球）。每张下面附 64 px 缩略图，信息流里实际就是这么大。</p>
+<div class="row">
+<div class="card ic"><img src="img/old_icon.jpg"><img class="s" src="img/old_icon_64.jpg"><p>现在（线上）</p></div>
+<div class="card ic rec"><img src="img/iconA_cards_s1.jpg"><img class="s" src="img/iconA_cards_s1_64.jpg"><p><span class="tag">推荐</span>A1 扇牌 + 眨眼</p></div>
+<div class="card ic"><img src="img/iconA_cards_s2.jpg"><img class="s" src="img/iconA_cards_s2_64.jpg"><p>A2</p></div>
+<div class="card ic"><img src="img/iconB_fireball_s1.jpg"><img class="s" src="img/iconB_fireball_s1_64.jpg"><p>B1 掌心火球</p></div>
+<div class="card ic"><img src="img/iconB_fireball_s2.jpg"><img class="s" src="img/iconB_fireball_s2_64.jpg"><p>B2</p></div>
+<div class="card ic"><img src="img/iconC_smug_s1.jpg"><img class="s" src="img/iconC_smug_s1_64.jpg"><p>C1 指尖小火苗 + 陨石</p></div>
+<div class="card ic"><img src="img/iconC_smug_s2.jpg"><img class="s" src="img/iconC_smug_s2_64.jpg"><p>C2</p></div>
+</div>
+<p class="mute">A 组扇牌的手势一眼能看出是卡牌游戏；B 组火球在 64 px 下最醒目。</p>
+
+<h2>3. 宣传图（16:9 + 1:1，首页推荐卡片用 16:9）</h2>
+<div class="card"><img src="img/old_16x9.jpg" width="640"><p>现在（线上）</p></div>
+<h3><span class="tag">推荐</span>KV1：一手扇牌、指尖一颗小火苗，身后是灭世陨石（「从小火球到灭世」一张图讲完）</h3>
+<div class="row">
+<div class="card rec"><img src="img/KV1_L1_16x9.jpg" width="640"><img src="img/KV1_L1_1x1.jpg" width="300" style="margin-top:8px"><p>KV1 + L1</p></div>
+<div class="card"><img src="img/KV1_L2_16x9.jpg" width="640"><img src="img/KV1_L2_1x1.jpg" width="300" style="margin-top:8px"><p>KV1 + L2（不改名）</p></div>
+<div class="card"><img src="img/KV1_L3_16x9.jpg" width="640"><img src="img/KV1_L3_1x1.jpg" width="300" style="margin-top:8px"><p>KV1 + L3</p></div>
+</div>
+<h3>KV2：五张牌打出去，汇成火焰雷光，击碎巨像（动作感更强，但字标会压住巨像）</h3>
+<div class="row">
+<div class="card"><img src="img/KV2_L1_16x9.jpg" width="640"><img src="img/KV2_L1_1x1.jpg" width="300" style="margin-top:8px"><p>KV2 + L1</p></div>
+<div class="card"><img src="img/KV2_L2_16x9.jpg" width="640"><img src="img/KV2_L2_1x1.jpg" width="300" style="margin-top:8px"><p>KV2 + L2</p></div>
+<div class="card"><img src="img/KV2_L3_16x9.jpg" width="640"><img src="img/KV2_L3_1x1.jpg" width="300" style="margin-top:8px"><p>KV2 + L3</p></div>
+</div>
+<p class="mute">图上只有游戏名字标，没有别的文字；字标和人物都在中间 4:3 安全区内。Windows 竖版封面选定后照同一套出。</p>
+
+<h2>4. 截图（必须是真实游戏画面，不能加字）</h2>
+<p>新顺序：第 1 张放一手牌打出 −205.8 万的高光时刻，接着是禁咒全屏、薇丝塔 CG、「从小火球开始」，再放成长、选对手、商店；去掉标题画面和营地。全部是已经录好的真机画面（线上第 4 张 + 11-09 那批）。</p>
+<h3>新（7 张）</h3>
+<div class="row"><img class="shot" src="img/s1.jpg"><img class="shot" src="img/s2.jpg"><img class="shot" src="img/s3.jpg"><img class="shot" src="img/s4.jpg"><img class="shot" src="img/s5.jpg"><img class="shot" src="img/s6.jpg"><img class="shot" src="img/s7.jpg"></div>
+<h3>现在（线上）</h3>
+<div class="row"><img class="shot" src="img/old_s1.jpg"><img class="shot" src="img/old_s2.jpg"><img class="shot" src="img/old_s3.jpg"><img class="shot" src="img/old_s4.jpg"><img class="shot" src="img/old_s5.jpg"><img class="shot" src="img/old_s6.jpg"><img class="shot" src="img/old_s7.jpg"></div>
+
+<h2>5. 宣传片 v5（线上现在没有宣传片）</h2>
+<p>在 11-09 做好但没上传的 v4 基础上，把开场和片尾换成新主视觉和彩色字标，中间的实机镜头和音乐不变，时长 25.9 秒。上线后首页推荐素材可以改成「预告片」。这里预览的是 KV1 + L1，选定后按你选的字标重出（约 1 分钟）。</p>
+<video src="img/trailer_v5_preview.mp4" controls width="800"></video>
+<p class="mute">实机录屏（gameplay_demo_video）继续用线上的 6065360：前 5 秒就有施法，符合要求。</p>
+
+<h2>6. 文案（按 N1 写；选别的名字只改推荐语里的说法）</h2>
+<h3>首页推荐语（≤25 字）</h3>
+<pre>一手牌搓出一个亿伤害，从小火球打到灭世禁咒</pre>
+<p class="mute">现在：卡牌肉鸽：一手元素牌，从小火球搓到灭世禁咒</p>
+<h3>简介（约 250 字，现在约 300 字）</h3>
+<pre>· 卡牌肉鸽：凑出牌型，就是放魔法
+· 一手牌叠出上亿伤害，数字一级比一级离谱
+· 从一颗小火球，练到 12 道灭世禁咒
+· 银发精灵薇丝塔，在营地等你回来
+
+第一手牌，你只能搓出一颗小火球。打到最后，同一副牌能让整片天空碎掉。
+
+【凑牌就是魔法】两张同点数是水，五张连号是冰，五张同元素是雷，越难凑越强。
+【伤害叠到离谱】上百件魔法道具，加魔攻、乘增幅、复制卡牌，一手牌从几十打到一个亿。
+【禁咒全屏演出】每一系练到 Lv10，放出它专属的全屏禁咒。
+【八位守关者】各有立绘、配音和一段三百年前的往事。
+
+原创虚构奇幻世界。竖屏单机，随时来一把。</pre>
+<h3>开发者的话（约 120 字，两段）</h3>
+<pre>大家好，我们是 FIRE 工作室。我们一直想做一款越打越爽的卡牌游戏：开局很弱，靠自己琢磨出来的组合，一路把伤害堆到夸张的数字。打出那一手的快乐，我们想分享给你。
+
+预约期间我们会继续打磨手感和演出，11 月和大家见面。有任何想法，欢迎来论坛告诉我们。</pre>
+<p class="mute">按团队规则（11-09）：开发者的话不写游戏内容和广告，所以去掉了现在第二段的「没有内购、只有激励视频」。</p>
+
+<h2>7. 选定之后怎么提交</h2>
+<ol>
+<li>在已有草稿 V-20261109 里一次换掉：图标、16:9 宣传图、1:1 方图、Windows 竖版封面、7 张截图、宣传片，以及推荐语、简介、开发者的话（改名的话还有标题）。</li>
+<li>首页推荐素材这次先保持横版宣传图，宣传片过审、有一定曝光后再单独试「预告片」。</li>
+<li>分发状态保持预约（安卓 / iOS / PC），用 <code>tcm release --now</code> 立即生效，不改上线时间。</li>
+<li>要改回去时，用 <code>rollback_V-20261108-1/values.json</code> 里的原链接再提一版即可，不用重新上传。</li>
+</ol>
+</body></html>
