@@ -1,0 +1,13 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>命运牌 商店素材 · 约会 CG 方案</title>
+<style>body{background:#1b1320;color:#eee;font-family:sans-serif;max-width:1100px;margin:auto;padding:16px}img{width:100%;border-radius:8px}
+.o{border:2px solid #444;border-radius:12px;padding:14px;margin:18px 0;cursor:pointer}.o.sel{border-color:#f0c060;background:#2a1d2e}
+.r{display:grid;grid-template-columns:2.2fr 1.2fr .8fr;gap:10px;align-items:start}button{font-size:16px;padding:10px 18px;border-radius:8px;border:0;background:#f0c060;color:#222}</style>
+<h2>商店素材 · 女主约会 CG 方案（选一套，点一下选中）</h2>
+<p>每套 3 张：16:9 宣传图 / 1:1 方图 / 竖版封面。图上只放游戏名（TapTap 要求），用的都是游戏里真的约会 CG，女主画风不变，CG 原像素没动，只把画面往外扩。</p>
+<div class="o" id="oA" onclick="pick('A')"><h3>方案 A：晚晴 · 葡萄架下</h3><p>暖色午后，她托着脸看你、你的手碰到她脸颊。温柔治愈，和新版本运营页同一张，商店和版本页视觉统一。</p><div class="r"><img src="wanqing_promo-16x9.jpg"><img src="wanqing_promo-1x1.jpg"><img src="wanqing_cover-vertical.jpg"></div></div>
+<div class="o" id="oB" onclick="pick('B')"><h3>方案 B：绫香 · 夏日祭牵手</h3><p>第一视角牵手，红色和服 + 鸟居灯笼，颜色最抢眼，缩略图里最容易被看到。</p><div class="r"><img src="ayaka_promo-16x9.jpg"><img src="ayaka_promo-1x1.jpg"><img src="ayaka_cover-vertical.jpg"></div></div>
+<div class="o" id="oC" onclick="pick('C')"><h3>方案 C：薇拉 · 冰场牵手</h3><p>第一视角被她拉着滑冰，白色雪景在 TapTap 偏暗的列表里很跳，清新不擦边。</p><div class="r"><img src="vera_promo-16x9.jpg"><img src="vera_promo-1x1.jpg"><img src="vera_cover-vertical.jpg"></div></div>
+<div class="o" id="oD" onclick="pick('D')"><h3>方案 D：英格丽德 · 牌桌牵手</h3><p>牌桌上牵手，桌上是游戏里的红 / 黑 / 蓝新卡牌：约会 + 卡牌玩法一张图说清楚（衬衫只改成扣好 + 领带）。</p><div class="r"><img src="ingrid_promo-16x9.jpg"><img src="ingrid_promo-1x1.jpg"><img src="ingrid_cover-vertical.jpg"></div></div>
+<p>也可以混搭，例如「16:9 用 B，方图用 D」，写在下面：</p><textarea id="n" style="width:100%;height:60px"></textarea><p><button onclick="cp()">复制我的选择</button> <span id="m"></span></p>
+<script>let s='';function pick(k){s=k;document.querySelectorAll('.o').forEach(e=>e.classList.toggle('sel',e.id=='o'+k))}
+function cp(){const t='商店约会CG方案：'+(s||'未选')+(document.getElementById('n').value?'；'+document.getElementById('n').value:'');navigator.clipboard.writeText(t).then(()=>document.getElementById('m').textContent='已复制：'+t)}</script>
