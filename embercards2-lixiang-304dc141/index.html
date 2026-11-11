@@ -1,57 +1,120 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>二代立项方案 v6：《调色肉鸽》——画境奇幻 + 实机切片</title><style>body{margin:0;padding:16px;background:#fffdf8}
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>二代立项方案 v7：《扑克地牢》——战斗照《吸血鬼爬行者》，实机已跑通</title><style>body{margin:0;padding:16px;background:#fffdf8}
 .w{font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;max-width:860px;margin:0 auto;color:#2b2420;font-size:15px;line-height:1.75}
 h1{font-size:22px;margin:8px 0 12px}h2{font-size:19px;margin:30px 0 8px;padding-top:14px;border-top:2px solid #d9c7a5}h3{font-size:16px;color:#7a4b12;margin:20px 0 6px}
 table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0;display:block;overflow-x:auto}th,td{border:1px solid #eadcc2;padding:6px 8px;vertical-align:top}th{background:#faf0dc;white-space:nowrap}tr:nth-child(even) td{background:#fbf8f1}
-img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{background:#f3ece0;padding:1px 4px;border-radius:3px;font-size:12px}</style></head><body><div class="w"><h1>二代立项方案 v6：《调色肉鸽》——画境奇幻 + 实机切片</h1>
+img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{background:#f3ece0;padding:1px 4px;border-radius:3px;font-size:12px}</style></head><body><div class="w"><h1>二代立项方案 v7：《扑克地牢》——战斗照《吸血鬼爬行者》，实机已跑通</h1>
 <ul>
 <li>日期：2026-11-11</li>
-<li>为什么改：你选了 v5 的「画画颜色」，要求加入奇幻战斗元素，并且让它在实机里落地，不要停留在概念图。<ul>
-<li>这一版先把奇幻战斗设计讲清楚（第 2 节）。</li>
-<li>然后<strong>直接改进了游戏代码</strong>：下面的截图和录屏都来自真实游戏（UrhoX 引擎跑二代仓库的代码），规则引擎、发牌、计分、装备触发全是真的，没有任何后期合成。</li>
+<li>为什么改：你说 v6（调色）效果不好、没有正常战斗的体验，要换一个<strong>可落地、战斗方式有参考</strong>的题材。<ul>
+<li>这一版的战斗方式照《吸血鬼爬行者》（Vampire Crawlers）：第一人称、敌人按排站、前排亮出攻击意图、你有血量、敌人会砍你。</li>
+<li>题材选「扑克地牢」：牌本来就是扑克牌，不用翻译。</li>
+<li>已经做进游戏：下面的截图和录屏全部来自真实游戏（UrhoX 引擎跑二代仓库的代码），出牌、计分、装备触发、胜负都是真的，没有后期合成。</li>
 </ul>
 </li>
 <li>底子：一代《手搓魔法》（EmberCards），一代仓库和线上应用都不动；二代在 <code>zwluoqi/EmberCards2</code> 里改。厂商 FIRE工作室（507397）。</li>
 </ul>
 <hr />
 <h2>0. 结论先说</h2>
+<p><img alt="实机五连拍：开局 → 出牌击杀 → 敌人反击 → 最后一手 → 守关战" src="img/v7_five.jpg" /></p>
+<p>实机录屏（34 秒，游戏自己出牌；故意用弱开局，所以一手清不完，能看到敌人反击、掉血、最后一手、战败）：<br><video src="img/v7_crawl.mp4" controls playsinline muted loop style="max-width:360px;width:100%;border-radius:8px"></video><br></p>
+<ol>
+<li><strong>战斗参考《吸血鬼爬行者》</strong>：Steam 1.9 万条评测、96% 好评，官方说首周 100 万玩家；团队 10-26 拆过它的包和规则。<ul>
+<li>它的手机版只有横屏，国区没上架。<strong>竖屏单手的同类在 TapTap 是空位。</strong></li>
+</ul>
+</li>
+<li><strong>一回合是这样的</strong>：<ul>
+<li>屏幕上 5 排敌人，每排最多 7 只；前排头上亮着「要砍你几点」。</li>
+<li>你出一手牌，飞牌打出去，前排一只只倒下，后排往前补位。</li>
+<li>敌人还没死光，前排就扑上来砍你一轮：屏幕一红、掉血。</li>
+<li>换牌时敌人也扑，但被你「格挡」。</li>
+<li>血量见底前清完这一波就赢，没清完就输。</li>
+</ul>
+</li>
+<li><strong>规则引擎一行不改</strong>：<ul>
+<li>一波敌人的血量加起来 = 一代这一关的目标分；</li>
+<li>你的血量 = 剩余出牌次数（每出一手没清完，扣一格）；</li>
+<li>输赢和一代完全一样，768 个测试照旧通过。</li>
+</ul>
+</li>
+<li><strong>题材「扑克地牢」</strong>：<ul>
+<li>在小丑王的扑克城堡地牢里一路往下打。</li>
+<li>敌人是黑桃骷髅兵、红心史莱姆、梅花哥布林、方块魔像，守关是小丑王。</li>
+<li>牌就是扑克牌，牌型就叫牌型。</li>
+</ul>
+</li>
+<li><strong>要你定</strong>：方向对不对；名字；做完整切片用新建应用还是复用旧应用（第 7 节）。</li>
+</ol>
+<hr />
+<h2>1. v6 为什么不像战斗（自查）</h2>
 <table>
 <thead>
 <tr>
-<th>实机：一手牌打出去，前排魔物被泼中、碎掉</th>
-<th>实机：装备触发 ×3 饱和，一手泼掉 68 只</th>
-<th>实机：守关战，无睛之龙压阵</th>
+<th>缺的</th>
+<th>v6</th>
+<th>v7</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><img alt="实机截图：普通波" src="img/v6_hit.jpg" /></td>
-<td><img alt="实机截图：一手清屏" src="img/v6_burst.jpg" /></td>
-<td><img alt="实机截图：守关战" src="img/v6_boss.jpg" /></td>
+<td>敌人的回合</td>
+<td>没有。敌人只是站着等被泼掉</td>
+<td>前排亮出攻击意图；你每出一手，没死的前排扑上来砍你</td>
+</tr>
+<tr>
+<td>你的血量</td>
+<td>没有</td>
+<td>屏幕中间一条血条（满血 50），被砍掉一格，见底就输</td>
+</tr>
+<tr>
+<td>打中谁</td>
+<td>看不出来</td>
+<td>飞牌从手牌飞向具体那一只，打中闪白抖动，血条往下掉，死了后仰倒地</td>
+</tr>
+<tr>
+<td>压力</td>
+<td>没有</td>
+<td>「敌人出手」倒数，最后一手全屏发红</td>
+</tr>
+<tr>
+<td>敌人</td>
+<td>灰色剪影</td>
+<td>有血条、有意图、会走位补位，精英大一号、守关站后排正中</td>
 </tr>
 </tbody>
 </table>
-<p>实机录屏（32 秒，游戏自己出牌）：<br><video src="img/v6_slice.mp4" controls playsinline muted loop style="max-width:360px;width:100%;border-radius:8px"></video><br></p>
-<ol>
-<li><strong>题材</strong>：《画境》。一卷古画里的世界被「褪色」侵蚀，被抽走颜色的生灵变成灰色的魔物，成群涌来。你是画灵师，<strong>画什么就成真</strong>。<ul>
-<li>颜料就是元素：朱砂是火，藤黄是雷，群青是冰，石绿是木。</li>
-<li>牌型就是画法：一笔、叠色、渐变、泼彩……</li>
-<li>同花顺是「画龙点睛」：一条颜料画成的龙飞过全场。</li>
-</ul>
-</li>
-<li><strong>核心画面</strong>：满屏都是灰的，只有你和你泼出去的颜色是彩色的。打得越好，世界恢复的颜色越多。这是割草的爽点，也是每张商店截图的钩子。</li>
-<li><strong>实机已经跑通</strong>（第 3 节）：<ul>
-<li>一代的战斗界面换成了：灰色画境地图、成群的褪色魔物、站在阵眼的画灵师；</li>
-<li>打牌时魔物按伤害一只只被泼中，地面恢复颜色；</li>
-<li>大牌型会召唤画龙飞过全场；</li>
-<li>牌面换成四种颜料，用词换成画法。</li>
-<li>规则引擎一行没动。</li>
-</ul>
-</li>
-<li><strong>还没换的</strong>：装备栏、按钮、顶栏还是一代的紫金样式；结算、商店、选关这些界面也还没动（第 4 节）。</li>
-<li><strong>要你定</strong>：方向对不对，以及要不要按第 5 节的计划做成完整切片。</li>
-</ol>
 <hr />
-<h2>1. 为什么是它</h2>
+<h2>2. 参考的战斗：《吸血鬼爬行者》</h2>
+<p><img alt="《吸血鬼爬行者》Steam 商店截图：第一人称、敌人站在面前、底下出牌、左边血量" src="img/ref_vc.jpg" /></p>
+<table>
+<thead>
+<tr>
+<th>看什么</th>
+<th>数据（团队 10-26 拆解：<code>steamdb-creater/data/2026/2026-10-26/analysis/TimidKnight-VC玩法数值拆解.md</code>）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>口碑</td>
+<td>Steam 19,497 条评测，96% 好评；简中 5,621 条，97%</td>
+</tr>
+<tr>
+<td>规模</td>
+<td>官方：首周 100 万玩家；历史在线峰值 45,686</td>
+</tr>
+<tr>
+<td>手机</td>
+<td>2026-10-12 上 iOS / Android，<strong>只有横屏</strong>，买断 $9.99；<strong>国区未上架</strong></td>
+</tr>
+<tr>
+<td>战斗</td>
+<td>第一人称；敌人每排最多 7 只（拆包 <code>rowWidth = 7</code>）；玩家基础血量 50（<code>baseHealth = 50</code>）；敌人有意图、前排出手；不同武器打不同的位置（鞭子打每列最前、飞刀从前排扫、大蒜只打前排）；Boss 头上一排眼睛倒数</td>
+</tr>
+</tbody>
+</table>
+<p><strong>二代照搬的</strong>：第一人称、按排站、前排意图和出手、玩家血量 50、精英、守关站后排、击杀后补位。</p>
+<p><strong>二代换掉的</strong>：它的出牌靠「费用从低到高连段」，二代换成一代的<strong>扑克牌型 + 小丑牌装备</strong>。一代这套牌局的留存是团队最好的（次留 22–27%），牌型比连段更好懂。</p>
+<hr />
+<h2>3. 题材：扑克地牢</h2>
 <table>
 <thead>
 <tr>
@@ -62,226 +125,106 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <tbody>
 <tr>
 <td>和玩法的搭配</td>
-<td>一代是「元素组合成魔法」，二代是「颜料组合成画法」，结构一模一样，而且更直观：打出去的颜色就是牌的颜色</td>
-</tr>
-<tr>
-<td>割草的读法</td>
-<td>灰色魔物被泼中就变回彩色再碎掉，一眼就知道倒下了谁。屏幕越来越彩色，代表你打得越来越好</td>
+<td><strong>牌本来就是扑克牌</strong>：花色、点数、牌型、小丑牌装备全是原样，玩家一眼就懂，不用记任何翻译</td>
 </tr>
 <tr>
 <td>需求</td>
-<td>画画 995 万关注；画师 446 万；调色 327 万。画中世界 49 万（9.4 分）、倾听画语 29 万（9.4 分）、名画展 22 万（9.6 分）。制造游戏《从砸矿开始制取颜料吧》11-11 在热门榜第 13</td>
+<td>小丑牌 3,319 万（玩家在搜 Balatro 手机版）；<strong>扑克肉鸽 1,636 万 / 标题 0 款</strong>；<strong>地牢肉鸽 6,362 万 / 标题 0 款</strong>（元气骑士、重生细胞这一路的玩家）</td>
 </tr>
 <tr>
 <td>新</td>
-<td>TapTap 的割草和肉鸽里没有人做「颜色」</td>
+<td>TapTap 上没有「扑克牌型 + 地牢战斗」的竖屏游戏；《吸血鬼爬行者》本身国区没上架</td>
+</tr>
+<tr>
+<td>世界观</td>
+<td>小丑王把一座扑克城堡变成了地牢，四种花色的守军守着每一层。你是牌术师，一副扑克牌就是全部武器</td>
+</tr>
+<tr>
+<td>敌人</td>
+<td>黑桃骷髅兵 / 红心史莱姆 / 梅花哥布林 / 精英方块魔像 / 守关小丑王（截图里都是这次出的素材）</td>
 </tr>
 <tr>
 <td>画风</td>
-<td>水粉手绘、彩色 vs 灰色，和 TapTap 主流的国风、二次元都拉得开</td>
+<td>风格化手绘：粗线条、暖色火把光 + 深青色阴影、牌的红金白点缀；不是像素、不是二次元、不是写实</td>
 </tr>
 </tbody>
 </table>
+<p><strong>名字</strong>：
+1. 《扑克肉鸽：牌术师闯地牢》（推荐，「扑克肉鸽」标题 0 款）
+2. 《地牢肉鸽：一手同花顺》
+3. 《小丑王的地牢》</p>
 <hr />
-<h2>2. 奇幻战斗设计</h2>
-<h3>2.1 世界观</h3>
-<ul>
-<li>一卷古画《万象图》里，住着画出来的一切：水乡、竹林、雪山、云海……还有画中灵兽。</li>
-<li>某一天，颜色开始从画里流失。没了颜色的生灵会变成灰色的「褪色魔物」，成群地扑向还有颜色的东西。</li>
-<li>你是最后一位画灵师。手里有一支会让画成真的笔，还有一副颜料牌。</li>
-<li>8 卷画就是 8 关，每卷的守关者是一只被褪色的画中灵兽。最后一关是「无睛之龙」，你要为它点上眼睛。</li>
-</ul>
-<h3>2.2 四种颜料 = 四种元素（花色）</h3>
+<h2>4. 战斗规则怎么落到一代的规则上（规则一行不改）</h2>
 <table>
 <thead>
 <tr>
-<th>花色</th>
-<th>颜料</th>
-<th>元素</th>
-<th>泼中的表现</th>
+<th>战斗里看到的</th>
+<th>一代规则里对应的</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>红</td>
-<td>朱砂</td>
-<td>火</td>
-<td>燃烧的红色泼溅</td>
+<td>一波敌人（普通 20 / 精英 28 / 守关 36 只 × 1.25^(关−1)）</td>
+<td>这一关的目标分</td>
+<td>每只的血量 = 目标分 ÷ 只数；守关战小丑王占 30%</td>
 </tr>
 <tr>
-<td>黄</td>
-<td>藤黄</td>
-<td>雷</td>
-<td>金色闪光、跳到旁边的魔物</td>
+<td>飞牌打倒几只</td>
+<td>这一手的伤害（威力 × 倍率）</td>
+<td>计分途中按实时乘积一只只打倒，前排先、正中先</td>
 </tr>
 <tr>
-<td>蓝</td>
-<td>群青</td>
-<td>冰</td>
-<td>结霜、碎成冰晶</td>
+<td>你的血量 50</td>
+<td>这一战的出牌次数</td>
+<td>每出一手、敌人没死光，前排反击扣一格；出牌次数用完 = 血量见底 = 战败</td>
 </tr>
 <tr>
-<td>绿</td>
-<td>石绿</td>
-<td>木</td>
-<td>藤蔓缠住、开出花</td>
+<td>换牌时「格挡」</td>
+<td>换牌不扣出牌次数</td>
+<td>敌人照样扑上来，被挡下</td>
+</tr>
+<tr>
+<td>「敌人出手」倒数</td>
+<td>剩余出牌次数</td>
+<td>最后一手全屏发红</td>
+</tr>
+<tr>
+<td>大牌型（葫芦、同花以上）的牌雨</td>
+<td>牌型</td>
+<td>纯表现</td>
 </tr>
 </tbody>
 </table>
-<p>混色出牌时，泼出去的颜色就是混出来的颜色，元素也跟着混：红 + 黄 是熔金，蓝 + 绿 是潮汐。这只是表现和命名，规则不变。</p>
-<h3>2.3 十二种牌型 = 十二种画法（规则一行不改，只换表现）</h3>
-<table>
-<thead>
-<tr>
-<th>牌型</th>
-<th>画法</th>
-<th>奇幻表现</th>
-<th>先打谁</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>高牌</td>
-<td>一笔</td>
-<td>一道颜料箭</td>
-<td>正前方一只</td>
-</tr>
-<tr>
-<td>对子</td>
-<td>叠色</td>
-<td>两道笔触</td>
-<td>正前方两只</td>
-</tr>
-<tr>
-<td>两对</td>
-<td>双叠</td>
-<td>两道交叉笔触</td>
-<td>前排一小片</td>
-</tr>
-<tr>
-<td>三条</td>
-<td>三叠</td>
-<td>画出三把颜料剑从天而降</td>
-<td>前排三处</td>
-</tr>
-<tr>
-<td>顺子</td>
-<td>渐变</td>
-<td>一卷长卷从左到右展开，扫过一排</td>
-<td>一整圈</td>
-</tr>
-<tr>
-<td>同花</td>
-<td>泼彩</td>
-<td>一大片同色泼墨，化成火海、冰原、雷池或藤海</td>
-<td>内两圈</td>
-</tr>
-<tr>
-<td>葫芦</td>
-<td>撞色</td>
-<td>画出一只颜料猛虎扑进魔物堆</td>
-<td>一大块</td>
-</tr>
-<tr>
-<td>四条</td>
-<td>四色泼墨</td>
-<td>墨雨从天而降砸出大坑</td>
-<td>落点一圈</td>
-</tr>
-<tr>
-<td>同花顺</td>
-<td><strong>画龙点睛</strong></td>
-<td>一条颜料画成的龙飞过全场（<strong>实机已做</strong>）</td>
-<td>全屏</td>
-</tr>
-<tr>
-<td>五条 / 同花葫芦 / 同花五条</td>
-<td>五彩 / 满园春色 / 五彩斑斓</td>
-<td>整幅画瞬间恢复颜色</td>
-<td>全屏</td>
-</tr>
-</tbody>
-</table>
-<p>不管用哪种画法，杀几只只由伤害决定（一波的血量 = 一代这一关的目标分），画法只决定先打谁、画面长什么样。</p>
-<h3>2.4 装备、道具、成长</h3>
-<table>
-<thead>
-<tr>
-<th>一代</th>
-<th>二代</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>小丑牌（装备）</td>
-<td>画具</td>
-<td>狼毫笔（+颜料）、金箔（×饱和）、镇纸（留住一张牌）；「重新触发」= 重描</td>
-</tr>
-<tr>
-<td>塔罗（改牌）</td>
-<td>颜料瓶</td>
-<td>一代把牌变成某花色的塔罗，二代就是「给这张牌换颜料」，搭配天然</td>
-</tr>
-<tr>
-<td>星球（升级牌型）</td>
-<td>画谱</td>
-<td>升级某种画法</td>
-</tr>
-<tr>
-<td>局外成长</td>
-<td>画册</td>
-<td>每清完一卷画，整卷恢复彩色，收进画册（收集 8 卷彩色原画）</td>
-</tr>
-</tbody>
-</table>
-<h3>2.5 敌人</h3>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>设计</th>
-<th>实机表现</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>纸狐</td>
-<td>折纸狐狸，三条纸尾</td>
-<td>灰色；被泼中变回橙色再碎掉</td>
-</tr>
-<tr>
-<td>墨魇</td>
-<td>一团墨水小怪，大白眼</td>
-<td>黑色最显眼，数量最多</td>
-</tr>
-<tr>
-<td>石雀</td>
-<td>长苔的石头雀</td>
-<td>灰色带翅膀</td>
-</tr>
-<tr>
-<td>精英 · 画框傀儡</td>
-<td>画框和陶土堆成的巨人，胸口朱印</td>
-<td>大一倍半，脚下红圈</td>
-</tr>
-<tr>
-<td>守关 · 无睛之龙</td>
-<td>半褪色的盘龙，眼睛没画</td>
-<td>压在最后几圈正中；打完整只变回彩色</td>
-</tr>
-</tbody>
-</table>
-<p>每卷画 3 种小怪 + 1 种精英 + 1 只守关灵兽：8 卷共 24 + 8 + 8 = 40 张。素材规格同第 3.2 节。</p>
+<p><strong>这样做的代价</strong>：前排头上的攻击数字现在只是表现，真实掉血只由出牌次数决定。如果要做成《吸血鬼爬行者》那样「数字是真的、可以用护甲挡」，需要改规则（第 6 节 T6），会动一代的数值平衡，要跑 bot 重新调。</p>
 <hr />
-<h2>3. 实机：已经做了什么</h2>
-<h3>3.1 截图和录屏（全部来自真实游戏）</h3>
-<p><img alt="实机五连拍：开局 → 出牌 → 一手清屏 → 整幅回彩 → 守关战" src="img/v6_three.jpg" /></p>
+<h2>5. 实机：已经做了什么</h2>
+<h3>5.1 截图和录屏（全部来自真实游戏）</h3>
+<table>
+<thead>
+<tr>
+<th>出牌：飞牌打穿前排，一手击杀 29</th>
+<th>敌人回合：前排扑上来砍你 −13</th>
+<th>守关战：小丑王</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="img/v7_hit.jpg" /></td>
+<td><img alt="" src="img/v7_attack.jpg" /></td>
+<td><img alt="" src="img/v7_boss.jpg" /></td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li><strong>录屏</strong>：<a href="img/v6_slice.mp4">v6_slice.mp4</a>，32 秒，用游戏自带的自动出牌（director demo）录的，720 × 1280，无声。</li>
-<li>怎么复现：<code>devtools/record.sh shot paint_hit 1080x1920 out.png -- -dv-new -dv-nosave -rec-at=2.4</code>（<code>-rec-blind=boss</code> 看守关战）。</li>
+<li>录屏：<a href="img/v7_crawl.mp4">v7_crawl.mp4</a>。完整一战：前两手打掉一半，敌人反击 50 → 37 → 24 → 11，最后一手没清完，战败结算「差一点！631 / 800」。</li>
+<li>复现：<ul>
+<li>截图：<code>devtools/record.sh shot paint_hit 1080x1920 out.png -- -dv-new -dv-nosave -rec-at=2.4</code>（<code>-rec-blind=boss</code> 看守关战）；</li>
+<li>录屏：<code>devtools/record.sh video 34 720x1280 out.mp4 -- -dv-new -dv-nosave -rec-jokers=j_jolly -rec-ante=2</code>，弱开局才看得到反击。</li>
 </ul>
-<h3>3.2 改了哪些代码</h3>
+</li>
+</ul>
+<h3>5.2 改了哪些代码</h3>
 <table>
 <thead>
 <tr>
@@ -291,47 +234,37 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 </thead>
 <tbody>
 <tr>
-<td><code>scripts/ui/horde.lua</code>（新，约 350 行）</td>
-<td>整屏地图（灰 + 恢复颜色的地面）；6 圈站位、同屏 36 只、补位；按伤害逐只泼中（计分途中用「颜料 × 饱和」的实时乘积，一路涨到最终伤害）；泼溅、笔触、碎裂、地面回彩；守关的龙；大牌型召唤画龙；本手「点色 ×N」</td>
+<td><code>scripts/ui/crawl.lua</code>（新，约 400 行）</td>
+<td>第一人称地牢；5 排 × 7 站位、补位；前排血条 + 攻击意图；飞牌、命中闪白、后仰倒地、烟和金币；敌人回合（扑上来、屏幕一红、掉血）和换牌格挡；你的血条；大牌型牌雨；本手击杀数；守关小丑王</td>
 </tr>
 <tr>
 <td><code>scripts/ui/screens/round.lua</code></td>
-<td>加 <code>PAINT</code> 开关：战斗界面画 horde，一代的施法特效、开场卡片、敌人台词不放；血条挪到顶栏下面</td>
+<td>战斗界面画 crawl；一代的施法特效、开场卡片、敌人台词不放</td>
 </tr>
 <tr>
 <td><code>scripts/ui/magicboard.lua</code></td>
-<td>阵眼不再画一代的法阵；血条名字改成「褪色魔物 / 无睛之龙」；画法牌移到主角脚下</td>
-</tr>
-<tr>
-<td><code>scripts/ui/cardart.lua</code></td>
-<td>牌面底图换成四种颜料，人像牌的骑士不画</td>
+<td>不画一代的法阵；血条名字改成「地牢守军 / 小丑王 · 剩余 ×N」；牌型名不写一代的法术名</td>
 </tr>
 <tr>
 <td><code>scripts/ui/words.lua</code></td>
-<td>再叠一层用词：颜料 / 饱和 / 挥毫 / 洗笔 / 颜料盒 / 画谱 / 一笔 / 叠色 / 渐变 / 泼彩 / 画龙点睛……</td>
+<td>一代的魔法用词换回扑克用词：威力 / 倍率 / 出牌 / 换牌 / 牌库 / 顺子 / 同花……</td>
 </tr>
 <tr>
 <td><code>scripts/main.lua</code></td>
-<td>打开 <code>PAINT_HORDE</code></td>
+<td>打开 v7（<code>HORDE_MODULE = "ui.crawl"</code>）。改回 <code>ui.horde</code> 就是 v6</td>
 </tr>
 <tr>
-<td><code>assets/image/paint/</code>（新）</td>
-<td>地图（彩色 + 灰色）、主角、3 种小怪 + 精英 + 守关（各一张彩色 + 一张灰色）、4 种泼溅、画龙、4 种牌面</td>
+<td><code>assets/image/crawl/</code>（新）</td>
+<td>地牢走廊、3 种小怪、精英、小丑王</td>
 </tr>
 <tr>
 <td><code>scripts/game/</code>（规则引擎）</td>
-<td><strong>一行没动</strong></td>
+<td><strong>一行没动</strong>，768 个测试全部通过</td>
 </tr>
 </tbody>
 </table>
-<h3>3.3 素材管线（已验证可量产）</h3>
-<ul>
-<li>全部用团队图片服务（gpt-image-2）出，提示词常量在 <code>devtools/v2/gen_concept.py</code>（<code>pz_*</code> 任务），同一套画风前缀。</li>
-<li>敌人只出彩色版，灰色版离线去色（<code>devtools/v2</code> 里的处理），所以「褪色 → 回彩」不用画两遍。</li>
-<li>地图出一张彩色的，灰色的离线做；游戏里用彩图按同样的位置贴进泼中的圆斑，就是「地面恢复颜色」。</li>
-</ul>
 <hr />
-<h2>4. 实机里还没换的（切片阶段要做）</h2>
+<h2>6. 还没做的（完整切片要补）</h2>
 <table>
 <thead>
 <tr>
@@ -342,73 +275,48 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 </thead>
 <tbody>
 <tr>
-<td>装备栏、按钮、顶栏、底栏</td>
-<td>还是一代的紫金样式和图标</td>
-<td>换成宣纸 + 墨线 + 单一朱砂强调色（v4 / v5 定下的克制 UI）</td>
+<td>牌型打哪里</td>
+<td>所有牌型都是「前排先、正中先」</td>
+<td>照《吸血鬼爬行者》的武器规则：对子打一列（像鞭子）、顺子从左扫到右（像飞刀）、三条打前排（像大蒜）、同花打一整排、四条砸中间、同花顺全屏</td>
 </tr>
 <tr>
-<td>画法牌上的小字</td>
-<td>还写着一代的「冰锥」这类法术名</td>
-<td>换成画法名</td>
+<td>守关倒数</td>
+<td>小丑王只站着</td>
+<td>照它的「Boss 眼睛」：每出一张牌亮一只眼，眼睛全亮就出手（塞一张捣乱牌）</td>
 </tr>
 <tr>
-<td>不同画法的形状</td>
-<td>现在所有牌型都是「从内圈往外泼」，只有大牌型多一条画龙</td>
-<td>按 2.3 节的表做 12 种：长卷、颜料剑、猛虎、墨雨……</td>
+<td>装备栏、按钮、顶栏</td>
+<td>还是一代紫金样式</td>
+<td>换成扑克城堡风格（红黑金）</td>
 </tr>
 <tr>
-<td>元素表现</td>
-<td>泼溅只分颜色</td>
-<td>火、雷、冰、木四套粒子</td>
-</tr>
-<tr>
-<td>魔物动作</td>
-<td>呼吸、补位、被泼中掀飞；没有攻击动作</td>
-<td>收圈逼近（剩余出牌次数），失败时扑上来</td>
+<td>第一人称的手</td>
+<td>飞牌从手牌位置飞出</td>
+<td>加一双持牌的手（一代就有第一人称掌心施法的代码，可以改）</td>
 </tr>
 <tr>
 <td>别的界面</td>
-<td>选关、商店、结算、营地、剧情都还是一代</td>
+<td>选关、商店、结算还是一代的</td>
 <td>换皮</td>
 </tr>
 <tr>
-<td>音效</td>
-<td>用的是一代的</td>
-<td>泼溅、笔刷、回彩的声音</td>
+<td>T6（可选，改规则）</td>
+<td>攻击数字是表现</td>
+<td>敌人攻击数字变成真伤害，♦ 牌给护甲、♥ 牌回血；要跑 bot 重新调数值</td>
 </tr>
 </tbody>
 </table>
+<p><strong>切片过关标准</strong>：你扫码在真机上玩，认可「像在战斗」；真机 35 只同屏帧率稳定；同种子回放测试通过。</p>
 <hr />
-<h2>5. 下一步计划</h2>
-<table>
-<thead>
-<tr>
-<th>阶段</th>
-<th>内容</th>
-<th>过关标准</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>切片（第 1 卷完整）</td>
-<td>第 4 节全部做完；第 1 卷三波 + 守关；新建或复用 Maker 应用，出测试二维码</td>
-<td>你扫码在真机上玩，认可「泼彩割草」的爽感；真机 36 只同屏帧率稳定；同种子回放测试通过</td>
-</tr>
-<tr>
-<td>正式制作</td>
-<td>8 卷画的美术（40 只敌人 + 8 张地图）、画具图标、文字换皮、音频</td>
-<td>bot 通关率和一代持平（±2%）</td>
-</tr>
-<tr>
-<td>预约</td>
-<td>商店素材（第 0 帧就是灰色世界被一手牌泼回彩色）、提审</td>
-<td>走一代的提审清单</td>
-</tr>
-</tbody>
-</table>
-<p><strong>目标</strong>：首页点击率 ≥ 15%（一代约 8%），次留 ≥ 20%，人均 ≥ 60 分钟。</p>
+<h2>7. 要你定</h2>
+<ol>
+<li>「战斗照《吸血鬼爬行者》+ 扑克地牢」这个方向对不对？</li>
+<li>名字：①《扑克肉鸽：牌术师闯地牢》 ②《地牢肉鸽：一手同花顺》 ③《小丑王的地牢》</li>
+<li>T6 要不要做（让敌人的攻击数字变成真伤害、♦ 护甲 ♥ 回血）？要做就动规则，切片里先做成开关。</li>
+<li>做完整切片要 Maker 应用出测试二维码：新建（要查本周额度），还是复用一款数据差的旧应用？</li>
+</ol>
 <hr />
-<h2>6. 附：之前的方案</h2>
+<h2>8. 附：之前的方案</h2>
 <table>
 <thead>
 <tr>
@@ -419,9 +327,14 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 </thead>
 <tbody>
 <tr>
+<td>v6</td>
+<td>调色师（实机切片）</td>
+<td>没有正常战斗的体验</td>
+</tr>
+<tr>
 <td>v5</td>
 <td>乐队 / 调色 / 烟花（概念图）</td>
-<td>你选了调色 → v6</td>
+<td>选了调色 → v6</td>
 </tr>
 <tr>
 <td>v4</td>
@@ -439,13 +352,4 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <td>—</td>
 </tr>
 </tbody>
-</table>
-<p><img alt="v5 调色师概念图（对照：v6 的实机就是照它做的）" src="img/v5_p_sheet.jpg" /></p>
-<hr />
-<h2>7. 要你定</h2>
-<ol>
-<li>「画境 + 画灵师 + 褪色魔物」这个奇幻设定对不对？</li>
-<li>实机这个方向（满屏灰色、只有你是彩色、打得越好世界越彩色）对不对？</li>
-<li>名字：①《调色肉鸽：一笔点亮灰色世界》 ②《画境：褪色之城》 ③《画龙点睛》</li>
-<li>按第 5 节做完整切片：要新建 Maker 应用（查本周额度），还是复用一款数据差的旧应用？</li>
-</ol></div></body></html>
+</table></div></body></html>
