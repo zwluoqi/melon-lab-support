@@ -1,20 +1,23 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>二代方案 v9：《源神：元素牌》战斗界面三套方案（全屏场景 + 透明界面）</title><style>body{margin:0;padding:16px;background:#fffdf8}
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>二代方案 v10：《源神：元素牌》战斗界面——A、B 按反馈改版</title><style>body{margin:0;padding:16px;background:#fffdf8}
 .w{font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;max-width:860px;margin:0 auto;color:#2b2420;font-size:15px;line-height:1.75}
 h1{font-size:22px;margin:8px 0 12px}h2{font-size:19px;margin:30px 0 8px;padding-top:14px;border-top:2px solid #d9c7a5}h3{font-size:16px;color:#7a4b12;margin:20px 0 6px}
 table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0;display:block;overflow-x:auto}th,td{border:1px solid #eadcc2;padding:6px 8px;vertical-align:top}th{background:#faf0dc;white-space:nowrap}tr:nth-child(even) td{background:#fbf8f1}
-img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{background:#f3ece0;padding:1px 4px;border-radius:3px;font-size:12px}</style></head><body><div class="w"><h1>二代方案 v9：《源神：元素牌》战斗界面三套方案（全屏场景 + 透明界面）</h1>
+img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{background:#f3ece0;padding:1px 4px;border-radius:3px;font-size:12px}</style></head><body><div class="w"><h1>二代方案 v10：《源神：元素牌》战斗界面——A、B 按反馈改版</h1>
 <ul>
 <li>日期：2026-11-12</li>
-<li>你这次的要求：<ul>
-<li>牌还是叫<strong>元素牌</strong>，牌型叫<strong>元素魔法</strong>（沿用一代的火魔法、水魔法、冰魔法……）；</li>
-<li>一代的装备图标换成<strong>伙伴头像牌</strong>，点开看全身立绘；</li>
-<li>现在的战斗界面太乱，关卡场景和怪物没结合好。先出战斗界面方案，给三套；</li>
-<li>要同时考虑<strong>单挑守关</strong>和 <strong>AOE 打群怪</strong>；</li>
-<li>按原神的美术风格改，布局参考《宗师之上》：整个竖屏都是场景，界面能透明的地方都做成透明。</li>
+<li>你对 v9 的反馈：<ul>
+<li>方案 A 看起来像开放世界，关卡的视觉结构没有表现出玩家在往前走；</li>
+<li>方案 B 太压抑，两边不要都是墙，要开阔一点。</li>
 </ul>
 </li>
-<li>下面每套方案两张图：左边单挑守关，右边群怪 AOE。图是效果图，用 NovelAI 出的场景、角色、怪物合成，界面按游戏里的尺寸（1080 × 1920）画。</li>
-<li>用词已经改进游戏：牌型恢复一代的元素魔法名字，768 个测试全部通过。</li>
+<li>这一版：<ul>
+<li><strong>A2 云上天路</strong>：还是 3/4 俯视、主角在下方，但整个关卡变成一条从屏幕底部通到顶上「天门」的路。怪沿着路压下来，守关首领守在天门前。</li>
+<li><strong>B2 天穹大道</strong>：还是越肩视角，但两边换成开阔的草原和云海，上半屏是大片蓝天，路的尽头是城堡。</li>
+<li>两套都在顶部加了<strong>关卡进度</strong>：第 1 战 → 第 2 战 → 守关，三个节点连成一条路，走到哪亮到哪。</li>
+</ul>
+</li>
+<li>和上一版一样，每套两张效果图：左边单挑守关，右边群怪 AOE。还没做进游戏。</li>
+<li>没提意见的方案 C（断崖斜阵）保持不变，见附录。</li>
 </ul>
 <hr />
 <h2>0. 结论先说</h2>
@@ -22,93 +25,59 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <thead>
 <tr>
 <th>方案</th>
-<th>镜头</th>
-<th>适合</th>
+<th>怎么表现「往前走」</th>
+<th>开阔吗</th>
 <th>我的看法</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>A 浮岛祭坛（推荐）</strong></td>
-<td>3/4 俯视，主角站在画面中下方的祭坛上，怪从上方围过来；最像《宗师之上》</td>
-<td>群怪 AOE 最清楚：一屏能看到 30 只，一手打倒一片看得最明白；守关时首领站在祭坛对面</td>
-<td><strong>推荐</strong>。割草感最强，做起来最省：怪不用按远近大幅缩放，场景一张图就够</td>
+<td><strong>A2 云上天路（推荐）</strong></td>
+<td>路从脚下一直通到屏幕顶上的天门；每打完一波，镜头沿路往上推一段；守关就在天门前</td>
+<td>两边是云海里的小浮岛，四面都是天空</td>
+<td><strong>推荐</strong>。往前走的感觉最直接，群怪沿路压下来时一手打倒一片看得最清楚，守关和小怪是同一条路</td>
 </tr>
 <tr>
-<td>B 林间长路</td>
-<td>主角背影站在左下方，越过她的肩膀往前看，路一直通到远处</td>
-<td>单挑守关最有气势：首领正对镜头、占半个屏幕；原神式的第三人称视角</td>
-<td>守关战最好看；群怪会挤在路中间，一手打倒多少只不如 A 清楚</td>
-</tr>
-<tr>
-<td>C 断崖斜阵</td>
-<td>2.5D 斜角，主角在左下方侧身出招，敌人沿着斜坡排到右上方</td>
-<td>首领从云海里升起来、背后是天空裂隙，像原神的过场；群怪排成一条斜线，一招扫过去</td>
-<td>画面最有电影感；斜坡站不下太多怪，每张关卡图都要专门画成斜坡</td>
+<td>B2 天穹大道</td>
+<td>路通向远处的城堡，越打离城堡越近</td>
+<td>最开阔，上半屏全是天空和云</td>
+<td>守关战最有气势；群怪挤在路中间那一段，一手打倒多少只不如 A2 清楚</td>
 </tr>
 </tbody>
 </table>
-<p><strong>推荐 A</strong>。守关战可以借 B 的做法：开打时镜头拉近首领 1 秒，再回到俯视。</p>
-<p><img alt="现在的实机界面（左）和方案 A（右）" src="img/v9_vs.jpg" /></p>
-<p><strong>现在为什么乱</strong>：
-- 中间有一条横穿全屏的血条，底部有一整块紫色装备面板，把屏幕切成三截，场景只剩中间一条。
-- 怪物是贴在背景上的，没有影子、颜色和光线不一样，看起来是浮着的。
-- 按钮、装备、手牌各有一块不透明的底，互相挤在一起。</p>
-<p><strong>三套方案共同的做法</strong>：
-- 整屏都是场景，不再有横穿的血条和装备面板。
-- 界面只用半透明深色玻璃、白金细线，再加元素色点缀；文字带描边，直接压在场景上。
-- 屏幕下方 30% 的高度从透明渐变到半透明，让手牌和按钮看得清；场景一直延伸到屏幕底部。</p>
 <hr />
-<h2>1. 方案 A：浮岛祭坛（3/4 俯视，推荐）</h2>
-<p><img alt="方案 A：左 单挑守关「炎之领主」，右 群怪 AOE" src="img/v9_A.jpg" /></p>
+<h2>1. A2 云上天路（3/4 俯视 + 一条往前的路）</h2>
+<p><img alt="A2：左 单挑守关「炎之领主」守在天门前，右 群怪 AOE" src="img/v10_A2.jpg" /></p>
 <ul>
-<li><strong>场景</strong>：浮在云海上的白石广场，中下方是刻着四元素符文的圆形祭坛，主角站在祭坛中央（照《宗师之上》，人在阵眼）。</li>
-<li><strong>单挑守关</strong>：<ul>
-<li>首领站在广场上方正对主角，头顶是首领名、一条细血条，下面写着「2 手后出手」的意图。</li>
-<li>出牌时元素光束从主角射向首领，打中后炸开反应名和伤害数字。</li>
+<li><strong>场景</strong>：一条白石路从屏幕底部一直往上，穿过一串用石桥连起来的小浮岛，通到最顶上发着光的天门。两边是草地和小树，再往外是云海和蓝天。</li>
+<li><strong>往前走</strong>：<ul>
+<li>顶部进度条显示「第 1 战 → 第 2 战 → 守关」。</li>
+<li>每打完一波，镜头沿路往上推一段，主角跟着往前走（见下图）。</li>
+<li>守关首领站在天门前，打赢了才能过门进入下一段路。</li>
 </ul>
 </li>
-<li><strong>群怪 AOE</strong>：<ul>
-<li>蚀灵从广场边缘、悬崖那头涌过来。</li>
-<li>出牌后每张元素牌飞向一片怪，落地炸开对应颜色的圆环；圆环里的怪一起掉血、一起倒。</li>
-<li>反应名（「蒸腾」）在怪群上方大字闪一下。</li>
+<li><strong>单挑守关</strong>：首领挡在路中间，两只小怪护在两边；元素光束从主角射向首领，打中后炸开反应名和伤害数字。</li>
+<li><strong>群怪 AOE</strong>：蚀灵沿路和两边的浮岛压下来，越近越大；元素牌落地炸出彩色圆环，圆环里的怪一起掉血、一起倒。</li>
 </ul>
-</li>
-<li><strong>界面</strong>：<ul>
-<li>顶部一行透明的关卡名、源晶和设置。</li>
-<li>左下一排伙伴头像牌，右边是血量（血量就是剩余出牌次数）。</li>
-<li>中间显示元素魔法名、等级和这一手的反应，下面是「元素力 × 倍率」。</li>
-<li>再往下是一排 8 张元素牌，最底下左边换牌、右边出牌。</li>
-</ul>
-</li>
-</ul>
-<h2>2. 方案 B：林间长路（越肩第三人称）</h2>
-<p><img alt="方案 B：左 单挑守关「失衡之主」，右 群怪 AOE" src="img/v9_B.jpg" /></p>
+<p><img alt="一条路分三段：打完一波，镜头沿路往上推一段" src="img/v10_route.jpg" /></p>
+<p>效果图为了一眼看全，把整条路压在一屏里。游戏里有两种做法：
+- <strong>推荐</strong>：把场景做成约三屏高的长图，每打完一波，镜头往上推一屏，主角走到新的路段。
+- 省事的做法：整条路放在一屏里，主角每赢一战往前走一段。</p>
+<h2>2. B2 天穹大道（越肩 + 开阔）</h2>
+<p><img alt="B2：左 单挑守关「失衡之主」拦在城堡前，右 群怪 AOE" src="img/v10_B2.jpg" /></p>
 <ul>
-<li><strong>场景</strong>：林间古道，两边是长满青苔的石拱和发光的水渠，路的尽头是一棵发光的巨树。镜头在主角身后，越过她的肩膀往前看。</li>
-<li><strong>单挑守关</strong>：首领站在路中间、占半个屏幕，背后有紫色的失衡光晕；主角甩出一串火牌，飞牌直接打在首领身上。</li>
-<li><strong>群怪 AOE</strong>：蚀灵沿着路一波波走过来；火焰沿着路面一路烧过去，炸开的圆环和数字都落在路上。</li>
-<li><strong>界面</strong>：<ul>
-<li>伙伴头像牌竖着排在右边，照原神的队伍栏。</li>
-<li>元素魔法名和「元素力 × 倍率」放在左下，主角的背影旁边。</li>
-<li>手牌和按钮和 A 一样。</li>
+<li><strong>场景</strong>：高原上一条笔直的石板大道，两边是草地，只散着几根断掉的白石柱，再往外是云海和远处的浮岛。上半屏是蓝天和大朵白云，路的尽头是一座发光的城堡。</li>
+<li><strong>往前走</strong>：每打完一波，城堡离得更近一点（背景放大一点）；守关时首领拦在城堡前面。</li>
+<li><strong>单挑守关</strong>：首领站在路中间、占半个屏幕；主角甩出一串火牌，飞牌直接打在首领身上。</li>
+<li><strong>群怪 AOE</strong>：蚀灵从城堡方向沿着路一波波涌过来；火焰沿路面一路烧过去。</li>
+<li><strong>界面</strong>：伙伴头像牌竖着排在右边，照原神的队伍栏；元素魔法名和「元素力 × 倍率」放在左下。</li>
 </ul>
-</li>
-</ul>
-<h2>3. 方案 C：断崖斜阵（2.5D 斜角）</h2>
-<p><img alt="方案 C：左 单挑守关「潮之领主」，右 群怪 AOE" src="img/v9_C.jpg" /></p>
+<h2>3. 两套共用的界面</h2>
 <ul>
-<li><strong>场景</strong>：云海上的草地断崖，地面从左下斜着延伸到右上，右上角的天空裂开一道发光的水晶裂隙。</li>
-<li><strong>单挑守关</strong>：海蛇一样的首领从云海里升起，几乎占满右半屏；主角在左下侧身出招，光束斜着射过去。</li>
-<li><strong>群怪 AOE</strong>：敌人沿着斜坡排到右上方；一道潮水加雷电沿着斜坡扫过去，整条线上的怪都被打中。</li>
-<li><strong>界面</strong>：<ul>
-<li>伙伴头像牌放在顶部关卡名下面，下半屏全部留给出牌。</li>
-<li>手牌排成扇形。</li>
-<li>换牌和出牌做成两侧的胶囊按钮。</li>
+<li>整屏都是场景，没有横穿屏幕的血条和装备面板。</li>
+<li>顶部：关卡名、关卡进度（三个节点）、源晶、设置，全部透明，压在天空上。</li>
+<li>下方三成的高度从透明慢慢过渡到半透明：伙伴头像牌、血量（等于剩余出牌次数）、元素魔法名、「元素力 × 倍率」、8 张元素牌、换牌和出牌按钮。</li>
 </ul>
-</li>
-</ul>
-<hr />
 <h2>4. 场景和怪物怎么结合（回答「没有很好的结合」）</h2>
 <table>
 <thead>
@@ -122,7 +91,7 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <tr>
 <td>站在地上</td>
 <td>怪是一排排贴在背景前面的</td>
-<td>每只怪的脚底落在场景的地面上，离得越远越小（A 的俯视视角下远近差得少，B 差得最多）</td>
+<td>每只怪的脚底落在场景的地面上，离得越远越小（A2 的俯视视角下远近差得少，B2 差得最多）</td>
 </tr>
 <tr>
 <td>影子</td>
@@ -132,7 +101,7 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <tr>
 <td>光线</td>
 <td>怪自带的颜色和背景不一样</td>
-<td>怪按场景的光调色（A 晴天偏白，B 黄昏偏暖，C 暮色偏紫），边上加一圈场景光颜色的轮廓光</td>
+<td>怪按场景的光调色（A2、B2 都是晴天，偏白偏亮），边上加一圈场景光颜色的轮廓光</td>
 </tr>
 <tr>
 <td>远近</td>
@@ -142,12 +111,12 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <tr>
 <td>从哪来</td>
 <td>凭空出现</td>
-<td>从场景里有的地方涌出来：A 从悬崖那头爬上来，B 从路的尽头走过来，C 从裂隙里掉下来</td>
+<td>从路的前方压过来：A2 从天门那头沿路下来，B2 从城堡方向走过来</td>
 </tr>
 <tr>
 <td>首领和场景</td>
 <td>和小怪一样贴着</td>
-<td>每个首领有自己的场景：炎之领主在广场、失衡之主在长路尽头、潮之领主从云海升起</td>
+<td>首领守在这段路的终点：A2 在天门前，B2 在城堡前</td>
 </tr>
 <tr>
 <td>特效</td>
@@ -175,7 +144,7 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 </tbody>
 </table>
 <ul>
-<li>头像牌在三套方案里都有：A 放在手牌上方，B 竖排在右边，C 放在顶部。</li>
+<li>头像牌：A2 放在手牌上方，B2 竖排在右边。</li>
 <li>出牌时触发了哪位伙伴，她的头像就亮一下，并弹出数值（就是一代装备触发时的跳字）。</li>
 <li>一代 150 件装备里，常用的约 30 件做成伙伴，其余做成「器物」，用器物图标。</li>
 </ul>
@@ -213,18 +182,36 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <li>按选定的方案重写战斗界面：去掉横穿的血条和装备面板，界面全部改成透明或半透明。</li>
 <li>怪物站位改成按场景的地面来排，加影子、调色和轮廓光。</li>
 <li>装备栏换成伙伴头像牌，加点开看立绘的弹窗。</li>
-<li>每段路出一张对应视角的场景图（8 段路，每段一张战斗场景，再加一张首领战场景）。</li>
+<li>八段路每段出一张场景图：选 A2 就是约三屏高的长图，从起点一直画到守关的门；选 B2 就是一张大道图，加一张首领战图。</li>
 <li>做好后录实机截图和录屏给你看。</li>
 </ol>
 <hr />
 <h2>8. 要你定</h2>
 <ol>
-<li>选哪套：A 浮岛祭坛（推荐）/ B 林间长路 / C 断崖斜阵？也可以混搭，比如「A 打小怪，守关时镜头拉近成 B」。</li>
+<li>选 A2 云上天路（推荐）还是 B2 天穹大道？也可以混搭：A2 打小怪，守关时镜头拉近成 B2 的越肩视角。</li>
+<li>A2 的「往前走」用哪种：长图镜头往上推（推荐），还是一屏整条路、主角往前走？</li>
 <li>名字：还用《源神：元素牌》吗？上一版提过，这个名字有被当成仿冒《原神》的风险。</li>
 <li>伙伴全是女性角色，还是男女都有？</li>
 </ol>
 <hr />
-<h2>9. 附：之前的方案</h2>
+<h2>9. 附：v9 的三套（A、B 已按反馈改成上面的 A2、B2）</h2>
+<table>
+<thead>
+<tr>
+<th>v9 A 浮岛祭坛（像开放世界，看不出往前走）</th>
+<th>v9 B 林间长路（两边是墙，太压抑）</th>
+<th>v9 C 断崖斜阵（保留）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="img/v9_A.jpg" /></td>
+<td><img alt="" src="img/v9_B.jpg" /></td>
+<td><img alt="" src="img/v9_C.jpg" /></td>
+</tr>
+</tbody>
+</table>
+<h2>10. 之前的方案</h2>
 <table>
 <thead>
 <tr>
@@ -234,6 +221,11 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>v9</td>
+<td>战斗界面三套：A 浮岛祭坛 / B 林间长路 / C 断崖斜阵（<code>docs/v2/立项方案_v9.md</code>）</td>
+<td>A 像开放世界、B 太压抑 → v10</td>
+</tr>
 <tr>
 <td>v8</td>
 <td>《源神：元素牌》题材包装 + 实机换皮（<code>docs/v2/立项方案_v8.md</code>）</td>
