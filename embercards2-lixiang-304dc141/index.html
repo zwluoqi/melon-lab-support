@@ -1,83 +1,89 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>二代方案 v11：《源神：元素牌》战斗界面——不画路的「向前引导」</title><style>body{margin:0;padding:16px;background:#fffdf8}
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>二代方案 v12：《源神：元素牌》战斗界面——身后视角拉远、主角全身入镜</title><style>body{margin:0;padding:16px;background:#fffdf8}
 .w{font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;max-width:860px;margin:0 auto;color:#2b2420;font-size:15px;line-height:1.75}
 h1{font-size:22px;margin:8px 0 12px}h2{font-size:19px;margin:30px 0 8px;padding-top:14px;border-top:2px solid #d9c7a5}h3{font-size:16px;color:#7a4b12;margin:20px 0 6px}
 table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0;display:block;overflow-x:auto}th,td{border:1px solid #eadcc2;padding:6px 8px;vertical-align:top}th{background:#faf0dc;white-space:nowrap}tr:nth-child(even) td{background:#fbf8f1}
-img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{background:#f3ece0;padding:1px 4px;border-radius:3px;font-size:12px}</style></head><body><div class="w"><h1>二代方案 v11：《源神：元素牌》战斗界面——不画路的「向前引导」</h1>
+img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{background:#f3ece0;padding:1px 4px;border-radius:3px;font-size:12px}</style></head><body><div class="w"><h1>二代方案 v12：《源神：元素牌》战斗界面——身后视角拉远、主角全身入镜</h1>
 <ul>
 <li>日期：2026-11-12</li>
-<li>你对 v10 的反馈：有向前的关卡引导就行，不要太硬，不一定是一条路。</li>
-<li>这一版：<ul>
-<li>场景<strong>不画路</strong>，都是开阔的草甸、湖面、枫原；</li>
-<li>往前的感觉靠几种软一点的手法：画面顶端有一个地标，眼睛自然往上看；</li>
-<li>每段路换一种景（下面给了三种），都用同一套引导手法。</li>
+<li>你对 v11 的反馈：<ul>
+<li>视角用 B3（在主角身后、看向远处），但镜头要拉远一些，主角要像 A3 一样全身显示出来；</li>
+<li>元素牌用红、黄、蓝、黑四种颜色区分就行，不用额外包装；</li>
+<li>出牌和换牌按钮放在牌的上方；</li>
+<li>按这个思路出两套，再按我自己的想法出一套。</li>
 </ul>
 </li>
-<li>和之前一样是效果图，还没做进游戏；每张左边单挑守关、右边群怪 AOE（或另一段路）。</li>
+<li>这一版：<ul>
+<li><strong>D1 风语高原</strong>、<strong>D2 镜湖花田</strong>：按你的思路做的两套，场景不同，界面排法也不同；</li>
+<li><strong>D3 队伍同框</strong>：我的想法，四位伙伴一起站在场景里，不要头像栏。</li>
+</ul>
+</li>
+<li>和之前一样是效果图，还没做进游戏。每套左边单挑守关，右边群怪 AOE。</li>
 </ul>
 <hr />
 <h2>0. 结论先说</h2>
-<p><strong>A3 俯视 + 软引导（推荐）</strong>：视角和《宗师之上》一样，主角在下方、怪从上方来。场景开阔，不画路，往前的感觉靠下面五种手法：</p>
 <table>
 <thead>
 <tr>
-<th>手法</th>
-<th>怎么做</th>
-<th>效果图里在哪</th>
+<th>方案</th>
+<th>场景</th>
+<th>界面排法（从下往上）</th>
+<th>适合</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>远处的地标</td>
-<td>每段路画面最顶上有一个要去的地方：白塔、瀑布神社、古门</td>
-<td>三张图的顶端</td>
+<td>D1 风语高原</td>
+<td>开阔草原，地平线压到屏幕上方，远处一座发光的塔</td>
+<td>手牌 → 一排：换牌 · 元素魔法 · 出牌 → 伙伴头像牌 + 血量</td>
+<td>最稳：按钮和魔法名都在拇指附近，信息集中</td>
 </tr>
 <tr>
-<td>地标方向来的光</td>
-<td>地标那边最亮，往下慢慢变暗；眼睛先看到亮处</td>
-<td>顶端那团光</td>
+<td>D2 镜湖花田</td>
+<td>傍晚的湖边花田，远处山坡上有座小神社</td>
+<td>手牌 → 换牌（窄）+ 出牌（宽）→ 元素魔法 + 血量；伙伴头像牌竖排在右边</td>
+<td>出牌键最大最好按，下半屏更干净</td>
 </tr>
 <tr>
-<td>零散的踏脚点</td>
-<td>松松地连向地标的东西：几块踏石、一串小岛、几颗浮空晶石；不连成路，看起来只是「大概往那边」</td>
-<td>草甸的踏石、湖上的小岛、枫原的晶石</td>
-</tr>
-<tr>
-<td>往上飘的东西</td>
-<td>光点、花瓣、落叶往地标方向慢慢飘（游戏里是动的）</td>
-<td>主角身边往上飘的光点</td>
-</tr>
-<tr>
-<td>怪从前面来、主角面朝前</td>
-<td>怪从地标那边压下来，主角背对镜头、面朝地标；守关首领站在地标前面</td>
-<td>每张图</td>
+<td><strong>D3 队伍同框（我推荐）</strong></td>
+<td>和 D1 同一片草原</td>
+<td>手牌 → 换牌 · 元素魔法 · 出牌 → 血量；<strong>四位伙伴就站在场景里</strong></td>
+<td>最像原神：一队人一起打怪。少了头像栏，界面最干净，伙伴存在感最强</td>
 </tr>
 </tbody>
 </table>
-<p>再加上顶部的<strong>关卡进度</strong>（第 1 战 → 第 2 战 → 守关），每打完一波，镜头往前推一小段（游戏里加 0.5 秒的推进动画）。</p>
+<p><strong>推荐 D3</strong>：
+- 伙伴是二代最大的卖点。D3 让四位伙伴一直站在场景里：这一手触发了谁，谁脚下就亮圈、头顶跳出数值，攻击也从她身上打出去；
+- 点角色就能看全身立绘，所以头像栏不需要了，下半屏只剩血量、按钮和手牌。
+- 代价：每位伙伴要多画一张背影立绘（和正面立绘同一个人），站位最多 5 人。</p>
+<p><strong>三套共同的做法</strong>：
+- 镜头在主角身后、比 B3 高一点、拉远一些：主角全身站在下方三分之一处，地平线在屏幕上方，中间大片草地留给怪。
+- 怪越远越小；守关首领站在主角正前方，体型是主角的一倍半到两倍。
+- 远处的地标（塔、神社）加上「第 1 战 → 第 2 战 → 守关」的进度条，就是向前的引导。
+- 元素牌只用红、黄、蓝、黑四色区分，牌面只写点数（见下图）。
+- 出牌、换牌按钮在牌的上方。</p>
+<p><img alt="元素牌：一代的四色牌底，只写点数；选中的牌抬起并发光" src="img/v12_cards.jpg" /></p>
 <hr />
-<h2>1. A3 晴空草甸（单挑守关 / 群怪 AOE）</h2>
-<p><img alt="A3 晴空草甸：左 单挑守关「炎之领主」，右 群怪 AOE" src="img/v11_A3.jpg" /></p>
+<h2>1. D1 风语高原</h2>
+<p><img alt="D1：左 单挑守关「炎之领主」，右 群怪 AOE" src="img/v12_D1.jpg" /></p>
 <ul>
-<li>开阔的浮岛草甸，开满野花，没有路；几块零散的白色踏石大概往上方延伸，最远处是一座发光的白塔。</li>
-<li>守关时首领站在踏石尽头、白塔前；打小怪时蚀灵从白塔那边铺满整片草甸压下来。</li>
+<li>主角全身站在下方，脚下一圈光环；怪群从远处的塔那边铺满草原压过来。</li>
+<li>界面从下往上：8 张元素牌 → 一排「换牌 · 元素魔法名 + 元素力 × 倍率 · 出牌」→ 伙伴头像牌和血量。</li>
 </ul>
-<h2>2. 同一套手法，换一种景</h2>
-<p><img alt="左 镜湖（群怪 AOE）：小岛和踏石松松地连向远处的瀑布神社；右 枫原（单挑守关「失衡之主」）：几颗浮空晶石指向远处的古门" src="img/v11_A3_more.jpg" /></p>
-<p><img alt="三种场景的原图：都不画路，只靠地标、光和零散的踏脚点" src="img/v11_guides.jpg" /></p>
+<h2>2. D2 镜湖花田</h2>
+<p><img alt="D2：左 单挑守关「潮之领主」，右 群怪 AOE" src="img/v12_D2.jpg" /></p>
 <ul>
-<li>八段路每段换一种景：草甸、镜湖、枫原、雪原、花海、星空……</li>
-<li>每张场景都按同一个规矩画：顶端放地标，地标方向最亮，中间零散地放几个踏脚点，中间大片空地留给怪。</li>
+<li>傍晚的湖边花田，暖色调；远处山坡上有座小神社。</li>
+<li>界面从下往上：8 张元素牌 → 窄的「换牌」+ 宽的「出牌」→ 元素魔法名、元素力 × 倍率、血量。伙伴头像牌竖排在右边（照原神的队伍栏）。</li>
 </ul>
-<h2>3. B3 越肩视角（备选）</h2>
-<p><img alt="B3 风语高原：左 单挑守关，右 群怪 AOE" src="img/v11_B3.jpg" /></p>
+<h2>3. D3 队伍同框（我的想法）</h2>
+<p><img alt="D3：左 单挑守关「失衡之主」，右 群怪 AOE" src="img/v12_D3.jpg" /></p>
 <ul>
-<li>开阔的高原草地，只有一条被踩出来的浅浅小径，地平线上有一座发光的塔，上半屏是蓝天和浮岛。</li>
-<li>守关战气势最足；群怪会挤在中间一段，一手打倒多少只不如 A3 清楚。</li>
+<li>四位伙伴站成一道浅弧，都背对镜头面朝敌人。</li>
+<li>这一手触发了谁，谁脚下亮起自己颜色的圈，头顶跳出「+3 倍率」，飞牌和光束也从她身上打出去（图里是红、蓝两位）。</li>
+<li>不要头像栏。点场景里的角色就弹出全身立绘和技能（弹窗见第 5 节）。</li>
+<li>界面从下往上：8 张元素牌 → 「换牌 · 元素魔法 · 出牌」→ 血量。</li>
+<li>第 5 位伙伴（第 5 个装备格）站在最后排正中。</li>
 </ul>
-<p><strong>两套共用的界面</strong>：
-- 整屏都是场景，没有横穿屏幕的血条和装备面板。
-- 顶部透明：关卡名、关卡进度、源晶、设置。
-- 下方三成的高度从透明慢慢过渡到半透明，放伙伴头像牌、血量、元素魔法名、「元素力 × 倍率」、元素牌和按钮。</p>
 <h2>4. 场景和怪物怎么结合（回答「没有很好的结合」）</h2>
 <table>
 <thead>
@@ -91,7 +97,7 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <tr>
 <td>站在地上</td>
 <td>怪是一排排贴在背景前面的</td>
-<td>每只怪的脚底落在场景的地面上，离得越远越小（俯视视角下远近差得少，越肩视角差得多）</td>
+<td>每只怪的脚底落在场景的地面上，离得越远越小（镜头拉远后远近差得更多，远处的怪很小）</td>
 </tr>
 <tr>
 <td>影子</td>
@@ -101,7 +107,7 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <tr>
 <td>光线</td>
 <td>怪自带的颜色和背景不一样</td>
-<td>怪按场景的光调色（草甸、镜湖偏白偏亮，枫原偏暖），边上加一圈场景光颜色的轮廓光</td>
+<td>怪按场景的光调色（高原偏白偏亮，湖畔傍晚偏暖），边上加一圈场景光颜色的轮廓光</td>
 </tr>
 <tr>
 <td>远近</td>
@@ -111,12 +117,12 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <tr>
 <td>从哪来</td>
 <td>凭空出现</td>
-<td>从地标那边压过来：草甸从白塔方向、镜湖从神社方向、枫原从古门方向</td>
+<td>从远处地标那边压过来：高原从塔的方向，湖畔从神社的方向</td>
 </tr>
 <tr>
 <td>首领和场景</td>
 <td>和小怪一样贴着</td>
-<td>首领站在这段路的地标前面（白塔前、古门前）</td>
+<td>首领站在主角正前方，背后是远处的地标</td>
 </tr>
 <tr>
 <td>特效</td>
@@ -144,7 +150,7 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 </tbody>
 </table>
 <ul>
-<li>头像牌：A3 放在手牌上方，B3 竖排在右边。</li>
+<li>头像牌：D1 放在按钮上方，D2 竖排在右边；D3 不用头像牌，直接点场景里的角色。</li>
 <li>出牌时触发了哪位伙伴，她的头像就亮一下，并弹出数值（就是一代装备触发时的跳字）。</li>
 <li>一代 150 件装备里，常用的约 30 件做成伙伴，其余做成「器物」，用器物图标。</li>
 </ul>
@@ -160,7 +166,7 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <tbody>
 <tr>
 <td>牌</td>
-<td>元素牌（♥ 炎、♦ 雷、♣ 潮、♠ 森）</td>
+<td>元素牌，只用红、黄、蓝、黑四色区分，牌面只写点数</td>
 </tr>
 <tr>
 <td>牌型</td>
@@ -182,30 +188,30 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <li>按选定的方案重写战斗界面：去掉横穿的血条和装备面板，界面全部改成透明或半透明。</li>
 <li>怪物站位改成按场景的地面来排，加影子、调色和轮廓光。</li>
 <li>装备栏换成伙伴头像牌，加点开看立绘的弹窗。</li>
-<li>八段路每段出一张场景图，都按「顶端地标 + 地标方向的光 + 零散踏脚点 + 中间空地」的规矩画。</li>
+<li>八段路每段出一张场景图，都用同一个镜头：地平线在屏幕上方，远处有地标，中间大片空地。选 D3 的话，每位伙伴再出一张背影立绘。</li>
 <li>做好后录实机截图和录屏给你看。</li>
 </ol>
 <hr />
 <h2>8. 要你定</h2>
 <ol>
-<li>A3 俯视 + 软引导（推荐），还是 B3 越肩？也可以混搭：打小怪用 A3，守关时镜头拉近成 B3 的越肩视角。</li>
-<li>这三种景（草甸、镜湖、枫原）的方向对不对？定了我就按这个规矩出完八段。</li>
+<li>选 D1、D2，还是 D3（推荐）？也可以混搭，比如用 D3 的队伍同框，配 D2 的大出牌键。</li>
+<li>场景：高原、湖畔这两种的方向对不对？定了我就按同一个镜头出完八段。</li>
 <li>名字：还用《源神：元素牌》吗？之前提过，这个名字有被当成仿冒《原神》的风险。</li>
 <li>伙伴全是女性角色，还是男女都有？</li>
 </ol>
 <hr />
-<h2>9. 附：上一版 v10（一条路，太硬）</h2>
+<h2>9. 附：上一版 v11</h2>
 <table>
 <thead>
 <tr>
-<th>v10 A2 云上天路</th>
-<th>v10 B2 天穹大道</th>
+<th>v11 A3 俯视 + 软引导</th>
+<th>v11 B3 越肩（这一版的基础）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><img alt="" src="img/v10_A2.jpg" /></td>
-<td><img alt="" src="img/v10_B2.jpg" /></td>
+<td><img alt="" src="img/v11_A3.jpg" /></td>
+<td><img alt="" src="img/v11_B3.jpg" /></td>
 </tr>
 </tbody>
 </table>
@@ -219,6 +225,11 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>v11</td>
+<td>A3 俯视 + 软引导 / B3 越肩开阔（<code>docs/v2/立项方案_v11.md</code>）</td>
+<td>用 B3 视角、镜头拉远、主角全身入镜 → v12</td>
+</tr>
 <tr>
 <td>v10</td>
 <td>A2 云上天路（一条路通到天门）/ B2 天穹大道（<code>docs/v2/立项方案_v10.md</code>）</td>
