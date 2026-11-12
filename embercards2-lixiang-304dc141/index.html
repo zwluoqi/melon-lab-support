@@ -1,16 +1,180 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>二代立项方案书 v15：《源神：元素牌》——最小循环已做进游戏</title><style>body{margin:0;padding:16px;background:#fffdf8}
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>二代立项方案书 v16：《源神：元素牌》——战斗表现升级</title><style>body{margin:0;padding:16px;background:#fffdf8}
 .w{font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;max-width:860px;margin:0 auto;color:#2b2420;font-size:15px;line-height:1.75}
 h1{font-size:22px;margin:8px 0 12px}h2{font-size:19px;margin:30px 0 8px;padding-top:14px;border-top:2px solid #d9c7a5}h3{font-size:16px;color:#7a4b12;margin:20px 0 6px}
 table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0;display:block;overflow-x:auto}th,td{border:1px solid #eadcc2;padding:6px 8px;vertical-align:top}th{background:#faf0dc;white-space:nowrap}tr:nth-child(even) td{background:#fbf8f1}
-img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{background:#f3ece0;padding:1px 4px;border-radius:3px;font-size:12px}</style></head><body><div class="w"><h1>二代立项方案书 v15：《源神：元素牌》——最小循环已做进游戏</h1>
+img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{background:#f3ece0;padding:1px 4px;border-radius:3px;font-size:12px}</style></head><body><div class="w"><h1>二代立项方案书 v16：《源神：元素牌》——战斗表现升级</h1>
 <ul>
 <li>日期：2026-11-12</li>
-<li>这一版：你对 v14 第 15 节的 9 个问题都给了答复，按答复改了方案，并把<strong>第一世第 1 关三战的最小循环做进了游戏</strong>（正式资源，实机截图和三战录屏见第 0 节）。</li>
+<li>这一版：你看了 v15 的最小循环，说「战斗过程效果太差……优化战斗角色的动作特效表现、技能释放表现、打击感反馈；关卡跟人物的布局非常违和」。我按战斗策划总监的标准逐帧拆了 v15 录屏，列出 14 个问题，<strong>全部改进游戏里</strong>，并重录了三战（第 0 节）。</li>
+<li>规则没动：计分代码一行没改，768 个测试全部通过；每一手仍然自检「伤害之和 = 原版得分」。</li>
 <li>厂商：FIRE工作室（507397）。一代《手搓魔法》的仓库和线上应用不动，二代在 <code>zwluoqi/EmberCards2</code> 里改。</li>
-<li>状态：<strong>最小循环待你看</strong>。还没建 Maker 应用；要真机试玩告诉我，再建应用出二维码。</li>
+<li>状态：<strong>待你看</strong>。还没建 Maker 应用；要真机试玩告诉我，再建应用出二维码。</li>
 </ul>
-<h2>0. 最小循环：做好了什么</h2>
-<p><strong>三战完整录屏</strong>（76 秒：新开一局、没有英雄，种子 SIM00004，机器人按原版规则打：第 1 战 → 结算 → 商店 → 第 2 战 → 结算 → 商店 → 守关战；×1 速度）：</p>
+<h2>0. 战斗表现升级（v16）</h2>
+<p><strong>v16 三战录屏</strong>（同一个种子 SIM00004、同样的打法，可以和第 0.5 节的 v15 录屏直接对比）：</p>
+<video src="video/v16_loop.mp4" controls playsinline preload="metadata" style="width:100%;max-width:420px;border-radius:8px"></video>
+
+<p><img alt="上排 v15，下排 v16：第 1 战 / 第 2 战 / 守关战" src="img/v16_compare.jpg" /></p>
+<p><img alt="v16 一手的演出（左到右）：主角释放元素魔法 → 英雄出手 → 倍乘英雄切入 → 天雷落下 → 击破" src="img/v16_beats.jpg" /></p>
+<h3>0.1 问题诊断（v15 逐帧拆解）</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>类别</th>
+<th>v15 的问题</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>布局</td>
+<td>人物像贴在场景上，「违和」</td>
+<td>场景是高空俯拍（地平线在顶上），人物是平视背影，两套透视</td>
+</tr>
+<tr>
+<td>2</td>
+<td>布局</td>
+<td>人物和场景光线、色调不一致</td>
+<td>没有接触阴影、没有环境色、没有轮廓光，远近一样清楚</td>
+</tr>
+<tr>
+<td>3</td>
+<td>布局</td>
+<td>首领太大、顶到血条，脚下悬空</td>
+<td>首领高度和位置是拍脑袋的，不在地面透视里</td>
+</tr>
+<tr>
+<td>4</td>
+<td>布局</td>
+<td>出的牌飞进战场正中，挡住首领</td>
+<td>沿用了一代「出牌飞到场中央」的位置</td>
+</tr>
+<tr>
+<td>5</td>
+<td>布局</td>
+<td>只有 1 名英雄时站在屏幕最左边，被切掉</td>
+<td>站位按固定 5 格从左往右填</td>
+</tr>
+<tr>
+<td>6</td>
+<td>动作</td>
+<td>英雄完全不动，只亮一下</td>
+<td>没有动作，只有发光</td>
+</tr>
+<tr>
+<td>7</td>
+<td>技能</td>
+<td>所有攻击都是一样的小光球</td>
+<td>不分类型，没有起手、飞行、命中三段</td>
+</tr>
+<tr>
+<td>8</td>
+<td>技能</td>
+<td>主角放魔法时没有任何表现</td>
+<td>牌型的伤害直接从主角头顶飞一个光点</td>
+</tr>
+<tr>
+<td>9</td>
+<td>技能</td>
+<td>一手结束时又飞了一轮一代的法术齐射</td>
+<td>一代 castfx 在总结算时再演一遍，伤害看起来像算了两次</td>
+</tr>
+<tr>
+<td>10</td>
+<td>打击感</td>
+<td>首领挨打只闪一下白</td>
+<td>没有顿帧、后仰、压扁、类型色</td>
+</tr>
+<tr>
+<td>11</td>
+<td>打击感</td>
+<td>伤害数字小、带底框、叠在血条上</td>
+<td>用的是一代弹分框，位置在首领头顶</td>
+</tr>
+<tr>
+<td>12</td>
+<td>打击感</td>
+<td>看不出这一手打了多少下、一共多少</td>
+<td>没有连击和本手累计</td>
+</tr>
+<tr>
+<td>13</td>
+<td>首领</td>
+<td>首领是一张静止图，不会「回合」</td>
+<td>没有待机动作、没有出手前的蓄力</td>
+</tr>
+<tr>
+<td>14</td>
+<td>击杀</td>
+<td>击杀只是淡出</td>
+<td>没有定格、碎裂、光柱</td>
+</tr>
+</tbody>
+</table>
+<h3>0.2 怎么改的</h3>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>做法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>镜头和透视（1、3）</td>
+<td>三张场景重新出图，改成<strong>平视镜头</strong>（地平线在上三分之一，中间是空地）；按地平线算地面透视：站得越远越小，首领、英雄、主角同一套透视；首领脚底钉在地面上</td>
+</tr>
+<tr>
+<td>融入场景（2）</td>
+<td>每张场景一套光：环境色乘在人物上，主光那一侧加<strong>轮廓光</strong>，脚下<strong>接触阴影</strong>，远处的人蒙一层雾色（空气透视）；场景里飘光点 / 花瓣 / 腐化余烬</td>
+</tr>
+<tr>
+<td>战场留白（4）</td>
+<td>出的牌落在按钮那一行（计分时按钮藏起来、手牌往下让），<strong>战场里只有战斗</strong></td>
+</tr>
+<tr>
+<td>站位（5）</td>
+<td>人少时先站两翼，中路留给首领；前排 5 名呈弧形、中间那名站得更远；后排 3 名</td>
+</tr>
+<tr>
+<td>动作（6）</td>
+<td>程序动作：待机呼吸 → 蓄力下蹲 → 出手前冲 + 拉伸 → 回位回弹；倍乘英雄跃起放大招，经济英雄跳起撒金币</td>
+</tr>
+<tr>
+<td>技能（7、8）</td>
+<td>四类各一种招式：<strong>筹码 = 穿刺长枪</strong>（直线、最快）、<strong>倍率 = 火球</strong>（弧线、火尾、爆炸）、<strong>倍乘 = 大招</strong>（切入立绘 → 天雷劈下 → 全屏闪 + 顿帧 + 镜头推近）、<strong>经济 = 撒金币</strong>；主角：牌型成立时脚下法阵转起、头顶亮出魔法名、一道光柱，每张计分的牌化成<strong>那张牌颜色的晶刃</strong>飞出去</td>
+</tr>
+<tr>
+<td>收尾（9）</td>
+<td>去掉一代的总结算齐射：伤害已经一发一发打完，结尾只定格「本手伤害」</td>
+</tr>
+<tr>
+<td>打击感（10）</td>
+<td><strong>顿帧</strong>（只停战斗画面，计分节奏不变）、首领<strong>白闪 + 类型色 + 后仰回弹 + 压扁</strong>、命中火花 / 冲击环 / 震屏；全部按「这一下占首领血量的比例」分 4 档，越重越狠</td>
+</tr>
+<tr>
+<td>数字（11）</td>
+<td>描边大字、按类型上色（筹码蓝 / 倍率红 / 倍乘紫 / 主角金）、弹出放大再回落、新数字出来时旧的往上让</td>
+</tr>
+<tr>
+<td>连击（12）</td>
+<td>首领右侧：「N 连击」+ 本手伤害累计跳动，结尾标「本手伤害」，超额时「过量击破 ×N」</td>
+</tr>
+<tr>
+<td>首领（13）</td>
+<td>呼吸、腐化气息；脚下<strong>致命魔法引导环</strong>（出过几手亮几格）；每手打完没死就<strong>蓄力</strong>一次（身形一涨、紫光一圈）</td>
+</tr>
+<tr>
+<td>击杀（14）</td>
+<td>白化定格 → 碎成晶片 → 光柱 + 地面冲击波 → 「击破！」</td>
+</tr>
+</tbody>
+</table>
+<p>时长：一次出手（起手到命中）0.3–0.5 秒，大招约 0.9 秒，都在原版每一下的节拍里，不拉长一手的总时长；×2 / ×3 / ×4 倍速时动作一起加快。</p>
+<h2>0.5 最小循环（v15）：做好了什么</h2>
+<p><strong>v15 三战录屏（升级前，留作对比）</strong>（76 秒：新开一局、没有英雄，种子 SIM00004，机器人按原版规则打：第 1 战 → 结算 → 商店 → 第 2 战 → 结算 → 商店 → 守关战；×1 速度）：</p>
 <video src="video/v15_loop.mp4" controls playsinline preload="metadata" style="width:100%;max-width:420px;border-radius:8px"></video>
 
 <p><img alt="实机：第 1 战（10 名英雄：场上 8 名 + 右侧候补 2 名）、第 2 战、守关战" src="img/v15_fights.jpg" /></p>
