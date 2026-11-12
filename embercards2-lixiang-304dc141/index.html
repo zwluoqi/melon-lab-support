@@ -1,18 +1,61 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>二代立项方案书 v14（详细版）：《源神：元素牌》——继承一代 · 英雄战斗化 · 单挑首领</title><style>body{margin:0;padding:16px;background:#fffdf8}
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>二代立项方案书 v15：《源神：元素牌》——最小循环已做进游戏</title><style>body{margin:0;padding:16px;background:#fffdf8}
 .w{font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;max-width:860px;margin:0 auto;color:#2b2420;font-size:15px;line-height:1.75}
 h1{font-size:22px;margin:8px 0 12px}h2{font-size:19px;margin:30px 0 8px;padding-top:14px;border-top:2px solid #d9c7a5}h3{font-size:16px;color:#7a4b12;margin:20px 0 6px}
 table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0;display:block;overflow-x:auto}th,td{border:1px solid #eadcc2;padding:6px 8px;vertical-align:top}th{background:#faf0dc;white-space:nowrap}tr:nth-child(even) td{background:#fbf8f1}
-img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{background:#f3ece0;padding:1px 4px;border-radius:3px;font-size:12px}</style></head><body><div class="w"><h1>二代立项方案书 v14（详细版）：《源神：元素牌》——继承一代 · 英雄战斗化 · 单挑首领</h1>
+img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{background:#f3ece0;padding:1px 4px;border-radius:3px;font-size:12px}</style></head><body><div class="w"><h1>二代立项方案书 v15：《源神：元素牌》——最小循环已做进游戏</h1>
 <ul>
 <li>日期：2026-11-12</li>
-<li>版本说明：在 v13 设计案（英雄战斗化规则）的基础上，按你这次的要求做了三件事：<ol>
-<li><strong>查漏补缺</strong>：一代战斗界面上的东西逐项对过，v12、v13 的效果图漏掉了魔法书、魔导天赋、道具栏、元素库、排序、倍速、守关规则等，这一版全部补回（第 5 节）；</li>
-<li><strong>魔导天赋并进魔法书</strong>：做成一个入口（第 6 节）；</li>
-<li><strong>继承一代的经验</strong>：一代做对的直接沿用，踩过的坑写成二代的规矩（第 2 节）。</li>
-</ol>
-</li>
+<li>这一版：你对 v14 第 15 节的 9 个问题都给了答复，按答复改了方案，并把<strong>第一世第 1 关三战的最小循环做进了游戏</strong>（正式资源，实机截图和三战录屏见第 0 节）。</li>
 <li>厂商：FIRE工作室（507397）。一代《手搓魔法》的仓库和线上应用不动，二代在 <code>zwluoqi/EmberCards2</code> 里改。</li>
-<li>状态：<strong>待你确认</strong>。确认后做第 12 节的最小循环（第一世第 1 关三战）。</li>
+<li>状态：<strong>最小循环待你看</strong>。还没建 Maker 应用；要真机试玩告诉我，再建应用出二维码。</li>
+</ul>
+<h2>0. 最小循环：做好了什么</h2>
+<p><strong>三战完整录屏</strong>（76 秒：新开一局、没有英雄，种子 SIM00004，机器人按原版规则打：第 1 战 → 结算 → 商店 → 第 2 战 → 结算 → 商店 → 守关战；×1 速度）：</p>
+<video src="video/v15_loop.mp4" controls playsinline preload="metadata" style="width:100%;max-width:420px;border-radius:8px"></video>
+
+<p><img alt="实机：第 1 战（10 名英雄：场上 8 名 + 右侧候补 2 名）、第 2 战、守关战" src="img/v15_fights.jpg" /></p>
+<p><img alt="实机出牌：主角先出手，英雄按原版顺序接着上，每一下的伤害按原版得分的差值跳数字；打完一手才判首领死亡" src="img/v15_hit.jpg" /></p>
+<p><img alt="点场上的英雄：正面立绘（框色 = 功能类型）+ 原版效果 + 出售，一代的详情弹窗原样沿用" src="img/v15_detail.jpg" /></p>
+<p><img alt="12 个英雄形象（4 类 × 2 女 1 男）+ 主角，NovelAI 正式出图；场上用背影" src="img/v15_heroes.jpg" /></p>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>做了什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>规则</td>
+<td>原版计分代码一行没改，768 个测试全部通过；一代对原版的 4 处改动（新手护航）用总开关 <code>PURE_RULES</code> 全部关掉</td>
+</tr>
+<tr>
+<td>战斗界面</td>
+<td>整屏是关卡场景（3 战 3 张）；首领单挑；主角前排正中，前排 5 名英雄呈弧形、后排 3 名，第 9 名起候补头像；一代的顶栏、血条、致命魔法印记、牌型牌、元素力 × 倍率、道具栏、出牌 / 排序 / 换牌、魔法书、元素库全部保留</td>
+</tr>
+<tr>
+<td>英雄</td>
+<td>每张小丑牌一名英雄，按原版效果归进 4 类；脚下是原版效果角标（+8、×2、+30、3源晶）；点英雄 = 一代小丑牌的详情、出售、拖动换位，原样可用，详情里换成英雄正面立绘</td>
+</tr>
+<tr>
+<td>伤害</td>
+<td>只读原版的计分事件：每一下 = 这一下之后的累计得分取整 − 之前的累计得分取整，记给触发者（重复触发记给触发重复的英雄）；游戏里每手都自检「伤害之和 = 原版得分」，三战录屏里 9 手全部一致</td>
+</tr>
+<tr>
+<td>倍速</td>
+<td>不看广告：第一世打到第 4 关开 ×2，第三世开 ×3，第四世开 ×4</td>
+</tr>
+<tr>
+<td>资源</td>
+<td>英雄正面 13 张（含主角）+ 背影 13 张、首领 3 只、场景 3 张，全部正式出图、去底、裁边</td>
+</tr>
+</tbody>
+</table>
+<p>还没做（下一步）：</p>
+<ul>
+<li>魔法书的 4 个标签页现在还是一代的牌型表 + 天赋两个入口；</li>
+<li>结算、商店、选关还是一代界面：商店里的小丑牌还是卡面，没换成英雄头像；选关卡片上的敌人还是一代的名字和头像（战斗里已经是炎之领主 / 潮之领主 / 失衡之主）；</li>
+<li>首领出手（致命魔法）演出还是一代的。</li>
 </ul>
 <hr />
 <h2>目录</h2>
@@ -339,7 +382,7 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <h3>4.3 负伤害</h3>
 <p>原版里有让得分变少的事件（比如第 2 关起会出现的 Boss「燧石」砍半基础筹码和倍率）。这一下差值为负，记在<strong>敌人</strong>头上，演成「首领削弱」：敌人头顶跳绿色「+N」、血条回涨一截。总和不变。</p>
 <h3>4.4 重复触发</h3>
-<p>小丑牌让扑克牌再计一次分时（比如「重新触发所有打出的 2、3、4、5」），原版会先出一个标明是哪张小丑牌触发的事件。<strong>建议</strong>：这一次重复计出的伤害算给那名英雄；红色封印的重复算主角。（需要你定，第 15 节）</p>
+<p>小丑牌让扑克牌再计一次分时（比如「重新触发所有打出的 2、3、4、5」），原版会先出一个标明是哪张小丑牌触发的事件。<strong>已定</strong>：这一次重复计出的伤害算给那名英雄；红色封印的重复算主角。</p>
 <h3>4.5 敌人和引导（沿用一代的「致命魔法」）</h3>
 <table>
 <thead>
@@ -379,18 +422,16 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 <li>开局免费给 ×2 倍速；点屏幕可以快进到这一手结束；</li>
 <li>快进、加速都不影响计分（第 12.3 节的验收第 7 条）。</li>
 </ul>
-<h3>4.7 站位</h3>
-<p>```
-          （首领）</p>
-<p>英5   英6   英7   英8      ← 后排
-     英1   英2   英3   英4    ← 中排
-           主角               ← 前排正中
-```</p>
+<h3>4.7 站位（已定：一排 5 名，不算主角）</h3>
+<p><code>（首领）
+          英6     英8      英7         ← 后排 3 名
+   英1     英2    英3     英4    英5   ← 前排 5 名，中间靠后，呈弧形
+                  主角                 ← 站在弧口正中</code></p>
 <ul>
-<li>最多同时显示 9 名：主角 1 + 英雄 8；英雄按原版小丑牌的摆放顺序站，1 到 4 中排、5 到 8 后排，从左到右；</li>
-<li>空的装备位在场上画虚线圈（一代「空槽画虚线」）；</li>
-<li>第 9 张起进<strong>候补</strong>，头像排在屏幕右侧；触发时跑进场出手、放完退场；</li>
-<li>同一英雄连续触发用同一个模型；显示方式不影响触发顺序。</li>
+<li>最多同时显示 9 名：主角 1 + 英雄 8；英雄按原版小丑牌的摆放顺序站：第 1–5 张站前排（从左到右），第 6–8 张站后排；</li>
+<li>空的英雄位在场上画虚线圈；</li>
+<li>第 9 张起进<strong>候补</strong>，头像排在屏幕右侧（致命魔法印记下面），触发时头像亮一下；</li>
+<li>同一名英雄连续触发用同一个模型；显示方式不影响触发顺序。</li>
 </ul>
 <hr />
 <h2>5. 战斗界面：一代元素查漏补缺</h2>
@@ -693,7 +734,7 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 </tbody>
 </table>
 <ul>
-<li><strong>新手护航</strong>：前 3 局送馈赠；第 2、3 局的第一个商店保底一名基础加倍率英雄；第 4 局起才出现另一世敌人。</li>
+<li><strong>新手护航（已取消）</strong>：一代的「新手护航」是 4 件改了原版体验的事——前 3 局默认少 1 次出牌、再「送」回来 1 次；第 2、3 局第一个商店保底一张基础小丑；第 1 局固定种子的引导局；局外「唤醒 / 强化」改牌型等级和基础筹码。你说不改原版体验，二代<strong>全部关掉</strong>（代码里一个总开关 <code>PURE_RULES</code>）：出牌、换牌次数照原版，商店照原版随机，引导局用随机种子，局外成长不碰计分。第 1 关就是原版白注第 1 关的难度。</li>
 </ul>
 <hr />
 <h2>10. 广告（沿用一代修好的广告模块）</h2>
@@ -743,11 +784,48 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 - 难度不押在广告上，原版次数一个不少；
 - 广告不可用时按钮隐藏；
 - 主转化位（再来一手）用独立金色按钮，其余内嵌；
-- 倍速不再放广告后面（一代的 speed_unlock 取消）。</p>
+- 倍速不再放广告后面（一代的 speed_unlock 取消），改成按进度开放（已定）：第一世打到第 4 关开 ×2，第三世开 ×3，第四世开 ×4。</p>
 <p>新应用默认没开广告变现，上线前要在中控开通。</p>
 <hr />
 <h2>11. 美术规范和资源清单</h2>
 <p><strong>画风</strong>：二次元赛璐璐，对标原神，干净线条，通透天空，轮廓光，元素粒子。主色按元素牌四色：红、黄、蓝、黑（紫黑）。</p>
+<p><strong>英雄按功能分 4 类</strong>（150 张小丑牌按原版效果归类：+筹码 19、+倍率 35、×倍率 35、经济 / 其他 61）：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>颜色</th>
+<th>形象（女 · 女 · 男）</th>
+<th>场上角标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>筹码</td>
+<td>蓝</td>
+<td>汐蓝（潮）· 岩铃（盾）· 苍誓（骑士）</td>
+<td>+30</td>
+</tr>
+<tr>
+<td>倍率</td>
+<td>红</td>
+<td>焰绯（炎）· 绯扇（舞扇）· 赤刃（火剑）</td>
+<td>+8</td>
+</tr>
+<tr>
+<td>倍乘</td>
+<td>紫</td>
+<td>鸣金（雷）· 星见（星术）· 夜羽（魔典）</td>
+<td>×2</td>
+</tr>
+<tr>
+<td>经济</td>
+<td>金</td>
+<td>青蔓（森）· 金铃（行商）· 白砚（药师）</td>
+<td>+$ / 源晶</td>
+</tr>
+</tbody>
+</table>
 <p><strong>角色</strong>：
 - 主角：已出背影（银白长发、白金星纹斗篷、手边一圈四色牌）；正面立绘待出；
 - 英雄：每张小丑牌一名，要正面全身立绘（点开详情用）+ 背影全身（站场上用）。</p>
@@ -767,7 +845,7 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 </tr>
 <tr>
 <td>英雄</td>
-<td><strong>12 个形象轮换</strong>（每张小丑牌固定对应其中一个，头顶写原版名字）</td>
+<td><strong>12 个形象轮换</strong>：4 类 × 3 人（2 女 1 男），每张小丑牌按功能归类、固定对应一个形象</td>
 <td>150 名，各一张正面 + 一张背影</td>
 </tr>
 <tr>
@@ -986,18 +1064,73 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 </tbody>
 </table>
 <hr />
-<h2>15. 需要你定</h2>
-<ol>
-<li><strong>重复触发算谁的</strong>（第 4.4 节）：建议算给触发重复的英雄。</li>
-<li><strong>最小循环先用 12 个英雄形象轮换</strong>（第 11 节），行不行？</li>
-<li><strong>站位</strong>（第 4.7 节）：主角前排正中，英雄中排 4 名、后排 4 名，行不行？</li>
-<li><strong>负伤害演成「首领削弱」</strong>（第 4.3 节），行不行？</li>
-<li><strong>我方血量去掉</strong>、只留致命魔法引导（第 5.2 节），行不行？</li>
-<li><strong>魔法书 4 个标签页</strong>，局外强化改名「魔导研习」（第 6 节），行不行？</li>
-<li><strong>倍速开局免费 ×2</strong>，不再放在广告后面（第 10 节），行不行？</li>
-<li>名字：还用《源神：元素牌》吗？</li>
-<li>英雄全是女性角色，还是男女都有？</li>
-</ol>
+<h2>15. 你已经定了的（11-12）</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>问题</th>
+<th>结论</th>
+<th>落实</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>引导</td>
+<td>引导局用固定种子？</td>
+<td>不用；新手护航也不要</td>
+<td>一代护航 4 件全部关掉（第 9 节）</td>
+</tr>
+<tr>
+<td>1</td>
+<td>重复触发算谁的</td>
+<td>算给触发重复的英雄</td>
+<td>已做</td>
+</tr>
+<tr>
+<td>2</td>
+<td>12 个英雄形象轮换</td>
+<td>可以</td>
+<td>已出图并做进游戏；同一队里同类型不撞脸</td>
+</tr>
+<tr>
+<td>3</td>
+<td>站位</td>
+<td>一排能站 5 名英雄（不算主角）</td>
+<td>前排 5 + 后排 3（第 4.7 节）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>我方血量</td>
+<td>去掉</td>
+<td>只留致命魔法引导</td>
+</tr>
+<tr>
+<td>6</td>
+<td>魔法书 4 个标签页</td>
+<td>可以，局外改名「魔导研习」</td>
+<td>战斗底栏「魔法书 · 天赋 N」入口</td>
+</tr>
+<tr>
+<td>7</td>
+<td>倍速</td>
+<td>×2 第一世第 4 关、×3 第三世、×4 第四世</td>
+<td>已做，不看广告</td>
+</tr>
+<tr>
+<td>8</td>
+<td>名字</td>
+<td>《源神：元素牌》</td>
+<td>—</td>
+</tr>
+<tr>
+<td>9</td>
+<td>英雄性别</td>
+<td>男女都有，女 2 : 男 1；按功能分 4 类</td>
+<td>筹码（蓝）、倍率（红）、倍乘（紫）、经济（金），每类 2 女 1 男（第 11 节）</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2>附：之前的版本</h2>
 <table>
@@ -1009,6 +1142,11 @@ img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{back
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>v14</td>
+<td>详细版立项方案书（<code>docs/v2/立项方案_v14.md</code>）</td>
+<td>9 个问题定了 → 做最小循环</td>
+</tr>
 <tr>
 <td>v13</td>
 <td>英雄战斗化设计案（<code>docs/v2/立项方案_v13.md</code>）</td>
