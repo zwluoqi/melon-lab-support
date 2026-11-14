@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>剧情触发 · 手机「剧情」页（11-14）</title>
+<style>
+body{margin:0;background:#17121c;color:#f3ead8;font:15px/1.7 -apple-system,"PingFang SC","Noto Sans SC",sans-serif}
+main{max-width:1100px;margin:auto;padding:24px 16px 60px}
+h1{font-size:22px;margin:0 0 6px}h2{font-size:17px;margin:28px 0 8px;color:#f6dc96}
+.note{color:#bdb1c4;font-size:13px}
+ul{padding-left:20px}li{margin:4px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-top:12px}
+figure{margin:0;background:#231b2a;border-radius:12px;padding:10px}
+figure img{width:100%;border-radius:8px;display:block}
+figcaption{font-size:13px;color:#d9cde0;margin-top:8px}
+b{color:#ff8fb6}
+</style></head><body><main>
+<h1>剧情触发：手机新增「剧情」页 + 没选女主时的引导</h1>
+<div class="note">11-14 · 截图都是游戏本体实机渲染 · 还没有提交审核，等你确认</div>
+
+<h2>加了什么</h2>
+<ul>
+<li><b>手机新增「剧情」标签</b>（消息 / 剧情 / 行程 / 朋友圈）。这一页包括：
+  <ul>
+  <li>当前剧情季：第几季，讲谁，要 S 几；</li>
+  <li>下一步：和大厅的「下一目标」一致，比如告诉玩家 S 不够要先拿哪个冠军；</li>
+  <li>本季进度：8 站逐站列出，标成已讲 ✓、下一段 ▶ 或未到 ○，只说「打到哪一站、赢哪一轮」，不剧透内容；</li>
+  <li>剧情怎么触发：8 条规则，包括哪些局不讲剧情、输了怎么办、恋人篇的条件。</li>
+  </ul></li>
+<li><b>没选下一季女主时</b>：
+  <ul>
+  <li>每次启动游戏，进大厅后自动弹出「第 N 季 · 和谁相遇」。如果大厅已有别的弹窗，会等它关掉再弹。可以点「稍后再选」，下次启动还会再提示。</li>
+  <li>点「开启新比赛」时也会先弹选择。可以选一位，可以让「晚晴帮我选」随机一位，也可以「这局先不讲剧情，直接开打」。选好后自动把 S 调到她要求的档位再开赛。</li>
+  <li>手机右侧图标亮红点。「剧情」页里有绿色按钮「选下一季的女主」。</li>
+  <li>点大厅底部的「下一目标」，直接弹出选择。</li>
+  </ul></li>
+<li>有剧情季时点「下一目标」，打开手机「剧情」页。</li>
+<li>新增埋点：<code>season_nag</code>（自动弹出选择）。<code>season_pick</code> 加了 <code>from</code> 字段，记录玩家是从启动、开新比赛、手机还是大厅目标选的。</li>
+</ul>
+
+<div class="grid">
+<figure><img src="4_pick_popup.jpg"><figcaption>① 选下一季弹窗（启动游戏 / 开新比赛 / 手机都用这一个）：点头像选一位 →「就是她」，或「晚晴帮我选」</figcaption></figure>
+<figure><img src="1_phone_pick.jpg"><figcaption>② 还没选女主时的手机「剧情」页：大按钮直接选；下面是触发规则</figcaption></figure>
+<figure><img src="2_phone_season.jpg"><figcaption>③ 女主季（例：第 2 季薇拉）：要 S2；还没拿下 S1 冠军时，「下一步」会直接告诉玩家先去拿；本季 8 站进度</figcaption></figure>
+<figure><img src="3_phone_main.jpg"><figcaption>④ 第 1 季晚晴篇：第 1、2 章讲过，下一段是第 3 站柏林</figcaption></figure>
+<figure><img src="5_phone_rules.jpg"><figcaption>⑤ 整页（长截图）：当前季 → 下一步 → 本季进度 → 剧情怎么触发</figcaption></figure>
+</div>
+</main></body></html>
