@@ -1,17 +1,113 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>二代立项方案书 v16：《源神：元素牌》——战斗表现升级</title><style>body{margin:0;padding:16px;background:#fffdf8}
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>二代立项方案书 v17：《源神：元素牌》——魔法释放（沿用一代的蓄力 → 释放，再升级）</title><style>body{margin:0;padding:16px;background:#fffdf8}
 .w{font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;max-width:860px;margin:0 auto;color:#2b2420;font-size:15px;line-height:1.75}
 h1{font-size:22px;margin:8px 0 12px}h2{font-size:19px;margin:30px 0 8px;padding-top:14px;border-top:2px solid #d9c7a5}h3{font-size:16px;color:#7a4b12;margin:20px 0 6px}
 table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0;display:block;overflow-x:auto}th,td{border:1px solid #eadcc2;padding:6px 8px;vertical-align:top}th{background:#faf0dc;white-space:nowrap}tr:nth-child(even) td{background:#fbf8f1}
-img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{background:#f3ece0;padding:1px 4px;border-radius:3px;font-size:12px}</style></head><body><div class="w"><h1>二代立项方案书 v16：《源神：元素牌》——战斗表现升级</h1>
+img{max-width:100%;border-radius:6px}td img{max-width:360px;width:100%}code{background:#f3ece0;padding:1px 4px;border-radius:3px;font-size:12px}</style></head><body><div class="w"><h1>二代立项方案书 v17：《源神：元素牌》——魔法释放（沿用一代的蓄力 → 释放，再升级）</h1>
 <ul>
-<li>日期：2026-11-12</li>
-<li>这一版：你看了 v15 的最小循环，说「战斗过程效果太差……优化战斗角色的动作特效表现、技能释放表现、打击感反馈；关卡跟人物的布局非常违和」。我按战斗策划总监的标准逐帧拆了 v15 录屏，列出 14 个问题，<strong>全部改进游戏里</strong>，并重录了三战（第 0 节）。</li>
+<li>日期：2026-11-14</li>
+<li>这一版：你说「释放的表现过程要参考一代，要有魔法释放的打击感和表现过程，并且希望能在原来的基础上做升级，现在太弱了」。我先把一代初级 / 高级 / 禁咒三档的释放实录下来逐帧对照，找到 v16 弱的根本原因，然后把一代的整条施法流程接进二代，在它上面加了英雄合击（第 0 节）。</li>
 <li>规则没动：计分代码一行没改，768 个测试全部通过；每一手仍然自检「伤害之和 = 原版得分」。</li>
-<li>厂商：FIRE工作室（507397）。一代《手搓魔法》的仓库和线上应用不动，二代在 <code>zwluoqi/EmberCards2</code> 里改。</li>
-<li>状态：<strong>待你看</strong>。还没建 Maker 应用；要真机试玩告诉我，再建应用出二维码。</li>
+<li>厂商：FIRE工作室（507397）。一代《手搓魔法》的仓库和线上应用不动。</li>
+<li>状态：<strong>待你看</strong>。还没建 Maker 应用。</li>
 </ul>
-<h2>0. 战斗表现升级（v16）</h2>
-<p><strong>v16 三战录屏</strong>（同一个种子 SIM00004、同样的打法，可以和第 0.5 节的 v15 录屏直接对比）：</p>
+<h2>0. 魔法释放（v17）</h2>
+<p><strong>v17 三战录屏</strong>（同一个种子 SIM00004、同样的打法，可以和第 0.4 节 v16、第 0.5 节 v15 对比）：</p>
+<video src="video/v17_loop.mp4" controls playsinline preload="metadata" style="width:100%;max-width:420px;border-radius:8px"></video>
+
+<p><strong>英雄合击展示</strong>（守关战，9 名英雄，两名倍乘英雄把这一手抬到高级：一代的「地裂」高级演出 + 天降法阵 + 法术场）：</p>
+<video src="video/v17_ult.mp4" controls playsinline preload="metadata" style="width:100%;max-width:420px;border-radius:8px"></video>
+
+<p><img alt="v17 一手的过程：蓄力（英雄灌注）→ 倍乘天雷入球 → 合击升阶 → 释放 → 击破" src="img/v17_beats.jpg" /></p>
+<p><img alt="参考：一代实录（左 初级 Lv1，中 高级 Lv6，右 禁咒 Lv10）" src="img/v17_gen1.jpg" /></p>
+<h3>0.1 一代为什么有打击感，v16 为什么弱</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>一代</th>
+<th>v16</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>结构</td>
+<td><strong>先蓄力、后释放</strong>：每张牌、每件装备只往掌心的法球里灌一颗光点，伤害一点不出；total 时法阵张开、法球扔出去，一口气打完</td>
+<td>每触发一下就直接打首领一下，十几下小伤害，没有高潮</td>
+</tr>
+<tr>
+<td>释放</td>
+<td>魔法名大字；按等级 1 / 2 / 3 / 5 发；12 种魔法各自的弹道和命中粒子、命中音</td>
+<td>只有通用光束</td>
+</tr>
+<tr>
+<td>高阶</td>
+<td>中级：法术场在敌人身上爆开；高级：天降法阵往下砸 + 关键帧演出（「地裂」）；禁咒：全屏黑、巨阵、白闪、长顿帧</td>
+<td>没有阶级</td>
+</tr>
+<tr>
+<td>伤害数字</td>
+<td>每发一个数字，总数在敌人身上滚动累加，最后停在角落常驻</td>
+<td>每下一个小数字</td>
+</tr>
+<tr>
+<td>击杀</td>
+<td>白化定格 → 立绘碎成块飞散 → 「击破！」/「过量击破 ×N」</td>
+<td>淡出</td>
+</tr>
+</tbody>
+</table>
+<p>结论：打击感来自「攒 → 爆」的落差，所以二代要先把一代这条线原样接回来，再往上加。</p>
+<h3>0.2 v17 怎么做的</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>一代原有（接进二代）</th>
+<th>二代新增（升级）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>起手（牌型成立）</td>
+<td>法球成形、魔法名</td>
+<td>一代每种魔法自己的<strong>法阵铺在主角脚下</strong>（透视压扁、旋转），光柱从阵里升到主角头顶的法球</td>
+</tr>
+<tr>
+<td>蓄力（逐张牌 / 逐名英雄）</td>
+<td>光点飞进法球，法球越攒越大</td>
+<td>英雄做出手动作，<strong>一道类型色的灌注光束</strong>射进法球，头上标这一下贡献的伤害（原版差值）；<strong>倍乘英雄</strong>切入立绘 → <strong>天雷劈进法球</strong>（闪白、顿帧、冲击环）；首领右侧「蓄力 · N 段」+ 法球里的魔力总数 + 当前阶级</td>
+</tr>
+<tr>
+<td>合击升阶</td>
+<td>—</td>
+<td>英雄助阵抬高这一手的施法阶级：每名出过手的英雄 +1 级，倍乘英雄再 +2 级，最高到高级（Lv9）；升阶时法球旁弹出「英雄合击 · 中级 / 高级」。禁咒只认真正的 Lv10</td>
+</tr>
+<tr>
+<td>释放（total）</td>
+<td>能量汇聚、法阵张开；按阶级 1 / 2 / 3 / 5 发；12 种魔法的弹道、命中粒子和命中音；中级起法术场；高级天降法阵 + 关键帧演出；禁咒全屏</td>
+<td>释放前<strong>全员合击</strong>：出过手的英雄一起再灌一次；每一发命中首领都后仰、压扁、白闪、镜头往首领推</td>
+</tr>
+<tr>
+<td>伤害数字</td>
+<td>每发一个、总数滚动、常驻角落</td>
+<td>常驻位置挪到首领左上，不压英雄</td>
+</tr>
+<tr>
+<td>击杀</td>
+<td>白化 → 碎块 → 「击破！」/「过量击破 ×N」</td>
+<td>加光柱和地面冲击波</td>
+</tr>
+<tr>
+<td>输了</td>
+<td>敌人的致命魔法</td>
+<td>v16 漏演了，现在接回来</td>
+</tr>
+</tbody>
+</table>
+<p>伤害归属照旧：每名英雄这一下贡献多少（原版的差值）标在他头上；释放时这些合成一发打出去，总和 = 原版得分，首领仍然是这一手全部算完才死。</p>
+<p>时长：初级一手和一代一样（蓄力随原版节拍，释放约 1 秒）；高级的关键帧演出每场每种魔法只放一次（一代的规矩），之后同一魔法的高级只放天降法阵。</p>
+<h2>0.4 战斗表现升级（v16）</h2>
+<p><strong>v16 三战录屏（留作对比）</strong>（同一个种子 SIM00004、同样的打法，可以和第 0.5 节的 v15 录屏直接对比）：</p>
 <video src="video/v16_loop.mp4" controls playsinline preload="metadata" style="width:100%;max-width:420px;border-radius:8px"></video>
 
 <p><img alt="上排 v15，下排 v16：第 1 战 / 第 2 战 / 守关战" src="img/v16_compare.jpg" /></p>
