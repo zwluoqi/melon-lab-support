@@ -1,0 +1,361 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手搓魔法 · 源泉使魔（宠物系统）策划案 v1</title>
+<style>
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;max-width:920px;margin:0 auto;padding:24px 18px 80px;line-height:1.7;color:#222;background:#faf9fd}
+h1{font-size:26px;border-bottom:3px solid #7a5cff;padding-bottom:8px}
+h2{font-size:20px;margin-top:36px;color:#4b2fd6} h3{font-size:17px}
+table{border-collapse:collapse;margin:12px 0;font-size:14px;display:block;overflow-x:auto}
+th,td{border:1px solid #d8d2f0;padding:6px 10px;text-align:center;white-space:nowrap}
+th{background:#efeaff} blockquote{margin:0;padding:8px 14px;background:#f0edfb;border-left:4px solid #7a5cff;color:#555}
+code{background:#eee;padding:1px 4px;border-radius:3px;font-size:13px}
+</style></head><body><h1>源泉使魔（宠物系统）· 策划案 v1（11-17，待用户拍板）</h1>
+<blockquote>
+<p>来源：用户 11-17 方案——结算时按击杀守关者数量概率掉蛋（蛋无品阶）→ 第 2 天开启宠物系统 → 孵化几小时出宠 → 12 系对应 12 种宠物，效果 = 提供对应魔法的魔攻 → 5 个品阶（绿 / 蓝 / 紫 / 金 / 红）决定等级上限 → 升级靠吞噬其他宠物，品阶不同经验不同 → 玩法要有随机性 → 二期开放进化，进化后带技能。
+红线：规则引擎（scripts/game/）不改；一期宠物效果只走「魔法基础魔攻」这一个口子（和强化同一处 S.handBase），不新增出牌规则。数值都是初稿，落地前用 sim 跑一遍再定。</p>
+</blockquote>
+<h2>1. 一句话</h2>
+<p>打倒守关者越多，结算时越可能捡到一颗「源泉之卵」；卵在营地孵几个小时，开出来是哪一系、什么品阶全看运气；同系的使魔能上阵，给那一系魔法加魔攻；多余的使魔喂给主力吞掉升级。</p>
+<h2>2. 掉落：结算时按「本局击败的守关者数」</h2>
+<table>
+<thead>
+<tr>
+<th>本局击败守关者</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8（登顶）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>掉卵概率</td>
+<td>10%</td>
+<td>25%</td>
+<td>38%</td>
+<td>50%</td>
+<td>60%</td>
+<td>70%</td>
+<td>80%</td>
+<td>90%</td>
+<td>100%，另 30% 再掉一颗</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>只看真实击败的守关者（绕过不算；无尽模式第 9 关起每多一个守关者再 +1 次 15% 判定）。</li>
+<li><strong>保底</strong>：连续 3 局没掉，第 4 局结算必掉（不管击败几个）。保底计数随存档走。</li>
+<li>卵<strong>没有品阶</strong>，外观统一（一颗发着四色微光的卵），品阶和系别在孵化完成那一刻才揭晓——随机性集中在「开蛋」这一下。</li>
+<li>引导局、每日挑战、咒谱码局不掉（防刷）。</li>
+<li>结算页演出：结晶飞完后，源泉方向飘来一颗卵落进背包，薇丝塔一句台词（首掉专属一句）。</li>
+</ul>
+<h2>3. 第 2 天开启 &amp; 签到衔接</h2>
+<ul>
+<li>系统开启条件：七日签到第 2 天（老号同样从第 1 天重新签）。</li>
+<li><strong>开启前掉的卵</strong>照常进背包，营地显示「一颗安静的卵，似乎还没到醒来的时候」——第 1 天就埋好期待。</li>
+<li>签到第 1 天必给 1 颗卵（保证第 2 天一开就有蛋可孵）；第 4 天给「孵化加速 ×2」；第 5 天给 1 颗卵。</li>
+</ul>
+<h2>4. 孵化</h2>
+<ul>
+<li>营地源泉旁新增「孵化巢」，初始 <strong>2 个孵化位</strong>，每颗卵 <strong>4 小时</strong>（真实时间，按存档里只增不减的时间戳算，改手机时间无效）。</li>
+<li>背包最多存 10 颗卵，满了结算页提示「孵化巢满了，先去孵化」。</li>
+<li>可选加速：每颗卵可看 1 次激励视频，剩余时间减半（不看也能孵，符合工作室广告原则）。</li>
+<li>孵化完成要<strong>玩家点开</strong>才揭晓（开蛋演出：卵碎 → 系别法阵色亮起 → 品阶光柱，绿 / 蓝 / 紫 / 金 / 红，金红有专属音效和全屏光）。</li>
+</ul>
+<h3>开蛋随机</h3>
+<ul>
+<li><strong>系别</strong>：12 系等概率（各 1/12）。</li>
+<li><strong>品阶</strong>：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>品阶</th>
+<th>绿</th>
+<th>蓝</th>
+<th>紫</th>
+<th>金</th>
+<th>红</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>概率</td>
+<td>50%</td>
+<td>30%</td>
+<td>14%</td>
+<td>5%</td>
+<td>1%</td>
+</tr>
+<tr>
+<td>等级上限</td>
+<td>10</td>
+<td>20</td>
+<td>30</td>
+<td>40</td>
+<td>50</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>品阶保底</strong>：累计 30 次开蛋没出金及以上，下一次必金；红无保底（留惊喜）。</li>
+<li>品阶开出来就<strong>固定</strong>（一期不能升品阶）；想要高品阶就多孵——这是长线追求。</li>
+</ul>
+<h2>5. 12 种使魔</h2>
+<table>
+<thead>
+<tr>
+<th>系</th>
+<th>使魔</th>
+<th>形象一句话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>火</td>
+<td>烬狐</td>
+<td>尾巴尖一直冒火星的小狐狸</td>
+</tr>
+<tr>
+<td>水</td>
+<td>泉鲤</td>
+<td>在空气里游的半透明鲤鱼</td>
+</tr>
+<tr>
+<td>风</td>
+<td>岚雀</td>
+<td>羽毛是风刃形状的小雀</td>
+</tr>
+<tr>
+<td>土</td>
+<td>岩龟</td>
+<td>背上长着小山的龟</td>
+</tr>
+<tr>
+<td>冰</td>
+<td>霜貂</td>
+<td>呼出白气的雪貂</td>
+</tr>
+<tr>
+<td>雷</td>
+<td>霆鼬</td>
+<td>毛炸起来带电的鼬</td>
+</tr>
+<tr>
+<td>光明</td>
+<td>曦鹿</td>
+<td>角上挂着光点的小鹿</td>
+</tr>
+<tr>
+<td>黑暗</td>
+<td>影猫</td>
+<td>只有眼睛是亮的黑猫</td>
+</tr>
+<tr>
+<td>时间</td>
+<td>时鸮</td>
+<td>眼睛是表盘的猫头鹰</td>
+</tr>
+<tr>
+<td>空间</td>
+<td>虚水母</td>
+<td>身体里能看到星空的水母</td>
+</tr>
+<tr>
+<td>秩序</td>
+<td>衡狮</td>
+<td>鬃毛像天秤链条的幼狮</td>
+</tr>
+<tr>
+<td>混沌</td>
+<td>混沌蛇</td>
+<td>鳞片颜色一直在变的小蛇</td>
+</tr>
+</tbody>
+</table>
+<p>每种 5 个品阶共用一套形象，品阶只换描边光色 + 身上的纹路亮度（美术量 = 12 张，NovelAI Q 版透明底；红品阶加一层粒子）。</p>
+<h2>6. 效果：给对应魔法加魔攻</h2>
+<ul>
+<li>每一系有 <strong>1 个上阵位</strong>，只能放同系使魔（12 个位置，集齐 12 系是长线目标）。</li>
+<li>加成按该系魔法 <strong>Lv1 基础魔攻的百分比</strong>算，所以 12 系一样公平（火 5 魔攻、混沌 160 魔攻，按比例加）：</li>
+</ul>
+<p><strong>加成 = Lv1 基础魔攻 × 3% × 使魔等级</strong></p>
+<table>
+<thead>
+<tr>
+<th>品阶满级</th>
+<th>绿 Lv10</th>
+<th>蓝 Lv20</th>
+<th>紫 Lv30</th>
+<th>金 Lv40</th>
+<th>红 Lv50</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>加成</td>
+<td>+30%</td>
+<td>+60%</td>
+<td>+90%</td>
+<td>+120%</td>
+<td>+150%</td>
+</tr>
+<tr>
+<td>例：水魔法（Lv1 魔攻 10）</td>
+<td>+3</td>
+<td>+6</td>
+<td>+9</td>
+<td>+12</td>
+<td>+15</td>
+</tr>
+<tr>
+<td>例：时间魔法（Lv1 魔攻 100）</td>
+<td>+30</td>
+<td>+60</td>
+<td>+90</td>
+<td>+120</td>
+<td>+150</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>参照：强化满 10 次是 +200%。使魔满红 +150%，两者叠加，长线成长空间够，又不会压过局内装备 / 倍率（基础魔攻在后期伤害里占比小，主要价值在前中期过渡——正好对上评价里「过渡太难」）。</li>
+<li>战斗里：施放某系魔法时，若该系有上阵使魔，它从手牌旁探头、身上亮一下，魔攻数字旁多一段「+X 烬狐」的飘字（复用现有计分飘字）。</li>
+</ul>
+<h2>7. 升级：吞噬</h2>
+<ul>
+<li>经验曲线：从 L 升到 L+1 需要 <strong>10 × L</strong> 经验（升到 10 级共 450；20 级 1,900；30 级 4,350；40 级 7,800；50 级 12,250）。</li>
+<li>被吞的使魔提供：<strong>品阶基础经验 + 它身上已有经验的 80%</strong>；同系吞同系再 ×1.5。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>被吞品阶</th>
+<th>绿</th>
+<th>蓝</th>
+<th>紫</th>
+<th>金</th>
+<th>红</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基础经验</td>
+<td>50</td>
+<td>150</td>
+<td>450</td>
+<td>1,350</td>
+<td>4,000</td>
+</tr>
+</tbody>
+</table>
+<p>例：绿升满约吞 9 只绿；红升满大约要 3 只红或 9 只金——这就是「能持续升级」的长线。
+- 吞噬前二次确认；金、红品阶被选为「饲料」时红字提醒；已上阵的不能被吞。
+- 使魔背包上限 30 只（逼玩家做取舍、产生吞噬动机），满了开蛋前提示。
+- 等级到品阶上限后经验条显示「已满」，多余经验不保留（一期）；二期进化开放后满级是进化前提。</p>
+<h2>8. 二期：进化（附带技能）</h2>
+<ul>
+<li>条件：使魔满级 + 吞掉 1 只<strong>同系同品阶</strong>使魔 → 进化 1 阶（形象变化：体型变大、多一层特效），解锁该系专属技能。</li>
+<li>技能统一做成「这一系魔法每战第一次施放时」触发，读起来简单、实现只在计分层加一个钩子：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>系</th>
+<th>技能</th>
+<th>效果（每战首次施放该系魔法时）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>火</td>
+<td>余烬</td>
+<td>倍率 +2（品阶越高越大）</td>
+</tr>
+<tr>
+<td>水</td>
+<td>回流</td>
+<td>本战替换次数 +1</td>
+</tr>
+<tr>
+<td>风</td>
+<td>顺风</td>
+<td>额外抽 1 张元素卡</td>
+</tr>
+<tr>
+<td>土</td>
+<td>磐石</td>
+<td>本次魔攻再 +10%</td>
+</tr>
+<tr>
+<td>冰</td>
+<td>冻结</td>
+<td>守关者本战的特殊限制失效 1 次</td>
+</tr>
+<tr>
+<td>雷</td>
+<td>连锁</td>
+<td>本次伤害的 20% 再结算一次</td>
+</tr>
+<tr>
+<td>光明</td>
+<td>祝福</td>
+<td>本战结束额外 +3 魔晶</td>
+</tr>
+<tr>
+<td>黑暗</td>
+<td>噬光</td>
+<td>本次倍率 ×1.2</td>
+</tr>
+<tr>
+<td>时间</td>
+<td>回溯</td>
+<td>本战施放次数 +1（每局 1 次）</td>
+</tr>
+<tr>
+<td>空间</td>
+<td>折跃</td>
+<td>下一次替换不消耗次数</td>
+</tr>
+<tr>
+<td>秩序</td>
+<td>律令</td>
+<td>本次魔攻与倍率各 +15%</td>
+</tr>
+<tr>
+<td>混沌</td>
+<td>熵变</td>
+<td>随机触发上面任意一个技能</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>二期涉及局内规则（施放 / 替换次数、抽牌、守关者限制），<strong>需要用户单独确认</strong>，并跑 sim 看通关率变化；一期只做魔攻加成。</li>
+</ul>
+<h2>9. 界面落点</h2>
+<ul>
+<li>营地：源泉旁「孵化巢」（卵在巢里发光，倒计时浮在上方，好了冒「！」）；已上阵的使魔在营地里闲逛（最多显示 3 只）。</li>
+<li>魔法书：每系页面多一个「使魔」位，点开选同系使魔上阵 / 吞噬升级。</li>
+<li>图鉴：12 系 × 5 品阶 = 60 格，开过的点亮（收集动机）。</li>
+<li>战斗：见第 6 节，探头 + 飘字。</li>
+</ul>
+<h2>10. 埋点（TapDB，先登记再上报）</h2>
+<p><code>pet_egg_drop</code>（guardians, p, pity）、<code>pet_hatch</code>（school, grade, ad_speedup）、<code>pet_devour</code>（target_grade, food_grade, food_count, lv_after）、<code>pet_equip</code>（school, grade, lv）、<code>pet_bag_full</code>。看：开启后 D1–D7 留存、每日开蛋次数、营地停留时长。</p>
+<h2>11. 待用户拍板</h2>
+<ol>
+<li>掉卵概率表、保底 3 局，是否合适（偏松还是偏紧）？</li>
+<li>孵化 4 小时 / 2 个孵化位？</li>
+<li>品阶概率 50 / 30 / 14 / 5 / 1 和「30 次必金」？</li>
+<li>加成公式 3% × 等级（满红 +150%）？</li>
+<li>二期技能会动局内规则，方向是否认可？</li>
+</ol>
+<h2>12. 落地前</h2>
+<ul>
+<li>sim.lua 加「使魔加成」开关，按典型成长（第 3 / 7 / 14 / 30 天的使魔配置）跑通关率，确认过渡变顺但不至于碾压。</li>
+<li>掉卵 / 开蛋用独立随机流（不碰 run.rng），保证同种子回放一致（沿用剧情五条铁律的做法）。</li>
+</ul></body></html>
