@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手搓魔法 · 七日之约 + 源泉使魔 策划案 v2</title>
+<style>
+:root{--ink:#2a2140;--soft:#6b6385;--pur:#5b3fd6;--gold:#e7b75a;--bg:#f7f5fc}
+*{box-sizing:border-box}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;margin:0;background:var(--bg);color:var(--ink);line-height:1.7}
+main{max-width:980px;margin:0 auto;padding:22px 16px 90px}
+h1{font-size:26px;margin:6px 0 4px}
+.sub{color:var(--soft);font-size:14px;margin-bottom:18px}
+h2{font-size:20px;color:var(--pur);margin:38px 0 10px;padding-top:6px;border-top:2px solid #e6e0f6}
+h3{font-size:16px;margin:20px 0 6px}
+table{border-collapse:collapse;font-size:14px;margin:10px 0;display:block;overflow-x:auto}
+th,td{border:1px solid #ddd6f2;padding:6px 10px;text-align:center;white-space:nowrap}
+th{background:#efeaff}
+.note{background:#fff7e6;border-left:4px solid var(--gold);padding:8px 12px;margin:10px 0;font-size:14px}
+.ask{background:#eef6ff;border-left:4px solid #4a8cf0;padding:8px 12px;margin:10px 0;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.pet{background:linear-gradient(160deg,#2b1f4d,#171230);border-radius:14px;padding:10px;text-align:center;color:#f3ecff;border:2px solid #4b3a86}
+.pet img{width:100%;aspect-ratio:1;object-fit:contain}
+.pet b{display:block;font-size:15px}.pet span{font-size:12px;color:#c9bdf0}
+.shots{display:flex;flex-wrap:wrap;gap:16px}
+.shots figure{margin:0;flex:1 1 280px;max-width:320px}
+.shots img{width:100%;border-radius:16px;box-shadow:0 6px 20px #0003}
+figcaption{font-size:13px;color:var(--soft);margin-top:6px}
+/* phone UI mocks */
+.mocks{display:flex;flex-wrap:wrap;gap:18px}
+.phone{width:300px;min-height:540px;border-radius:26px;padding:14px;background:radial-gradient(120% 80% at 50% 0%,#3a2a78,#140f2b 70%);color:#f3ecff;box-shadow:0 8px 24px #0004;position:relative;font-size:13px}
+.phone .ttl{text-align:center;font-weight:800;font-size:17px;color:#ffe7ae;letter-spacing:2px;margin:4px 0 2px}
+.phone .st{text-align:center;color:#c9bdf0;font-size:12px;margin-bottom:10px}
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.day{border:2px solid #5d4aa3;border-radius:10px;background:#221a45;padding:4px 2px 6px;text-align:center;font-size:11px;position:relative}
+.day img{width:100%;aspect-ratio:1;object-fit:contain}
+.day.big{grid-column:span 2}
+.day.done{opacity:.5}.day.done:after{content:"✓";position:absolute;top:2px;right:6px;color:#8ef0a8;font-weight:900;font-size:16px}
+.day.today{border-color:#ffd77a;box-shadow:0 0 12px #ffcf6a99}
+.day .q{display:inline-block;padding:0 6px;border-radius:6px;font-size:10px;font-weight:800;color:#2a1a00}
+.g{background:#ffc94d}.r{background:#ff6b6b;color:#fff!important}
+.btn{display:block;margin:12px auto 0;width:80%;text-align:center;padding:9px 0;border-radius:22px;background:linear-gradient(#e0574a,#a52b2b);font-weight:800;font-size:15px;border:2px solid #ffd28a}
+.btn.jade{background:linear-gradient(#3fb7a0,#1d7464)}
+.hero{display:flex;gap:10px;align-items:center;background:#221a45;border-radius:14px;padding:8px;border:2px solid #ffc94d}
+.hero img{width:110px;height:110px;object-fit:contain}
+.bar{height:8px;border-radius:4px;background:#3a2f66;margin:4px 0}.bar i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#ffd77a,#ff9d4a)}
+.slots{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-top:10px}
+.slot{aspect-ratio:1;border-radius:8px;border:2px solid #4b3a86;background:#1d1640;display:flex;align-items:center;justify-content:center;font-size:10px;color:#8f84bb;overflow:hidden}
+.slot img{width:100%;height:100%;object-fit:contain}
+.slot.gd{border-color:#ffc94d}.slot.rd{border-color:#ff6b6b}.slot.bl{border-color:#5aa0ff}.slot.gr{border-color:#59d17a}.slot.pu{border-color:#b77bff}
+.tabs{display:flex;gap:4px;margin:10px 0 6px}.tabs span{flex:1;text-align:center;padding:4px 0;border-radius:8px;background:#2a2152;font-size:12px}.tabs span.on{background:#5b3fd6;color:#fff;font-weight:800}
+.nest{display:flex;gap:8px}.egg{flex:1;border-radius:12px;background:#221a45;border:2px solid #5d4aa3;text-align:center;padding:8px 4px}
+.egg .e{width:64px;height:80px;margin:4px auto;border-radius:50% 50% 46% 46%/60% 60% 40% 40%;box-shadow:inset -8px -10px 0 #0003,0 0 18px currentColor}
+.small{font-size:11px;color:#c9bdf0}
+.feed{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:8px}
+.feed div{border-radius:8px;border:2px solid #4b3a86;background:#1d1640;position:relative}
+.feed div img{width:100%;aspect-ratio:1;object-fit:contain}
+.feed div.sel:after{content:"✓";position:absolute;right:3px;top:0;color:#8ef0a8;font-weight:900}
+.reveal{text-align:center;margin-top:20px}
+.reveal .beam{width:180px;height:180px;margin:0 auto;border-radius:50%;background:radial-gradient(circle,#ffe7a0 0,#ffc94d55 45%,transparent 70%);display:flex;align-items:center;justify-content:center}
+.reveal img{width:150px}
+.card{background:#221a45;border:2px solid #ffd77a;border-radius:14px;padding:10px;text-align:center;margin-top:14px}
+</style></head>
+<body><main>
+<h1>七日之约 + 源泉使魔（宠物）策划案 v2</h1>
+<div class="sub">手搓魔法 · 2026-11-17 · 按用户 11-17 新要求重写（v1 作废）：蛋孵化前就知道系别、只是不知道品阶；宠物是可爱的人气动物；签到第 1 天 100 魔晶、第 2–6 天送金色宠物、第 7 天送红色宠物；进化系统先不做。所有数值是初稿，开发前用模拟器跑一遍再定。</div>
+
+<h2>0. 一页看懂</h2>
+<ul>
+<li><b>七日之约</b>：7 天累计登录签到（断签不清零），老号也从第 1 天重新开始。第 1 天 100 魔晶，第 2 天开启宠物系统并送 <b>金·火猫</b>，第 3–6 天每天送一只金色宠物，第 7 天送 <b>红·狮子</b>。送的是宠物本体，不是蛋。</li>
+<li><b>源泉使魔</b>：12 系魔法对应 12 种 Q 版人气动物（火猫、雷狗、熊猫、狮子、老虎…）。每系可上阵 1 只，给这一系魔法加魔攻。</li>
+<li><b>掉蛋</b>：每局结算按本局击败的守关者数量判定，越多越容易掉。<b>蛋上就写着是哪一系</b>，孵出来才知道品阶（绿 / 蓝 / 紫 / 金 / 红）。</li>
+<li><b>养成</b>：品阶决定等级上限（10 / 20 / 30 / 40 / 50），升级靠吞噬其他宠物，品阶越高给的经验越多。</li>
+<li><b>露脸</b>：营地里「随行使魔」坐在源泉边，点它进宠物页；战斗里它坐在手牌左边，施放它那一系的魔法时跳出来加魔攻。</li>
+</ul>
+
+<h2>1. 宠物形象（12 只，概念图）</h2>
+<p>方向：小体积、圆滚滚、大眼睛的 Q 版人气动物，和游戏的二次元厚涂画风统一（NovelAI 出图，和同行者头像同一套管线），身上带对应元素的主题元素。下面是这次直接出的概念图，都是透明底，可以直接进游戏试效果；定稿前还可以按你的意见换动物或重出。</p>
+<div class="grid">
+<div class="pet"><img src="img/fire.png"><b>火猫 · 焰尾</b><span>火魔法 · 橘猫，尾巴尖是一簇小火苗</span></div>
+<div class="pet"><img src="img/water.png"><b>水獭 · 泡泡</b><span>水魔法 · 抱着一颗水球</span></div>
+<div class="pet"><img src="img/wind.png"><b>风虎 · 小岚</b><span>风魔法 · 小白虎，脚下绕着风环和叶子</span></div>
+<div class="pet"><img src="img/earth.png"><b>熊猫 · 墩墩</b><span>土魔法 · 坐在长草的小石台上抱竹笋</span></div>
+<div class="pet"><img src="img/ice.png"><b>企鹅 · 霜冠</b><span>冰魔法 · 头顶冰晶小王冠</span></div>
+<div class="pet"><img src="img/thunder.png"><b>雷狗 · 闪闪</b><span>雷魔法 · 柴犬，身边噼啪小闪电</span></div>
+<div class="pet"><img src="img/light.png"><b>狮子 · 曦</b><span>光明魔法 · 鬃毛像一圈小太阳</span></div>
+<div class="pet"><img src="img/dark.png"><b>狐狸 · 夜影</b><span>黑暗魔法 · 小黑狐，尾巴是一缕暗影</span></div>
+<div class="pet"><img src="img/time.png"><b>兔子 · 怀表</b><span>时间魔法 · 耳朵挂怀表，身边小沙漏</span></div>
+<div class="pet"><img src="img/space.png"><b>鲸鱼 · 星海</b><span>空间魔法 · 身体里装着一片星空</span></div>
+<div class="pet"><img src="img/order.png"><b>柯基 · 天秤</b><span>秩序魔法 · 披着带天秤徽章的小披风</span></div>
+<div class="pet"><img src="img/chaos.png"><b>龙宝 · 幻彩</b><span>混沌魔法 · 彩虹鳞片一直在变色</span></div>
+</div>
+<ul>
+<li><b>品阶怎么看出来</b>：同一只动物 5 个品阶共用一张图，品阶靠外框和光：绿 / 蓝 / 紫 / 金 / 红描边 + 背光，金、红再加一圈飘动的光粒（红色额外有呼吸光）。美术量 = 12 张图。</li>
+<li><b>动作</b>：游戏里用「呼吸缩放 + 眨眼（替换一张闭眼差分）+ 开心跳一下」做待机和触发，不做骨骼动画。每只多出 1 张闭眼差分（NovelAI 局部重画，身体不动），共 24 张。</li>
+</ul>
+
+<h2>2. 七日之约（签到）</h2>
+<table>
+<tr><th>天</th><th>第 1 天</th><th>第 2 天</th><th>第 3 天</th><th>第 4 天</th><th>第 5 天</th><th>第 6 天</th><th>第 7 天</th></tr>
+<tr><td>奖励</td><td>100 魔晶</td><td>金·火猫<br><small>开启宠物系统</small></td><td>金·水獭</td><td>金·风虎</td><td>金·熊猫</td><td>金·雷狗</td><td><b>红·狮子</b></td></tr>
+<tr><td>对应魔法</td><td>—</td><td>火</td><td>水</td><td>风</td><td>土</td><td>雷</td><td>光明</td></tr>
+</table>
+<ul>
+<li><b>越往后越好</b>：第 2→7 天送的宠物对应的魔法一天比一天高阶（火 → 水 → 风 → 土 → 雷 → 光明），加的魔攻也一天比一天多；第 7 天是红色品阶。前 6 只刚好覆盖新手最常打的几系，送到就能用上。</li>
+<li><b>累计登录</b>：哪天没上不清零，下次上线接着领。按存档里「只增不减」的日期判断，改手机时间无效。</li>
+<li><b>老号</b>：更新后所有人（包括老玩家）都从第 1 天开始；老玩家第一次打开额外弹一句「七日之约开启，所有人从第一天开始」。</li>
+<li><b>自动弹出</b>：每天第一次回营地，等源泉残语播完后弹签到面板；关掉后营地右上角留「七日之约 · 第 N 天」入口，有可领时带红点。7 天领完入口消失。</li>
+<li><b>领宠物的演出</b>：点「领取」→ 卡片翻开 → 金 / 红光柱 → 宠物跳出来 → 「让它上阵」（默认自动上阵到对应系，第一只同时设为随行）。</li>
+</ul>
+<div class="ask">请确认：「100 魔晶」指的是营地里用来强化的 <b>魔力结晶</b> 吗？游戏里的「魔晶」是局内货币，每局结束清零，签到送了留不住。方案先按魔力结晶写。</div>
+<div class="note">建议：送的金色宠物从 <b>Lv5</b> 起、红色狮子从 <b>Lv10</b> 起，领到当局就能看到明显的加成（Lv1 只加 1 点魔攻，体感太弱）。</div>
+
+<h2>3. 掉蛋与孵化</h2>
+<h3>3.1 结算掉蛋（第 2 天宠物系统开启后）</h3>
+<table>
+<tr><th>本局击败守关者</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8（登顶）</th></tr>
+<tr><td>掉蛋概率</td><td>10%</td><td>25%</td><td>38%</td><td>50%</td><td>60%</td><td>70%</td><td>80%</td><td>90%</td><td>100% + 30% 再一颗</td></tr>
+</table>
+<ul>
+<li><b>保底</b>：连续 3 局没掉，第 4 局必掉。</li>
+<li>只算真实击败的守关者（绕过不算）；新手引导局、每日试炼、咒谱码局不掉（防刷）。</li>
+<li><b>蛋的系别在掉落时就定了，蛋上看得见</b>：60% 是本局施放次数最多的那一系（打什么流派就更容易出什么宠物），40% 是 12 系随机。蛋按系别上色、印着那一系的法阵符号，例如「雷之卵」。</li>
+<li>蛋<b>不知道品阶</b>，孵出来才揭晓。</li>
+</ul>
+<h3>3.2 孵化</h3>
+<ul>
+<li>宠物页「孵化巢」：2 个孵化位，每颗 <b>4 小时</b>（真实时间）。蛋背包最多 10 颗。</li>
+<li>可选：每颗蛋看 1 次视频，剩余时间减半（不看也能孵）。</li>
+<li>孵好以后要玩家点开：蛋晃 → 裂开 → 品阶光柱（绿 / 蓝 / 紫 / 金 / 红，金红有专属音效和全屏光）→ 宠物跳出。</li>
+</ul>
+<table>
+<tr><th>品阶</th><th>绿</th><th>蓝</th><th>紫</th><th>金</th><th>红</th></tr>
+<tr><td>开出概率</td><td>50%</td><td>30%</td><td>14%</td><td>5%</td><td>1%</td></tr>
+<tr><td>等级上限</td><td>10</td><td>20</td><td>30</td><td>40</td><td>50</td></tr>
+</table>
+<p><b>品阶保底</b>：累计 30 次孵化没出金及以上，下一次必金；红色不设保底，留惊喜。</p>
+
+<h2>4. 效果与养成</h2>
+<h3>4.1 加魔攻</h3>
+<ul>
+<li>每一系有 1 个上阵位，只能放同系宠物；12 系都能各上阵 1 只，集齐 12 系是长线目标。</li>
+<li>施放某系魔法时，该系上阵宠物的加成直接加进<b>魔攻</b>（和「强化」走同一处，不改出牌规则）。</li>
+<li><b>每级加的魔攻 = 这一系 Lv1 魔攻 × 3%，至少 1 点</b>：</li>
+</ul>
+<table>
+<tr><th>魔法</th><th>火</th><th>水</th><th>风</th><th>土</th><th>冰</th><th>雷</th><th>光明</th><th>黑暗</th><th>时间</th><th>空间</th><th>秩序</th><th>混沌</th></tr>
+<tr><td>每级 +魔攻</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>4</td><td>5</td></tr>
+<tr><td>金 Lv40</td><td>+40</td><td>+40</td><td>+40</td><td>+40</td><td>+40</td><td>+40</td><td>+40</td><td>+80</td><td>+120</td><td>+160</td><td>+160</td><td>+200</td></tr>
+<tr><td>红 Lv50</td><td>+50</td><td>+50</td><td>+50</td><td>+50</td><td>+50</td><td>+50</td><td>+50</td><td>+100</td><td>+150</td><td>+200</td><td>+200</td><td>+250</td></tr>
+</table>
+<div class="note">前期最好凑的几系（火、水、风）基础魔攻只有 5–20，金色满级 +40 对它们是好几倍的提升，正好解决「前期过渡难」；到了后期伤害主要来自同行者和倍率，宠物不会碾压。上线前用模拟器按第 3 / 7 / 14 / 30 天的典型宠物配置跑通关率，确认不会太强。</div>
+<h3>4.2 吞噬升级</h3>
+<ul>
+<li>从 L 级升到 L+1 级需要 <b>10 × L</b> 经验（升到 10 级共 450，20 级 1,900，30 级 4,350，40 级 7,800，50 级 12,250）。</li>
+<li>被吞的宠物提供：<b>品阶经验 + 它已有经验的 80%</b>；同系吞同系再 ×1.5。</li>
+</ul>
+<table>
+<tr><th>被吞品阶</th><th>绿</th><th>蓝</th><th>紫</th><th>金</th><th>红</th></tr>
+<tr><td>提供经验</td><td>50</td><td>150</td><td>450</td><td>1,350</td><td>4,000</td></tr>
+</table>
+<ul>
+<li>例：金·火猫从 Lv5 升到 40 级约需 7,700 经验 ≈ 100 只绿（同系约 70 只），或 6 只金。长线能一直升，正好消化每天开出来的蛋。</li>
+<li>宠物背包上限 30 只。吞金、红前二次确认并红字提醒；已上阵、随行的不能被吞。满级后经验条显示「已满」。</li>
+<li><b>进化先不做</b>，以后开放时满级是前提。</li>
+</ul>
+
+<h2>5. 界面（UX / UI）</h2>
+<h3>5.1 营地主界面：显示当前宠物</h3>
+<div class="shots">
+<figure><img src="img/mock_camp.jpg"><figcaption>真实营地截图 + 示意：随行使魔坐在源泉边，点它说一句话；右上「七日之约 · 第 2 天」带红点；新增「使魔」入口（有孵好的蛋 / 新宠物时带红点）。</figcaption></figure>
+<figure><img src="img/mock_battle.jpg"><figcaption>真实战斗截图 + 示意：随行使魔坐在手牌左边（待机呼吸、眨眼）；施放有上阵宠物的那一系时，宠物头像在魔攻下方弹出「+20 魔攻」，数字飞进魔攻；如果它就是随行使魔，本体还会跳一下、放一圈元素光。</figcaption></figure>
+</div>
+<ul>
+<li><b>随行使魔</b>：玩家在宠物页选 1 只「随行」，它出现在营地和战斗里（不影响加成，加成看上阵）。第 2 天领到火猫时自动设为随行。</li>
+<li>营地里点它：轻跳 + 一句台词（每只 6–8 句，按时间段和最近战绩挑，例如刚登顶时「我就知道你可以！」）。长按进宠物页。</li>
+<li>击败守关者时随行使魔欢呼一下；倒下时它趴下（不遮挡致命魔法演出）。</li>
+<li>没有宠物时（第 1 天）营地不显示，入口隐藏（遵循营地入口按进度开放的规则）。</li>
+</ul>
+
+<h3>5.2 界面示意</h3>
+<div class="mocks">
+<div class="phone">
+ <div class="ttl">七日之约</div><div class="st">累计登录 · 每天都能领 · 第 3 天</div>
+ <div class="days">
+  <div class="day done"><div style="font-size:26px;padding:14px 0">💎</div>100 魔晶</div>
+  <div class="day done"><img src="img/fire.png">火猫 <span class="q g">金</span></div>
+  <div class="day today"><img src="img/water.png">水獭 <span class="q g">金</span></div>
+  <div class="day"><img src="img/wind.png" style="filter:brightness(.35)">第 4 天</div>
+  <div class="day"><img src="img/earth.png" style="filter:brightness(.35)">第 5 天</div>
+  <div class="day"><img src="img/thunder.png" style="filter:brightness(.35)">第 6 天</div>
+  <div class="day big today" style="border-color:#ff6b6b"><img src="img/light.png" style="width:60%;filter:brightness(.5)"><br>第 7 天 · 狮子 <span class="q r">红</span></div>
+ </div>
+ <div class="btn">领取今日奖励</div>
+ <div class="small" style="text-align:center;margin-top:8px">后面几天显示剪影 + 品阶，勾起「还想再来」</div>
+</div>
+
+<div class="phone">
+ <div class="ttl">源泉使魔</div>
+ <div class="tabs"><span class="on">上阵</span><span>背包 18/30</span><span>孵化巢</span><span>图鉴</span></div>
+ <div class="hero"><img src="img/fire.png"><div style="flex:1">
+  <b style="font-size:15px">火猫 · 焰尾</b> <span class="q g" style="padding:0 6px;border-radius:6px;color:#2a1a00">金</span><br>
+  <span class="small">火魔法 · Lv12 / 40</span>
+  <div class="bar"><i style="width:45%"></i></div>
+  <span style="color:#ffd77a;font-weight:800">火魔法 魔攻 +12</span><br>
+  <span class="small">★ 随行中</span></div></div>
+ <div class="slots">
+  <div class="slot gd"><img src="img/fire.png"></div><div class="slot gd"><img src="img/water.png"></div><div class="slot gd"><img src="img/wind.png"></div><div class="slot gd"><img src="img/earth.png"></div><div class="slot pu"><img src="img/ice.png"></div><div class="slot gd"><img src="img/thunder.png"></div>
+  <div class="slot rd"><img src="img/light.png"></div><div class="slot">黑暗</div><div class="slot bl"><img src="img/time.png"></div><div class="slot">空间</div><div class="slot">秩序</div><div class="slot">混沌</div>
+ </div>
+ <div style="display:flex;gap:8px"><div class="btn jade" style="width:48%;margin-top:12px">喂食升级</div><div class="btn" style="width:48%;margin-top:12px">设为随行</div></div>
+ <div class="small" style="margin-top:8px">12 格 = 12 系上阵位，空格显示系名；点格子换宠物。</div>
+</div>
+
+<div class="phone">
+ <div class="ttl">孵化巢</div><div class="st">蛋上写着系别，品阶要孵出来才知道</div>
+ <div class="nest">
+  <div class="egg"><div class="e" style="background:#f2d14b;color:#f2d14b"></div><b>雷之卵</b><br><span class="small">还剩 1:42:10</span><div class="btn jade" style="width:95%;font-size:12px;padding:5px 0">▶ 看视频减半</div></div>
+  <div class="egg" style="border-color:#ffd77a"><div class="e" style="background:#ff8a4a;color:#ff8a4a"></div><b>火之卵</b><br><span class="small" style="color:#8ef0a8">孵好了！</span><div class="btn" style="width:95%;font-size:12px;padding:5px 0">点开</div></div>
+ </div>
+ <div class="small" style="margin:10px 0 4px">等待中的蛋 3 / 10</div>
+ <div style="display:flex;gap:6px">
+  <div class="egg" style="padding:4px"><div class="e" style="width:34px;height:42px;background:#5ad1ff;color:#5ad1ff"></div><span class="small">冰</span></div>
+  <div class="egg" style="padding:4px"><div class="e" style="width:34px;height:42px;background:#9a6bff;color:#9a6bff"></div><span class="small">黑暗</span></div>
+  <div class="egg" style="padding:4px"><div class="e" style="width:34px;height:42px;background:#7ad08a;color:#7ad08a"></div><span class="small">风</span></div>
+ </div>
+ <div class="reveal"><div class="beam"><img src="img/thunder.png"></div><b style="color:#ffd77a">金！雷狗 · 闪闪</b><div class="small">开蛋演出：蛋裂开 → 品阶光柱 → 宠物跳出</div></div>
+</div>
+
+<div class="phone">
+ <div class="ttl">喂食升级</div><div class="st">火猫 · 焰尾 Lv12 → <b style="color:#8ef0a8">Lv16</b></div>
+ <div class="bar" style="height:12px"><i style="width:100%;background:linear-gradient(90deg,#ffd77a 45%,#8ef0a8 45%)"></i></div>
+ <div class="small">选中 3 只，共 +1,875 经验（同系 ×1.5 已计入）</div>
+ <div class="feed">
+  <div class="sel" style="border-color:#59d17a"><img src="img/fire.png"></div>
+  <div class="sel" style="border-color:#5aa0ff"><img src="img/ice.png"></div>
+  <div class="sel" style="border-color:#59d17a"><img src="img/dark.png"></div>
+  <div style="border-color:#b77bff"><img src="img/space.png"></div>
+  <div style="border-color:#59d17a"><img src="img/order.png"></div>
+  <div style="border-color:#5aa0ff"><img src="img/time.png"></div>
+  <div style="border-color:#59d17a"><img src="img/chaos.png"></div>
+  <div style="border-color:#59d17a"><img src="img/water.png"></div>
+ </div>
+ <div class="small" style="margin-top:6px">一键选择：只选绿色 / 只选同系；金、红需要二次确认。</div>
+ <div class="btn">吞噬</div>
+</div>
+
+<div class="phone">
+ <div class="ttl">这一世，到此为止</div><div class="st">结算页（新增一张卡）</div>
+ <div class="small" style="text-align:center">击败守关者 3 位 · 魔力结晶 +60</div>
+ <div class="card"><div style="width:70px;height:88px;margin:4px auto;border-radius:50% 50% 46% 46%/60% 60% 40% 40%;background:#f2d14b;box-shadow:0 0 22px #f2d14b"></div>
+ <b style="color:#ffd77a">获得 · 雷之卵</b><br><span class="small">这局你用雷魔法最多，蛋里也带着电</span><br><span class="small">已放进孵化巢，4 小时后孵化</span></div>
+ <div class="small" style="text-align:center;margin-top:10px">没掉时：「源泉没有回应……下一局多打倒几位守关者吧（再 2 局必得）」</div>
+</div>
+</div>
+
+<h3>5.3 入口与流程</h3>
+<ul>
+<li>第 1 天：营地只多「七日之约」。</li>
+<li>第 2 天：领火猫 → 全屏演出 → 引导点「使魔」→ 宠物页高亮火猫已上阵 → 返回营地看到火猫坐在源泉边。之后的结算开始掉蛋。</li>
+<li>第一次掉蛋：结算卡 + 薇丝塔一句「它在等你回来。」；第一次孵好：营地「使魔」入口红点 + 随行使魔头上冒「！」。</li>
+<li>魔法书里每系页面顶上显示该系上阵宠物和它加的魔攻，点进宠物页。</li>
+</ul>
+
+<h2>6. 数据埋点</h2>
+<p><code>checkin_claim</code>（day, reward, is_old_account）、<code>pet_egg_drop</code>（guardians, school, pity）、<code>pet_hatch</code>（school, grade, ad_speedup）、<code>pet_devour</code>（target_grade, food_count, lv_after）、<code>pet_equip</code>、<code>pet_follow</code>。看：更新前后两周 D1–D7 留存对比、第 2 / 7 天回访率、每日开蛋次数。</p>
+
+<h2>7. 开发量估计</h2>
+<table>
+<tr><th>项</th><th>内容</th></tr>
+<tr><td>美术</td><td>12 只宠物定稿 + 12 张闭眼差分；12 色蛋（程序绘制 + 法阵符号复用）；签到面板、宠物页图标</td></tr>
+<tr><td>系统</td><td>签到（累计、只增日期）、蛋掉落与保底、孵化计时、品阶随机与保底、吞噬经验、上阵加成（接到强化同一处）、存档迁移</td></tr>
+<tr><td>界面</td><td>签到面板、宠物页四个标签、开蛋演出、营地随行使魔、战斗随行与加成飘字、结算掉蛋卡</td></tr>
+<tr><td>验证</td><td>单元测试 + 模拟器跑通关率 + 无头压测（显存：12 张宠物图约 +20 MB）</td></tr>
+</table>
+
+<h2>8. 需要你拍板</h2>
+<ol>
+<li>「100 魔晶」是否就是魔力结晶？</li>
+<li>送的金色宠物从 Lv5、红色从 Lv10 起，可以吗？</li>
+<li>12 只动物和外形是否 OK，想换哪只？（例如秩序换成羊驼、空间换成猫头鹰）</li>
+<li>第 7 天固定送红·狮子，还是改成「三选一」（狮子 / 龙宝 / 风虎）？</li>
+<li>掉蛋概率、4 小时孵化、品阶 50 / 30 / 14 / 5 / 1 和 30 次必金是否合适？</li>
+<li>每级加魔攻按「Lv1 魔攻 × 3%、至少 1 点」是否认可？</li>
+</ol>
+</main></body></html>
