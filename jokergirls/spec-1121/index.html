@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>命运牌：身无分文到亿万身家 · 新版本详细方案</title>
+<style>
+body{margin:0;background:#16121f;color:#ece6f5;font:15px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:1060px;margin:auto;padding:20px 14px 80px}
+h1{font-size:23px;color:#f2c46d;margin:4px 0}h2{font-size:19px;color:#f2c46d;margin:34px 0 8px;border-bottom:1px solid #3a2f50;padding-bottom:6px}
+h3{font-size:16px;color:#ffb3cf;margin:20px 0 6px}
+.lead,.note{color:#a99cbf}.note{font-size:13px}
+.box{background:#221b30;border:1px solid #3a2f50;border-radius:12px;padding:12px 14px;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:8px 0}td,th{border:1px solid #3a2f50;padding:5px 7px;text-align:center}
+th{background:#1b1527;color:#f2c46d}td:first-child{text-align:left}
+.figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+figure{margin:0;background:#221b30;border-radius:12px;padding:8px}figure img{width:100%;border-radius:8px;display:block;cursor:zoom-in}
+figcaption{font-size:13px;color:#d8d0e6;margin-top:6px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:9}#lb img{max-height:96vh;max-width:96vw}
+ul{padding-left:20px}li{margin:3px 0}b{color:#ffd88a}
+.scroll{overflow-x:auto}
+</style></head><body><main>
+<h1>命运牌：身无分文到亿万身家 · 新版本详细方案</h1>
+<p class="lead">按你 11-21 的选择：家是首页、右滑去俱乐部；九套房，第九套要攒半个月；房子只给面子和恋爱；不分装修；只显示存款（不显示身家）；换房入口不放显眼位置；倍率场指数增长；不能中途退赛，被淘汰按打到的站给少量名次奖金；不加新广告位。所有金额都由程序按「每场每站的通过率 + 下面的设计目标」算出来，不是手填的。</p>
+
+<h2>一、这个版本玩起来是什么样</h2>
+<div class="box"><ul>
+<li><b>开局</b>：雨夜被裁员、分手（开场 CG 不变）→ 回到城中村出租屋，存款 ¥0。</li>
+<li><b>赚钱</b>：开启新比赛 → 选倍率场（新手场免费，往上每两级奖金 ×10）→ 交报名费 → 打 8 站。夺冠拿大奖；中途被淘汰，按打过几站拿少量名次奖金。</li>
+<li><b>花钱</b>：报名费、开局请女主助阵、给女主买礼物、约会、告白戒指、换房子。</li>
+<li><b>目标</b>：从出租屋一路换到第九套「云端天空宫」；剧情照旧一季一位女主。</li>
+<li><b>不卡人</b>：新手场永远免费，存款不够时去低倍场攒钱。</li>
+</ul></div>
+
+<h2>二、界面效果和交互（新元素画在真实游戏截图 / 新房子美术上）</h2>
+<div class="figs"><figure><img src='img/1_home_new.jpg'><figcaption>① 新号首页：城中村出租屋，存款 ¥0</figcaption></figure><figure><img src='img/2_home_lover.jpg'><figcaption>② 换到第 4 套：恋人在家，点她说话</figcaption></figure><figure><img src='img/3_house_popup.jpg'><figcaption>③ 点右下角「房产」：只显示现在住的和下一套</figcaption></figure><figure><img src='img/7_club.jpg'><figcaption>④ 右滑：俱乐部（原大厅），顶部同样显示存款</figcaption></figure><figure><img src='img/4_newrun.jpg'><figcaption>⑤ 开启新比赛：选倍率场</figcaption></figure><figure><img src='img/5_round_prize.jpg'><figcaption>⑥ 比赛中：顶部奖金条 + 拿下一站的提示</figcaption></figure><figure><img src='img/6_runend_bill.jpg'><figcaption>⑦ 一局结束：奖金单</figcaption></figure></div>
+<p class="note">点图放大。效果图的数字取自下面的数值表（S3、S5 为例）。最终界面在游戏里实现后再截图给你确认。</p>
+
+<h3>1. 首页 · 家</h3>
+<ul>
+<li>全屏大图是江白现在住的房子（九张，见第四节）。左上：设置、怎么玩；顶部中间：<b>存款</b>（金色，进出钱时数字滚动，进钱有金色飘字和音效）；右上：手机。</li>
+<li>底部从上到下：下一目标条（和现在大厅一样）、页签「家 / 俱乐部 ›」、每日挑战 + 开启新比赛。</li>
+<li><b>房产</b>：页签右边一个小按钮「⌂ 房产」，不抢眼；存款够买下一套时它上面亮一个小红点，此外不弹窗、不提醒。</li>
+<li><b>恋人在家</b>：你在她房间里设为 C 位的那位恋人（现有功能），会站在家的大图里；点她说一句家里专属的话。没有恋人时家里只有房子。</li>
+<li><b>左右滑</b>：手指左滑或点「俱乐部 ›」，整页平移到俱乐部；俱乐部右滑或点「‹ 家」回来。新号第一次回到家时，屏幕右边缘有一个「›」轻轻晃两下，提示能滑；滑过一次就不再出现。</li>
+<li>点顶部存款 → <b>账本</b>：最近 30 笔进出（报名费、名次奖金、夺冠奖金、礼物、约会、戒指、搬家），每笔写时间和金额。</li>
+</ul>
+<h3>2. 房产弹窗（点「⌂ 房产」）</h3>
+<ul>
+<li>上半：现在住的房子（图 + 名字）；下半：下一套的图、名字、价格。<b>再往后的房子不显示</b>，写「搬进下一套后揭晓」（工作室规定：后面的内容保持未知）。</li>
+<li>存款够：金色按钮「搬家」→ 确认「花 ¥xx 搬进 xx？」→ 黑场 1 秒 + 字幕「搬家啦」+ 新房子大图淡入 + 存款数字往下滚；之后手机收到恋人的一条消息（「新家好大……我能常来吗？」，每套房每位恋人一句）。</li>
+<li>存款不够：灰按钮「还差 ¥xx」。</li>
+<li>搬到第 4 套时，前女友苏蔓发来一条消息（现有角色，「回头草」线的小彩蛋）。</li>
+</ul>
+<h3>3. 俱乐部（右页）</h3>
+<ul><li>就是现在的大厅：九位女主、女主应援、晚晴的礼物、心动特训、图鉴 / 成就 / 任务 / 排行榜 / 挑战 / 女主。顶部的「晚晴俱乐部 已入住 x/9」换成存款，入住数挪到女主栏。</li></ul>
+<h3>4. 开启新比赛 · 选倍率场</h3>
+<ul>
+<li>一张张倍率场卡片：「S3 · 十倍场 ×10」，写报名费、夺冠奖金、「第 4 站被淘汰也拿 ¥xx」。点卡片下方「名次奖金表 ›」展开 8 站各拿多少。</li>
+<li>已解锁的全部显示，下一档只显示「S? · ？？？ 拿下上一档世界冠军解锁」，再往后不显示。</li>
+<li>存款不够的卡片变灰，写「还差 ¥xx」；剧情季要求的场次（第 n 季在 S n 以上）用一个粉色小标「她在这里」标出。</li>
+<li>选好后进「赛前准备」：两个空位「请女主助阵」（第五节），每个显示出场费；底部大按钮「报名 · 交 ¥xx」（报名费 + 出场费）。点了以后存款扣掉，有扣钱动画，然后进第 1 站。</li>
+</ul>
+<h3>5. 比赛中</h3>
+<ul>
+<li>顶栏下面一条奖金条：左「夺冠奖金 ¥xx」（金色大字），右「已锁定 ¥xx」（现在被淘汰能拿的名次奖金）。点它打开赛程弹窗，每站后面写上这一站的名次奖金。</li>
+<li>每拿下一站（第 3 轮赢了）：屏幕中间金色提示「第 4 站拿下！已锁定 +¥xx」，奖金条的「已锁定」数字跳涨。</li>
+<li>夺冠：全屏金色庆祝 + 夺冠奖金数字从 0 滚到最终值。</li>
+</ul>
+<h3>6. 一局结束 · 奖金单</h3>
+<ul><li>原来的「牌库 / 最好的一手 / 牌谱码」卡片换成奖金单：报名费、助阵出场费、名次奖金或夺冠奖金、本局赚 / 亏、存款「旧 → 新」滚动。存款够买下一套房时，下面多一行小字「够搬家了 ›」。</li></ul>
+<h3>7. 女主相关的花钱</h3>
+<ul>
+<li><b>礼物</b>：她房间「送礼」页加一个「礼物店」：普通礼物、稀有礼物两档价格（第四节价格表），买了直接送。任务奖励从礼物改成存款；背包里已有的礼物照样能送。心意分上限仍是 100。</li>
+<li><b>日常约会</b>：她房间新增按钮「约她出去」：咖啡馆 / 西餐厅 / 天台夜景 / 私人游艇四档，越贵心意分和羁绊涨得越多，每档一段她的专属台词；每位每天一次（第二天 0 点刷新）。</li>
+<li><b>恋人篇</b>：赴约（约会①、约会②）时付约会费；告白局之前要先买告白戒指（买一次，失败了戒指还在）。剧情和触发条件不变。</li>
+<li>价格都按「她那一季的场次」定：第 n 季的女主，花费按 S n 的收入算（见第四节表）。</li>
+</ul>
+
+<h2>三、数值是怎么算出来的</h2>
+<div class="box"><ul>
+<li><b>输入 1 · 通过率</b>：每个倍率场、每一站「打过的比例」。现在用机器人模拟「典型剧情玩家」：4 次出牌、心动特训等级随场次升高（S n 约 7×(n−1) 级）、一半人每赛段用一次「再来一手」视频。<b>真实玩家数据 11-21 刚开始入库，攒满 3 天后用同一个程序重算一遍</b>，表格结构不变，数字会变。</li>
+<li><b>输入 2 · 设计目标</b>（可以改，改了金额自动重算）：倍率每两级 ×10；每场亏钱的概率目标 S1 15% → S8 60%；每场平均回本率 S1 +100% → S8 +12%（越高级越难赚，但打得好仍然赚）；每人每天约 13 局（TapDB：11-14～11-20 共 5244 局 / 7 天 / 日活 58）。</li>
+<li><b>名次奖金</b>：打过 k 站后被淘汰拿「报名费 × c × 形状[k]」。程序找出「打过第几站以后被淘汰才能回本」，让这之前被淘汰的人的比例 = 亏钱目标，从而唯一定出 c。</li>
+<li><b>夺冠奖金</b>：在名次奖金定好之后，选夺冠奖金让「平均拿回的钱 / 报名费 − 1」= 回本率目标，也是唯一的。</li>
+<li><b>房价</b> = 天数 × 每天局数 × 「当时能去的场里平均一局最多能净赚多少」；第九套是 15 天，也就是你说的「肝半个月」。</li>
+<li><b>礼物 / 约会 / 戒指</b> = 几局的平均净赚（普通礼物 1 局、咖啡馆 1 局、西餐厅 3 局、天台 6 局、游艇 15 局、约会① 5 局、约会② 8 局、戒指 25 局），按她那一季的场次算。</li>
+<li>所有金额取两位有效数字（例如 ¥8.6 万、¥1.2 亿），好记。</li>
+<li>程序：<code>devtools/money/economy.py</code>（数值）、<code>mock.py</code>（效果图）、<code>spec.py</code>（这页）。</li>
+</ul></div>
+
+<h2>四、数值表</h2>
+<h3>1. 倍率场总表</h3>
+<div class="scroll"><table><tr><th>场次</th><th>倍率</th><th>报名费</th><th>夺冠奖金</th><th>夺冠率</th><th>亏钱的概率<br>不看视频 / 看视频</th><th>平均回本率<br>不看视频 / 看视频</th><th>平均一局净赚</th></tr><tr><td>S1 新手场</td><td>×1</td><td>免费</td><td><b>¥3500</b></td><td>39%</td><td>0% / 0%</td><td>+66% / +130%</td><td>¥1984</td></tr><tr><td>S2 三倍场</td><td>×3</td><td>¥3000</td><td><b>¥1.1 万</b></td><td>29%</td><td>38% / 25%</td><td>+46% / +110%</td><td>¥2341</td></tr><tr><td>S3 十倍场</td><td>×10</td><td>¥1 万</td><td><b>¥4.3 万</b></td><td>19%</td><td>50% / 31%</td><td>+24% / +97%</td><td>¥6074</td></tr><tr><td>S4 三十倍场</td><td>×30</td><td>¥3 万</td><td><b>¥17 万</b></td><td>11%</td><td>63% / 39%</td><td>+3% / +85%</td><td>¥1.3 万</td></tr><tr><td>S5 百倍场</td><td>×100</td><td>¥10 万</td><td><b>¥97 万</b></td><td>6%</td><td>74% / 47%</td><td>-13% / +82%</td><td>¥3.5 万</td></tr><tr><td>S6 三百倍场</td><td>×300</td><td>¥30 万</td><td><b>¥600 万</b></td><td>2%</td><td>84% / 57%</td><td>-27% / +76%</td><td>¥7.4 万</td></tr><tr><td>S7 千倍场</td><td>×1000</td><td>¥100 万</td><td><b>¥4000 万</b></td><td>1%</td><td>91% / 68%</td><td>-38% / +45%</td><td>¥3.7 万</td></tr><tr><td>S8 三千倍场</td><td>×3000</td><td>¥300 万</td><td><b>¥1.2 亿</b></td><td>0%</td><td>95% / 81%</td><td>-48% / -17%</td><td>¥-978397</td></tr></table></div>
+<p class="note">S9（×10000）等出 S9 时按同一个程序补。S1 免费，奖金按 ¥1000 的「虚拟报名费」算。</p>
+<div class="box"><b>要特别说明的一点：</b>机器人在 S5 以上明显比真人弱（S6～S8 几乎不夺冠，有剧情进度的真人是能在 S8 夺冠的），所以 <b>S5～S8 这几行的亏钱概率偏高、回本率偏低</b>（S8 算出来 88% 亏、平均 −33%，目标是 60% 亏）。夺冠奖金封顶报名费 ×40，否则会算出几百倍。S1～S4 和真人差距小，可以作为参考。<b>3 天后用真实玩家的通过率重算，这几行会回到目标附近</b>；规则、公式、表格结构都不变。</div>
+<h3>2. 名次奖金（打过 k 站后被淘汰拿多少）</h3>
+<div class="scroll"><table><tr><th>场次</th><th>0 站</th><th>1 站</th><th>2 站</th><th>3 站</th><th>4 站</th><th>5 站</th><th>6 站</th><th>7 站</th><th>夺冠</th></tr><tr><td>S1</td><td>¥0</td><td>¥100</td><td>¥230</td><td>¥420</td><td>¥670</td><td>¥1000</td><td>¥1400</td><td>¥1900</td><td><b>¥3500</b></td></tr><tr><td>S2</td><td>¥0</td><td>¥300</td><td>¥700</td><td>¥1200</td><td>¥2000</td><td>¥3000</td><td>¥4200</td><td>¥5800</td><td><b>¥1.1 万</b></td></tr><tr><td>S3</td><td>¥0</td><td>¥1000</td><td>¥2300</td><td>¥4200</td><td>¥6700</td><td>¥1 万</td><td>¥1.4 万</td><td>¥1.9 万</td><td><b>¥4.3 万</b></td></tr><tr><td>S4</td><td>¥0</td><td>¥3000</td><td>¥7000</td><td>¥1.2 万</td><td>¥2 万</td><td>¥3 万</td><td>¥4.2 万</td><td>¥5.7 万</td><td><b>¥17 万</b></td></tr><tr><td>S5</td><td>¥0</td><td>¥1 万</td><td>¥2.3 万</td><td>¥4.2 万</td><td>¥6.7 万</td><td>¥10 万</td><td>¥14 万</td><td>¥19 万</td><td><b>¥97 万</b></td></tr><tr><td>S6</td><td>¥0</td><td>¥3 万</td><td>¥7 万</td><td>¥12 万</td><td>¥20 万</td><td>¥30 万</td><td>¥42 万</td><td>¥58 万</td><td><b>¥600 万</b></td></tr><tr><td>S7</td><td>¥0</td><td>¥10 万</td><td>¥23 万</td><td>¥42 万</td><td>¥67 万</td><td>¥100 万</td><td>¥140 万</td><td>¥190 万</td><td><b>¥4000 万</b></td></tr><tr><td>S8</td><td>¥0</td><td>¥30 万</td><td>¥70 万</td><td>¥120 万</td><td>¥200 万</td><td>¥300 万</td><td>¥420 万</td><td>¥580 万</td><td><b>¥1.2 亿</b></td></tr></table></div>
+<h3>3. 算这些数用的通过率（打过第 k 站的比例，机器人，两种玩家平均）</h3>
+<div class="scroll"><table><tr><th>场次</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8 = 夺冠</th><th>局数（不看 / 看）</th></tr><tr><td>S1</td><td>99%</td><td>98%</td><td>97%</td><td>95%</td><td>76%</td><td>60%</td><td>45%</td><td>39%</td><td>50 / 50</td></tr><tr><td>S2</td><td>100%</td><td>98%</td><td>97%</td><td>95%</td><td>69%</td><td>51%</td><td>37%</td><td>29%</td><td>30 / 30</td></tr><tr><td>S3</td><td>100%</td><td>98%</td><td>97%</td><td>93%</td><td>59%</td><td>42%</td><td>29%</td><td>19%</td><td>30 / 30</td></tr><tr><td>S4</td><td>100%</td><td>98%</td><td>96%</td><td>90%</td><td>49%</td><td>32%</td><td>22%</td><td>11%</td><td>30 / 30</td></tr><tr><td>S5</td><td>100%</td><td>98%</td><td>94%</td><td>86%</td><td>39%</td><td>23%</td><td>15%</td><td>6%</td><td>30 / 30</td></tr><tr><td>S6</td><td>100%</td><td>97%</td><td>92%</td><td>80%</td><td>30%</td><td>16%</td><td>9%</td><td>2%</td><td>30 / 30</td></tr><tr><td>S7</td><td>100%</td><td>97%</td><td>90%</td><td>71%</td><td>21%</td><td>9%</td><td>5%</td><td>1%</td><td>30 / 30</td></tr><tr><td>S8</td><td>100%</td><td>96%</td><td>87%</td><td>54%</td><td>12%</td><td>5%</td><td>2%</td><td>0%</td><td>30 / 30</td></tr></table></div>
+<h3>4. 九套房</h3>
+<div class="scroll"><table><tr><th>图</th><th>房子</th><th>价格</th><th>大约要攒</th></tr><tr><td><img src='img/h1.jpg' style='width:90px;border-radius:6px'></td><td>第 1 套 · 城中村出租屋</td><td><b>开局就有</b></td><td></td></tr><tr><td><img src='img/h2.jpg' style='width:90px;border-radius:6px'></td><td>第 2 套 · 老小区一居室</td><td><b>¥1.3 万</b></td><td>约 0.5 天 · 在 S1 及以下最赚的场打</td></tr><tr><td><img src='img/h3.jpg' style='width:90px;border-radius:6px'></td><td>第 3 套 · 市中心公寓</td><td><b>¥3 万</b></td><td>约 1 天 · 在 S2 及以下最赚的场打</td></tr><tr><td><img src='img/h4.jpg' style='width:90px;border-radius:6px'></td><td>第 4 套 · 江景大平层</td><td><b>¥12 万</b></td><td>约 1.5 天 · 在 S3 及以下最赚的场打</td></tr><tr><td><img src='img/h5.jpg' style='width:90px;border-radius:6px'></td><td>第 5 套 · 顶层复式</td><td><b>¥35 万</b></td><td>约 2 天 · 在 S4 及以下最赚的场打</td></tr><tr><td><img src='img/h6.jpg' style='width:90px;border-radius:6px'></td><td>第 6 套 · 山顶别墅</td><td><b>¥140 万</b></td><td>约 3 天 · 在 S5 及以下最赚的场打</td></tr><tr><td><img src='img/h7.jpg' style='width:90px;border-radius:6px'></td><td>第 7 套 · 海边庄园</td><td><b>¥380 万</b></td><td>约 4 天 · 在 S6 及以下最赚的场打</td></tr><tr><td><img src='img/h8.jpg' style='width:90px;border-radius:6px'></td><td>第 8 套 · 私人海岛</td><td><b>¥580 万</b></td><td>约 6 天 · 在 S7 及以下最赚的场打</td></tr><tr><td><img src='img/h9.jpg' style='width:90px;border-radius:6px'></td><td>第 9 套 · 云端天空宫</td><td><b>¥1400 万</b></td><td>约 15 天 · 在 S8 及以下最赚的场打</td></tr></table></div>
+<h3>5. 礼物 / 约会 / 告白（按女主那一季的场次）</h3>
+<div class="scroll"><table><tr><th></th><th>第 1 季</th><th>第 2 季</th><th>第 3 季</th><th>第 4 季</th><th>第 5 季</th><th>第 6 季</th><th>第 7 季</th><th>第 8 季</th></tr><tr><td>普通礼物</td><td>¥2000</td><td>¥2300</td><td>¥6100</td><td>¥1.3 万</td><td>¥3.5 万</td><td>¥7.4 万</td><td>¥3.7 万</td><td>¥1</td></tr><tr><td>稀有礼物</td><td>¥9900</td><td>¥1.2 万</td><td>¥3 万</td><td>¥6.6 万</td><td>¥17 万</td><td>¥37 万</td><td>¥19 万</td><td>¥5</td></tr><tr><td>日常约会 · 咖啡馆</td><td>¥2000</td><td>¥2300</td><td>¥6100</td><td>¥1.3 万</td><td>¥3.5 万</td><td>¥7.4 万</td><td>¥3.7 万</td><td>¥1</td></tr><tr><td>日常约会 · 西餐厅</td><td>¥6000</td><td>¥7000</td><td>¥1.8 万</td><td>¥4 万</td><td>¥10 万</td><td>¥22 万</td><td>¥11 万</td><td>¥3</td></tr><tr><td>日常约会 · 天台夜景</td><td>¥1.2 万</td><td>¥1.4 万</td><td>¥3.6 万</td><td>¥8 万</td><td>¥21 万</td><td>¥44 万</td><td>¥22 万</td><td>¥6</td></tr><tr><td>日常约会 · 私人游艇</td><td>¥3 万</td><td>¥3.5 万</td><td>¥9.1 万</td><td>¥20 万</td><td>¥52 万</td><td>¥110 万</td><td>¥56 万</td><td>¥15</td></tr><tr><td>恋人篇 · 约会①</td><td>¥9900</td><td>¥1.2 万</td><td>¥3 万</td><td>¥6.6 万</td><td>¥17 万</td><td>¥37 万</td><td>¥19 万</td><td>¥5</td></tr><tr><td>恋人篇 · 约会②</td><td>¥1.6 万</td><td>¥1.9 万</td><td>¥4.9 万</td><td>¥11 万</td><td>¥28 万</td><td>¥59 万</td><td>¥30 万</td><td>¥8</td></tr><tr><td>告白戒指</td><td>¥5 万</td><td>¥5.9 万</td><td>¥15 万</td><td>¥33 万</td><td>¥87 万</td><td>¥190 万</td><td>¥93 万</td><td>¥25</td></tr></table></div>
+<p class="note">第 1 季是晚晴（S1），第 n 季在 S n。第 9 季同 S8。</p>
+
+<h2>五、开局请女主助阵</h2>
+<div class="box"><ul>
+<li>报名后、开打前，从已认识的女主里最多请 2 位，付出场费，这一局有效，打完就没了。请她助阵 +1 羁绊点。</li>
+<li>出场费 = 这个能力平均让你多赚的钱 × 60%（会用的人划算，乱用的人亏）。</li>
+<li><b>赚钱类（能直接算，已出数）</b>：</li>
+</ul>
+<div class="scroll"><table><tr><th>出场费</th><th>S1</th><th>S2</th><th>S3</th><th>S4</th><th>S5</th><th>S6</th><th>S7</th><th>S8</th></tr><tr><td>莱拉 · 赞助（本局所有奖金 +30%）</td><td>¥360</td><td>¥960</td><td>¥2900</td><td>¥7800</td><td>¥2.4 万</td><td>¥6.7 万</td><td>¥19 万</td><td>¥36 万</td></tr><tr><td>晚晴 · 保底（被淘汰退还一半报名费）</td><td>¥0</td><td>¥640</td><td>¥2400</td><td>¥8000</td><td>¥2.8 万</td><td>¥8.8 万</td><td>¥30 万</td><td>¥90 万</td></tr></table></div>
+<ul>
+<li><b>改打法类 7 个</b>（夏洛特·推理、英格丽德·整队、卡米耶·改色、薇拉·回收、麦迪逊·连击、智雅·复刻、绫香·女王令）：要先做进游戏，再让机器人在每个倍率场「带 / 不带」各打一批，量出它把每站通过率提高了多少，代进同一个程序算出「平均多赚多少」，出场费收 60%。<b>没量之前不给数，不拍脑袋。</b>做法和时间见第七节；太强的（比如带上以后 S8 也稳赚）削弱效果而不是只加价。</li>
+</ul></div>
+
+<h2>六、老玩家、存档、埋点、审核</h2>
+<div class="box"><ul>
+<li><b>老玩家</b>：更新后第一次进游戏，按存档里每一场打到过的最远一站，补发「历年奖金」（按名次奖金表的 50%）；已经走完的约会、告白不收钱；背包礼物保留。房子从出租屋开始，存款够就能直接搬。</li>
+<li><b>存档</b>：存款跟着云存档走；排行榜加「存款榜」。</li>
+<li><b>埋点</b>（上线前在 TapDB 登记）：报名（场次、报名费、助阵）、一局结束（名次奖金 / 夺冠奖金、净赚）、搬家（第几套、存款）、买礼物、约会（档位）、买戒指。上线后用真实数据核对「各场亏钱概率」是否接近目标，每周重算一次。</li>
+<li><b>审核用语</b>：只用报名费、奖金、名次奖金、存款；不出现押注、下注、筹码、赌；画面不放钞票、金币堆（房子美术已按这个出）。</li>
+</ul></div>
+
+<h2>七、工作安排（一次做完）</h2>
+<div class="box"><ul>
+<li>第 1～2 天：存款、账本、报名改倍率场、奖金条、奖金单、名次奖金结算、老玩家补发。</li>
+<li>第 2～3 天：家页面、左右滑、房产弹窗、搬家演出、九张房子美术入库、恋人在家。</li>
+<li>第 3～4 天：九个助阵能力进引擎 + 机器人会用它们；每个能力在每个倍率场「带 / 不带」各跑一批，算出 7 个打法类的出场费。</li>
+<li>第 4 天：用 3 天真实数据重算全部数值，发你最终数值表确认。</li>
+<li>第 5～6 天：礼物店、日常约会（9 位 × 4 档新台词）、恋人篇收费、告白戒指；整体模拟（不看视频也能推进、存款不会多到花不完）；截图给你确认后提审。</li>
+</ul></div>
+</main>
+<div id="lb"><img></div>
+<script>const lb=document.getElementById("lb");document.querySelectorAll("figure img").forEach(i=>i.onclick=()=>{lb.querySelector("img").src=i.src;lb.style.display="flex"});lb.onclick=()=>lb.style.display="none";</script>
+</body></html>
