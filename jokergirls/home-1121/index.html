@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>命运牌 · 家 + 存款显示（11-21）</title>
+<style>
+  :root { --bg:#16121f; --card:#221b30; --line:#3a2f50; --gold:#f2c46d; --pink:#ff6fa3; --txt:#ece6f5; --dim:#a99cbf; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:18px 14px 160px; }
+  h1 { font-size:22px; margin:6px 0 4px; color:var(--gold); }
+  .lead { color:var(--dim); margin:0 0 18px; }
+  section.q { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:0 0 18px; }
+  section.q h2 { font-size:18px; margin:0 0 6px; }
+  section.q h2 .n { display:inline-block; min-width:26px; height:26px; line-height:26px; text-align:center; border-radius:50%; background:var(--gold); color:#2a1d07; font-size:14px; margin-right:6px; }
+  .why { color:var(--dim); margin:0 0 12px; font-size:14px; }
+  .why ul { margin:4px 0; padding-left:20px; }
+  .opts { display:grid; gap:12px; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); }
+  .opts.wide { grid-template-columns:1fr; }
+  .opts.two { grid-template-columns:repeat(2, 1fr); gap:8px; }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  .row { display:grid; gap:6px; grid-template-columns:2.2fr 1.25fr 0.72fr; align-items:start; }
+  .row img { width:100%; }
+  .gallery.four { grid-template-columns:repeat(4, 1fr); }
+  .note { font-size:13px; color:var(--dim); margin:6px 0 0; }
+  @media (max-width:640px) {
+    .opts.three .opt, .opts.two .opt { padding:6px; }
+    .opts.three .opt h3, .opts.two .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p, .opts.two .opt p { font-size:12px; line-height:1.5; }
+    .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .gallery.four { grid-template-columns:repeat(2, 1fr); }
+  }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  @media (max-width:640px) {
+    .opts.three .opt { padding:6px; }
+    .opts.three .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p { font-size:12px; line-height:1.5; }
+    .opts.three .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .opts.three .opt.ref::before { font-size:11px; }
+    .opts.three .tag { display:block; width:max-content; margin:2px 0 0; }
+  }
+  .opt { position:relative; border:2px solid var(--line); border-radius:12px; padding:10px; background:#1b1527; cursor:pointer; transition:border-color .15s, transform .15s; }
+  .opt:hover { border-color:#6b5a8f; }
+  .opt.sel { border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,111,163,.25); }
+  .opt.sel::after { content:"✓ 已选"; position:absolute; top:8px; right:8px; background:var(--pink); color:#fff; font-size:12px; padding:2px 8px; border-radius:10px; }
+  .opt.ref { cursor:default; opacity:.85; border-style:dashed; }
+  .opt.ref::before { content:"现在的样子（参考）"; display:block; font-size:12px; color:var(--dim); margin-bottom:6px; }
+  .opt img { width:100%; border-radius:8px; display:block; cursor:zoom-in; background:#000; }
+  .opt h3 { font-size:16px; margin:8px 0 2px; color:var(--gold); }
+  .opt p { margin:2px 0; font-size:14px; color:#d8d0e6; }
+  .tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:8px; background:#3b2a12; color:var(--gold); margin-left:4px; vertical-align:middle; }
+  textarea { width:100%; min-height:44px; margin-top:12px; border-radius:10px; border:1px solid var(--line); background:#140f1d; color:var(--txt); padding:8px 10px; font:inherit; }
+  .sub { margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--line); }
+  .sub:first-of-type { border-top:0; padding-top:0; }
+  .sub h4 { margin:0 0 8px; font-size:15px; }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill { border:2px solid var(--line); border-radius:20px; padding:6px 14px; cursor:pointer; background:#1b1527; font-size:14px; }
+  .pill.sel { border-color:var(--pink); background:#3a1830; }
+  .voices { display:grid; gap:8px; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); margin:6px 0 12px; }
+  .voice { background:#1b1527; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:14px; }
+  .voice b { color:var(--gold); }
+  .voice audio { width:100%; height:34px; margin-top:4px; }
+  .gallery { display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
+  .gallery img, .promo img { width:100%; border-radius:8px; cursor:zoom-in; display:block; }
+  .promo { display:grid; gap:10px; grid-template-columns:2fr 1fr; margin-bottom:10px; }
+  video { width:100%; max-width:360px; border-radius:10px; display:block; margin:8px auto; background:#000; }
+  .cap { font-size:12px; color:var(--dim); text-align:center; margin-top:3px; }
+  #bar { position:fixed; left:0; right:0; bottom:0; background:rgba(18,13,26,.97); border-top:1px solid var(--line); padding:10px 14px; }
+  #bar .in { max-width:980px; margin:0 auto; display:flex; gap:10px; align-items:center; }
+  #bar .prog { flex:1; color:var(--dim); font-size:14px; }
+  #bar button { border:0; border-radius:22px; padding:11px 20px; font:inherit; font-weight:600; cursor:pointer; background:linear-gradient(180deg,#ff86b3,#e6457f); color:#fff; }
+  #bar button.ghost { background:#2d2440; color:var(--txt); font-weight:400; }
+  #out { display:none; max-width:980px; margin:8px auto 0; white-space:pre-wrap; background:#140f1d; border:1px solid var(--line); border-radius:10px; padding:10px; font-size:13px; max-height:30vh; overflow:auto; }
+  #lb { position:fixed; inset:0; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; z-index:9; cursor:zoom-out; }
+  #lb img { max-width:96vw; max-height:94vh; }
+  .toast { position:fixed; left:50%; bottom:90px; transform:translateX(-50%); background:#2fae6b; color:#fff; padding:8px 18px; border-radius:20px; display:none; z-index:10; }
+</style>
+<style>.fields{display:grid;gap:6px;grid-template-columns:120px 1fr;font-size:14px;margin:8px 0}.fields b{color:var(--gold)}.fields span{background:#140f1d;border:1px solid var(--line);border-radius:8px;padding:4px 8px} .beats{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0}.beats td,.beats th{border:1px solid var(--line);padding:5px 6px;vertical-align:top}.beats th{color:var(--gold);background:#1b1527} .shots{display:grid;gap:8px;grid-template-columns:repeat(4,1fr)} @media(max-width:640px){.shots{grid-template-columns:repeat(2,1fr)}} .shots img{width:100%;border-radius:8px;cursor:zoom-in}</style>
+</head>
+<body>
+<style>
+.mock{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin:10px 0}
+.ph{background:#0f0b16;border:2px solid #4a3b66;border-radius:22px;padding:10px;font-size:12.5px;min-height:420px;display:flex;flex-direction:column;gap:6px}
+.ph .cap{font-size:13px;color:var(--gold);text-align:center;font-weight:600}
+.bx{border:1px dashed #6b5a8f;border-radius:8px;padding:6px;color:#d8d0e6}
+.bx.gold{border-color:var(--gold);color:var(--gold)}
+.bx.pink{border-color:var(--pink);color:#ffc0d6}
+.bx.big{flex:1;display:flex;align-items:center;justify-content:center;text-align:center}
+.row2{display:flex;gap:6px}.row2 .bx{flex:1;text-align:center}
+</style>
+<main>
+<h1>命运牌：身无分文到亿万身家 · 主界面「家」+ 存款显示（11-21，待你确认）</h1>
+<p class="lead">把你的想法补全成一套：首页改成江白的家，一开始是城中村的出租屋，赚了钱就换更好的房子；左右滑切到原来的俱乐部；存款和这一届能拿到的奖金，在所有关键界面都放到最显眼的位置。每题点一个选项，最后点「复制我的选择」发回给我。</p>
+
+<section class="q"><h2>整体结构（示意图）</h2>
+<div class="mock">
+<div class="ph"><div class="cap">首页 · 家（左页）</div>
+<div class="row2"><div class="bx gold">存款 ¥12.8 万 ▸</div><div class="bx">⚙</div></div>
+<div class="bx">身家 ¥32.8 万（存款 + 房子）</div>
+<div class="bx big">江白的家（大图）<br>第 1 套：城中村出租屋<br><br>点窗户 → 换房子<br>点床头的手机 → 手机<br>恋人在家里时站在这里</div>
+<div class="bx pink">下一套：老小区一居室 ¥30 万 ›（还差 ¥17.2 万）</div>
+<div class="bx">下一目标：……</div>
+<div class="row2"><div class="bx gold">开启新比赛</div><div class="bx">继续比赛</div></div>
+<div class="bx" style="text-align:center">● 家　　○ 俱乐部 ›（左右滑）</div></div>
+<div class="ph"><div class="cap">俱乐部（右页 · 就是现在的大厅）</div>
+<div class="row2"><div class="bx gold">存款 ¥12.8 万 ▸</div><div class="bx">应援</div></div>
+<div class="bx big">晚晴俱乐部（现在的大厅图）<br>九位女主、点她进房间<br>晚晴的特训气泡</div>
+<div class="bx">图鉴 · 成就 · 任务 · 排行榜 · 挑战 · 女主</div>
+<div class="row2"><div class="bx gold">开启新比赛</div><div class="bx">每日挑战</div></div>
+<div class="bx" style="text-align:center">‹ 家 ○　　● 俱乐部</div></div>
+<div class="ph"><div class="cap">比赛中（顶部奖金条）</div>
+<div class="bx gold">S5 · 第 4 站　夺冠奖金 ¥82.5 万<br>现在被淘汰也能拿 ¥3.5 万（已锁定）</div>
+<div class="bx big">牌桌（不变）</div>
+<div class="bx pink">每赢下一站：「已锁定」数字跳涨 + 金色飘字「+¥2.6 万」</div></div>
+<div class="ph"><div class="cap">一局结束 · 奖金单</div>
+<div class="bx big">S5 · 打到第 6 站<br><br>报名费　−¥10 万<br>名次奖金　+¥5 万<br>──────<br>本局　−¥5 万<br><br>存款 ¥12.8 万 → ¥7.8 万（数字滚动）</div>
+<div class="bx">离下一套房子还差 ¥22.2 万</div></div>
+</div></section>
+
+<section class="q" data-q="home" data-title="首页放哪"><h2><span class="n">1</span>打开游戏先看到哪一页</h2>
+<div class="opts">
+<div class="opt" data-v="家是首页，右滑去俱乐部"><h3>家是首页，右滑去俱乐部 <span class="tag">推荐</span></h3><p>开局就是破出租屋，一眼看懂「身无分文 → 亿万身家」。新玩家第一局打完回来，看到存款涨了、离下一套房更近了，获得感最直接。</p></div>
+<div class="opt" data-v="俱乐部是首页，左滑回家"><h3>俱乐部是首页，左滑回家</h3><p>九位女主还是第一眼看到的，「家」当成第二页。对现在的老玩家变化最小。</p></div>
+</div>
+<p class="note">两页都有「开启新比赛」和存款，滑不滑都不影响开局。滑动不好发现，所以底部有「● 家 ○ 俱乐部」页签，点也能切；新号第一次回到家时，提示一次「右滑去俱乐部」。</p>
+<textarea placeholder="备注（可不填）"></textarea></section>
+
+<section class="q" data-q="houses" data-title="房子档次"><h2><span class="n">2</span>房子：八套，跟着倍率场走</h2>
+<p class="why">每一套房的价格 = <b>那一级倍率场的夺冠奖金 × 1.5</b>（大约要在那一级拿 1～2 次冠军才买得起），所以房价跟着倍率场一起按指数涨，数值表算出来后房价自动跟着定，不用另外拍。以后加 S9 就多一套。按工作室的规定，房子列表只显示已有的和下一套，后面的保持神秘。</p>
+<table class="beats">
+<tr><th>第几套</th><th>房子</th><th>对应</th><th>剧情上的意思</th></tr>
+<tr><td>1</td><td>城中村出租屋</td><td>开局送的</td><td>被裁员、分手那晚的住处</td></tr>
+<tr><td>2</td><td>老小区一居室</td><td>S1 夺冠奖 × 1.5</td><td>第一次有了自己的门钥匙</td></tr>
+<tr><td>3</td><td>市中心公寓</td><td>S2</td><td>离俱乐部只隔两条街</td></tr>
+<tr><td>4</td><td>江景大平层</td><td>S3</td><td>落地窗看得见海城的江</td></tr>
+<tr><td>5</td><td>顶层复式</td><td>S4</td><td>楼上有了自己的牌室</td></tr>
+<tr><td>6</td><td>山顶别墅</td><td>S5</td><td>带泳池和花园</td></tr>
+<tr><td>7</td><td>海边庄园</td><td>S6～S7</td><td>九个人一起来也坐得下</td></tr>
+<tr><td>8</td><td>私人海岛</td><td>S8</td><td>亿万身家的终点（S9 再往上加）</td></tr>
+</table>
+<div class="pills" style="margin-top:8px"><span class="pill" data-v="按这八套">按这八套</span><span class="pill" data-v="名字要改">名字 / 档次要改（写在备注）</span></div>
+<textarea placeholder="备注（可不填）"></textarea></section>
+
+<section class="q" data-q="perk" data-title="房子有没有用"><h2><span class="n">3</span>换房子除了好看，还有什么用</h2>
+<div class="opts">
+<div class="opt" data-v="只给面子和恋爱，不加数值"><h3>只给面子和恋爱，不影响打牌 <span class="tag">推荐</span></h3><p>换房子：首页大图换掉、排行榜「身家榜」涨，已经是恋人的女主会来家里（站在首页大图里，点她说一句家里专属的话）；每升一档，解锁一段「她第一次来新家」的短剧情（9 人 × 8 档，按需写）。不碰打牌数值，所以报名费 / 奖金那张表不会被房子打乱。</p></div>
+<div class="opt" data-v="每套房加一点数值"><h3>每套房加一点数值</h3><p>比如每套房让夺冠奖金 +3%。更有「投资」的感觉，但所有倍率场的赚亏概率都要连房子一起重算，越到后面越难控制。</p></div>
+</div><textarea placeholder="备注（可不填）"></textarea></section>
+
+<section class="q" data-q="deco" data-title="装修"><h2><span class="n">4</span>同一套房里要不要再分「装修」</h2>
+<div class="opts">
+<div class="opt" data-v="每套房三件装修"><h3>每套房三件装修（各约房价 10%）</h3><p>比如出租屋：换掉漏水的天花板、买张像样的床、挂一盏暖灯。两次换房之间也有小目标可花钱，首页细节会变。美术量 ×3（每套房 4 张图）。</p></div>
+<div class="opt" data-v="不分，直接换房"><h3>不分，直接换房 <span class="tag">先做这个</span></h3><p>8 张图就够，工作量小；以后想加再加。</p></div>
+</div><textarea placeholder="备注（可不填）"></textarea></section>
+
+<section class="q" data-q="money" data-title="存款显示"><h2><span class="n">5</span>存款显示在哪</h2>
+<div class="why"><ul>
+<li><b>家、俱乐部、手机、女主房间、礼物商店、报名页</b>：左上角固定一个金色「存款 ¥xx 万」，点开是账本（最近 20 笔进出：报名费、奖金、礼物、约会、买房）。</li>
+<li>家里那一页多一行「身家 ¥xx（存款 + 房子）」，这是「亿万身家」的那个数，也上排行榜。</li>
+<li>花钱、进钱时数字滚动，进钱有金色飘字和声音。</li>
+<li>大数字统一写法：1.2 万、3.5 亿；不写「¥120000」。</li>
+</ul></div>
+<div class="pills"><span class="pill" data-v="按这个">按这个</span></div>
+<textarea placeholder="备注（可不填）"></textarea></section>
+
+<section class="q" data-q="prize" data-title="比赛中的奖金显示"><h2><span class="n">6</span>比赛中奖金怎么显示</h2>
+<div class="why"><ul>
+<li><b>报名页</b>：选场次时直接显示「报名费 ¥10 万 · 夺冠奖金 ¥82.5 万 · 每站名次奖金表」，存款不够的场次灰掉，写「还差 ¥x」。</li>
+<li><b>比赛顶栏（一直显示）</b>：第一行大字「夺冠奖金 ¥82.5 万」，第二行「现在被淘汰也能拿 ¥3.5 万（已锁定）」。</li>
+<li><b>每赢下一站</b>：结算页最上面一行「第 4 站拿下，名次奖金锁定到 ¥3.5 万（+¥2.6 万）」，数字跳涨。</li>
+<li><b>一局结束</b>：奖金单（报名费、名次奖金或夺冠奖金、本局净赚、存款变化、离下一套房还差多少），夺冠时全屏金色庆祝。</li>
+<li><b>赛程弹窗</b>（点顶栏打开的那个）：每站后面写上那一站的名次奖金。</li>
+</ul></div>
+<div class="pills"><span class="pill" data-v="按这个">按这个</span><span class="pill" data-v="顶栏只放夺冠奖金">顶栏只放夺冠奖金，锁定的放结算页</span></div>
+<textarea placeholder="备注（可不填）"></textarea></section>
+
+<section class="q"><h2>和剧情、规定的衔接</h2>
+<div class="why"><ul>
+<li>开场 CG 本来就是「被裁员、分手的雨夜」，接着进出租屋首页，顺理成章；晚晴篇结局俱乐部一半归江白，正好是「右边那一页」。</li>
+<li>前女友苏蔓的「回头草」线：江白换到第 4 套房以后，她会发一条手机消息（已有角色，补几句台词）。</li>
+<li>美术：8 张家的竖版大图，画风和现在的大厅一致（半写实 2.5D 厚涂、紫色夜景），不放钞票、金币；恋人来家里用她们现有的立绘。</li>
+<li>老玩家：更新后按补发的「历年奖金」，存款够的话直接提示可以搬家。</li>
+</ul></div></section>
+
+<section class="q"><h2>工作量（并进「一次做完」的版本）</h2>
+<div class="why"><ul>
+<li>家页面 + 左右滑 + 存款显示 + 账本：约 1.5 天</li>
+<li>比赛中奖金条、报名页、奖金单：约 1 天</li>
+<li>8 张家的大图（生成 + 挑图 + 你确认）：约 1 天</li>
+<li>恋人来家里的台词、「第一次来新家」短剧情：按选项 3，约 1 天</li>
+<li>合计在原来 8 天的基础上加约 3～4 天；所有界面做完先截图发你。</li>
+</ul></div></section>
+</main>
+<div id="bar"><div class="in"><span class="prog" id="prog"></span><button class="ghost" id="reset">清空</button><button id="copy">复制我的选择</button></div><pre id="out"></pre></div>
+<div id="lb"><img></div><div class="toast" id="toast"></div>
+<script>
+const KEY = "jg-home-1121";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+const qs = [...document.querySelectorAll("section.q")];
+
+function bindGroup(container, id, itemSel) {
+  const items = [...container.querySelectorAll(itemSel)];
+  items.forEach(el => {
+    if (state[id] === el.dataset.v) el.classList.add("sel");
+    el.addEventListener("click", e => {
+      if (e.target.tagName === "IMG") return;
+      const on = !el.classList.contains("sel");
+      items.forEach(x => x.classList.remove("sel"));
+      if (on) { el.classList.add("sel"); state[id] = el.dataset.v; } else delete state[id];
+      save(); render();
+    });
+  });
+}
+qs.forEach(s => {
+  const id = s.dataset.q;
+  if (s.querySelector(":scope > .opts .opt[data-v]")) bindGroup(s, id, ".opt[data-v]");
+  s.querySelectorAll(".sub").forEach(sub => bindGroup(sub, id + "." + sub.dataset.sq, ".pill"));
+  const tp = s.querySelector(":scope > .pills"); if (tp) bindGroup(tp, id, ".pill");
+  const ta = s.querySelector(":scope > textarea");
+  if (ta) { ta.value = state[id + ".note"] || ""; ta.addEventListener("input", () => { state[id + ".note"] = ta.value; save(); render(); }); }
+});
+
+function lines() {
+  const out = ["【命运牌 · 家 + 存款显示 11-21】"];
+  let n = 0, done = 0;
+  qs.forEach((s, i) => {
+    if (!s.querySelector("[data-v]")) return; // (information only)
+    const id = s.dataset.q, t = s.dataset.title, subs = [...s.querySelectorAll(".sub")];
+    if (subs.length) {
+      out.push(`${s.querySelector(".n").textContent}. ${t}：`);
+      subs.forEach(sub => { n++; const v = state[id + "." + sub.dataset.sq]; if (v) done++; out.push(`   - ${sub.dataset.title}：${v || "（未选）"}`); });
+    } else { n++; const v = state[id]; if (v) done++; out.push(`${s.querySelector(".n").textContent}. ${t}：${v || "（未选）"}`); }
+    const note = (state[id + ".note"] || "").trim();
+    if (note) out.push(`   备注：${note}`);
+  });
+  return { text: out.join("\n"), n, done };
+}
+function render() { const r = lines(); document.getElementById("prog").textContent = `已选 ${r.done} / ${r.n} 项`; }
+render();
+
+document.getElementById("copy").onclick = async () => {
+  const { text } = lines(), out = document.getElementById("out");
+  out.style.display = "block"; out.textContent = text;
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {}
+  if (!ok) { const r = document.createRange(); r.selectNodeContents(out); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { ok = document.execCommand("copy"); } catch (e) {} }
+  const t = document.getElementById("toast"); t.textContent = ok ? "已复制，发回对话里给我就行" : "没能自动复制，请长按下面的文字复制";
+  t.style.display = "block"; setTimeout(() => t.style.display = "none", 2200);
+};
+document.getElementById("reset").onclick = () => {
+  if (!confirm("清空这页上所有的选择和备注？")) return;
+  localStorage.removeItem(KEY); location.reload();
+};
+const lb = document.getElementById("lb");
+document.querySelectorAll("main img").forEach(img => img.addEventListener("click", () => { lb.querySelector("img").src = img.src; lb.style.display = "flex"; }));
+lb.onclick = () => lb.style.display = "none";
+</script>
+</body>
+</html>
