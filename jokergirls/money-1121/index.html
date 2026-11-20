@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>命运牌 · 存款系统严谨方案（11-21）</title>
+<style>
+  :root { --bg:#16121f; --card:#221b30; --line:#3a2f50; --gold:#f2c46d; --pink:#ff6fa3; --txt:#ece6f5; --dim:#a99cbf; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:18px 14px 160px; }
+  h1 { font-size:22px; margin:6px 0 4px; color:var(--gold); }
+  .lead { color:var(--dim); margin:0 0 18px; }
+  section.q { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:0 0 18px; }
+  section.q h2 { font-size:18px; margin:0 0 6px; }
+  section.q h2 .n { display:inline-block; min-width:26px; height:26px; line-height:26px; text-align:center; border-radius:50%; background:var(--gold); color:#2a1d07; font-size:14px; margin-right:6px; }
+  .why { color:var(--dim); margin:0 0 12px; font-size:14px; }
+  .why ul { margin:4px 0; padding-left:20px; }
+  .opts { display:grid; gap:12px; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); }
+  .opts.wide { grid-template-columns:1fr; }
+  .opts.two { grid-template-columns:repeat(2, 1fr); gap:8px; }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  .row { display:grid; gap:6px; grid-template-columns:2.2fr 1.25fr 0.72fr; align-items:start; }
+  .row img { width:100%; }
+  .gallery.four { grid-template-columns:repeat(4, 1fr); }
+  .note { font-size:13px; color:var(--dim); margin:6px 0 0; }
+  @media (max-width:640px) {
+    .opts.three .opt, .opts.two .opt { padding:6px; }
+    .opts.three .opt h3, .opts.two .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p, .opts.two .opt p { font-size:12px; line-height:1.5; }
+    .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .gallery.four { grid-template-columns:repeat(2, 1fr); }
+  }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  @media (max-width:640px) {
+    .opts.three .opt { padding:6px; }
+    .opts.three .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p { font-size:12px; line-height:1.5; }
+    .opts.three .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .opts.three .opt.ref::before { font-size:11px; }
+    .opts.three .tag { display:block; width:max-content; margin:2px 0 0; }
+  }
+  .opt { position:relative; border:2px solid var(--line); border-radius:12px; padding:10px; background:#1b1527; cursor:pointer; transition:border-color .15s, transform .15s; }
+  .opt:hover { border-color:#6b5a8f; }
+  .opt.sel { border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,111,163,.25); }
+  .opt.sel::after { content:"✓ 已选"; position:absolute; top:8px; right:8px; background:var(--pink); color:#fff; font-size:12px; padding:2px 8px; border-radius:10px; }
+  .opt.ref { cursor:default; opacity:.85; border-style:dashed; }
+  .opt.ref::before { content:"现在的样子（参考）"; display:block; font-size:12px; color:var(--dim); margin-bottom:6px; }
+  .opt img { width:100%; border-radius:8px; display:block; cursor:zoom-in; background:#000; }
+  .opt h3 { font-size:16px; margin:8px 0 2px; color:var(--gold); }
+  .opt p { margin:2px 0; font-size:14px; color:#d8d0e6; }
+  .tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:8px; background:#3b2a12; color:var(--gold); margin-left:4px; vertical-align:middle; }
+  textarea { width:100%; min-height:44px; margin-top:12px; border-radius:10px; border:1px solid var(--line); background:#140f1d; color:var(--txt); padding:8px 10px; font:inherit; }
+  .sub { margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--line); }
+  .sub:first-of-type { border-top:0; padding-top:0; }
+  .sub h4 { margin:0 0 8px; font-size:15px; }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill { border:2px solid var(--line); border-radius:20px; padding:6px 14px; cursor:pointer; background:#1b1527; font-size:14px; }
+  .pill.sel { border-color:var(--pink); background:#3a1830; }
+  .voices { display:grid; gap:8px; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); margin:6px 0 12px; }
+  .voice { background:#1b1527; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:14px; }
+  .voice b { color:var(--gold); }
+  .voice audio { width:100%; height:34px; margin-top:4px; }
+  .gallery { display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
+  .gallery img, .promo img { width:100%; border-radius:8px; cursor:zoom-in; display:block; }
+  .promo { display:grid; gap:10px; grid-template-columns:2fr 1fr; margin-bottom:10px; }
+  video { width:100%; max-width:360px; border-radius:10px; display:block; margin:8px auto; background:#000; }
+  .cap { font-size:12px; color:var(--dim); text-align:center; margin-top:3px; }
+  #bar { position:fixed; left:0; right:0; bottom:0; background:rgba(18,13,26,.97); border-top:1px solid var(--line); padding:10px 14px; }
+  #bar .in { max-width:980px; margin:0 auto; display:flex; gap:10px; align-items:center; }
+  #bar .prog { flex:1; color:var(--dim); font-size:14px; }
+  #bar button { border:0; border-radius:22px; padding:11px 20px; font:inherit; font-weight:600; cursor:pointer; background:linear-gradient(180deg,#ff86b3,#e6457f); color:#fff; }
+  #bar button.ghost { background:#2d2440; color:var(--txt); font-weight:400; }
+  #out { display:none; max-width:980px; margin:8px auto 0; white-space:pre-wrap; background:#140f1d; border:1px solid var(--line); border-radius:10px; padding:10px; font-size:13px; max-height:30vh; overflow:auto; }
+  #lb { position:fixed; inset:0; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; z-index:9; cursor:zoom-out; }
+  #lb img { max-width:96vw; max-height:94vh; }
+  .toast { position:fixed; left:50%; bottom:90px; transform:translateX(-50%); background:#2fae6b; color:#fff; padding:8px 18px; border-radius:20px; display:none; z-index:10; }
+</style>
+<style>.fields{display:grid;gap:6px;grid-template-columns:120px 1fr;font-size:14px;margin:8px 0}.fields b{color:var(--gold)}.fields span{background:#140f1d;border:1px solid var(--line);border-radius:8px;padding:4px 8px} .beats{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0}.beats td,.beats th{border:1px solid var(--line);padding:5px 6px;vertical-align:top}.beats th{color:var(--gold);background:#1b1527} .shots{display:grid;gap:8px;grid-template-columns:repeat(4,1fr)} @media(max-width:640px){.shots{grid-template-columns:repeat(2,1fr)}} .shots img{width:100%;border-radius:8px;cursor:zoom-in}</style>
+</head>
+<body>
+<main>
+<h1>命运牌 · 存款系统严谨方案（11-21，待你确认）</h1>
+<p class="lead">这一版按你上次的选择写：可以退赛；货币叫「存款」；能力每局买、用完就没；约会 / 告白 / 礼物都要花钱；不做俱乐部、不加广告；一次做完。每题点一个选项或写备注，最后点底部「复制我的选择」发回给我。</p>
+
+<section class="q"><h2>先说结论：数值怎么做到「严谨」</h2>
+<div class="why"><ul>
+<li>报名费、奖金不是拍脑袋定，而是由<b>真实玩家每一级、每一站的通过率</b>代入同一套公式算出来，算出来的结果要满足下面第 2 节的目标（低级比赛大多赚、S8 约 60% 亏）。</li>
+<li>通过率的数据：TapDB 11-21 刚登记好，每局每场的胜负已经在入库了（登记后第一个小时就存下了 110 场比赛结果）。<b>攒 3 天</b>，每一级每一站就有足够的场次。</li>
+<li>机器人模拟我已经跑完（S1～S8 各 60 局），但机器人从 S3 起几乎打不过第 5 站（真人有牌型特训、会看视频「再来一手」），用它定价会算出「S8 百分之百亏」，所以<b>机器人的数据只用来把公式跑通，不用来定价</b>。</li>
+<li>公式写在 <code>devtools/money/model.py</code>：输入通过率表，输出每一级的报名费、每站奖金、两种打法下的「期望赚多少」和「亏钱概率」。以后难度改了、玩家变强了，重新跑一次就能重新定价。</li>
+</ul></div></section>
+
+<section class="q"><h2>1. 比赛规则（定死，不随数据变）</h2>
+<div class="why"><ul>
+<li><b>报名费</b>：S1 免费；S2 起每级翻倍：S2 1 万、S3 2 万、S4 4 万、S5 8 万、S6 16 万、S7 32 万、S8 64 万。</li>
+<li><b>奖金池</b>：每赢下一站（一站 = 常规赛 + 常规赛 + 晋级赛），奖金池加一笔；越往后的站加得越多；第 8 站夺冠再加一笔夺冠奖。</li>
+<li><b>带奖金退赛</b>：第 1～7 站每赢下一站，结算页多一个按钮「带奖金退赛」，拿走整个奖金池，这一局结束。</li>
+<li><b>被淘汰</b>：只能带走奖金池的 40%（剩下的算「没拿到的名次奖金」）。</li>
+<li><b>局内金币和存款完全分开</b>：金币只在局内商店用，不换成存款。</li>
+<li><b>剧情不受影响</b>：退赛和被淘汰一样，下一局从停下的那一站接着讲（现在就是这样）。</li>
+<li><b>不卡人</b>：S1 永远免费，存款不够报名高级比赛时，就去低级比赛攒钱。</li>
+<li><b>审核用语</b>：只用「报名费、奖金、名次奖金、退赛」，不出现押注、下注、筹码、输光。</li>
+</ul></div>
+<textarea placeholder="规则上想改的（可不填）"></textarea></section>
+
+<section class="q" data-q="target" data-title="赚 / 亏目标"><h2><span class="n">2</span>赚 / 亏目标（数值要满足的条件）</h2>
+<p class="why">两种玩家都要算：<b>打到底</b>（从不退赛，只想推剧情的大多数人）和<b>会算的</b>（每站后算账决定退不退，用来防止有人在高级比赛里早退刷钱）。下表是我建议的目标，每一级的数值都要同时满足这两列。</p>
+<table class="beats">
+<tr><th>比赛</th><th>打到底：亏钱的概率</th><th>会算的：平均回本率</th><th>会算的：亏钱的概率</th></tr>
+<tr><td>S1</td><td>0%（免费）</td><td>—</td><td>0%</td></tr>
+<tr><td>S2</td><td>≤ 20%</td><td>+80%</td><td>≤ 15%</td></tr>
+<tr><td>S3</td><td>≤ 30%</td><td>+50%</td><td>≤ 22%</td></tr>
+<tr><td>S4</td><td>≈ 35%</td><td>+30%</td><td>≈ 30%</td></tr>
+<tr><td>S5</td><td>≈ 45%</td><td>+15%</td><td>≈ 38%</td></tr>
+<tr><td>S6</td><td>≈ 50%</td><td>+5%</td><td>≈ 45%</td></tr>
+<tr><td>S7</td><td>≈ 55%</td><td>−5%</td><td>≈ 52%</td></tr>
+<tr><td>S8</td><td><b>≈ 60%</b></td><td>−15%</td><td><b>≈ 60%</b></td></tr>
+</table>
+<p class="note">「平均回本率 +80%」= 交 1 万报名费，平均拿回 1.8 万。S7、S8 平均是亏的，但打得好、带对能力的人照样能赚，这就是高级比赛的刺激。</p>
+<p class="note">要注意：第 8、9 季的剧情只在 S8 打，S8 平均亏钱，就意味着后期剧情要靠前面攒的存款去推。这是这套设计有意为之，你确认一下能不能接受。</p>
+<div class="pills"><span class="pill" data-v="按这个表">按这个表</span><span class="pill" data-v="S7S8 再狠一点">S7、S8 再狠一点</span><span class="pill" data-v="整体再宽松一点">整体再宽松一点</span></div>
+<textarea placeholder="想改的目标（可不填）"></textarea></section>
+
+<section class="q"><h2>3. 公式怎么算出报名费以外的数</h2>
+<div class="why"><ul>
+<li>每一级只调两个数：<b>奖金大小</b>（整体给多少）和<b>奖金往后堆的程度</b>（前几站给得少、后几站给得多）。前几站谁都能过，如果前几站奖金给多了，高级比赛里「过两站就退」就成了刷钱法子；所以越高级，奖金越往后堆。</li>
+<li>程序把这两个数从小到大全部试一遍，挑最贴近第 2 节目标的一组，然后核对：会算的玩家在任何一级都刷不了钱（S7、S8 的平均回本率必须是负的）。</li>
+<li>输出：每一级「报名费 / 第 1～8 站各加多少奖金 / 夺冠奖 / 两种打法的期望和亏钱概率」，做成表格发你确认。</li>
+<li>上线后每周用新数据重算一次。玩家整体变强，表就跟着收紧；变化太大时我先发你看再改。</li>
+</ul></div></section>
+
+<section class="q" data-q="abil" data-title="能力包装"><h2><span class="n">4</span>能力的包装：「场边助阵」——请她来当这一局的教练</h2>
+<p class="why">报名之后、开打之前，从认识的女主里请最多 2 位来场边助阵，付她们的出场费。每位女主一个招牌能力，和她的人设对得上；还没认识的女主不显示。请她助阵也会涨一点羁绊，所以能力和恋爱线互相带动。9 位里 7 个改打法、2 个跟赚钱挂钩。每个点「要」或「不要」。</p>
+<div class="sub" data-sq="夏洛特·推理" data-title="夏洛特 · 推理"><h4>夏洛特 · 推理（侦探）—— 一直看得到牌库接下来的 5 张</h4>
+<p class="note">换牌前就知道会摸到什么。配合同花、顺子、换牌触发的装备。</p>
+<div class="pills"><span class="pill" data-v="要">要</span><span class="pill" data-v="不要">不要</span></div></div>
+<div class="sub" data-sq="英格丽德·整队" data-title="英格丽德 · 整队"><h4>英格丽德 · 整队（军人作风）—— 开局选 2 个点数，这 8 张牌移出牌库</h4>
+<p class="note">牌库变小，对子、三条、同花更好凑。配合人头牌、高牌、特训过的牌型。</p>
+<div class="pills"><span class="pill" data-v="要">要</span><span class="pill" data-v="不要">不要</span></div></div>
+<div class="sub" data-sq="卡米耶·改色" data-title="卡米耶 · 改色"><h4>卡米耶 · 改色（画家）—— 每场 1 次：把 1 张手牌改成任意花色（永久）</h4>
+<p class="note">同花差一张就补上，牌库越打越同色。配合同花流、按花色加倍率的装备。</p>
+<div class="pills"><span class="pill" data-v="要">要</span><span class="pill" data-v="不要">不要</span></div></div>
+<div class="sub" data-sq="薇拉·回收" data-title="薇拉 · 回收"><h4>薇拉 · 回收（冷静）—— 每场 1 次：从这场换掉的牌里拿回最多 3 张</h4>
+<p class="note">敢大胆换牌。配合换牌就加倍率 / 加金币的装备。</p>
+<div class="pills"><span class="pill" data-v="要">要</span><span class="pill" data-v="不要">不要</span></div></div>
+<div class="sub" data-sq="麦迪逊·连击" data-title="麦迪逊 · 连击"><h4>麦迪逊 · 连击（健身狂）—— 连续打同一种牌型，倍率每次再 ×0.5 往上叠，换牌型清零</h4>
+<p class="note">专心养一种牌型。配合牌型特训、牌型升级、单牌型装备，最容易打出天文数字。</p>
+<div class="pills"><span class="pill" data-v="要">要</span><span class="pill" data-v="不要">不要</span></div></div>
+<div class="sub" data-sq="智雅·复刻" data-title="智雅 · 复刻"><h4>智雅 · 复刻（偶像）—— 每个赛段 1 次：复制 1 张手牌放进牌库（强化、印章、特效全带上）</h4>
+<p class="note">好牌越复制越多。配合钢铁 / 玻璃 / 幸运牌、红色印章、四条。</p>
+<div class="pills"><span class="pill" data-v="要">要</span><span class="pill" data-v="不要">不要</span></div></div>
+<div class="sub" data-sq="绫香·女王令" data-title="绫香 · 女王令"><h4>绫香 · 女王令（大小姐）—— 每个赛段 1 次：让这场晋级赛的特别规则失效</h4>
+<p class="note">不怕克制自己套路的对手，敢走极端路线。级别越高越值钱。</p>
+<div class="pills"><span class="pill" data-v="要">要</span><span class="pill" data-v="不要">不要</span></div></div>
+<div class="sub" data-sq="莱拉·赞助" data-title="莱拉 · 赞助（赚钱）"><h4>莱拉 · 赞助（迪拜富豪）【赚钱】—— 这一局每站奖金 +30%</h4>
+<p class="note">打得越远赚得越多。适合有把握打到后面的局。</p>
+<div class="pills"><span class="pill" data-v="要">要</span><span class="pill" data-v="不要">不要</span></div></div>
+<div class="sub" data-sq="晚晴·保底" data-title="晚晴 · 保底（赚钱）"><h4>晚晴 · 保底（俱乐部老板娘管账）【赚钱】—— 这一局被淘汰也能带走全部奖金池（不打 4 折）</h4>
+<p class="note">高级比赛的「保险」，适合想冲到底又怕亏的局。</p>
+<div class="pills"><span class="pill" data-v="要">要</span><span class="pill" data-v="不要">不要</span></div></div>
+<textarea placeholder="想改的能力或人选（可不填）"></textarea></section>
+
+<section class="q"><h2>5. 出场费怎么定（同样按公式）</h2>
+<div class="why"><ul>
+<li>出场费按报名费的比例收，所以越高级越贵，S1 收 S2 的价。</li>
+<li><b>赚钱类</b>（赞助、保底）可以直接算出「平均多赚多少」：出场费 = 这个数的 60%。会用的人划算，乱用的人亏，正好有取舍。</li>
+<li><b>打法类</b>：先把 7 个能力做进游戏，让机器人在每一级「带 / 不带」各打一批，量出它把每站通过率提高了多少，再代进公式换算成「平均多赚多少」，同样收 60%。能力太强（比如一用就能让 S8 稳赚）就削弱效果，不只是加价。</li>
+<li>一局最多请 2 位，避免几个能力叠加后高级比赛也稳赚。</li>
+</ul></div></section>
+
+<section class="q" data-q="love" data-title="约会 / 告白 / 礼物的价格"><h2><span class="n">6</span>约会、告白、礼物的价格</h2>
+<p class="why">价格按「要打几局才买得起」来定：1 局 = 玩家在自己能打赢的级别里平均一局净赚多少。等通过率和每局时长（TapDB 里一局结束有记录）出来，再换算成具体金额。</p>
+<table class="beats">
+<tr><th>花钱的地方</th><th>大约要打几局</th><th>说明</th></tr>
+<tr><td>普通礼物</td><td>0.5～1 局</td><td>礼物商店买；任务不再送礼物，改成给存款；心意分上限仍是 100</td></tr>
+<tr><td>稀有礼物</td><td>3～5 局</td><td></td></tr>
+<tr><td>日常约会：咖啡馆 / 西餐厅 / 天台夜景 / 私人游艇</td><td>1 / 3 / 6 / 15 局</td><td>每位女主每天一次（这就是「花时间」），越贵心意和羁绊涨得越多，每档一段新台词</td></tr>
+<tr><td>恋人篇约会① / 约会②</td><td>5 / 8 局</td><td>剧情和触发条件不变，多了付钱这一步</td></tr>
+<tr><td>告白戒指</td><td>25 局</td><td>告白局之前买一次，失败了戒指还在</td></tr>
+</table>
+<div class="pills"><span class="pill" data-v="按这个">按这个</span><span class="pill" data-v="整体便宜一半">整体便宜一半</span><span class="pill" data-v="整体贵一倍">整体贵一倍</span></div>
+<textarea placeholder="备注（可不填）"></textarea></section>
+
+<section class="q"><h2>7. 老玩家和存档</h2>
+<div class="why"><ul>
+<li>更新后第一次进游戏，按以前打过的每一级、每一站（存档里有记录）补发「历年奖金」，按新奖金表的 50% 算。</li>
+<li>已经走完的约会、告白不再收钱；背包里的礼物保留。</li>
+<li>存款跟着云存档走，换手机不丢；排行榜加一个「存款榜」（自动就有，不用另外开）。</li>
+</ul></div></section>
+
+<section class="q" data-q="name" data-title="游戏名"><h2><span class="n">8</span>游戏名（你选了「命运牌：从零到首富」，这是更多备选）</h2>
+<div class="opts">
+<div class="opt" data-v="命运牌：从零到首富"><h3>命运牌：从零到首富</h3><p>你上次选的。</p></div>
+<div class="opt" data-v="命运牌：失业后我打牌成了首富"><h3>命运牌：失业后我打牌成了首富</h3><p>对上开场「被裁员」，有反差。</p></div>
+<div class="opt" data-v="命运牌：身无分文到亿万身家"><h3>命运牌：身无分文到亿万身家</h3><p>起点终点都是数字，和叠倍率的爽感一致。</p></div>
+<div class="opt" data-v="命运牌：一手烂牌，打成首富"><h3>命运牌：一手烂牌，打成首富</h3><p>「烂牌」同时扣牌局和人生。</p></div>
+<div class="opt" data-v="命运牌：九个女神陪我逆袭首富"><h3>命运牌：九个女神陪我逆袭首富</h3><p>恋爱和赚钱都点到，点击率高；宣传图要配不擦边的女主图。</p></div>
+<div class="opt" data-v="命运牌：存款为零的牌王"><h3>命运牌：存款为零的牌王</h3><p>短，反差强，「存款」呼应新货币。</p></div>
+</div>
+<p class="note">「打牌成了首富」这类说法，审核时可能被联想成赌博；提审前我会先过一遍审核清单，必要时备一个不带「打牌」的版本。</p>
+<textarea placeholder="想要的名字（可不填）"></textarea></section>
+
+<section class="q"><h2>9. 时间安排（一次做完）</h2>
+<div class="why"><ul>
+<li><b>第 1～3 天</b>：等真实数据的同时，先做不依赖数值的部分：存款和报名界面、退赛按钮、9 个助阵能力进引擎、礼物商店、约会收费、老玩家补发。能力做好后让机器人跑「带 / 不带」对比。</li>
+<li><b>第 4 天</b>：用 3 天的真实数据跑公式，出完整价目表（报名费、各站奖金、出场费、约会价格）发你确认。</li>
+<li><b>第 5～8 天</b>：按确认的价目表填进游戏，写日常约会的新台词，整体模拟检查（不看视频也能推进、存款不会多到花不完或少到推不动），截图发你，你点头再提审。</li>
+</ul></div></section>
+</main>
+<div id="bar"><div class="in"><span class="prog" id="prog"></span><button class="ghost" id="reset">清空</button><button id="copy">复制我的选择</button></div><pre id="out"></pre></div>
+<div id="lb"><img></div><div class="toast" id="toast"></div>
+<script>
+const KEY = "jg-money-1121";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+const qs = [...document.querySelectorAll("section.q")];
+
+function bindGroup(container, id, itemSel) {
+  const items = [...container.querySelectorAll(itemSel)];
+  items.forEach(el => {
+    if (state[id] === el.dataset.v) el.classList.add("sel");
+    el.addEventListener("click", e => {
+      if (e.target.tagName === "IMG") return;
+      const on = !el.classList.contains("sel");
+      items.forEach(x => x.classList.remove("sel"));
+      if (on) { el.classList.add("sel"); state[id] = el.dataset.v; } else delete state[id];
+      save(); render();
+    });
+  });
+}
+qs.forEach(s => {
+  const id = s.dataset.q;
+  if (s.querySelector(":scope > .opts .opt[data-v]")) bindGroup(s, id, ".opt[data-v]");
+  s.querySelectorAll(".sub").forEach(sub => bindGroup(sub, id + "." + sub.dataset.sq, ".pill"));
+  const tp = s.querySelector(":scope > .pills"); if (tp) bindGroup(tp, id, ".pill");
+  const ta = s.querySelector(":scope > textarea");
+  if (ta) { ta.value = state[id + ".note"] || ""; ta.addEventListener("input", () => { state[id + ".note"] = ta.value; save(); render(); }); }
+});
+
+function lines() {
+  const out = ["【命运牌 · 存款系统 11-21】"];
+  let n = 0, done = 0;
+  qs.forEach((s, i) => {
+    if (!s.querySelector("[data-v]")) return; // (information only)
+    const id = s.dataset.q, t = s.dataset.title, subs = [...s.querySelectorAll(".sub")];
+    if (subs.length) {
+      out.push(`${s.querySelector(".n").textContent}. ${t}：`);
+      subs.forEach(sub => { n++; const v = state[id + "." + sub.dataset.sq]; if (v) done++; out.push(`   - ${sub.dataset.title}：${v || "（未选）"}`); });
+    } else { n++; const v = state[id]; if (v) done++; out.push(`${s.querySelector(".n").textContent}. ${t}：${v || "（未选）"}`); }
+    const note = (state[id + ".note"] || "").trim();
+    if (note) out.push(`   备注：${note}`);
+  });
+  return { text: out.join("\n"), n, done };
+}
+function render() { const r = lines(); document.getElementById("prog").textContent = `已选 ${r.done} / ${r.n} 项`; }
+render();
+
+document.getElementById("copy").onclick = async () => {
+  const { text } = lines(), out = document.getElementById("out");
+  out.style.display = "block"; out.textContent = text;
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {}
+  if (!ok) { const r = document.createRange(); r.selectNodeContents(out); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { ok = document.execCommand("copy"); } catch (e) {} }
+  const t = document.getElementById("toast"); t.textContent = ok ? "已复制，发回对话里给我就行" : "没能自动复制，请长按下面的文字复制";
+  t.style.display = "block"; setTimeout(() => t.style.display = "none", 2200);
+};
+document.getElementById("reset").onclick = () => {
+  if (!confirm("清空这页上所有的选择和备注？")) return;
+  localStorage.removeItem(KEY); location.reload();
+};
+const lb = document.getElementById("lb");
+document.querySelectorAll("main img").forEach(img => img.addEventListener("click", () => { lb.querySelector("img").src = img.src; lb.style.display = "flex"; }));
+lb.onclick = () => lb.style.display = "none";
+</script>
+</body>
+</html>
