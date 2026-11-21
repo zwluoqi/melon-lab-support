@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>俱乐部二楼方案（11-21）</title>
+<style>
+  :root { --bg:#16121f; --card:#221b30; --line:#3a2f50; --gold:#f2c46d; --pink:#ff6fa3; --txt:#ece6f5; --dim:#a99cbf; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:18px 14px 160px; }
+  h1 { font-size:22px; margin:6px 0 4px; color:var(--gold); }
+  .lead { color:var(--dim); margin:0 0 18px; }
+  section.q { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:0 0 18px; }
+  section.q h2 { font-size:18px; margin:0 0 6px; }
+  section.q h2 .n { display:inline-block; min-width:26px; height:26px; line-height:26px; text-align:center; border-radius:50%; background:var(--gold); color:#2a1d07; font-size:14px; margin-right:6px; }
+  .why { color:var(--dim); margin:0 0 12px; font-size:14px; }
+  .why ul { margin:4px 0; padding-left:20px; }
+  .opts { display:grid; gap:12px; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); }
+  .opts.wide { grid-template-columns:1fr; }
+  .opts.two { grid-template-columns:repeat(2, 1fr); gap:8px; }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  .row { display:grid; gap:6px; grid-template-columns:2.2fr 1.25fr 0.72fr; align-items:start; }
+  .row img { width:100%; }
+  .gallery.four { grid-template-columns:repeat(4, 1fr); }
+  .note { font-size:13px; color:var(--dim); margin:6px 0 0; }
+  @media (max-width:640px) {
+    .opts.three .opt, .opts.two .opt { padding:6px; }
+    .opts.three .opt h3, .opts.two .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p, .opts.two .opt p { font-size:12px; line-height:1.5; }
+    .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .gallery.four { grid-template-columns:repeat(2, 1fr); }
+  }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  @media (max-width:640px) {
+    .opts.three .opt { padding:6px; }
+    .opts.three .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p { font-size:12px; line-height:1.5; }
+    .opts.three .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .opts.three .opt.ref::before { font-size:11px; }
+    .opts.three .tag { display:block; width:max-content; margin:2px 0 0; }
+  }
+  .opt { position:relative; border:2px solid var(--line); border-radius:12px; padding:10px; background:#1b1527; cursor:pointer; transition:border-color .15s, transform .15s; }
+  .opt:hover { border-color:#6b5a8f; }
+  .opt.sel { border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,111,163,.25); }
+  .opt.sel::after { content:"✓ 已选"; position:absolute; top:8px; right:8px; background:var(--pink); color:#fff; font-size:12px; padding:2px 8px; border-radius:10px; }
+  .opt.ref { cursor:default; opacity:.85; border-style:dashed; }
+  .opt.ref::before { content:"现在的样子（参考）"; display:block; font-size:12px; color:var(--dim); margin-bottom:6px; }
+  .opt img { width:100%; border-radius:8px; display:block; cursor:zoom-in; background:#000; }
+  .opt h3 { font-size:16px; margin:8px 0 2px; color:var(--gold); }
+  .opt p { margin:2px 0; font-size:14px; color:#d8d0e6; }
+  .tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:8px; background:#3b2a12; color:var(--gold); margin-left:4px; vertical-align:middle; }
+  textarea { width:100%; min-height:44px; margin-top:12px; border-radius:10px; border:1px solid var(--line); background:#140f1d; color:var(--txt); padding:8px 10px; font:inherit; }
+  .sub { margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--line); }
+  .sub:first-of-type { border-top:0; padding-top:0; }
+  .sub h4 { margin:0 0 8px; font-size:15px; }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill { border:2px solid var(--line); border-radius:20px; padding:6px 14px; cursor:pointer; background:#1b1527; font-size:14px; }
+  .pill.sel { border-color:var(--pink); background:#3a1830; }
+  .voices { display:grid; gap:8px; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); margin:6px 0 12px; }
+  .voice { background:#1b1527; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:14px; }
+  .voice b { color:var(--gold); }
+  .voice audio { width:100%; height:34px; margin-top:4px; }
+  .gallery { display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
+  .gallery img, .promo img { width:100%; border-radius:8px; cursor:zoom-in; display:block; }
+  .promo { display:grid; gap:10px; grid-template-columns:2fr 1fr; margin-bottom:10px; }
+  video { width:100%; max-width:360px; border-radius:10px; display:block; margin:8px auto; background:#000; }
+  .cap { font-size:12px; color:var(--dim); text-align:center; margin-top:3px; }
+  #bar { position:fixed; left:0; right:0; bottom:0; background:rgba(18,13,26,.97); border-top:1px solid var(--line); padding:10px 14px; }
+  #bar .in { max-width:980px; margin:0 auto; display:flex; gap:10px; align-items:center; }
+  #bar .prog { flex:1; color:var(--dim); font-size:14px; }
+  #bar button { border:0; border-radius:22px; padding:11px 20px; font:inherit; font-weight:600; cursor:pointer; background:linear-gradient(180deg,#ff86b3,#e6457f); color:#fff; }
+  #bar button.ghost { background:#2d2440; color:var(--txt); font-weight:400; }
+  #out { display:none; max-width:980px; margin:8px auto 0; white-space:pre-wrap; background:#140f1d; border:1px solid var(--line); border-radius:10px; padding:10px; font-size:13px; max-height:30vh; overflow:auto; }
+  #lb { position:fixed; inset:0; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; z-index:9; cursor:zoom-out; }
+  #lb img { max-width:96vw; max-height:94vh; }
+  .toast { position:fixed; left:50%; bottom:90px; transform:translateX(-50%); background:#2fae6b; color:#fff; padding:8px 18px; border-radius:20px; display:none; z-index:10; }
+</style>
+<style>.fields{display:grid;gap:6px;grid-template-columns:120px 1fr;font-size:14px;margin:8px 0}.fields b{color:var(--gold)}.fields span{background:#140f1d;border:1px solid var(--line);border-radius:8px;padding:4px 8px} .beats{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0}.beats td,.beats th{border:1px solid var(--line);padding:5px 6px;vertical-align:top}.beats th{color:var(--gold);background:#1b1527} .shots{display:grid;gap:8px;grid-template-columns:repeat(4,1fr)} @media(max-width:640px){.shots{grid-template-columns:repeat(2,1fr)}} .shots img{width:100%;border-radius:8px;cursor:zoom-in}</style>
+</head>
+<body>
+<style>.three{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}@media(max-width:640px){.three{grid-template-columns:1fr}}.three img{width:100%;border-radius:10px;cursor:zoom-in}.three p{font-size:13px;margin:6px 0 0}</style>
+<main>
+<h1>俱乐部二楼：怎么在原来的大厅里「长」出来（11-21）</h1>
+<p class="lead">现在的大厅是一间<b>玻璃穹顶花园厅</b>，往上就是穹顶和天空，直接往上接一层楼在结构上说不通。真实建筑里这种玻璃温室有现成的做法：<b>英国邱园棕榈温室</b>那样，在穹顶起拱的那一圈铁梁上架一圈<b>环形回廊</b>，用一座铁艺旋转楼梯接上去。我按这个思路出了效果图。</p>
+
+<section class="q"><h2>效果图</h2>
+<div class="three">
+<div><img src="img/now.jpg"><p><b>现在的大厅</b></p></div>
+<div><img src="img/hall.jpg"><p><b>大厅（改）</b>：只加了两样东西：左后角一座白金色铁艺旋转楼梯，穹顶起拱处一圈带栏杆和小灯的回廊。九位女主的位置、动作不变（正式做时，人物部分会原样贴回原图，保证一个像素都不变）。</p></div>
+<div><img src="img/gallery.jpg"><p><b>二楼回廊</b>：站在回廊上，栏杆在脚下，水晶吊灯就在眼前，穹顶贴着头顶；从栏杆往下看，正是大厅的牌桌和沙发。左边是楼梯口。新女主（天山明珠）倚着栏杆。</p></div>
+</div></section>
+
+<section class="q"><h2>为什么说结构上合理</h2>
+<div class="why"><ul>
+<li><b>同一栋房子</b>：回廊图里往下看到的，就是大厅那张图里的牌桌、沙发、棕榈和海景；大厅图里抬头，也能看到这圈回廊和楼梯。两张图互相对得上。</li>
+<li><b>有路上去</b>：楼梯画在大厅里，玩家能看到「这里能上楼」，不是凭空多出一个房间。</li>
+<li><b>高度对</b>：回廊在穹顶起拱的那一圈梁上，大约 6～7 米高，正好是二楼的高度；再往上就是玻璃穹顶，不会再出现奇怪的楼层。</li>
+<li><b>以后还能放人</b>：回廊是一整圈，这张图只画了右半圈；以后出新角色，画左半圈就行，大厅不用再动。</li>
+</ul></div></section>
+
+<section class="q"><h2>怎么操作</h2>
+<div class="why"><ul>
+<li>大厅里，<b>回廊上能看到一个小小的她</b>，头顶有名字牌（和大厅里其他人一样）：一眼知道楼上有人。</li>
+<li><b>往上滑</b>（或点楼梯、点她的名字牌）：镜头顺着楼梯往上摇，进到二楼回廊；<b>往下滑</b>或点左上角「回大厅」回来。</li>
+<li>左右滑仍然是「家 ↔ 俱乐部」，不冲突。</li>
+<li>二楼只有<b>打到 S8 夺冠、解锁 S9</b> 以后才开放；之前回廊是空的、楼梯口拉着一条丝绒绳（工作室规定：只露下一个，不剧透她是谁）。</li>
+<li>底部的按钮栏（开启新比赛、图鉴……）在二楼也一样，不用来回切。</li>
+</ul></div></section>
+
+<section class="q" data-q="hall" data-title="二楼方案"><h2><span class="n">1</span>二楼按这个做吗</h2>
+<div class="pills"><span class="pill" data-v="按这个做">按这个做</span><span class="pill" data-v="要调整（看备注）">要调整（写在备注里）</span></div>
+<textarea placeholder="比如：楼梯换到右边、回廊颜色、她的位置"></textarea></section>
+
+<section class="q"><h2>已经定下的（你上一轮的选择）</h2>
+<div class="why"><ul>
+<li>新女主：<b>C 天山明珠</b>：珠宝世家千金，浅棕大波浪、灰绿眼睛，高贵清冷；名字暂定阿依古丽（古丽）。</li>
+<li>美术：<b>全都要</b>（4 套衣服、2 倍分辨率、会眨眼呼吸、12 张 CG、全程配音，音色先给你试听）。</li>
+<li>S9：<b>分数门槛 2 倍（第 8 站 40 万），不加新负面</b>；S8 夺冠后解锁。</li>
+<li>顺序：<b>先上新女主 + S9</b>，存款版本随后。</li>
+<li>做的过程中会分几次发图给你确认：先定脸和四套衣服，再出表情和 CG，最后发大厅和二楼的游戏截图。</li>
+</ul></div></section>
+</main>
+<div id="bar"><div class="in"><span class="prog" id="prog"></span><button class="ghost" id="reset">清空</button><button id="copy">复制我的选择</button></div><pre id="out"></pre></div>
+<div id="lb"><img></div><div class="toast" id="toast"></div>
+<script>
+const KEY = "jg-hall-1121";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+const qs = [...document.querySelectorAll("section.q")];
+
+function bindGroup(container, id, itemSel) {
+  const items = [...container.querySelectorAll(itemSel)];
+  items.forEach(el => {
+    if (state[id] === el.dataset.v) el.classList.add("sel");
+    el.addEventListener("click", e => {
+      if (e.target.tagName === "IMG") return;
+      const on = !el.classList.contains("sel");
+      items.forEach(x => x.classList.remove("sel"));
+      if (on) { el.classList.add("sel"); state[id] = el.dataset.v; } else delete state[id];
+      save(); render();
+    });
+  });
+}
+qs.forEach(s => {
+  const id = s.dataset.q;
+  if (s.querySelector(":scope > .opts .opt[data-v]")) bindGroup(s, id, ".opt[data-v]");
+  s.querySelectorAll(".sub").forEach(sub => bindGroup(sub, id + "." + sub.dataset.sq, ".pill"));
+  const tp = s.querySelector(":scope > .pills"); if (tp) bindGroup(tp, id, ".pill");
+  const ta = s.querySelector(":scope > textarea");
+  if (ta) { ta.value = state[id + ".note"] || ""; ta.addEventListener("input", () => { state[id + ".note"] = ta.value; save(); render(); }); }
+});
+
+function lines() {
+  const out = ["【俱乐部二楼 11-21】"];
+  let n = 0, done = 0;
+  qs.forEach((s, i) => {
+    if (!s.querySelector("[data-v]")) return; // (information only)
+    const id = s.dataset.q, t = s.dataset.title, subs = [...s.querySelectorAll(".sub")];
+    if (subs.length) {
+      out.push(`${s.querySelector(".n").textContent}. ${t}：`);
+      subs.forEach(sub => { n++; const v = state[id + "." + sub.dataset.sq]; if (v) done++; out.push(`   - ${sub.dataset.title}：${v || "（未选）"}`); });
+    } else { n++; const v = state[id]; if (v) done++; out.push(`${s.querySelector(".n").textContent}. ${t}：${v || "（未选）"}`); }
+    const note = (state[id + ".note"] || "").trim();
+    if (note) out.push(`   备注：${note}`);
+  });
+  return { text: out.join("\n"), n, done };
+}
+function render() { const r = lines(); document.getElementById("prog").textContent = `已选 ${r.done} / ${r.n} 项`; }
+render();
+
+document.getElementById("copy").onclick = async () => {
+  const { text } = lines(), out = document.getElementById("out");
+  out.style.display = "block"; out.textContent = text;
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {}
+  if (!ok) { const r = document.createRange(); r.selectNodeContents(out); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { ok = document.execCommand("copy"); } catch (e) {} }
+  const t = document.getElementById("toast"); t.textContent = ok ? "已复制，发回对话里给我就行" : "没能自动复制，请长按下面的文字复制";
+  t.style.display = "block"; setTimeout(() => t.style.display = "none", 2200);
+};
+document.getElementById("reset").onclick = () => {
+  if (!confirm("清空这页上所有的选择和备注？")) return;
+  localStorage.removeItem(KEY); location.reload();
+};
+const lb = document.getElementById("lb");
+document.querySelectorAll("main img").forEach(img => img.addEventListener("click", () => { lb.querySelector("img").src = img.src; lb.style.display = "flex"; }));
+lb.onclick = () => lb.style.display = "none";
+</script>
+</body>
+</html>
