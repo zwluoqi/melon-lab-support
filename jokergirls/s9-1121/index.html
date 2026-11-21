@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>命运牌 · 新女主 + 大厅 + S9（11-21）</title>
+<style>
+  :root { --bg:#16121f; --card:#221b30; --line:#3a2f50; --gold:#f2c46d; --pink:#ff6fa3; --txt:#ece6f5; --dim:#a99cbf; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:18px 14px 160px; }
+  h1 { font-size:22px; margin:6px 0 4px; color:var(--gold); }
+  .lead { color:var(--dim); margin:0 0 18px; }
+  section.q { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:0 0 18px; }
+  section.q h2 { font-size:18px; margin:0 0 6px; }
+  section.q h2 .n { display:inline-block; min-width:26px; height:26px; line-height:26px; text-align:center; border-radius:50%; background:var(--gold); color:#2a1d07; font-size:14px; margin-right:6px; }
+  .why { color:var(--dim); margin:0 0 12px; font-size:14px; }
+  .why ul { margin:4px 0; padding-left:20px; }
+  .opts { display:grid; gap:12px; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); }
+  .opts.wide { grid-template-columns:1fr; }
+  .opts.two { grid-template-columns:repeat(2, 1fr); gap:8px; }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  .row { display:grid; gap:6px; grid-template-columns:2.2fr 1.25fr 0.72fr; align-items:start; }
+  .row img { width:100%; }
+  .gallery.four { grid-template-columns:repeat(4, 1fr); }
+  .note { font-size:13px; color:var(--dim); margin:6px 0 0; }
+  @media (max-width:640px) {
+    .opts.three .opt, .opts.two .opt { padding:6px; }
+    .opts.three .opt h3, .opts.two .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p, .opts.two .opt p { font-size:12px; line-height:1.5; }
+    .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .gallery.four { grid-template-columns:repeat(2, 1fr); }
+  }
+  .opts.three { grid-template-columns:repeat(3, 1fr); gap:8px; }
+  @media (max-width:640px) {
+    .opts.three .opt { padding:6px; }
+    .opts.three .opt h3 { font-size:13px; line-height:1.35; }
+    .opts.three .opt p { font-size:12px; line-height:1.5; }
+    .opts.three .opt.sel::after { top:4px; right:4px; font-size:11px; padding:1px 6px; }
+    .opts.three .opt.ref::before { font-size:11px; }
+    .opts.three .tag { display:block; width:max-content; margin:2px 0 0; }
+  }
+  .opt { position:relative; border:2px solid var(--line); border-radius:12px; padding:10px; background:#1b1527; cursor:pointer; transition:border-color .15s, transform .15s; }
+  .opt:hover { border-color:#6b5a8f; }
+  .opt.sel { border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,111,163,.25); }
+  .opt.sel::after { content:"✓ 已选"; position:absolute; top:8px; right:8px; background:var(--pink); color:#fff; font-size:12px; padding:2px 8px; border-radius:10px; }
+  .opt.ref { cursor:default; opacity:.85; border-style:dashed; }
+  .opt.ref::before { content:"现在的样子（参考）"; display:block; font-size:12px; color:var(--dim); margin-bottom:6px; }
+  .opt img { width:100%; border-radius:8px; display:block; cursor:zoom-in; background:#000; }
+  .opt h3 { font-size:16px; margin:8px 0 2px; color:var(--gold); }
+  .opt p { margin:2px 0; font-size:14px; color:#d8d0e6; }
+  .tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:8px; background:#3b2a12; color:var(--gold); margin-left:4px; vertical-align:middle; }
+  textarea { width:100%; min-height:44px; margin-top:12px; border-radius:10px; border:1px solid var(--line); background:#140f1d; color:var(--txt); padding:8px 10px; font:inherit; }
+  .sub { margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--line); }
+  .sub:first-of-type { border-top:0; padding-top:0; }
+  .sub h4 { margin:0 0 8px; font-size:15px; }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill { border:2px solid var(--line); border-radius:20px; padding:6px 14px; cursor:pointer; background:#1b1527; font-size:14px; }
+  .pill.sel { border-color:var(--pink); background:#3a1830; }
+  .voices { display:grid; gap:8px; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); margin:6px 0 12px; }
+  .voice { background:#1b1527; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:14px; }
+  .voice b { color:var(--gold); }
+  .voice audio { width:100%; height:34px; margin-top:4px; }
+  .gallery { display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
+  .gallery img, .promo img { width:100%; border-radius:8px; cursor:zoom-in; display:block; }
+  .promo { display:grid; gap:10px; grid-template-columns:2fr 1fr; margin-bottom:10px; }
+  video { width:100%; max-width:360px; border-radius:10px; display:block; margin:8px auto; background:#000; }
+  .cap { font-size:12px; color:var(--dim); text-align:center; margin-top:3px; }
+  #bar { position:fixed; left:0; right:0; bottom:0; background:rgba(18,13,26,.97); border-top:1px solid var(--line); padding:10px 14px; }
+  #bar .in { max-width:980px; margin:0 auto; display:flex; gap:10px; align-items:center; }
+  #bar .prog { flex:1; color:var(--dim); font-size:14px; }
+  #bar button { border:0; border-radius:22px; padding:11px 20px; font:inherit; font-weight:600; cursor:pointer; background:linear-gradient(180deg,#ff86b3,#e6457f); color:#fff; }
+  #bar button.ghost { background:#2d2440; color:var(--txt); font-weight:400; }
+  #out { display:none; max-width:980px; margin:8px auto 0; white-space:pre-wrap; background:#140f1d; border:1px solid var(--line); border-radius:10px; padding:10px; font-size:13px; max-height:30vh; overflow:auto; }
+  #lb { position:fixed; inset:0; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; z-index:9; cursor:zoom-out; }
+  #lb img { max-width:96vw; max-height:94vh; }
+  .toast { position:fixed; left:50%; bottom:90px; transform:translateX(-50%); background:#2fae6b; color:#fff; padding:8px 18px; border-radius:20px; display:none; z-index:10; }
+</style>
+<style>.fields{display:grid;gap:6px;grid-template-columns:120px 1fr;font-size:14px;margin:8px 0}.fields b{color:var(--gold)}.fields span{background:#140f1d;border:1px solid var(--line);border-radius:8px;padding:4px 8px} .beats{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0}.beats td,.beats th{border:1px solid var(--line);padding:5px 6px;vertical-align:top}.beats th{color:var(--gold);background:#1b1527} .shots{display:grid;gap:8px;grid-template-columns:repeat(4,1fr)} @media(max-width:640px){.shots{grid-template-columns:repeat(2,1fr)}} .shots img{width:100%;border-radius:8px;cursor:zoom-in}</style>
+</head>
+<body>
+<style>.looks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}@media(max-width:640px){.looks{grid-template-columns:1fr}}.looks img,.opt img{width:100%;border-radius:10px;cursor:zoom-in}.face{display:flex;gap:6px;margin-top:6px}.face img{width:50%}</style>
+<main>
+<h1>新女主 + 大厅 + S9 赛季（11-21，待你确认）</h1>
+<p class="lead">三件事：① 新加一位中国女主（新疆姑娘），美术标准比现在九位高一档；② 大厅装不下第 10 个人，换成更大的大厅；③ 开 S9，比 S8 难一级。每题点一个选项，最后点「复制我的选择」发回给我。</p>
+
+<section class="q"><h2>先说明一点：不能照着古力娜扎本人画</h2>
+<div class="why">画得像某位真实明星，会碰到<b>肖像权</b>问题，TapTap 审核也可能因为「使用明星形象」驳回，宣传时更说不清。所以做法是：<b>取她那一类的美</b>——新疆姑娘、深邃大眼、高鼻梁、明艳大气——但脸是原创的，名字、提示词里也不出现明星的名字。下面三张就是按这个思路出的样图。</div></section>
+
+<section class="q" data-q="look" data-title="新女主形象"><h2><span class="n">1</span>新女主：选一个形象方向</h2>
+<p class="why">暂定名 <b>阿依古丽</b>（维吾尔语「月亮花」），昵称 <b>古丽</b>，24 岁，中国新疆。喜欢的牌型是现在没人用的<b>五条</b>（S9 难度高，配一个最难打出的牌型）。三张是同一个人设方向的不同造型，选定后，脸就按选中的这张固定下来。</p>
+<div class="opts">
+<div class="opt" data-v="A 丝路舞姬"><h3>A · 丝路舞姬</h3><img src="img/look_a.jpg"><p>喀什舞团首席舞者，黑色长卷发、绿眼睛，紫金色艾德莱斯绸舞裙。人设：<b>热情直球</b>，喜欢就直说，跳舞时全场都在看她。和现在九位（傲娇、甜妹、冰山……）都不重样。</p></div>
+<div class="opt" data-v="B 草原玫瑰"><h3>B · 草原玫瑰</h3><img src="img/look_b.jpg"><p>伊犁马场长大的骑手，棕色细辫高马尾、小花帽、刺绣马甲配马靴。人设：<b>野性飒爽</b>，嘴上不饶人，比谁都护短。和麦迪逊（金发辣妹）有点接近。</p></div>
+<div class="opt" data-v="C 天山明珠"><h3>C · 天山明珠</h3><img src="img/look_c.jpg"><p>珠宝世家的千金，浅棕大波浪、灰绿眼睛，白色长裙配紫金刺绣披风。人设：<b>高贵清冷</b>，最难追。和莱拉（富婆女王）、薇拉（冰山）有点重。</p></div>
+</div>
+<p class="note">推荐 A：最有新疆味，第一眼就和现在九位区分开；舞者的身份也好写剧情、好出 CG（舞台、夜市、葡萄架下）。比赛装、约会装、心动装、民族盛装四套衣服都按选中的形象来画。</p>
+<textarea placeholder="备注：比如「A 的脸 + C 的发色」「名字换成…」"></textarea></section>
+
+<section class="q" data-q="std" data-title="美术标准"><h2><span class="n">2</span>「比现在的女主高一档」具体高在哪</h2>
+<table class="beats">
+<tr><th></th><th>现在九位</th><th>新女主</th></tr>
+<tr><td>立绘</td><td>3 套衣服，13 张；1024×1536，中等画质</td><td><b>4 套衣服</b>（多一套民族盛装），约 18 张；<b>2 倍分辨率</b>，最高画质，脸和手逐张检查</td></tr>
+<tr><td>动起来</td><td>静止的图</td><td><b>会眨眼、会呼吸</b>，耳坠和发丝轻轻晃（把一张图拆成几层来动）</td></tr>
+<tr><td>CG</td><td>每人约 9 张</td><td><b>12 张</b>，含一张跳舞的大场面</td></tr>
+<tr><td>剧情</td><td>剧情季 + 约会 + 恋人篇</td><td>同样一整套，外加她自己的 S9 赛季主线</td></tr>
+<tr><td>配音</td><td>全程配音</td><td>全程配音，单独挑一个新音色给你试听</td></tr>
+</table>
+<div class="pills"><span class="pill" data-v="全都要">全都要</span><span class="pill" data-v="不要会动的立绘">不要会动的立绘</span><span class="pill" data-v="只提画质，其他同现在">只提画质，其他和现在一样</span></div>
+<textarea placeholder="备注（可不填）"></textarea></section>
+
+<section class="q" data-q="lobby" data-title="大厅"><h2><span class="n">3</span>加了第 10 位以后，大厅怎么放</h2>
+<p class="why">现在的大厅是<b>一整张画好的图</b>，九个人的位置都画死在里面，没有空位了。加人就得重画大厅。之前定的是「家是首页，右滑去俱乐部」，所以<b>左右滑已经被占用</b>，大厅最好往上下扩。</p>
+<div class="opts">
+<div class="opt" data-v="B 加二楼，上下滑"><h3>B · 加一层「二楼星空露台」，上下滑 <span class="tag">推荐</span></h3><img src="img/lobby_b.jpg"><p>打开还是现在这一屏，九位女主不动；往上滑是新画的二楼露台，新女主站在那里。<b>以后再出新角色都放二楼</b>，不用再重画一楼。不跟「左右滑回家」冲突。二楼有人时，屏幕顶上露一点边，提示可以往上滑。</p></div>
+<div class="opt" data-v="A 原大厅挤进第 10 位"><h3>A · 原大厅重画，挤进第 10 位</h3><img src="img/lobby_a.jpg"><p>最省事，一屏看完。但已经很满，再挤就乱；以后每出一位新角色都得整张重画。</p></div>
+<div class="opt" data-v="C 横向加宽，左右拖"><h3>C · 大厅加宽，左右拖着看</h3><img src="img/lobby_c.jpg"><p>空间最大。但和「左右滑回家」打架：滑到大厅边上才翻页，玩家容易搞混。</p></div>
+</div>
+<textarea placeholder="备注（可不填）"></textarea></section>
+
+<section class="q" data-q="neg" data-title="S9 新负面效果"><h2><span class="n">4</span>S9 加什么新的负面效果（选一个）</h2>
+<p class="why">现在每升一级赛季，都是在上一级的基础上<b>叠一条新规则</b>：S2 小盲注不给钱 → S3 分数门槛提高 → S4 永恒小丑 → S5 弃牌 −1 → S6 门槛再提高 → S7 易腐小丑 → S8 租赁小丑。S9 照这个规律，在 S8 的全部规则上再叠一条。剧情上的说法是：<b>你已经是卫冕冠军，所有对手和金鼎都在针对你</b>。</p>
+<div class="opts">
+<div class="opt" data-v="套路被研究"><h3>「套路被研究」<span class="tag">推荐</span></h3><p>同一场比赛里，同一种牌型从第 2 次打出起，这一手的牌型基础分 <b>−25%</b>（第 3 次 −50%，最多 −50%）。<br>效果：只会一种套路的打法（比如一直出对子）明显变难，逼玩家搭两套牌型。原创规则，和剧情「对手都研究过你」对得上。</p></div>
+<div class="opt" data-v="黑幕裁判"><h3>「黑幕裁判」</h3><p>每一站的 Boss 对手，额外<b>再叠一个随机的 Boss 能力</b>（比如同时「红桃失效」+「第一手牌背面朝上」）。<br>效果：难度上升最大，但运气成分也大；两个能力碰巧克制你的牌组时会很挫败。</p></div>
+<div class="opt" data-v="赞助商抽成"><h3>「赞助商抽成」</h3><p>利息上限从 <b>$5 降到 $3</b>，每场剩余出牌不再给钱。<br>效果：局内金币变紧，商店买得少，小丑凑得慢。不会让某一手特别难受，压力是慢慢累积的。</p></div>
+<div class="opt" data-v="禁赛小丑"><h3>「禁赛令」</h3><p>每一站开始时，随机 1 张小丑被「禁赛」，这一站内不生效（下一站换一张）。<br>效果：核心小丑被禁的那一站会很难，需要准备替补。</p></div>
+<div class="opt" data-v="出牌次数 -1"><h3>出牌次数 −1</h3><p>每场 4 次出牌变 3 次。<br>效果：最直接，但太狠：S5 已经弃牌 −1，再少一次出牌，容错几乎没有。不推荐。</p></div>
+</div>
+<textarea placeholder="备注：也可以写「选两个」或你自己的想法"></textarea></section>
+
+<section class="q" data-q="score" data-title="S9 分数门槛"><h2><span class="n">5</span>S9 的分数门槛</h2>
+<p class="why">现在的门槛只有三档：S1～S2 一档、S3～S5 一档、S6～S8 一档，每升一档，第 8 站的门槛<b>翻一倍</b>（5 万 → 10 万 → 20 万）。真人数据（只有今天）里，S5 → S6 门槛翻倍后，夺冠率从 58% 掉到 31%（剔除开局就放弃的局）。所以「门槛翻倍」本身就差不多是一级的难度。S9 再加上第 4 题的新负面，<b>门槛建议只加到 1.5 倍</b>，两样加起来比 S8 难一级多一点，不至于打不了。</p>
+<table class="beats">
+<tr><th>第几站</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+<tr><td>S1～S2</td><td>300</td><td>800</td><td>2,000</td><td>5,000</td><td>1.1 万</td><td>2 万</td><td>3.5 万</td><td>5 万</td></tr>
+<tr><td>S3～S5</td><td>300</td><td>900</td><td>2,600</td><td>8,000</td><td>2 万</td><td>3.6 万</td><td>6 万</td><td>10 万</td></tr>
+<tr><td>S6～S8</td><td>300</td><td>1,000</td><td>3,200</td><td>9,000</td><td>2.5 万</td><td>6 万</td><td>11 万</td><td>20 万</td></tr>
+<tr><td><b>S9 · 1.5 倍</b></td><td>300</td><td>1,100</td><td>3,600</td><td>1.1 万</td><td>3.2 万</td><td>8 万</td><td>15.5 万</td><td><b>30 万</b></td></tr>
+<tr><td><b>S9 · 2 倍</b></td><td>300</td><td>1,100</td><td>3,900</td><td>1.2 万</td><td>3.7 万</td><td>10 万</td><td>20 万</td><td><b>40 万</b></td></tr>
+</table>
+<p class="note">算法：第 8 站按倍数放大，前面各站按同一比例平滑递增（第 1 站不变，越往后放大得越多），保证开局两站新手也打得动，难度压在后半程。Boss 站仍然是这个数 × Boss 倍数。</p>
+<div class="pills"><span class="pill" data-v="1.5 倍 + 一个新负面">1.5 倍 + 一个新负面（推荐）</span><span class="pill" data-v="2 倍 + 一个新负面">2 倍 + 一个新负面（很难）</span><span class="pill" data-v="2 倍，不加新负面">2 倍，不加新负面</span></div>
+<textarea placeholder="备注（可不填）"></textarea></section>
+
+<section class="q"><h2>S9 怎么解锁、怎么校准</h2>
+<div class="why"><ul>
+<li><b>解锁</b>：S8 拿到冠军后解锁 S9，和现在逐级解锁一样。按工作室规定，没解锁前只显示「下一级：S9」，不剧透规则。</li>
+<li><b>剧情</b>：S9 是新女主的赛季：她是 S9 的头号对手，打完 S9 解锁她的约会和恋人篇。</li>
+<li><b>存款版本里</b>：S9 就是「万倍场」，报名费 ¥1000 万，奖金按同一套公式算。</li>
+<li><b>数值校准</b>：选定后，先用机器人对比 S8 和 S9 的「平均能打到第几站」（机器人在高赛季打不赢，所以不比夺冠率，只比相对难度）；上线后再用真人数据看 S9 夺冠率，目标是 S8 的一半左右，不对就调门槛倍数（只改一个数，不用发大版本以外的东西）。</li>
+</ul></div></section>
+
+<section class="q"><h2>工作量</h2>
+<div class="why"><ul>
+<li>新女主美术（四套立绘 + 表情 + 会动的立绘 + 12 张 CG）：约 3 天，中间分两次发图给你确认</li>
+<li>剧情（赛季主线 + 约会 + 恋人篇）+ 配音：约 2 天，音色先试听</li>
+<li>二楼大厅（画图 + 上下滑）：约 1 天</li>
+<li>S9 规则 + 门槛 + 解锁 + 机器人测试：约 1 天</li>
+<li>合计约 7 天。可以和存款版本一起上，也可以先单独上 S9 + 新女主。</li>
+</ul></div>
+</section>
+
+<section class="q" data-q="ship" data-title="上线顺序"><h2><span class="n">6</span>和存款版本的先后</h2>
+<div class="pills"><span class="pill" data-v="先上新女主 + S9，存款版本随后">先上新女主 + S9，存款版本随后（推荐：先有新内容拉回流，存款的数值也能多攒几天真人数据）</span><span class="pill" data-v="和存款版本一起上">和存款版本一起上</span></div>
+<textarea placeholder="备注（可不填）"></textarea></section>
+</main>
+<div id="bar"><div class="in"><span class="prog" id="prog"></span><button class="ghost" id="reset">清空</button><button id="copy">复制我的选择</button></div><pre id="out"></pre></div>
+<div id="lb"><img></div><div class="toast" id="toast"></div>
+<script>
+const KEY = "jg-s9-1121";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+const qs = [...document.querySelectorAll("section.q")];
+
+function bindGroup(container, id, itemSel) {
+  const items = [...container.querySelectorAll(itemSel)];
+  items.forEach(el => {
+    if (state[id] === el.dataset.v) el.classList.add("sel");
+    el.addEventListener("click", e => {
+      if (e.target.tagName === "IMG") return;
+      const on = !el.classList.contains("sel");
+      items.forEach(x => x.classList.remove("sel"));
+      if (on) { el.classList.add("sel"); state[id] = el.dataset.v; } else delete state[id];
+      save(); render();
+    });
+  });
+}
+qs.forEach(s => {
+  const id = s.dataset.q;
+  if (s.querySelector(":scope > .opts .opt[data-v]")) bindGroup(s, id, ".opt[data-v]");
+  s.querySelectorAll(".sub").forEach(sub => bindGroup(sub, id + "." + sub.dataset.sq, ".pill"));
+  const tp = s.querySelector(":scope > .pills"); if (tp) bindGroup(tp, id, ".pill");
+  const ta = s.querySelector(":scope > textarea");
+  if (ta) { ta.value = state[id + ".note"] || ""; ta.addEventListener("input", () => { state[id + ".note"] = ta.value; save(); render(); }); }
+});
+
+function lines() {
+  const out = ["【新女主 + 大厅 + S9 11-21】"];
+  let n = 0, done = 0;
+  qs.forEach((s, i) => {
+    if (!s.querySelector("[data-v]")) return; // (information only)
+    const id = s.dataset.q, t = s.dataset.title, subs = [...s.querySelectorAll(".sub")];
+    if (subs.length) {
+      out.push(`${s.querySelector(".n").textContent}. ${t}：`);
+      subs.forEach(sub => { n++; const v = state[id + "." + sub.dataset.sq]; if (v) done++; out.push(`   - ${sub.dataset.title}：${v || "（未选）"}`); });
+    } else { n++; const v = state[id]; if (v) done++; out.push(`${s.querySelector(".n").textContent}. ${t}：${v || "（未选）"}`); }
+    const note = (state[id + ".note"] || "").trim();
+    if (note) out.push(`   备注：${note}`);
+  });
+  return { text: out.join("\n"), n, done };
+}
+function render() { const r = lines(); document.getElementById("prog").textContent = `已选 ${r.done} / ${r.n} 项`; }
+render();
+
+document.getElementById("copy").onclick = async () => {
+  const { text } = lines(), out = document.getElementById("out");
+  out.style.display = "block"; out.textContent = text;
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {}
+  if (!ok) { const r = document.createRange(); r.selectNodeContents(out); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { ok = document.execCommand("copy"); } catch (e) {} }
+  const t = document.getElementById("toast"); t.textContent = ok ? "已复制，发回对话里给我就行" : "没能自动复制，请长按下面的文字复制";
+  t.style.display = "block"; setTimeout(() => t.style.display = "none", 2200);
+};
+document.getElementById("reset").onclick = () => {
+  if (!confirm("清空这页上所有的选择和备注？")) return;
+  localStorage.removeItem(KEY); location.reload();
+};
+const lb = document.getElementById("lb");
+document.querySelectorAll("main img").forEach(img => img.addEventListener("click", () => { lb.querySelector("img").src = img.src; lb.style.display = "flex"; }));
+lb.onclick = () => lb.style.display = "none";
+</script>
+</body>
+</html>
