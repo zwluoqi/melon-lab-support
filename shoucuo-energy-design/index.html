@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手搓魔法 · 元素能量球 设计方案（第三轮）</title>
+<style>
+body{margin:0;background:#15111f;color:#ece4d8;font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:20px 16px 80px}
+h1{font-size:24px;margin:8px 0 4px}h2{font-size:20px;margin:40px 0 8px;border-left:4px solid #e7b552;padding-left:10px}
+h3{font-size:17px;margin:22px 0 6px;color:#f3cf86}
+.note{color:#b8aecb;font-size:14px}.tag{display:inline-block;background:#e7b552;color:#2a1a05;border-radius:6px;padding:0 8px;font-weight:700;margin-right:6px}
+.rec{background:#24341f;border:1px solid #5b8a43;border-radius:10px;padding:12px 16px;margin:14px 0}
+img,video{max-width:100%;border-radius:8px;display:block;margin:6px 0}
+.row{display:flex;flex-wrap:wrap;gap:14px}.row>div{flex:1 1 320px;min-width:280px}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0}td,th{border:1px solid #3a3150;padding:6px 8px;text-align:left}th{background:#231c33}
+.card{background:#1d1829;border:1px solid #352c4a;border-radius:12px;padding:12px 14px;margin:12px 0}
+</style></head><body><main>
+<h1>手搓魔法 · 元素能量球 设计方案（第三轮，仅方案，未进游戏）</h1>
+<p class="note">全部画面都是用游戏自己的渲染器离线渲染的（手机竖屏 1080×2340 / 540 宽），所以就是进游戏后的样子。请在每一节选一个字母：大小 · 流动 A/B/C · 元素符号 去掉/可选 · 强化标志 I/II/III。选定后我再做进游戏。</p>
+<div class="row"><div><h3>参考：你手机上的现状（第二轮）</h3><img src="phone_now.jpg" style="max-width:300px"></div></div>
+
+<h2>1. 球体大小：+5%（0.80 → 0.84 卡宽）</h2>
+<p class="note">手牌 8 张，选中 2 张（A、K），手机尺寸。编号大小不变，始终居中。</p>
+<div class="row"><div><h3>现版 0.80</h3><img src="size_080.jpg"></div><div><h3>新 0.84（+5%）</h3><img src="size_084.jpg"></div></div>
+
+<h2>2. 能量流动效果（三选一）</h2>
+<p class="note">都比现版收敛很多，编号始终是视觉中心；选中的牌（A、K）流得更快更亮。下面每个都是 4 秒循环视频（只截手牌区域，点「整屏」看完整画面），再下面是 4 个时刻的静帧。每帧开销是 8 张手牌时局内整帧的 Lua 绘制时间（同一台机器，浸泡测试）。</p>
+<table><tr><th>方案</th><th>效果</th><th>每张牌多画</th><th>局内每帧绘制</th></tr>
+<tr><td>现版（参考）</td><td>两条宽光带 + 细光丝 + 内圈逆流 + 核心等离子</td><td>4 条渐变描边 + 1 填充</td><td>3.07 ms</td></tr>
+<tr><td><b>A</b> 细光沿环</td><td>一条很细很淡的光沿着环慢慢走，核心不动</td><td>1 条描边</td><td>2.83 ms</td></tr>
+<tr><td><b>B</b> 核心呼吸</td><td>没有任何移动的光带，球心一层柔光慢慢呼吸</td><td>1 个填充</td><td>2.75 ms</td></tr>
+<tr><td><b>C</b> 流光一闪</td><td>平时静止，每 3–4 秒一道小高光绕环跑一圈（选中时约 1 秒一圈）</td><td>0–1 条描边（只在跑的那一下）</td><td>2.98 ms</td></tr></table>
+<div class="card"><h3><span class="tag">A</span>细光沿环</h3><video src="flow_A_hand.mp4" autoplay loop muted playsinline></video><a href="flow_A.mp4">整屏视频</a><img src="flow_A_frames.jpg"></div>
+<div class="card"><h3><span class="tag">B</span>核心呼吸（无移动光带）</h3><video src="flow_B_hand.mp4" autoplay loop muted playsinline></video><a href="flow_B.mp4">整屏视频</a><img src="flow_B_frames.jpg"></div>
+<div class="card"><h3><span class="tag">C</span>流光一闪</h3><video src="flow_C_hand.mp4" autoplay loop muted playsinline></video><a href="flow_C.mp4">整屏视频</a><img src="flow_C_frames.jpg"></div>
+<div class="card"><h3>现版（第二轮，参考）</h3><video src="flow_cur_hand.mp4" autoplay loop muted playsinline></video><a href="flow_cur.mp4">整屏视频</a><img src="flow_cur_frames.jpg"></div>
+
+<h2>3. 左上角的黑色小图标</h2>
+<p>那是「元素符号」（火 / 雷 / 水 / 暗），本意是给色弱玩家区分四种元素。<b>默认去掉</b>（上面所有方案图都已经去掉了）。</p>
+<div class="card"><h3>（可选）替代做法：环底部一个小元素符号，用环本身的颜色发光</h3>
+<p class="note">红=火焰、黄=闪电、蓝=水滴、紫=月牙，一眼能看懂是「什么元素」。不要的话就保持去掉。</p>
+<img src="elem_bottom_hand.jpg"><img src="elem_bottom_2x.jpg" style="max-width:600px"></div>
+
+<h2>4. 强化 / 印章 / 特效标志（三个方向，重点）</h2>
+<p class="note">规则：除了万素符卡（多彩能量）和石化魔攻卡（石壳、无点数），强化不改变能量本身的颜色。每个方向都给出：手牌尺寸全表、2 倍放大（强化 / 印章+特效）、叠加示例（强化 + 印章 + 特效）、8 张手牌实景。名字下面是玩家能看到的效果。流动效果统一用 B 以便只看标志。</p>
+<table><tr><th>方向</th><th>强化</th><th>印章</th><th>特效</th><th>一句话</th></tr>
+<tr><td><b>I</b> 环上刻符</td><td>环右下刻一个小发光符文，和球同色，没有底座（魔攻=矛、倍率=双箭头、琉璃=裂晶、留手倍增=托槽、聚晶=魔晶、幸运=星）</td><td>环顶刻印章符号，印章颜色发光</td><td>球面光泽 + 环左下直接刻数值（+50 蓝 / +10 红 / ×1.5 红）</td><td>最融合、最安静，但符文要学</td></tr>
+<tr><td><b>II</b> 垂挂符箓</td><td>环最下方用金线挂一张小「符」，符的颜色 = 它加的东西：<b>+30 蓝</b>（=魔攻蓝泡泡）、<b>+4 红</b>（=倍率红泡泡）、琉璃 ×2、留手 ×1.5、聚晶 +3 金、幸运 ? 绿；万素挂四色晶</td><td>环顶嵌一颗印章色宝石</td><td>球面光泽 + 环左下小数值牌</td><td>一眼看懂数值，最「自解释」</td></tr>
+<tr><td><b>III</b> 环的纹理</td><td>环本身换花纹（不换颜色）：魔攻=符文点链、倍率=双环、琉璃=多面切割、留手倍增=锁链、聚晶=嵌魔晶、幸运=绿色星芒；另有一个很小的符文</td><td>环顶一段换成印章色的环扣</td><td>球面光泽 + 环左下刻数值</td><td>远看就能分辨，最有「装备感」</td></tr></table>
+
+<div class="card"><h3><span class="tag">I</span>环上刻符</h3>
+<img src="mark_I_hand8.jpg"><img src="mark_I_hand.jpg">
+<div class="row"><div><img src="mark_I_2xa.jpg"></div><div><img src="mark_I_2xb.jpg"></div></div>
+<a href="mark_I_full.jpg">整屏</a></div>
+<div class="card"><h3><span class="tag">II</span>垂挂符箓</h3>
+<img src="mark_II_hand8.jpg"><img src="mark_II_hand.jpg">
+<div class="row"><div><img src="mark_II_2xa.jpg"></div><div><img src="mark_II_2xb.jpg"></div></div>
+<a href="mark_II_full.jpg">整屏</a></div>
+<div class="card"><h3><span class="tag">III</span>环的纹理</h3>
+<img src="mark_III_hand8.jpg"><img src="mark_III_hand.jpg">
+<div class="row"><div><img src="mark_III_2xa.jpg"></div><div><img src="mark_III_2xb.jpg"></div></div>
+<a href="mark_III_full.jpg">整屏</a></div>
+
+<h2>我的推荐</h2>
+<div class="rec"><b>大小 0.84 · 流动 B（核心呼吸）· 元素符号去掉 · 强化标志 II（垂挂符箓）</b><br>
+· B 完全没有移动光带，最安静，编号最突出，也最省（比现版每帧少约 0.3 ms）；如果还想要一点「动」，可以 B 加 C 的偶尔一闪。<br>
+· II 直接把数值写在符上，并且沿用局内魔攻蓝 / 倍率红两个泡泡的颜色，玩家不用学符号就知道这张牌加什么；挂在球下方，不压编号，也不改能量颜色。<br>
+· I 最融合但符文小、要记；III 远看好认，但锁链/双环在 8 张手牌时偏花，和「不要能量环」的要求也最接近冲突。</div>
+<p class="note">以上均为方案，游戏 main 分支和测试包没有改动。</p>
+</main></body></html>
