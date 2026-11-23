@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手搓魔法 · 元素能量球 设计方案（第四轮：电能 + 立体徽章）</title>
+<style>
+body{margin:0;background:#0e0a18;color:#ece4d8;font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:20px 16px 80px}
+h1{font-size:24px;margin:8px 0 4px}h2{font-size:20px;margin:40px 0 8px;border-left:4px solid #e7b552;padding-left:10px}
+h3{font-size:17px;margin:18px 0 6px;color:#f3cf86}
+.note{color:#b8aecb;font-size:14px}
+img,video{max-width:100%;border-radius:8px;display:block;margin:6px 0}
+.row{display:flex;flex-wrap:wrap;gap:14px}.row>div{flex:1 1 320px;min-width:280px}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0}td,th{border:1px solid #3a3150;padding:6px 8px;text-align:left}th{background:#231c33}
+.card{background:#1a1526;border:1px solid #352c4a;border-radius:12px;padding:12px 14px;margin:12px 0}
+</style></head><body><main>
+<h1>手搓魔法 · 元素能量球 第四轮方案（仅方案，未进正式版）</h1>
+<p class="note">按参考图重做：能量环改成贴着球的<b>高亮电浆环</b>（锯齿电丝 + 白热内沿 + 强辉光 + 暗色球心），电丝一直在闪烁、爬动；选中的牌电流更猛；计分时整环放电炸开。强化 / 印章 / 特效改成<b>立体宝石徽章</b>，比之前大很多。球 0.84 卡宽，编号居中加大，去掉左上角元素符号。所有画面都是用游戏自己的渲染器离线渲染的手机竖屏（1080×2340），就是进游戏后的样子。</p>
+
+<h2>(h) 参考图 与 本方案 并排</h2>
+<div class="row"><div><h3>参考图</h3><img src="ref.jpg"></div><div><h3>本方案（8 种强化，游戏渲染）</h3><img src="enh.jpg"></div></div>
+
+<h2>(f) 实际局内：手牌 8 张，选中 2 张（A、K），手机尺寸</h2>
+<div class="row"><div><img src="round.jpg" style="max-width:420px"></div><div><h3>手牌区域 1:1</h3><img src="round_hand.jpg"><p class="note">A、K 是选中的牌（抬起、电流更快更亮、外面多一圈电花）。徽章在手牌叠放时自动滑到不被下一张遮住的位置；编号 8 张以内始终居中。</p></div></div>
+
+<h2>(g) 动效短视频（≤4 秒循环，540 宽）</h2>
+<div class="card"><h3>电丝闪烁 · 特写（2 倍大小）</h3><video src="crackle_close.mp4" autoplay loop muted playsinline></video></div>
+<div class="card"><h3>电丝闪烁 · 手牌（A、K 选中）</h3><video src="crackle_hand.mp4" autoplay loop muted playsinline></video><a href="crackle_full.mp4">整屏视频</a></div>
+<div class="card"><h3>计分放电：每张计分的牌闪白光，一圈闪电向外炸开再消散</h3><video src="discharge.mp4" autoplay loop muted playsinline></video><a href="discharge_full.mp4">整屏视频</a><img src="discharge_frames.jpg"></div>
+
+<h2>(a) 基础：四色元素能量 + 特殊卡（J/Q/K）</h2>
+<p class="note">没有任何强化时，J/Q/K 与普通牌一样，只看颜色和编号。</p>
+<img src="base.jpg">
+
+<h2>(b) 8 种强化（右下角徽章，压在环上）</h2>
+<p class="note">除了万素（彩虹环）和石化（岩石壳、无点数），强化都不改变能量本身的颜色。最后一张是没有强化的对照。</p>
+<img src="enh.jpg">
+<table><tr><th>强化</th><th>徽章</th><th>效果</th></tr>
+<tr><td>魔攻符卡</td><td>蓝水晶 + 魔攻符文</td><td>+30 魔攻</td></tr>
+<tr><td>倍率符卡</td><td>红橙火晶</td><td>+4 倍率</td></tr>
+<tr><td>万素符卡</td><td>彩虹棱镜（环也变成彩虹）</td><td>算任意元素</td></tr>
+<tr><td>琉璃倍增卡</td><td>带裂纹的透明琉璃碎片</td><td>×2 倍率，可能碎</td></tr>
+<tr><td>留手倍增卡</td><td>钢铁符文板</td><td>留在手里 ×1.5 倍率</td></tr>
+<tr><td>石化魔攻卡</td><td>岩块（球变成岩石壳）</td><td>+50 魔攻，无点数</td></tr>
+<tr><td>留手聚晶卡</td><td>魔晶簇</td><td>留在手里 +3 魔晶</td></tr>
+<tr><td>幸运符卡</td><td>翡翠星</td><td>随机加成</td></tr></table>
+
+<h2>(c)(d) 4 种印章（顶部） · 4 种特效（左下角六边形 + 数值）</h2>
+<img src="mark.jpg">
+
+<h2>(e) 叠加示例（强化 + 印章 + 特效 同时存在）</h2>
+<p class="note">含 石化 + 红印 + 银辉、万素 + 蓝印 + 七彩。三个位置互不遮挡：印章在上，特效在左下，强化在右下。</p>
+<img src="stack.jpg">
+
+<h3>全部标志 · 手牌大小</h3>
+<img src="hand.jpg">
+
+<h2>素材与做法</h2>
+<div class="row"><div><h3>能量环（程序生成，4 色 + 万素彩虹，每色 4 帧，256 px，合成一张图集）</h3><img src="asset_rings.jpg" style="max-width:420px">
+<p class="note">游戏里每张牌叠 3 层（选中 4 层，计分时再加 4 层向外飞）：两帧交叉淡入淡出并跳到新角度（闪烁），一层反向慢转（爬动），全部叠加发光。</p></div>
+<div><h3>徽章（AI 生成，透明底，128 px，合成一张图集）</h3><img src="asset_badges.jpg" style="max-width:420px"></div></div>
+<div class="card"><h3>能量环做法对比</h3><img src="ring_compare.jpg" style="max-width:768px">
+<p class="note">左：AI 生成（gpt-image-2）的电环；中：程序生成第一版；右：程序生成最终版（采用）。AI 版电丝很好，但只有一帧、圆心和粗细每张都不一样，透明底也带不出外面的辉光，没法做成对齐的多帧动画；程序版每帧完全同心，可以无缝换帧和旋转，辉光也是烘进去的。所以选程序版，并把电丝加密、加锯齿，往 AI 版的效果靠。</p></div>
+<h2>性能 · 显存</h2>
+<table><tr><th></th><th>第一版（加电，参考）</th><th>本方案（贴图电环 + 徽章）</th></tr>
+<tr><td>局内每帧 Lua 绘制（8 张手牌，两轮交替测平均）</td><td>3.47 ms（3.55 / 3.38）</td><td><b>3.38 ms</b>（3.33 / 3.42）</td></tr>
+<tr><td>局内 + 元素库弹窗</td><td>5.10 ms</td><td><b>4.91 ms</b></td></tr>
+<tr><td>每帧内存分配（局内）</td><td>约 21 KB</td><td>22.6 KB（持平）</td></tr>
+<tr><td>新增贴图显存</td><td>—</td><td>能量环图集 1024×1280 = 5.0 MB；徽章图集 512×512 = 1.0 MB；共约 6 MB（安装包增加约 1.4 MB PNG）</td></tr></table>
+<p class="note">同一台机器、同一段浸泡测试（cards 模式：一手打扮好的手牌站着 + 元素库弹窗），两版交替各跑两次。今天机器整体比上次测时慢一些，所以绝对值比上轮报告的 2.79 ms 高，但同条件下本方案不比第一版慢：每张牌从十几条渐变描边换成了 3 张贴图。空闲降帧（30 fps）比例 84% 不变。</p>
+</main></body></html>
