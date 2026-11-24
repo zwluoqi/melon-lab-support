@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手搓魔法 · 元素能量牌 第八轮（设计稿）</title>
+<style>
+body{margin:0;background:#0e0a18;color:#ece4d8;font:15px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:20px 16px 80px}
+h1{font-size:24px;margin:8px 0 4px}h2{font-size:20px;margin:42px 0 8px;border-left:4px solid #e7b552;padding-left:10px}
+h3{font-size:17px;margin:20px 0 6px;color:#f3cf86}
+.note{color:#b8aecb;font-size:14px}.warn{background:#3a2a10;border:1px solid #a7802e;border-radius:10px;padding:10px 14px;margin:12px 0;color:#ffe3a6}
+.rec{background:#1f3320;border:1px solid #5b8a43;border-radius:10px;padding:12px 16px;margin:14px 0}
+img,video{max-width:100%;border-radius:8px;display:block;margin:6px 0}
+.row{display:flex;flex-wrap:wrap;gap:14px}.row>div{flex:1 1 320px;min-width:280px}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0}td,th{border:1px solid #3a3150;padding:6px 8px;text-align:left;vertical-align:top}th{background:#231c33}
+.card{background:#1a1526;border:1px solid #352c4a;border-radius:12px;padding:12px 14px;margin:12px 0}
+.tag{display:inline-block;background:#e7b552;color:#2a1a05;border-radius:6px;padding:0 8px;font-weight:700;margin-right:6px}
+</style></head><body><main>
+</head><body><main>
+<h1>手搓魔法 · 元素能量牌 第八轮：干净的能量 + 统一的强化语言</h1>
+<div class="warn"><b>设计稿（离线绘制，进游戏前会用游戏渲染器复核）</b>。两个方案：<b>① 能量环</b>（第七轮优化版）和 <b>② 能量球</b>（新方案）。颜色（红蓝黄黑）和编号大小都沿用第七轮，强化的表现方式两个方案完全一样。</div>
+
+<h2>一、第七轮为什么显得糊、脏</h2>
+<table><tr><th>原因</th><th>这一轮怎么改</th></tr>
+<tr><td>电光用的是一张半透明的“划痕”贴图，缩小后变成一圈毛刺噪点</td><td><b>去掉所有贴图</b>，全部用干净的矢量形状：实色渐变、清晰的边线、平滑的光</td></tr>
+<tr><td>多层光晕、电纹、条纹叠在一起，边缘被糊掉</td><td>每张牌只保留 1 层外发光（范围封顶）+ 1 条清晰的内沿线；能量感靠<b>运动</b>（流光、光点、脉冲）而不是叠层</td></tr>
+<tr><td>选中时的电纹是一大片噪点</td><td>选中时改成几道<b>清晰的细闪电线</b>，沿环跳动</td></tr>
+<tr><td>强化徽章像贴纸，和能量环不是一个画风</td><td>见下一节：强化改成和本体同材质、同颜色的“轨道”</td></tr></table>
+
+<h2>二、强化的统一语言：轨道 + 节点</h2>
+<div class="rec">
+<b>有强化 = 本体外多一圈细轨道。</b>轨道用这张牌自己颜色的浅色，和本体是同一种光、同一个颜色，读起来是本体能量向外扩了一圈，不是贴上去的东西。<br>
+· <b>有没有强化</b>：看有没有轨道，扫一眼就知道。<br>
+· <b>是哪种强化</b>：轨道左下角一个小节点，里面是白色线条图标，下面是数值（魔攻蓝、倍率红，和计分气泡一致）。<br>
+· <b>动效</b>：一颗光点沿轨道慢慢转，选中时转得快。<br>
+· <b>印章</b>：轨道左上一颗小菱形宝石（印章颜色）；<b>特效</b>：改变本体的材质（银辉光泽扫过、虹纹描边、七彩外光、虚影半透明），数值在左侧。<br>
+· 所有标志都在左边，手牌叠起来也不会被下一张挡住。<br>
+· 万素、石化本身就改了本体（四色 / 石头），轨道用中性的香槟色。
+</div>
+
+<h2>三、两个方案</h2>
+<table><tr><th></th><th>① 能量环</th><th>② 能量球</th></tr>
+<tr><td>本体</td><td>粗色环 + 本色深底</td><td>整颗本色的玻璃能量球</td></tr>
+<tr><td>平时的能量</td><td>一段柔和的流光沿环流动 + 两颗小光点沿环跑 + 环内侧淡淡的充能光</td><td>球心透出本色的光 + 一圈圈细光环从中心向外脉冲扩散</td></tr>
+<tr><td>选中</td><td colspan="2">外发光变强、流动 / 脉冲加快、出现几道清晰的细闪电</td></tr>
+<tr><td>计分</td><td colspan="2">一道干净的本色光圈向外扩散 + 短暂发亮</td></tr>
+<tr><td>主色面积</td><td>大</td><td>最大（整颗球都是主色）</td></tr></table>
+
+<h2>四、动效（4 秒循环：平时 → 选中 A、K → 依次计分）</h2>
+<div class="row"><div><h3><span class="tag">①</span>能量环</h3><video src="ring_loop.mp4" autoplay loop muted playsinline></video></div><div><h3><span class="tag">②</span>能量球</h3><video src="orb_loop.mp4" autoplay loop muted playsinline></video></div></div>
+
+<h2>五、手牌 1:1（手机实际像素，选中 A、K）</h2>
+<h3><span class="tag">①</span>能量环 · 带强化 / 印章 / 特效</h3><img src="ring_marks_1to1.png">
+<h3><span class="tag">②</span>能量球 · 带强化 / 印章 / 特效</h3><img src="orb_marks_1to1.png">
+<h3>第七轮（对比）</h3><img src="r7_marks_1to1.png">
+<h3>只看颜色和编号</h3><img src="ring_plain_1to1.png"><img src="orb_plain_1to1.png">
+<h3>扫一眼（缩到手机上的真实观感）</h3>
+<div class="row"><div><span class="tag">①</span><img src="ring_marks_glance.png" style="width:360px"><img src="ring_plain_glance.png" style="width:360px"></div><div><span class="tag">②</span><img src="orb_marks_glance.png" style="width:360px"><img src="orb_plain_glance.png" style="width:360px"></div></div>
+<p class="note">已知小问题：手牌叠得紧时，后一张的轨道会压到前一张一点点；进游戏时会把轨道再往里收一点。</p>
+
+<h2>六、全部强化（2 倍）</h2>
+<div class="row"><div><h3><span class="tag">①</span>能量环</h3><img src="ring_enh_2x.jpg"></div><div><h3><span class="tag">②</span>能量球</h3><img src="orb_enh_2x.jpg"></div></div>
+<h3>印章 / 特效 / 叠加</h3><img src="ring_stack_2x.jpg"><img src="orb_stack_2x.jpg">
+
+<h2>七、基础四色（2 倍）+ 平时 / 选中</h2>
+<div class="row"><div><h3><span class="tag">①</span></h3><img src="ring_base_2x.jpg"><img src="ring_idle_sel.jpg"></div><div><h3><span class="tag">②</span></h3><img src="orb_base_2x.jpg"><img src="orb_idle_sel.jpg"></div></div>
+</main></body></html>
