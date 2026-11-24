@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手搓魔法 · 元素能量牌 第五轮方案（设计稿）</title>
+<style>
+body{margin:0;background:#0e0a18;color:#ece4d8;font:15px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:20px 16px 80px}
+h1{font-size:24px;margin:8px 0 4px}h2{font-size:20px;margin:42px 0 8px;border-left:4px solid #e7b552;padding-left:10px}
+h3{font-size:17px;margin:20px 0 6px;color:#f3cf86}
+.note{color:#b8aecb;font-size:14px}.warn{background:#3a2a10;border:1px solid #a7802e;border-radius:10px;padding:10px 14px;margin:12px 0;color:#ffe3a6}
+.rec{background:#1f3320;border:1px solid #5b8a43;border-radius:10px;padding:12px 16px;margin:14px 0}
+img,video{max-width:100%;border-radius:8px;display:block;margin:6px 0}
+.row{display:flex;flex-wrap:wrap;gap:14px}.row>div{flex:1 1 320px;min-width:280px}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0}td,th{border:1px solid #3a3150;padding:6px 8px;text-align:left;vertical-align:top}th{background:#231c33}
+.card{background:#1a1526;border:1px solid #352c4a;border-radius:12px;padding:12px 14px;margin:12px 0}
+.tag{display:inline-block;background:#e7b552;color:#2a1a05;border-radius:6px;padding:0 8px;font-weight:700;margin-right:6px}
+</style></head><body><main>
+<h1>手搓魔法 · 元素能量牌 第五轮方案</h1>
+<div class="warn"><b>设计稿（离线绘制，进游戏前会用游戏渲染器复核）</b>：本页所有卡面用 Python 按游戏代码（cardart.lua 的 v5 绘制）1:1 复刻绘制：同一套颜色、同一张电光贴图、同样的标志形状和位置。机器上的游戏渲染器暂时被别的项目占用，空出来后会用游戏本身再渲染一遍复核。</div>
+
+<h2>一、问题诊断（上一轮为什么不行）</h2>
+<table><tr><th>问题</th><th>本轮怎么改</th></tr>
+<tr><td>装饰（电环）比信息（编号、颜色）还抢眼</td><td>层级固定为：① 编号 ② 元素颜色 ③ 有没有强化、是哪种 ④ 印章 / 特效。编号最大最白；电环降成中等粗细的实色能量带</td></tr>
+<tr><td>叠加发光把颜色冲成白色；蓝紫太像；光晕渗到隔壁牌</td><td>重新定四个颜色，色相和亮度都拉开；环上只有一条细内沿接近白；光晕半径封顶（不超过环宽），不糊到下一张牌</td></tr>
+<tr><td>徽章自带一堆颜色，跟元素色打架</td><td><b>元素颜色只给元素用</b>。所有标志统一用中性的白金色光；只有数值上 魔攻 用蓝、倍率 用红（和计分气泡一致）</td></tr>
+<tr><td>8 张牌一直噼啪闪电 = 噪音</td><td>平时只有很慢的流光 + 一层很淡的电纹；<b>选中</b>才出现电流；<b>计分</b>时放电炸开。电只在有意义的时候出现</td></tr>
+<tr><td>写实宝石徽章和能量环不是一个画风，像贴上去的</td><td>标志全部用和能量环一样的“发光线条”画；环在标志的位置<b>开一个缺口</b>，标志的光溢进环里，读起来是一体的</td></tr>
+<tr><td>右下角的标志在手牌里被下一张盖住</td><td>手牌是后一张盖住前一张的右边，所以标志全部挪到<b>左边</b>：印章左上、强化左下、特效数值在左侧</td></tr></table>
+
+<h2>二、元素颜色</h2>
+<img src="tokens.jpg">
+<p class="note">下面一条灰块是同一颜色去掉色彩后的亮度：四个颜色亮度依次是 黄 0.63 &gt; 蓝 0.49 &gt; 红 0.29 &gt; 紫 0.15，看灰度也分得开。规则：这四个颜色只用于元素本身（环、编号描边、A 方案的元素符号）。</p>
+<table><tr><th>元素</th><th>主色</th><th>相对亮度</th><th>说明</th></tr>
+<tr><td>红</td><td>#FF5A1F</td><td>0.29</td><td>偏橙的红，和紫拉开</td></tr>
+<tr><td>黄</td><td>#FFC81E</td><td>0.63</td><td>最亮</td></tr>
+<tr><td>蓝</td><td>#38C8FF</td><td>0.49</td><td>天蓝 / 青，和紫彻底分开</td></tr>
+<tr><td>紫</td><td>#9E32E6</td><td>0.15</td><td>偏品红的紫，最暗</td></tr></table>
+
+<h2>三、两个方案：A 环底有元素符号 / B 没有</h2>
+<div class="rec"><b>推荐 A。</b>A 在环的最下方开一个小口，放该元素自己颜色的小符号（火焰 / 闪电 / 水滴 / 月牙）。好处：色弱玩家不靠颜色也能分元素（见第五节模拟图：红色盲、绿色盲下 红 和 黄 会变成深浅不同的黄，蓝黄色盲下 黄 和 紫 都偏粉，这时只有符号能一眼分开）；平时它很小，不抢编号。B 更干净，但完全靠颜色。</div>
+
+<h2>四、实机界面（8 张手牌，选中 A、K）</h2>
+<div class="row"><div><h3><span class="tag">A</span>有元素符号</h3><img src="A_round.jpg" style="max-width:420px"></div><div><h3><span class="tag">B</span>没有元素符号</h3><img src="B_round.jpg" style="max-width:420px"></div></div>
+<h3>手牌区域 1:1（手机实际像素，3 倍屏，每张牌约 45 dp）</h3>
+<p class="note">每张牌被后一张盖住右边，左边露出来的地方正好是 印章（左上）、强化（左下，下面是数值）、特效数值（左侧）。</p>
+<img src="A_hand_1to1.jpg"><img src="B_hand_1to1.jpg">
+<h3>动效：平时 → 选中 → 计分（4 秒循环）</h3>
+<p class="note">0–1.2 秒平时（几乎不动的慢流光）；1.2 秒选中 A、K（变亮、出现电流）；2.4 秒起依次计分放电。</p>
+<div class="row"><div><h3><span class="tag">A</span></h3><video src="A_loop.mp4" autoplay loop muted playsinline></video></div><div><h3><span class="tag">B</span></h3><video src="B_loop.mp4" autoplay loop muted playsinline></video></div></div>
+
+<h2>五、辨识度检查</h2>
+<h3>0.5 秒扫一眼（缩到手机上真实大小）</h3>
+<div class="row"><div><span class="tag">A</span><img src="A_hand_glance.png" style="width:360px"></div><div><span class="tag">B</span><img src="B_hand_glance.png" style="width:360px"></div></div>
+<h3>灰度 + 三种色盲模拟（Machado 2009 矩阵）</h3>
+<div class="row"><div><h3><span class="tag">A</span></h3><img src="A_cvd.jpg"></div><div><h3><span class="tag">B</span></h3><img src="B_cvd.jpg"></div></div>
+<p class="note">结论：编号在所有模拟下都最清楚；蓝 / 紫 在所有模拟下都分得开；红 / 黄 在红色盲、绿色盲下靠亮度区分（暗黄 vs 亮黄），黄 / 紫 在蓝黄色盲下靠亮度区分——A 方案的符号在这些情况下补上了第二条线索。</p>
+
+<h2>六、全部卡面 · 方案 A</h2>
+<h3>基础：四色元素能量 + 特殊卡（J/Q/K）</h3><img src="A_base_2x.jpg"><img src="A_base_hand.jpg">
+<h3>8 种强化（2 倍）</h3><img src="A_enh_2x.jpg">
+<h3>4 种印章 + 4 种特效（2 倍）</h3><img src="A_marks_2x.jpg">
+<h3>全部标志 · 手牌大小</h3><img src="A_all_hand.jpg">
+<h3>叠加示例（含 万素、石化）</h3><img src="A_stack_2x.jpg"><img src="A_stack_hand.jpg">
+
+<h2>七、全部卡面 · 方案 B</h2>
+<h3>基础</h3><img src="B_base_2x.jpg"><img src="B_base_hand.jpg">
+<h3>8 种强化（2 倍）</h3><img src="B_enh_2x.jpg">
+<h3>4 种印章 + 4 种特效（2 倍）</h3><img src="B_marks_2x.jpg">
+<h3>全部标志 · 手牌大小</h3><img src="B_all_hand.jpg">
+<h3>叠加示例</h3><img src="B_stack_2x.jpg"><img src="B_stack_hand.jpg">
+
+<h2>八、标志一览</h2>
+<table><tr><th>类别</th><th>标志</th><th>位置</th><th>说明</th></tr>
+<tr><td>魔攻符卡</td><td>长矛 + <b style="color:#5ca8ff">+30</b></td><td rowspan="8">左下缺口，数值在下方</td><td rowspan="8">形状区分，不靠颜色；线条、粗细、光和能量环一致</td></tr>
+<tr><td>倍率符卡</td><td>双箭头 + <b style="color:#ff5c50">+4</b></td></tr>
+<tr><td>琉璃倍增卡</td><td>带裂纹的菱形 + <b style="color:#ff5c50">×2</b></td></tr>
+<tr><td>留手倍增卡</td><td>钢板 + <b style="color:#ff5c50">×1.5</b></td></tr>
+<tr><td>留手聚晶卡</td><td>魔晶碎片 + +3</td></tr>
+<tr><td>幸运符卡</td><td>星 + ?</td></tr>
+<tr><td>万素符卡</td><td>四芒星；环分成四段，四个元素色清楚分开（不是渐变彩虹）</td></tr>
+<tr><td>石化魔攻卡</td><td>岩块 + <b style="color:#5ca8ff">+50</b>；整颗变成哑光石头，不发光、不显示编号</td></tr>
+<tr><td>印章</td><td>圆形徽记：红=循环箭头（再触发）、蓝=上箭头（升级）、紫=三角（改造）、金=魔晶</td><td>左上缺口</td><td>圆框表示“印章”，和强化的裸符号区分</td></tr>
+<tr><td>特效</td><td>银辉=银光扫过环；虹纹=环外沿一圈虹彩；七彩=环外一圈变色光晕；虚影=半透明</td><td>环本身 + 左侧缺口的小数值</td><td>特效是“环的材质”，不额外加徽章</td></tr></table>
+
+<h2>九、和上一轮、参考图对比</h2>
+<div class="row"><div><h3>参考图</h3><img src="ref.jpg"></div><div><h3>第四轮（被否）</h3><img src="r4_enh.jpg"><img src="r4_hand.jpg"></div><div><h3>本轮（方案 A）</h3><img src="A_enh_2x.jpg"><img src="A_hand_1to1.jpg"></div></div>
+
+<h2>十、性能</h2>
+<table><tr><th></th><th>现正式版（第二轮）</th><th>第四轮</th><th>本轮</th></tr>
+<tr><td>局内每帧 Lua 绘制（8 张手牌）</td><td>同机测 ≈ 第一版 +5%</td><td>3.38 ms（第一版 3.47 ms）</td><td>待游戏渲染器复核时实测</td></tr>
+<tr><td>新增贴图显存</td><td>—</td><td>约 6 MB（电环 5 MB + 徽章 1 MB）</td><td>约 5 MB（只要电环图集，徽章改成线条绘制，不再要徽章图集）</td></tr></table>
+<p class="note">本轮每张牌：平时 1 张电纹贴图 + 几条描边（比第四轮的 3 张贴图少），选中 / 计分时才多画 2–5 张贴图，预计不比第四轮慢。实测数字会在游戏渲染器空出来后补上。</p>
+</main></body></html>
